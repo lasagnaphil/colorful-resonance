@@ -2,14 +2,12 @@
 using System.Collections;
 using FullInspector;
 
-[RequireComponent(typeof(Position))]
 public class Player : BaseBehavior
 {
     private TileManager tileManager;
 
-    [SerializeField] private Camera camera;
+    public Camera camera;
 
-    [HideInInspector]
     public Position pos;
 
     protected void Awake()

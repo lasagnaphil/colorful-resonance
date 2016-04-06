@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using FullInspector;
 
-public class TileManager : MonoBehaviour
+public class TileManager : Singleton<TileManager>
 {
     private Tile[,] tiles;
     public int width;
@@ -9,14 +10,20 @@ public class TileManager : MonoBehaviour
 
     public Tile tilePrefab;
 
-    protected void Start()
+    public Dictionary<TileType, Sprite> tileDict;
+
+    protected void Awake()
     {
+        base.Awake();
         Tile[,] tiles = new Tile[width, height];
         for (int j = 0; j < height; j++)
         {
             for (int i = 0; i < width; i++)
             {
-                tiles[i,j] = Instantiate(tilePrefab) as Tile;
+                tiles[i, j] = Instantiate(tilePrefab) as Tile;
+                tiles[i, j].X = i;
+                tiles[i, j].Y = j;
+                tiles[i, j].transform.parent = this.transform;
             }
         }
         // Hardcode the map (just for testing)

@@ -40,6 +40,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ee43bfb24696a42af889e7a0d00b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objectReferences: []
+  _serializedStateKeys:
+  - Type
+  - X
+  - Y
+  _serializedStateValues:
+  - '"None"'
+  - 0
+  - 0
+  sprite: {fileID: 0}
 --- !u!212 &21200592
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 456848}
   - 212: {fileID: 21200592}
+  - 114: {fileID: 11465542}
   - 114: {fileID: 11441470}
   m_Layer: 0
   m_Name: Tile
@@ -43,13 +44,25 @@ MonoBehaviour:
   _objectReferences: []
   _serializedStateKeys:
   - Type
-  - X
-  - Y
   _serializedStateValues:
   - '"None"'
-  - 0
-  - 0
-  sprite: {fileID: 0}
+  pos: {fileID: 0}
+--- !u!114 &11465542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectReferences: []
+  _serializedStateKeys: []
+  _serializedStateValues: []
+  x: 0
+  y: 0
 --- !u!212 &21200592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -74,7 +87,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 534808233
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

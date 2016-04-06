@@ -42,10 +42,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keys:
   - {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
+  - {fileID: 11465542, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   _values:
   - _keys: []
     _values: []
     _target: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
+  - _keys: []
+    _values: []
+    _target: {fileID: 11465542, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
 --- !u!114 &11449734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -59,10 +63,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keys:
   - {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
+  - {fileID: 11465542, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   _values:
   - _keys: []
     _values: []
     _target: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
+  - _keys: []
+    _values: []
+    _target: {fileID: 11465542, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

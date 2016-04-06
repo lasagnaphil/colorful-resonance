@@ -12,17 +12,16 @@ public class TileManager : Singleton<TileManager>
 
     public Dictionary<TileType, Sprite> tileDict;
 
-    protected void Awake()
+    protected void Start()
     {
-        base.Awake();
         Tile[,] tiles = new Tile[width, height];
         for (int j = 0; j < height; j++)
         {
             for (int i = 0; i < width; i++)
             {
                 tiles[i, j] = Instantiate(tilePrefab) as Tile;
-                tiles[i, j].X = i;
-                tiles[i, j].Y = j;
+                tiles[i, j].pos.X = i;
+                tiles[i, j].pos.Y = j;
                 tiles[i, j].transform.parent = this.transform;
             }
         }

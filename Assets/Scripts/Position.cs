@@ -30,6 +30,11 @@ public class Position : BaseBehavior
         }
     }
 
+    protected void Awake()
+    {
+        base.Awake();
+        transform.position = new Vector2(x, y);
+    }
     public Vector2 GetVector()
     {
         return new Vector2((float)x, (float)y);

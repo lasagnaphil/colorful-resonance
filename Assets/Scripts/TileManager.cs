@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Algorithm;
 using FullInspector;
 
 public class TileManager : Singleton<TileManager>
@@ -12,6 +13,10 @@ public class TileManager : Singleton<TileManager>
     public Tile tilePrefab;
 
     public Dictionary<TileType, Sprite> tileDict;
+
+    // Data related to the algorithms
+    private int algorithmStartPosX;
+    private int algorithmStartPosY;
 
     protected void Start()
     {
@@ -58,70 +63,51 @@ public class TileManager : Singleton<TileManager>
         return tiles[x, y].Type;
     }
 
-    // Function to check if there is any border color on the 4 direections of the current location
-    // Need to come up with a more correct algorithm though...
-    public bool CheckIfFillable(int x, int y, TileType fillType)
-    {
-        bool detectedBorder = false;
-        for (int i = x-1; i >= 0; i--)
-        {
-            if (GetTileType(i, y) == fillType)
-            {
-                detectedBorder = true;
-                break;
-            }
-        }
-        if (!detectedBorder) return false;
-        detectedBorder = false;
-        for (int i = x+1; i < width; i++)
-        {
-            if (GetTileType(i, y) == fillType)
-            {
-                detectedBorder = true;
-                break;
-            }
-        }
-        if (!detectedBorder) return false;
-        detectedBorder = false;
-        for (int j = y-1; j >= 0; j--)
-        {
-            if (GetTileType(x, j) == fillType)
-            {
-                detectedBorder = true;
-                break;
-            }
-        }
-        if (!detectedBorder) return false;
-        detectedBorder = false;
-        for (int j = y+1; j < height; j--)
-        {
-            if (GetTileType(x, j) == fillType)
-            {
-                detectedBorder = true;
-                break;
-            }
-        }
-        if (!detectedBorder) return false;
-        return true;
-    }
-
-    public bool FillEnclosedArea(int x, int y, TileType fillType, TileType borderType)
+    public void FillEnclosedArea(int x, int y, TileType fillType, TileType borderType)
     {
         TileType currentType = GetTileType(x, y);
-        if (currentType == fillType) return true;
-        if (currentType == borderType) return false;
 
-        if (!FillEnclosedArea(x - 1, y - 1, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x - 1, y, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x - 1, y + 1, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x, y - 1, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x, y + 1, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x + 1, y - 1, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x + 1, y, fillType, borderType)) return false;
-        if (!FillEnclosedArea(x + 1, y + 1, fillType, borderType)) return false;
+        if (x >= 0 && x < width && y >= 0 && y < height && currentType != fillType)
+        {
+            SetTileType(x, y, fillType);
 
-        SetTileType(x, y, fillType);
+            FillEnclosedArea(x - 1, y - 1, fillType, borderType);
+            FillEnclosedArea(x - 1, y, fillType, borderType);
+            FillEnclosedArea(x - 1, y + 1, fillType, borderType);
+            FillEnclosedArea(x, y - 1, fillType, borderType);
+            FillEnclosedArea(x, y + 1, fillType, borderType);
+            FillEnclosedArea(x + 1, y - 1, fillType, borderType);
+            FillEnclosedArea(x + 1, y, fillType, borderType);
+            FillEnclosedArea(x + 1, y + 1, fillType, borderType);
+        }
+    }
 
-        return true;
+    // not finished yet
+    public TileNode CreateTileNode(int x, int y, TileType playerTileType)
+    {
+        TileNode tileNode = new TileNode();
+        tileNode.tile = GetTile(x, y);
+        tileNode.marked = true;
+
+        var adjacentTiles = new Tile[4]
+        {
+            GetTile(x - 1, y), GetTile(x + 1, y), GetTile(x, y - 1), GetTile(x, y + 1)
+        };
+        foreach (var node in adjacentTiles)
+        {
+            if (node.Type == playerTileType && !(node.pos.X == algorithmStartPosX && node.pos.Y == algorithmStartPosY))
+            {
+                TileNode tileNodeToAdd = CreateTileNode(node.pos.X, node.pos.Y, playerTileType);
+                tileNode.nodes.Add(tileNodeToAdd);
+            }
+        }
+        return tileNode;
+    }
+
+    public void FillTilesCloseToPosition(int x, int y, TileType playerTileType)
+    {
+        algorithmStartPosX = x;
+        algorithmStartPosY = y;
+        TileNode tileNode = CreateTileNode(x, y, playerTileType);
     }
 }

@@ -280,10 +280,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectReferences: []
-  _serializedStateKeys: []
-  _serializedStateValues: []
+  _serializedStateKeys:
+  - playerTileType
+  _serializedStateValues:
+  - '"Yellow"'
   camera: {fileID: 895266606}
   pos: {fileID: 0}
+  playerTileType: 1
 --- !u!212 &986910917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -419,9 +422,9 @@ MonoBehaviour:
   _serializedStateKeys:
   - tileDict
   _serializedStateValues:
-  - '{"Yellow":0,"Blue":1,"Green":2,"Red":3,"Purple":4,"Black":5}'
-  width: 5
-  height: 5
+  - '{"Yellow":0,"Blue":1,"Green":2,"Red":3,"Purple":4,"Black":5,"None":null}'
+  width: 10
+  height: 10
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
 --- !u!4 &1518300198
 Transform:

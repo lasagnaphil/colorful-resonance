@@ -14,7 +14,18 @@ public class Tile : BaseBehavior
 
     private SpriteRenderer spriteRenderer;
 
-    public TileType Type { get; set; }
+    [SerializeField]
+    private TileType type;
+    public TileType Type
+    {
+        get { return type; }
+        set
+        {
+            type = value;
+            if (spriteRenderer != null && tileManager != null)
+                spriteRenderer.sprite = tileManager.tileDict[type];
+        }
+    }
 
     [HideInInspector]
     public Position pos;
@@ -28,10 +39,10 @@ public class Tile : BaseBehavior
 
 	void Start()
 	{
-	    tileManager = TileManager.Instance.GetComponent<TileManager>();
+	    tileManager = TileManager.Instance;
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-	    spriteRenderer.sprite = tileManager.tileDict[Type];
+        spriteRenderer.sprite = tileManager.tileDict[type];
 	}
 }

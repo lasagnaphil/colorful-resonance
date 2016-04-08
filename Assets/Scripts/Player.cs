@@ -10,6 +10,8 @@ public class Player : BaseBehavior
 
     public Position pos;
 
+    public TileType playerTileType;
+
     protected void Awake()
     {
         base.Awake();
@@ -23,18 +25,29 @@ public class Player : BaseBehavior
 
     protected void Update()
     {
-        int prevPosX = pos.X, prevPosY = pos.Y;
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) pos.X--;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) pos.X++;
-        if (Input.GetKeyDown(KeyCode.UpArrow)) pos.Y++;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) pos.Y--;
-        if (pos.X == 0 || pos.X == tileManager.width - 1 || pos.Y == 0 || pos.Y == tileManager.height - 1)
+        int tempPosX = pos.X, tempPosY = pos.Y;
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPosX--;
+        if (Input.GetKeyDown(KeyCode.RightArrow)) tempPosX++;
+        if (Input.GetKeyDown(KeyCode.UpArrow)) tempPosY++;
+        if (Input.GetKeyDown(KeyCode.DownArrow)) tempPosY--;
+        Move(tempPosX, tempPosY);
+
+        // Only for debugging purposes. Tests the color-filling algorithm.
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            pos.X = prevPosX;
-            pos.Y = prevPosY;
+            tileManager.FillEnclosedArea(pos.X, pos.Y + 1, playerTileType, TileType.Black);
         }
 
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
+    }
+
+    public bool Move(int x, int y)
+    {
+        if (x == 0 || x == tileManager.width - 1 || y == 0 || y == tileManager.height - 1) return false;
+        tileManager.SetTileType(x, y, playerTileType);
+        pos.X = x;
+        pos.Y = y;
+        return true;
     }
 }

@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 using FullInspector;
+using UnityEngine.UI;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
     public int TurnNumber { get; private set; }
     private TileManager tileManager;
 
+    public Text turnNumberText;
+
     protected void Start()
     {
         ResetTurn();
         tileManager = TileManager.Instance;
+    }
+
+    protected void Update()
+    {
+        turnNumberText.text = "Turn number : " + TurnNumber;
     }
 
     public void NextTurn()

@@ -14,8 +14,9 @@ public class TileManager : Singleton<TileManager>
 
     public Dictionary<TileType, Sprite> tileDict;
 
-    protected void Start()
+    protected void Awake()
     {
+        base.Awake();
         tiles = new Tile[width, height];
         for (int j = 0; j < height; j++)
         {
@@ -107,8 +108,6 @@ public class TileManager : Singleton<TileManager>
             positions.Min(pos => pos.y),
             positions.Max(pos => pos.x),
             positions.Max(pos => pos.y));
-
-        Debug.Log("Calculated rect: " + pRect.x1 + " " + pRect.y1 + " " + pRect.x2 + " " + pRect.y2);
 
         bool[,] tileMatrix = new bool[pRect.GetWidth(), pRect.GetHeight()];
         for (int j = 0; j < pRect.GetHeight(); j++)

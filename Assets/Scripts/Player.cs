@@ -22,6 +22,7 @@ public class Player : BaseBehavior
     protected void Start()
     {
         tileManager = TileManager.Instance;
+        tileManager.SetTileType(pos.X, pos.Y, playerTileType);
     }
 
     protected void Update()
@@ -31,7 +32,9 @@ public class Player : BaseBehavior
         if (Input.GetKeyDown(KeyCode.RightArrow)) tempPosX++;
         if (Input.GetKeyDown(KeyCode.UpArrow)) tempPosY++;
         if (Input.GetKeyDown(KeyCode.DownArrow)) tempPosY--;
-        Move(tempPosX, tempPosY);
+
+        if (tempPosX != pos.X || tempPosY != pos.Y)
+            Move(tempPosX, tempPosY);
 
         // Only for debugging purposes. Tests the color-filling algorithm.
         if (Input.GetKeyDown(KeyCode.G))

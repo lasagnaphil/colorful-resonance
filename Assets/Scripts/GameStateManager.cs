@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using FullInspector;
 using MonsterLove.StateMachine;
 using UnityEngine.UI;
@@ -14,10 +14,18 @@ public enum GameState
 public class GameStateManager : Singleton<GameStateManager>
 {
     public int TurnNumber { get; private set; }
+
     private StateMachine<GameState> fsm;
+    private List<Monster> monsters = new List<Monster>();
 
     private TileManager tileManager;
     public Text turnNumberText;
+
+    public delegate void MonsterTurnHandler();
+    public event MonsterTurnHandler MonsterTurns;
+
+    public delegate void MonsterResetHandler();
+    public event MonsterResetHandler MonsterResets;
 
     protected void Start()
     {
@@ -27,11 +35,21 @@ public class GameStateManager : Singleton<GameStateManager>
         tileManager = TileManager.Instance;
     }
 
+    protected void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            fsm.ChangeState(GameState.Play);
+        }
+    }
+
     public void NextTurn()
     {
         TurnNumber++;
 
         // In here : update all the monsters and objects
+        if (MonsterTurns != null)
+            MonsterTurns();
     }
 
     public void ResetTurn()
@@ -39,7 +57,13 @@ public class GameStateManager : Singleton<GameStateManager>
         TurnNumber = 0;
 
         // In here : reset the monsters' and objects' position
+        if (MonsterResets != null)
+            MonsterResets();
     }
+
+    public void AddMonster(Monster monster) { monsters.Add(monster); }
+    public void RemoveMonster(Monster monster) { monsters.Remove(monster); }
+    public void ResetMonsters(Monster monster) { monsters.Clear(); }
 
     private void Play_Enter()
     {

@@ -85,6 +85,34 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &274961961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 274961962}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274961962
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 274961961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.498466, y: 2.7954905, z: -0.07033447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2145332136}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &866768822
 GameObject:
   m_ObjectHideFlags: 1
@@ -118,6 +146,8 @@ MonoBehaviour:
   - {fileID: 986910916}
   - {fileID: 986910919}
   - {fileID: 1326213981}
+  - {fileID: 2145332138}
+  - {fileID: 2145332137}
   _values:
   - _keys: []
     _values: []
@@ -131,6 +161,12 @@ MonoBehaviour:
   - _keys: []
     _values: []
     _target: {fileID: 1326213981}
+  - _keys: []
+    _values: []
+    _target: {fileID: 2145332138}
+  - _keys: []
+    _values: []
+    _target: {fileID: 2145332137}
 --- !u!114 &866768824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,6 +183,8 @@ MonoBehaviour:
   - {fileID: 986910916}
   - {fileID: 986910919}
   - {fileID: 1326213981}
+  - {fileID: 2145332138}
+  - {fileID: 2145332137}
   _values:
   - _keys: []
     _values: []
@@ -160,6 +198,12 @@ MonoBehaviour:
   - _keys: []
     _values: []
     _target: {fileID: 1326213981}
+  - _keys: []
+    _values: []
+    _target: {fileID: 2145332138}
+  - _keys: []
+    _values: []
+    _target: {fileID: 2145332137}
 --- !u!4 &866768825
 Transform:
   m_ObjectHideFlags: 1
@@ -718,3 +762,98 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2145332135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2145332136}
+  - 212: {fileID: 2145332139}
+  - 114: {fileID: 2145332138}
+  - 114: {fileID: 2145332137}
+  m_Layer: 0
+  m_Name: SimpleEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2145332136
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145332135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 274961962}
+  m_RootOrder: 0
+--- !u!114 &2145332137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145332135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc3b6e218c14a049b4fc3f9179ca600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectReferences: []
+  _serializedStateKeys:
+  - MaxHealth
+  - Damage
+  _serializedStateValues:
+  - 1
+  - 1
+  isFacingUp: 0
+--- !u!114 &2145332138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145332135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectReferences: []
+  _serializedStateKeys: []
+  _serializedStateValues: []
+  x: 3
+  y: 3
+--- !u!212 &2145332139
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145332135}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_ReflectionProbeUsage: 0
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1871029813
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4fd10ac5cf4782347a1bd8aa4c737404, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0

@@ -51,6 +51,6 @@ public class Tile : BaseBehavior
 
     void Update()
     {
-        if (Marked) spriteRenderer.color = Color.blue;
+        // if (Marked) spriteRenderer.color = Color.blue;
     }
 }

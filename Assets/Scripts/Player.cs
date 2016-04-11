@@ -46,9 +46,9 @@ public class Player : BaseBehavior
     public bool Move(int x, int y)
     {
         if (x == 0 || x == tileManager.width - 1 || y == 0 || y == tileManager.height - 1) return false;
-        tileManager.SetTileType(x, y, playerTileType);
         pos.X = x;
         pos.Y = y;
+        tileManager.SetTileTypeAndUpdate(x, y, playerTileType);
         return true;
     }
 }

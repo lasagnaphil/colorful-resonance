@@ -54,6 +54,13 @@ public class TileManager : Singleton<TileManager>
         tiles[x, y].Type = type;
     }
 
+    public void SetTileTypeAndUpdate(int x, int y, TileType type)
+    {
+        SetTileType(x, y, type);
+        FillTilesUsingContours(x, y, type);
+        GameStateManager.Instance.NextTurn();
+    }
+
     public TileType GetTileType(int x, int y)
     {
         return tiles[x, y].Type;

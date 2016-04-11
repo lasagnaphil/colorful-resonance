@@ -5,6 +5,7 @@ using FullInspector;
 public class Player : BaseBehavior
 {
     private TileManager tileManager;
+    public GameStateManager gameStateManager;
 
     public Camera camera;
 
@@ -33,9 +34,9 @@ public class Player : BaseBehavior
         Move(tempPosX, tempPosY);
 
         // Only for debugging purposes. Tests the color-filling algorithm.
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            tileManager.FillEnclosedArea(pos.X, pos.Y + 1, playerTileType, TileType.Black);
+            tileManager.FillTilesUsingContours(pos.X, pos.Y, playerTileType);
         }
 
         var camPos = camera.transform.position;

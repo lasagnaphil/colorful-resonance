@@ -30,6 +30,9 @@ public class Tile : BaseBehavior
     [HideInInspector]
     public Position pos;
 
+    [HideInInspector]
+    public bool Marked { get; set; }
+
     // Always get the reference of Position on Awake() function
     void Awake()
     {
@@ -45,4 +48,9 @@ public class Tile : BaseBehavior
 	    transform.position = new Vector3(pos.X, pos.Y);
         spriteRenderer.sprite = tileManager.tileDict[type];
 	}
+
+    void Update()
+    {
+        if (Marked) spriteRenderer.color = Color.blue;
+    }
 }

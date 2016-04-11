@@ -35,8 +35,14 @@ public class Position : BaseBehavior
         base.Awake();
         transform.position = new Vector2(x, y);
     }
-    public Vector2 GetVector()
+    
+    public Vector2 GetVector2()
     {
         return new Vector2((float)x, (float)y);
+    }
+
+    public Vector3 GetVector3()
+    {
+        return new Vector3((float) x, (float) y, 0f);
     }
 }

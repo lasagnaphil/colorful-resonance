@@ -2,7 +2,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using Algorithm;
 using FullInspector;
 
 public class TileManager : Singleton<TileManager>

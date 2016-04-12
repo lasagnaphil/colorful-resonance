@@ -807,10 +807,13 @@ MonoBehaviour:
   _serializedStateKeys:
   - MaxHealth
   - Damage
+  - immuneColor
   _serializedStateValues:
   - 1
   - 1
+  - '"Blue"'
   isFacingUp: 0
+  immuneColor: 2
 --- !u!114 &2145332138
 MonoBehaviour:
   m_ObjectHideFlags: 0

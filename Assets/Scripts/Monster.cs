@@ -9,7 +9,7 @@ public class Monster : BaseBehavior
 {
     public int MaxHealth { get; set; }
     public int Damage { get; set; }
-
+    
     [ShowInInspector]
     private int Health { get; set; }
 

@@ -3,13 +3,17 @@
     public class BasicMonster : Monster
     {
         public bool isFacingUp = false;
+
+        public TileType immuneColor;
+
         protected override void OnTurn()
         {
             base.OnTurn();
             pos.Y = isFacingUp ? pos.Y + 1 : pos.Y - 1;
             isFacingUp = !isFacingUp;
 
-            if (TileManager.Instance.GetTileType(pos.X, pos.Y) == TileType.Yellow)
+            TileType currentTileType = TileManager.Instance.GetTileType(pos.X, pos.Y);
+            if (currentTileType != immuneColor && currentTileType != TileType.None)
             {
                 Damage -= 1;
             }

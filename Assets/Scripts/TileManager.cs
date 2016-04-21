@@ -14,7 +14,7 @@ public class TileManager : Singleton<TileManager>
 
     public Dictionary<TileType, Sprite> tileDict;
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         tiles = new Tile[width, height];

@@ -7,7 +7,7 @@ public class Player : BaseBehavior
     private TileManager tileManager;
     public GameStateManager gameStateManager;
 
-    public Camera camera;
+    public new Camera camera;
 
     public Position pos;
 
@@ -17,7 +17,7 @@ public class Player : BaseBehavior
     [ShowInInspector]
     private int Health { get; set; }
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         pos = GetComponent<Position>();

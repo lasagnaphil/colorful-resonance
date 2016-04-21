@@ -30,7 +30,7 @@ public class Position : BaseBehavior
         }
     }
 
-    protected void Awake()
+    protected override void Awake()
     {
         base.Awake();
         transform.position = new Vector2(x, y);

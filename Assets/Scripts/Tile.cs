@@ -34,7 +34,7 @@ public class Tile : BaseBehavior
     public bool Marked { get; set; }
 
     // Always get the reference of Position on Awake() function
-    void Awake()
+    protected override void Awake()
     {
         base.Awake();
         pos = GetComponent<Position>();

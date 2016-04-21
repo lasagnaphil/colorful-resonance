@@ -8,7 +8,9 @@ using UnityEngine;
 public class Monster : BaseBehavior
 {
     public int MaxHealth { get; set; }
-    public int Damage { get; set; }
+    public int DamageToPlayer { get; set; }
+    public int DamageToSelf { get; set; }
+    public TileType immuneColor;
     
     [ShowInInspector]
     private int Health { get; set; }
@@ -26,7 +28,15 @@ public class Monster : BaseBehavior
     // Override this!!!
     protected virtual void OnTurn()
     {
-
+        TileType currentTileType = TileManager.Instance.GetTileType(pos.X, pos.Y);
+        if (currentTileType != immuneColor && currentTileType != TileType.None)
+        {
+            DamageToPlayer -= 1;
+        }
+        if (DamageToPlayer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     protected virtual void OnReset()

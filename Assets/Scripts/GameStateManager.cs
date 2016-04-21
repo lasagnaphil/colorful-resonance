@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 using FullInspector;
 using MonsterLove.StateMachine;
 using UnityEngine.UI;
+using Utils;
 
 public enum GameState
 {
@@ -17,15 +19,21 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private StateMachine<GameState> fsm;
     private List<Monster> monsters = new List<Monster>();
+    private List<Projectile> projectiles = new List<Projectile>();
+
+    // Store a player reference for other objects to use
+    public Player player;
+
+    // Reference to "holder" gameobjects
+    public GameObject monsterHolderObject;
+    public GameObject projectileHolderObject;
 
     private TileManager tileManager;
     public Text turnNumberText;
 
-    public delegate void MonsterTurnHandler();
-    public event MonsterTurnHandler MonsterTurns;
-
-    public delegate void MonsterResetHandler();
-    public event MonsterResetHandler MonsterResets;
+    public event Action MonsterTurns;
+    public event Action MonsterResets;
+    public event Action ProjectileTurns; 
 
     protected void Start()
     {
@@ -48,6 +56,8 @@ public class GameStateManager : Singleton<GameStateManager>
         TurnNumber++;
 
         // In here : update all the monsters and objects
+        if (ProjectileTurns != null)
+            ProjectileTurns();
         if (MonsterTurns != null)
             MonsterTurns();
     }
@@ -64,6 +74,23 @@ public class GameStateManager : Singleton<GameStateManager>
     public void AddMonster(Monster monster) { monsters.Add(monster); }
     public void RemoveMonster(Monster monster) { monsters.Remove(monster); }
     public void ResetMonsters(Monster monster) { monsters.Clear(); }
+
+    public void SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
+    {
+        if (projectilePrefab != null)
+        {
+            Projectile projectile = Instantiate(projectilePrefab);
+            projectile.MovingDirection = direction;
+            projectile.GetComponent<Position>().Set(x, y);
+        }
+        else
+        {
+            Debug.Log("Null reference : Projectile prefab not found.");
+        }
+    }
+    public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
+    public void RemoveProjectile(Projectile projectile) { projectiles.Remove(projectile); }
+    public void ResetProjectile(Projectile projectile) { projectiles.Clear(); }
 
     private void Play_Enter()
     {

@@ -60,14 +60,16 @@ MonoBehaviour:
   _objectReferences: []
   _serializedStateKeys:
   - MaxHealth
-  - Damage
+  - DamageToPlayer
+  - DamageToSelf
   - immuneColor
   _serializedStateValues:
   - 1
   - 1
+  - 1
   - '"Blue"'
-  isFacingUp: 0
   immuneColor: 2
+  isFacingUp: 0
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

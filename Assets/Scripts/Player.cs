@@ -12,6 +12,10 @@ public class Player : BaseBehavior
     public Position pos;
 
     public TileType playerTileType;
+    public int MaxHealth { get; set; }
+
+    [ShowInInspector]
+    private int Health { get; set; }
 
     protected void Awake()
     {
@@ -53,5 +57,11 @@ public class Player : BaseBehavior
         pos.Y = y;
         tileManager.SetTileTypeAndUpdate(x, y, playerTileType);
         return true;
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        Health -= damage;
+        // TODO: if health is zero or below then die
     }
 }

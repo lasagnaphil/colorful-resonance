@@ -1,11 +1,35 @@
 ﻿using FullInspector;
 using UnityEngine;
+using tk = FullInspector.tk<Position, FullInspector.tkDefaultContext>;
 
 // 2d integer vector component
 // Use this instead of Unity's Transform to move inside fixed 2D grid
 
-public class Position : BaseBehavior
+public class Position : BaseBehavior//, tkCustomEditor
 {
+    /*
+    tkControlEditor tkCustomEditor.GetEditor()
+    {
+        return new tkControlEditor( new tk.HorizontalGroup() {
+            new tk.Label("Position"),
+            tk.PropertyEditor.Create("X",
+                (comp, context) => comp.X,
+                (comp, context, edited) =>
+                {
+                    comp.X = edited;
+                    transform.position = new Vector3(comp.X, transform.position.y);
+                }),
+            tk.PropertyEditor.Create("Y",
+                (comp, context) => comp.Y,
+                (comp, context, edited) =>
+                {
+                    comp.Y = edited;
+                    transform.position = new Vector3(transform.position.x, comp.Y);
+                })
+        });
+    }
+    */
+
     [SerializeField] private int x;
 
     public int X

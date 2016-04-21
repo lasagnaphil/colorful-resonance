@@ -12,8 +12,7 @@ namespace FullInspector.Internal {
         public Type[] AllLoadedSerializerProviders {
            get {
                return new Type[] {
-                    typeof(FullInspector.Serializers.FullSerializer.FullSerializerMetadata),
-                    typeof(FullInspector.Serializers.JsonNet.JsonNetMetadata)
+                    typeof(FullInspector.Serializers.FullSerializer.FullSerializerMetadata)
                };
            }
         }

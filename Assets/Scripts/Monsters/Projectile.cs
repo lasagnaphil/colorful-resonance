@@ -31,6 +31,18 @@ public class Projectile : BaseBehavior
         {
             player.ApplyDamage(Damage);
         }
-        
+
+        // If the projectile is out of bounds, then destroy it
+        if (pos.X < 0 || pos.Y < 0 ||
+            pos.X >= TileManager.Instance.width || pos.Y >= TileManager.Instance.height)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    protected void OnDestroy()
+    {
+        GameStateManager.Instance.RemoveProjectile(this);
+        GameStateManager.Instance.ProjectileTurns -= OnTurn;
     }
 }

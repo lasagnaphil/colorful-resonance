@@ -30,6 +30,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private TileManager tileManager;
     public Text turnNumberText;
+    public Text playerHealthText;
 
     public event Action MonsterTurns;
     public event Action MonsterResets;
@@ -101,6 +102,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Play_Update()
     {
         turnNumberText.text = "Turn number : " + TurnNumber;
+        playerHealthText.text = "Player health : " + player.Health + " / " + player.MaxHealth;
     }
 
     private void Play_Exit()

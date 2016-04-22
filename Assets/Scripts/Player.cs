@@ -5,17 +5,14 @@ using FullInspector;
 public class Player : BaseBehavior
 {
     private TileManager tileManager;
-    public GameStateManager gameStateManager;
 
     public new Camera camera;
 
     public Position pos;
 
     public TileType playerTileType;
-    public int MaxHealth { get; set; }
-
-    [ShowInInspector]
-    private int Health { get; set; }
+    public int MaxHealth { get; private set; }
+    public int Health { get; private set; }
 
     protected override void Awake()
     {
@@ -39,12 +36,6 @@ public class Player : BaseBehavior
 
         if (tempPosX != pos.X || tempPosY != pos.Y)
             Move(tempPosX, tempPosY);
-
-        // Only for debugging purposes. Tests the color-filling algorithm.
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            tileManager.FillTilesUsingContours(pos.X, pos.Y, playerTileType);
-        }
 
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);

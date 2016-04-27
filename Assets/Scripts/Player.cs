@@ -9,6 +9,7 @@ public class Player : BaseBehavior
     public new Camera camera;
 
     public Position pos;
+    public Vector2i prevPos;
 
     public TileType playerTileType;
     public int MaxHealth { get; private set; }
@@ -28,6 +29,7 @@ public class Player : BaseBehavior
 
     protected void Update()
     {
+
         int tempPosX = pos.X, tempPosY = pos.Y;
         if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPosX--;
         if (Input.GetKeyDown(KeyCode.RightArrow)) tempPosX++;
@@ -35,7 +37,12 @@ public class Player : BaseBehavior
         if (Input.GetKeyDown(KeyCode.DownArrow)) tempPosY--;
 
         if (tempPosX != pos.X || tempPosY != pos.Y)
+        {
+            // Store the previous location
+            prevPos = pos.GetVector2i();
+
             Move(tempPosX, tempPosY);
+        }
 
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);

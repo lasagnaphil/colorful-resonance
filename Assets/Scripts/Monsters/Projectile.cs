@@ -11,6 +11,8 @@ public class Projectile : BaseBehavior
     public Direction MovingDirection { get; set; }
 
     protected Position pos;
+    protected Vector2i prevPos;
+
     protected Player player;
 
     protected void Start()
@@ -22,12 +24,17 @@ public class Projectile : BaseBehavior
 
     protected virtual void OnTurn()
     {
+        // Store the previous location
+        prevPos = pos.GetVector2i();
+
         // Move the projectile based on the position
         pos.Add(DirectionHelper.ToVector2i(MovingDirection));
 
         // If the position of the projectile is in the player's location
         // then apply damage to player
-        if (player.pos.X == pos.X && player.pos.Y == pos.Y)
+        if ((player.pos.X == pos.X && player.pos.Y == pos.Y) ||
+            (player.pos.X == prevPos.x && player.pos.Y == prevPos.y &&
+             player.prevPos.x == pos.X && player.prevPos.y == pos.Y))
         {
             player.ApplyDamage(Damage);
         }

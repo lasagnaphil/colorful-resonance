@@ -379,10 +379,12 @@ MonoBehaviour:
   _serializedStateKeys:
   - MaxHealth
   - Health
+  - prevPos
   - playerTileType
   _serializedStateValues:
   - 3
   - 3
+  - '{"x":0,"y":0}'
   - '"Yellow"'
   camera: {fileID: 895266606}
   pos: {fileID: 0}
@@ -845,7 +847,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -517.5, y: 216.14998}
+  m_AnchoredPosition: {x: -429.95, y: 216.14998}
   m_SizeDelta: {x: 228.5, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1687185259

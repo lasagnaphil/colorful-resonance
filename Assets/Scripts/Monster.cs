@@ -19,6 +19,7 @@ public class Monster : BaseBehavior
 
     protected void Start()
     {
+        Health = MaxHealth;
         pos = GetComponent<Position>();
         GameStateManager.Instance.AddMonster(this);
         GameStateManager.Instance.MonsterTurns += OnTurn;
@@ -31,9 +32,9 @@ public class Monster : BaseBehavior
         TileType currentTileType = TileManager.Instance.GetTileType(pos.X, pos.Y);
         if (currentTileType != immuneColor && currentTileType != TileType.None)
         {
-            DamageToPlayer -= 1;
+            Health -= 1;
         }
-        if (DamageToPlayer <= 0)
+        if (Health <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -46,8 +47,7 @@ public class Monster : BaseBehavior
 
     protected void OnDestroy()
     {
-        // Right now null reference error
-        // GameStateManager.Instance.RemoveMonster(this);
+        GameStateManager.Instance.RemoveMonster(this);
         GameStateManager.Instance.MonsterTurns -= OnTurn;
         GameStateManager.Instance.MonsterTurns -= OnReset;
     }

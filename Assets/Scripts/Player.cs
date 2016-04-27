@@ -29,7 +29,6 @@ public class Player : BaseBehavior
 
     protected void Update()
     {
-
         int tempPosX = pos.X, tempPosY = pos.Y;
         if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPosX--;
         if (Input.GetKeyDown(KeyCode.RightArrow)) tempPosX++;
@@ -50,7 +49,15 @@ public class Player : BaseBehavior
 
     public bool Move(int x, int y)
     {
+        // TODO : replace this with not moving when unwalkable tile
         if (x == 0 || x == tileManager.width - 1 || y == 0 || y == tileManager.height - 1) return false;
+        Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
+        if (foundMonster != null)
+        {
+            ApplyDamage(foundMonster.DamageToPlayer);
+            return false;
+        }
+
         pos.X = x;
         pos.Y = y;
         tileManager.SetTileTypeAndUpdate(x, y, playerTileType);

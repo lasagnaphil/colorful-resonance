@@ -76,6 +76,24 @@ public class GameStateManager : Singleton<GameStateManager>
     public void RemoveMonster(Monster monster) { monsters.Remove(monster); }
     public void ResetMonsters(Monster monster) { monsters.Clear(); }
 
+    public Monster CheckMonsterPosition(int x, int y)
+    {
+        foreach (var monster in monsters)
+        {
+            Position monsterPos = monster.GetComponent<Position>();
+            if (monsterPos.X == x && monsterPos.Y == y)
+            {
+                return monster;
+            }
+        }
+        return null;
+    }
+
+    public Monster CheckMonsterPosition(Vector2i pos)
+    {
+        return CheckMonsterPosition(pos.x, pos.y); 
+    }
+
     public void SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
     {
         if (projectilePrefab != null)

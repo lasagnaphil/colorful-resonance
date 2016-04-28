@@ -55,6 +55,7 @@ public class Player : BaseBehavior
         if (foundMonster != null)
         {
             ApplyDamage(foundMonster.DamageToPlayer);
+            GameStateManager.Instance.NextTurn();
             return false;
         }
 

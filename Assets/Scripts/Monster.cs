@@ -47,8 +47,11 @@ public class Monster : BaseBehavior
 
     protected void OnDestroy()
     {
-        GameStateManager.Instance.RemoveMonster(this);
-        GameStateManager.Instance.MonsterTurns -= OnTurn;
-        GameStateManager.Instance.MonsterTurns -= OnReset;
+        if (GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.RemoveMonster(this);
+            GameStateManager.Instance.MonsterTurns -= OnTurn;
+            GameStateManager.Instance.MonsterTurns -= OnReset;
+        }
     }
 }

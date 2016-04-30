@@ -42,14 +42,14 @@ MonoBehaviour:
   _objectReferences:
   - {fileID: 21300000, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300002, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-  - {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300008, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300010, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   _serializedStateKeys:
   - tileDict
   _serializedStateValues:
-  - '{"Yellow":0,"Blue":1,"Green":2,"Red":3,"Purple":4,"Black":5,"None":null}'
+  - '{"Black":0,"White":1,"Red":2,"Blue":3,"Yellow":4,"Green":5,"None":null}'
   width: 10
   height: 10
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}

@@ -4,7 +4,7 @@ using FullInspector;
 
 public enum TileType
 {
-    None, Yellow, Blue, Green, Red, Purple, Black
+    Black, White, Red, Blue, Yellow, Green, None
 }
 
 [RequireComponent(typeof(Position))]

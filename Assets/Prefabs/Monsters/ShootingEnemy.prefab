@@ -52,9 +52,9 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  - '"Blue"'
+  - '"White"'
   - 3
-  immuneColor: 2
+  immuneColor: 7
   isFacingRight: 0
   projectilePrefab: {fileID: 11403520, guid: 098655dc2cb3a7943b8744bd8021d10d, type: 2}
 --- !u!114 &11410468
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1871029813
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cea5a1e855559504dae04caf2ad676e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

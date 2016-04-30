@@ -67,8 +67,8 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  - '"Blue"'
-  immuneColor: 2
+  - '"White"'
+  immuneColor: 7
   isFacingUp: 0
 --- !u!212 &21260666
 SpriteRenderer:

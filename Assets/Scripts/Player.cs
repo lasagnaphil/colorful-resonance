@@ -12,7 +12,7 @@ public class Player : BaseBehavior
     public Vector2i prevPos;
     public Vector2i tempPos;
 
-    public TileType playerTileType;
+    public TileColor playerTileColor;
     public int MaxHealth { get; private set; }
     public int Health { get; private set; }
 
@@ -25,7 +25,7 @@ public class Player : BaseBehavior
     protected void Start()
     {
         tileManager = TileManager.Instance;
-        tileManager.SetTileType(pos.X, pos.Y, playerTileType);
+        tileManager.SetTileData(pos.X, pos.Y, playerTileColor);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
@@ -53,8 +53,8 @@ public class Player : BaseBehavior
 
     public bool OnTurn(int x, int y)
     {
-        if (tileManager.GetTileType(x, y) == TileType.None ||
-            tileManager.GetTileType(x, y) == TileType.Black)
+        if (tileManager.GetTileType(x, y).color == TileColor.None ||
+            tileManager.GetTileType(x, y).color == TileColor.Black)
             return false;
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
@@ -66,7 +66,7 @@ public class Player : BaseBehavior
 
         pos.X = x;
         pos.Y = y;
-        tileManager.SetTileTypeAndFill(x, y, playerTileType);
+        tileManager.SetTileDataAndFill(x, y, playerTileColor);
         return true;
     }
 

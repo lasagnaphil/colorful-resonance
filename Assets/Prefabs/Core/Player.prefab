@@ -62,15 +62,17 @@ MonoBehaviour:
   - MaxHealth
   - Health
   - prevPos
-  - playerTileType
+  - tempPos
+  - playerTileColor
   _serializedStateValues:
   - 3
   - 3
   - '{"x":0,"y":0}'
-  - '"Blue"'
+  - '{"x":0,"y":0}'
+  - '"Red"'
   camera: {fileID: 0}
   pos: {fileID: 0}
-  playerTileType: 2
+  playerTileColor: 2
 --- !u!212 &21222978
 SpriteRenderer:
   m_ObjectHideFlags: 1

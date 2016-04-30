@@ -10,7 +10,7 @@ public class Monster : BaseBehavior
     public int MaxHealth { get; set; }
     public int DamageToPlayer { get; set; }
     public int DamageToSelf { get; set; }
-    public TileType immuneColor;
+    public TileColor immuneColor;
     
     [ShowInInspector]
     private int Health { get; set; }
@@ -29,8 +29,8 @@ public class Monster : BaseBehavior
     // Override this!!!
     protected virtual void OnTurn()
     {
-        TileType currentTileType = TileManager.Instance.GetTileType(pos.X, pos.Y);
-        if (currentTileType != immuneColor && currentTileType != TileType.None)
+        TileData currentTileData = TileManager.Instance.GetTileType(pos.X, pos.Y);
+        if (currentTileData.color != immuneColor && currentTileData.color != TileColor.None)
         {
             Health -= 1;
         }

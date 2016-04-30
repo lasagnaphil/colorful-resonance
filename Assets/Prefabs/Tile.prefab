@@ -43,9 +43,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectReferences: []
   _serializedStateKeys:
-  - Type
+  - Marked
+  - _data
   _serializedStateValues:
-  - '"None"'
+  - false
+  - '{"color":"Black","type":"Normal"}'
   pos: {fileID: 0}
 --- !u!114 &11465542
 MonoBehaviour:

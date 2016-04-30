@@ -46,10 +46,16 @@ MonoBehaviour:
   - {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300008, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   - {fileID: 21300010, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300012, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300014, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300016, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300018, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300020, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+  - {fileID: 21300022, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
   _serializedStateKeys:
   - tileDict
   _serializedStateValues:
-  - '{"Black":0,"White":1,"Red":2,"Blue":3,"Yellow":4,"Green":5,"None":null}'
+  - '[{"Key":{"color":"Black","type":"Normal"},"Value":0},{"Key":{"color":"White","type":"Normal"},"Value":1},{"Key":{"color":"Red","type":"Normal"},"Value":2},{"Key":{"color":"Blue","type":"Normal"},"Value":3},{"Key":{"color":"Yellow","type":"Normal"},"Value":4},{"Key":{"color":"Green","type":"Normal"},"Value":5},{"Key":{"color":"None","type":"Normal"},"Value":null},{"Key":{"color":"Black","type":"Wall"},"Value":6},{"Key":{"color":"White","type":"Wall"},"Value":7},{"Key":{"color":"Red","type":"Wall"},"Value":8},{"Key":{"color":"Blue","type":"Wall"},"Value":9},{"Key":{"color":"Yellow","type":"Wall"},"Value":10},{"Key":{"color":"Green","type":"Wall"},"Value":11},{"Key":{"color":"None","type":"Wall"},"Value":null}]'
   width: 10
   height: 10
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}

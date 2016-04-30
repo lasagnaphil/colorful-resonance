@@ -12,7 +12,7 @@ public class TileManager : Singleton<TileManager>
 
     public Tile tilePrefab;
 
-    public Dictionary<TileType, Sprite> tileDict;
+    public Dictionary<TileData, Sprite> tileDict;
 
     protected override void Awake()
     {
@@ -26,7 +26,8 @@ public class TileManager : Singleton<TileManager>
                 tiles[i, j].pos.X = i;
                 tiles[i, j].pos.Y = j;
                 tiles[i, j].transform.parent = this.transform;
-                tiles[i, j].Type = TileType.White;
+                tiles[i, j].Data.type = TileType.Normal;
+                tiles[i, j].Data.color = TileColor.White;
             }
         }
         // Hardcode the map (just for testing)
@@ -34,18 +35,26 @@ public class TileManager : Singleton<TileManager>
         {
             if (j == 0 || j == height - 1)
             {
-                for (int i = 0; i < width; i++) tiles[i, j].Type = TileType.Black;
+                for (int i = 0; i < width; i++)
+                {
+                    tiles[i, j].Data.type = TileType.Wall;
+                    tiles[i, j].Data.color = TileColor.Black;
+                }
             }
             else
             {
                 for (int i = 0; i < width; i++)
                 {
-                    if (i == 0 || i == width - 1) tiles[i, j].Type = TileType.Black;
+                    if (i == 0 || i == width - 1)
+                    {
+                        tiles[i, j].Data.type = TileType.Wall;
+                        tiles[i, j].Data.color = TileColor.Black;
+                    }
                 }
             }
         }
-        tiles[4, 4].Type = TileType.Black;
-        tiles[8, 8].Type = TileType.Black;
+        tiles[4, 4].Data.color = TileColor.Black;
+        tiles[8, 8].Data.color = TileColor.Black;
     }
 
     public Tile GetTile(int x, int y)
@@ -53,35 +62,51 @@ public class TileManager : Singleton<TileManager>
         return tiles[x, y];
     }
 
-    public void SetTileType(int x, int y, TileType type)
+    public void SetTileData(int x, int y, TileData data)
     {
-        tiles[x, y].Type = type;
+        tiles[x, y].Data = data;
     }
 
-    public void SetTileTypeAndFill(int x, int y, TileType type)
+    public void SetTileData(int x, int y, TileColor color)
     {
-        SetTileType(x, y, type);
-        FillTilesUsingContours(x, y, type);
+        tiles[x, y].Data = new TileData(color, tiles[x, y].Data.type);
     }
 
-    public TileType GetTileType(int x, int y)
+    public void SetTileDataAndFill(int x, int y, TileData data)
     {
-        return tiles[x, y].Type;
+        SetTileData(x, y, data);
+        FillTilesUsingContours(x, y, data.color);
     }
 
-    public void FindContours(int x, int y, TileType playerTileType, List<Vector2i> positions)
+    public void SetTileDataAndFill(int x, int y, TileColor color)
+    {
+        SetTileData(x, y, color);
+        FillTilesUsingContours(x, y, color);
+    }
+
+    public TileData GetTileType(int x, int y)
+    {
+        return tiles[x, y].Data;
+    }
+
+    public TileColor GetTileColor(int x, int y)
+    {
+        return tiles[x, y].Data.color;
+    }
+
+    public void FindContours(int x, int y, TileColor playerTileColor, List<Vector2i> positions)
     {
         if (x >= 0 && x < width && y >= 0 && y < height)
         {
-            if (!GetTile(x, y).Marked && GetTileType(x, y) == playerTileType)
+            if (!GetTile(x, y).Marked && GetTileColor(x, y) == playerTileColor)
             {
                 positions.Add(new Vector2i(x, y));
                 GetTile(x, y).Marked = true;
 
-                FindContours(x - 1, y, playerTileType, positions);
-                FindContours(x + 1, y, playerTileType, positions);
-                FindContours(x, y - 1, playerTileType, positions);
-                FindContours(x, y + 1, playerTileType, positions);
+                FindContours(x - 1, y, playerTileColor, positions);
+                FindContours(x + 1, y, playerTileColor, positions);
+                FindContours(x, y - 1, playerTileColor, positions);
+                FindContours(x, y + 1, playerTileColor, positions);
             }
 
         }
@@ -98,12 +123,12 @@ public class TileManager : Singleton<TileManager>
         }
     }
 
-    public void FillTilesUsingContours(int x, int y, TileType playerTileType)
+    public void FillTilesUsingContours(int x, int y, TileColor playerTileColor)
     {
         ResetMarkers();
 
         List<Vector2i> positions = new List<Vector2i>();
-        FindContours(x, y, playerTileType, positions);
+        FindContours(x, y, playerTileColor, positions);
 
         IntRect pRect = new IntRect(
             positions.Min(pos => pos.x),
@@ -116,7 +141,7 @@ public class TileManager : Singleton<TileManager>
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
-                tileMatrix[i, j] = (GetTileType(pRect.x1 + i, pRect.y1 + j) == playerTileType);
+                tileMatrix[i, j] = (GetTileColor(pRect.x1 + i, pRect.y1 + j) == playerTileColor);
             }
         }
         for (int j = 0; j < pRect.GetHeight(); j++)
@@ -139,7 +164,7 @@ public class TileManager : Singleton<TileManager>
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
                 if (!tileMatrix[i, j])
-                    SetTileType(pRect.x1 + i, pRect.y1 + j, playerTileType);
+                    SetTileData(pRect.x1 + i, pRect.y1 + j, playerTileColor);
             }
         }
 

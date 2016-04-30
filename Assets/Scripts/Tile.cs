@@ -2,9 +2,65 @@
 using System.Collections;
 using FullInspector;
 
-public enum TileType
+public enum TileColor
 {
     Black, White, Red, Blue, Yellow, Green, None
+}
+
+public enum TileType
+{
+    Normal, Wall
+}
+
+public class TileData
+{
+    public TileColor color;
+    public TileType type;
+
+    public TileData() : this(TileColor.None, TileType.Normal) { }
+    public TileData(TileColor color, TileType type)
+    {
+        this.color = color;
+        this.type = type;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null)
+        {
+            return false;
+        }
+
+        TileData tileData = obj as TileData;
+        return Equals(tileData);
+    }
+
+    public bool Equals(TileData tileData)
+    {
+        if ((object) tileData == null)
+        {
+            return false;
+        }
+
+        return (color == tileData.color && type == tileData.type);
+    }
+
+    public override int GetHashCode()
+    {
+        return (int)color ^ (int)type;
+    }
+
+    public static bool operator ==(TileData t1, TileData t2)
+    {
+        if (ReferenceEquals(t1, t2)) return true;
+        if (((object) t1 == null) || ((object) t2 == null)) return false;
+        return (t1.color == t2.color && t1.type == t2.type);
+    }
+
+    public static bool operator !=(TileData t1, TileData t2)
+    {
+        return !(t1 == t2);
+    }
 }
 
 [RequireComponent(typeof(Position))]
@@ -15,15 +71,15 @@ public class Tile : BaseBehavior
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
-    private TileType type;
-    public TileType Type
+    private TileData _data;
+    public TileData Data
     {
-        get { return type; }
+        get { return _data; }
         set
         {
-            type = value;
+            _data = value;
             if (spriteRenderer != null && tileManager != null)
-                spriteRenderer.sprite = tileManager.tileDict[type];
+                spriteRenderer.sprite = tileManager.tileDict[_data];
         }
     }
 
@@ -46,11 +102,10 @@ public class Tile : BaseBehavior
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-        spriteRenderer.sprite = tileManager.tileDict[type];
+        spriteRenderer.sprite = tileManager.tileDict[_data];
 	}
 
     void Update()
     {
-        // if (Marked) spriteRenderer.color = Color.blue;
     }
 }

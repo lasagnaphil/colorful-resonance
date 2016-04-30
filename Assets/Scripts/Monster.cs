@@ -54,4 +54,18 @@ public class Monster : BaseBehavior
             GameStateManager.Instance.MonsterTurns -= OnReset;
         }
     }
+
+    public void Move(int x, int y)
+    {
+        var player = GameStateManager.Instance.player;
+        if (x == player.pos.X && y == player.pos.Y)
+        {
+            player.ApplyDamage(DamageToPlayer);
+        }
+        else
+        {
+            pos.X = x;
+            pos.Y = y;
+        }
+    }
 }

@@ -49,7 +49,10 @@ public class Projectile : BaseBehavior
 
     protected void OnDestroy()
     {
-        GameStateManager.Instance.RemoveProjectile(this);
-        GameStateManager.Instance.ProjectileTurns -= OnTurn;
+        if (GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.RemoveProjectile(this);
+            GameStateManager.Instance.ProjectileTurns -= OnTurn;
+        }
     }
 }

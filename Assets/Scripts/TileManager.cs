@@ -26,6 +26,7 @@ public class TileManager : Singleton<TileManager>
                 tiles[i, j].pos.X = i;
                 tiles[i, j].pos.Y = j;
                 tiles[i, j].transform.parent = this.transform;
+                tiles[i, j].Type = TileType.White;
             }
         }
         // Hardcode the map (just for testing)
@@ -43,6 +44,8 @@ public class TileManager : Singleton<TileManager>
                 }
             }
         }
+        tiles[4, 4].Type = TileType.Black;
+        tiles[8, 8].Type = TileType.Black;
     }
 
     public Tile GetTile(int x, int y)
@@ -55,11 +58,10 @@ public class TileManager : Singleton<TileManager>
         tiles[x, y].Type = type;
     }
 
-    public void SetTileTypeAndUpdate(int x, int y, TileType type)
+    public void SetTileTypeAndFill(int x, int y, TileType type)
     {
         SetTileType(x, y, type);
         FillTilesUsingContours(x, y, type);
-        GameStateManager.Instance.NextTurn();
     }
 
     public TileType GetTileType(int x, int y)

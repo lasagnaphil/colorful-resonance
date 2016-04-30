@@ -7,7 +7,8 @@
         protected override void OnTurn()
         {
             base.OnTurn();
-            pos.Y = isFacingUp ? pos.Y + 1 : pos.Y - 1;
+            if (isFacingUp) Move(pos.X, pos.Y + 1);
+            else Move(pos.X, pos.Y - 1);
             isFacingUp = !isFacingUp;
         }
     }

@@ -14,47 +14,15 @@ public class TileManager : Singleton<TileManager>
 
     public Dictionary<TileData, Sprite> tileDict;
 
+    private MapLoader mapLoader;
+
     protected override void Awake()
     {
         base.Awake();
+
+        mapLoader = GetComponent<MapLoader>();
         tiles = new Tile[width, height];
-        for (int j = 0; j < height; j++)
-        {
-            for (int i = 0; i < width; i++)
-            {
-                tiles[i, j] = Instantiate(tilePrefab);
-                tiles[i, j].pos.X = i;
-                tiles[i, j].pos.Y = j;
-                tiles[i, j].transform.parent = this.transform;
-                tiles[i, j].Data.type = TileType.Normal;
-                tiles[i, j].Data.color = TileColor.White;
-            }
-        }
-        // Hardcode the map (just for testing)
-        for (int j = 0; j < height; j++)
-        {
-            if (j == 0 || j == height - 1)
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    tiles[i, j].Data.type = TileType.Wall;
-                    tiles[i, j].Data.color = TileColor.Black;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    if (i == 0 || i == width - 1)
-                    {
-                        tiles[i, j].Data.type = TileType.Wall;
-                        tiles[i, j].Data.color = TileColor.Black;
-                    }
-                }
-            }
-        }
-        tiles[4, 4].Data.color = TileColor.Black;
-        tiles[8, 8].Data.color = TileColor.Black;
+        mapLoader.LoadMap(tiles, tilePrefab);
     }
 
     public Tile GetTile(int x, int y)

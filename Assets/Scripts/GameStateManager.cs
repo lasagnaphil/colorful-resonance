@@ -8,6 +8,7 @@ using Utils;
 
 public enum GameState
 {
+    Load,
     Play,
     Win,
     Lose
@@ -113,6 +114,11 @@ public class GameStateManager : Singleton<GameStateManager>
     public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
     public void RemoveProjectile(Projectile projectile) { projectiles.Remove(projectile); }
     public void ResetProjectile(Projectile projectile) { projectiles.Clear(); }
+
+    private void Load_Enter()
+    {
+        // load data from MapData
+    }
 
     private void Play_Enter()
     {

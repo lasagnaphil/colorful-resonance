@@ -54,7 +54,7 @@ public class Player : BaseBehavior
     public bool OnTurn(int x, int y)
     {
         if (tileManager.GetTileType(x, y).color == TileColor.None ||
-            tileManager.GetTileType(x, y).color == TileColor.Black)
+            tileManager.GetTileType(x, y).type == TileType.Wall)
             return false;
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);

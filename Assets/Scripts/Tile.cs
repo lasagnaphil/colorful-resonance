@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FullInspector;
 
 public enum TileColor
 {
@@ -12,6 +11,7 @@ public enum TileType
     Normal, Wall
 }
 
+[System.Serializable]
 public class TileData
 {
     public TileColor color;
@@ -64,7 +64,7 @@ public class TileData
 }
 
 [RequireComponent(typeof(Position))]
-public class Tile : BaseBehavior
+public class Tile : MonoBehaviour
 {
     private TileManager tileManager;
 
@@ -79,7 +79,7 @@ public class Tile : BaseBehavior
         {
             _data = value;
             if (spriteRenderer != null && tileManager != null)
-                spriteRenderer.sprite = tileManager.tileDict[_data];
+                spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
         }
     }
 
@@ -90,9 +90,8 @@ public class Tile : BaseBehavior
     public bool Marked { get; set; }
 
     // Always get the reference of Position on Awake() function
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         pos = GetComponent<Position>();
     }
 
@@ -102,7 +101,7 @@ public class Tile : BaseBehavior
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-        spriteRenderer.sprite = tileManager.tileDict[_data];
+	    spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
 	}
 
     void Update()

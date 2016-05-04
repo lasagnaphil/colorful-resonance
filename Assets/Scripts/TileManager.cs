@@ -2,7 +2,25 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using FullInspector;
+
+[Serializable]
+public class TileSpriteTuple
+{
+    public TileData tileData;
+    public Sprite sprite;
+}
+
+[Serializable]
+public class TileSpriteDictionary
+{
+    [SerializeField]
+    private List<TileSpriteTuple> tupleList;
+
+    public Sprite GetSprite(TileData tileData)
+    {
+        return tupleList.Find(x => x.tileData == tileData).sprite;
+    }
+}
 
 public class TileManager : Singleton<TileManager>
 {
@@ -12,14 +30,13 @@ public class TileManager : Singleton<TileManager>
 
     public Tile tilePrefab;
 
-    public Dictionary<TileData, Sprite> tileDict;
+    //public Dictionary<TileData, Sprite> tileDict;
+    public TileSpriteDictionary tileSpriteDict;
 
     private MapLoader mapLoader;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
-
         mapLoader = GetComponent<MapLoader>();
         tiles = new Tile[width, height];
         mapLoader.LoadMap(tiles, tilePrefab);

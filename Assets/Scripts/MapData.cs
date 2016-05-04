@@ -1,4 +1,5 @@
-﻿public struct MapData
+﻿[System.Serializable]
+public struct MapData
 {
     public string name;
     public int width;
@@ -7,6 +8,7 @@
     public MonsterData[] monsters;
 }
 
+[System.Serializable]
 public struct MonsterData
 {
     public string name;

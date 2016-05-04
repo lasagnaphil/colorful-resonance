@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-using FullInspector;
 using UnityEngine;
 
-public class MapLoader : BaseBehavior
+public class MapLoader : MonoBehaviour
 {
     public string mapToLoad;
     public List<TextAsset> mapAssetList;
@@ -15,8 +14,6 @@ public class MapLoader : BaseBehavior
 
     protected void Awake()
     {
-        base.Awake();
-
         tileDataDictionary = new Dictionary<int, TileData>
         {
             // Because of serialization issues with dictionary containing tiledata type, 
@@ -38,7 +35,7 @@ public class MapLoader : BaseBehavior
         };
 
         mapDataList = mapAssetList.Select(
-            asset => SerializationHelpers.DeserializeFromContent<MapData, FullSerializerSerializer>(asset.text))
+            asset => JsonUtility.FromJson<MapData>(asset.text))
             .ToList();
     }
 

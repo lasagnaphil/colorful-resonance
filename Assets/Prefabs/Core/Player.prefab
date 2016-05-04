@@ -41,9 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys: []
-  _serializedStateValues: []
   x: 1
   y: 1
 --- !u!114 &11470268
@@ -57,22 +54,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581959d2e3c73d749bb9b290401d52a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys:
-  - MaxHealth
-  - Health
-  - prevPos
-  - tempPos
-  - playerTileColor
-  _serializedStateValues:
-  - 3
-  - 3
-  - '{"x":0,"y":0}'
-  - '{"x":0,"y":0}'
-  - '"Red"'
   camera: {fileID: 0}
   pos: {fileID: 0}
   playerTileColor: 2
+  MaxHealth: 3
+  Health: 3
 --- !u!212 &21222978
 SpriteRenderer:
   m_ObjectHideFlags: 1

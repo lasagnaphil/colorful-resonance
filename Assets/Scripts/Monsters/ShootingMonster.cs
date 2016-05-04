@@ -9,7 +9,7 @@ public class ShootingMonster : Monster
     public Projectile projectilePrefab;
 
     private int shootTimer = 0;
-    public int ShootInterval { get; set; }
+    public int ShootInterval;
 
     protected override void OnTurn()
     {

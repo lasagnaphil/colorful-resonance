@@ -41,22 +41,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42593235bb888774fbd8ef04b3494c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys:
-  - MaxHealth
-  - DamageToPlayer
-  - DamageToSelf
-  - immuneColor
-  - ShootInterval
-  _serializedStateValues:
-  - 1
-  - 1
-  - 1
-  - '"White"'
-  - 3
-  immuneColor: 7
+  MaxHealth: 1
+  DamageToPlayer: 1
+  DamageToSelf: 1
+  immuneColor: 1
   isFacingRight: 0
   projectilePrefab: {fileID: 11403520, guid: 098655dc2cb3a7943b8744bd8021d10d, type: 2}
+  ShootInterval: 3
 --- !u!114 &11410468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,9 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys: []
-  _serializedStateValues: []
   x: 5
   y: 5
 --- !u!212 &21208718

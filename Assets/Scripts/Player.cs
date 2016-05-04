@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FullInspector;
 
-public class Player : BaseBehavior
+public class Player : MonoBehaviour
 {
     private TileManager tileManager;
 
@@ -13,12 +12,11 @@ public class Player : BaseBehavior
     public Vector2i tempPos;
 
     public TileColor playerTileColor;
-    public int MaxHealth { get; private set; }
-    public int Health { get; private set; }
+    public int MaxHealth;
+    public int Health;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
         pos = GetComponent<Position>();
     }
 

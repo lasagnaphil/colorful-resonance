@@ -1,19 +1,17 @@
 ﻿using System;
-using FullInspector;
 using UnityEngine;
 
 // Base monster class. Inherit from this when creating new monsters.
 
 [RequireComponent(typeof(Position))]
-public class Monster : BaseBehavior
+public class Monster : MonoBehaviour
 {
-    public int MaxHealth { get; set; }
-    public int DamageToPlayer { get; set; }
-    public int DamageToSelf { get; set; }
+    public int MaxHealth;
+    public int DamageToPlayer;
+    public int DamageToSelf;
     public TileColor immuneColor;
-    
-    [ShowInInspector]
-    private int Health { get; set; }
+
+    public int Health;
 
     protected Position pos;
 

@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FullInspector;
 using Utils;
 
 [RequireComponent(typeof(Position))]
-public class Projectile : BaseBehavior
+public class Projectile : MonoBehaviour
 {
-    public int Duration { get; set; } // if duration is -1 then never dies
-    public int Damage { get; set; }
-    public Direction MovingDirection { get; set; }
+    public int Duration; // if duration is -1 then never dies
+    public int Damage;
+    public Direction MovingDirection;
 
     protected Position pos;
     protected Vector2i prevPos;

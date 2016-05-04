@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FullInspector;
 using UnityEngine;
 
-public class Singleton<T> : BaseBehavior where T : BaseBehavior
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
 {
     private static T _instance;
 

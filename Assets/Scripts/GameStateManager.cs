@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
-using FullInspector;
 using MonsterLove.StateMachine;
 using UnityEngine.UI;
 using Utils;

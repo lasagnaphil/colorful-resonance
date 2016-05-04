@@ -41,9 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys: []
-  _serializedStateValues: []
   x: 3
   y: 3
 --- !u!114 &11475832
@@ -57,18 +54,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc3b6e218c14a049b4fc3f9179ca600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys:
-  - MaxHealth
-  - DamageToPlayer
-  - DamageToSelf
-  - immuneColor
-  _serializedStateValues:
-  - 1
-  - 1
-  - 1
-  - '"White"'
-  immuneColor: 7
+  MaxHealth: 1
+  DamageToPlayer: 1
+  DamageToSelf: 1
+  immuneColor: 1
   isFacingUp: 0
 --- !u!212 &21260666
 SpriteRenderer:

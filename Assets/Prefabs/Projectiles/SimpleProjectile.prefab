@@ -41,9 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys: []
-  _serializedStateValues: []
   x: 0
   y: 0
 --- !u!114 &11403520
@@ -57,15 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80880e25597b5774b825903801857bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectReferences: []
-  _serializedStateKeys:
-  - Duration
-  - Damage
-  - MovingDirection
-  _serializedStateValues:
-  - -1
-  - 1
-  - '"None"'
+  Duration: -1
+  Damage: 1
+  MovingDirection: 0
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1

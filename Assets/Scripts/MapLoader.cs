@@ -2,10 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class MonsterPrefabTuple
+{
+    public string name;
+    public Monster monsterPrefab;
+}
+
+[System.Serializable]
+public class MonsterPrefabDictionary
+{
+    [SerializeField]
+    private List<MonsterPrefabTuple> monsterPrefabTupleList;
+
+    public Monster GetMonster(string name)
+    {
+        return monsterPrefabTupleList.Find(x => x.name == name).monsterPrefab;
+    }
+}
+
 public class MapLoader : MonoBehaviour
 {
+    public Player player;
+
     public string mapToLoad;
     public List<TextAsset> mapAssetList;
+    public MonsterPrefabDictionary monsterPrefabDict;
     
     private List<MapData> mapDataList;
     private MapData mapDataToLoad;
@@ -39,9 +61,16 @@ public class MapLoader : MonoBehaviour
             .ToList();
     }
 
+    public void Start()
+    {
+        LoadPlayerAndMonsters();
+    }
+
     public void LoadMap(Tile[,] tiles, Tile tilePrefab)
     {
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
+        
+        // Load the tiles
         int width = mapDataToLoad.width;
         int height = mapDataToLoad.height;
         for (int i = 0; i < width*height; i++)
@@ -55,47 +84,18 @@ public class MapLoader : MonoBehaviour
             TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
-        /*
-        int width = tiles.GetLength(0);
-        int height = tiles.GetLength(1);
+    }
 
-        for (int j = 0; j < height; j++)
+    public void LoadPlayerAndMonsters()
+    {
+        // Load player data
+        player.pos.Set(mapDataToLoad.playerData.position);
+
+        // Load the monsters
+        foreach (var monsterData in mapDataToLoad.monsters)
         {
-            for (int i = 0; i < width; i++)
-            {
-                tiles[i, j] = Instantiate(tilePrefab);
-                tiles[i, j].pos.X = i;
-                tiles[i, j].pos.Y = j;
-                tiles[i, j].transform.parent = this.transform;
-                tiles[i, j].Data.type = TileType.Normal;
-                tiles[i, j].Data.color = TileColor.White;
-            }
-        }
-        // Hardcode the map (just for testing)
-        for (int j = 0; j < height; j++)
-        {
-            if (j == 0 || j == height - 1)
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    tiles[i, j].Data.type = TileType.Wall;
-                    tiles[i, j].Data.color = TileColor.Black;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < width; i++)
-                {
-                    if (i == 0 || i == width - 1)
-                    {
-                        tiles[i, j].Data.type = TileType.Wall;
-                        tiles[i, j].Data.color = TileColor.Black;
-                    }
-                }
-            }
-        }
-        tiles[4, 4].Data.color = TileColor.Black;
-        tiles[8, 8].Data.color = TileColor.Black;
-        */
+            var monster = Instantiate(monsterPrefabDict.GetMonster(monsterData.name));
+            monster.pos.Set(monsterData.position);
+        }       
     }
 }

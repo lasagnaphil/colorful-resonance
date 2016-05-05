@@ -46,9 +46,11 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
   monsterPrefabDict:
     monsterPrefabTupleList:
-    - name: SimpleEnemy
-      monsterPrefab: {fileID: 11475832, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
-    - name: ShootingEnemy
+    - name: Standing
+      monsterPrefab: {fileID: 11497280, guid: 3d2b8b64e9e60e74797ea992a7796155, type: 2}
+    - name: UpDown
+      monsterPrefab: {fileID: 11461312, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
+    - name: HShooter
       monsterPrefab: {fileID: 11406136, guid: 25bc67aa240bb2e4d87f3c2013eef59f, type: 2}
 --- !u!114 &11435928
 MonoBehaviour:

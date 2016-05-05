@@ -2,7 +2,7 @@
 using System.Collections;
 using Utils;
 
-public class ShootingMonster : Monster
+public class HShooter: Monster
 {
     public bool isFacingRight = false;
 

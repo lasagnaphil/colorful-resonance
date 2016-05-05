@@ -13,17 +13,12 @@ public class Monster : MonoBehaviour
 
     public int Health;
 
-    [HideInInspector]
-    public Position pos;
-
-    protected void Awake()
-    {
-        pos = GetComponent<Position>();
-    }
+    protected Position pos;
 
     protected void Start()
     {
         Health = MaxHealth;
+        pos = GetComponent<Position>();
         GameStateManager.Instance.AddMonster(this);
         GameStateManager.Instance.MonsterTurns += OnTurn;
         GameStateManager.Instance.MonsterResets += OnReset;

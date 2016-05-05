@@ -1,5 +1,4 @@
-﻿[System.Serializable]
-public struct Vector2i
+﻿public struct Vector2i
 {
     public int x, y;
     public Vector2i(int x, int y)

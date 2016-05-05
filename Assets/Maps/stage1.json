@@ -18,11 +18,11 @@
   },
   "monsters": [
     {
-      "name" : "SimpleEnemy",
+      "name" : "UpDown",
       "position" : {"x": 3, "y": 3}
     },
     {
-      "name" : "ShootingEnemy",
+      "name" : "HShooter",
       "position" : {"x": 5, "y": 5}
     }
   ]

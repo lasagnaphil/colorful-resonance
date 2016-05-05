@@ -57,7 +57,7 @@ MonoBehaviour:
   MaxHealth: 1
   DamageToPlayer: 0
   DamageToSelf: 0
-  immuneColor: 1
+  immuneColor: 0
   Health: 0
   pos: {fileID: 0}
   isFacingUp: 0

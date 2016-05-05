@@ -40,9 +40,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff75eac064287e349a3f88ee1026a757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   mapToLoad: Tutorial
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
+  monsterPrefabDict:
+    monsterPrefabTupleList:
+    - name: SimpleEnemy
+      monsterPrefab: {fileID: 11475832, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
+    - name: ShootingEnemy
+      monsterPrefab: {fileID: 11406136, guid: 25bc67aa240bb2e4d87f3c2013eef59f, type: 2}
 --- !u!114 &11435928
 MonoBehaviour:
   m_ObjectHideFlags: 1

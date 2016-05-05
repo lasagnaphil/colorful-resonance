@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470848}
-  - 114: {fileID: 11435928}
   - 114: {fileID: 11414048}
+  - 114: {fileID: 11435928}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: Untagged

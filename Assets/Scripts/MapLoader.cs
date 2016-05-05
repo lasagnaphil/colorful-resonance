@@ -59,6 +59,7 @@ public class MapLoader : MonoBehaviour
         mapDataList = mapAssetList.Select(
             asset => JsonUtility.FromJson<MapData>(asset.text))
             .ToList();
+
     }
 
     public void Start()

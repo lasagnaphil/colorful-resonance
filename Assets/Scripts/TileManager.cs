@@ -39,6 +39,11 @@ public class TileManager : Singleton<TileManager>
     {
         mapLoader = GetComponent<MapLoader>();
         tiles = new Tile[width, height];
+        // mapLoader.LoadMap(tiles, tilePrefab);
+    }
+
+    void Start()
+    {
         mapLoader.LoadMap(tiles, tilePrefab);
     }
 

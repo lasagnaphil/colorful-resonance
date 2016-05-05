@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 1
   DamageToPlayer: 1
-  DamageToSelf: 1
+  DamageToSelf: 0
   immuneColor: 1
   Health: 0
   pos: {fileID: 0}

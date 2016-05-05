@@ -73,15 +73,15 @@ MonoBehaviour:
     - tileData:
         color: 0
         type: 0
-      sprite: {fileID: 21300000, guid: 9f818291de8f65d4592ef09d0983742a, type: 3}
+      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
     - tileData:
         color: 1
         type: 0
-      sprite: {fileID: 21300000, guid: e85e147ed110fb74ead788dea776c329, type: 3}
+      sprite: {fileID: 21300000, guid: bcf48cad502664a03a7e301915d091a1, type: 3}
     - tileData:
         color: 2
         type: 0
-      sprite: {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
     - tileData:
         color: 3
         type: 0

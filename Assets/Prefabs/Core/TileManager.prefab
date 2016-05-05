@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapToLoad: Tutorial
   mapAssetList:
-  - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
+  - {fileID: 0}
 --- !u!114 &11435928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,11 +66,11 @@ MonoBehaviour:
     - tileData:
         color: 0
         type: 0
-      sprite: {fileID: 21300000, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 9f818291de8f65d4592ef09d0983742a, type: 3}
     - tileData:
         color: 1
         type: 0
-      sprite: {fileID: 21300002, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: e85e147ed110fb74ead788dea776c329, type: 3}
     - tileData:
         color: 2
         type: 0

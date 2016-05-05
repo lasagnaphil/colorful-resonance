@@ -13,7 +13,7 @@ public class Monster : MonoBehaviour
 
     public int Health;
 
-    protected Position pos;
+    public Position pos;
 
     protected void Start()
     {

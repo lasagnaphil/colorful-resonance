@@ -56,6 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   pos: {fileID: 0}
+  prevPos:
+    x: 0
+    y: 0
+  tempPos:
+    x: 0
+    y: 0
   playerTileColor: 2
   MaxHealth: 3
   Health: 3

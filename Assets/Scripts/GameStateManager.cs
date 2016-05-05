@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using MonsterLove.StateMachine;
 using UnityEngine.UI;
 using Utils;
@@ -20,6 +21,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private StateMachine<GameState> fsm;
     private List<Monster> monsters = new List<Monster>();
     private List<Projectile> projectiles = new List<Projectile>();
+    private List<Orb> orbs = new List<Orb>();
 
     // Store a player reference for other objects to use
     public Player player;
@@ -81,15 +83,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public Monster CheckMonsterPosition(int x, int y)
     {
-        foreach (var monster in monsters)
-        {
-            Position monsterPos = monster.GetComponent<Position>();
-            if (monsterPos.X == x && monsterPos.Y == y)
-            {
-                return monster;
-            }
-        }
-        return null;
+        return monsters.Find(monster => monster.pos.X == x && monster.pos.Y == y);
     }
 
     public Monster CheckMonsterPosition(Vector2i pos)
@@ -112,7 +106,21 @@ public class GameStateManager : Singleton<GameStateManager>
     }
     public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
     public void RemoveProjectile(Projectile projectile) { projectiles.Remove(projectile); }
-    public void ResetProjectile(Projectile projectile) { projectiles.Clear(); }
+    public void ResetProjectile() { projectiles.Clear(); }
+
+    public Orb CheckOrbPosition(int x, int y)
+    {
+        return orbs.Find(orb => orb.pos.X == x && orb.pos.Y == y);
+    }
+
+    public Orb CheckOrbPosition(Vector2i pos)
+    {
+        return CheckOrbPosition(pos.x, pos.y);
+    }
+
+    public void AddOrb(Orb orb) { orbs.Add(orb);}
+    public void RemoveOrb(Orb orb) { orbs.Remove(orb);}
+    public void ResetOrb() { orbs.Clear();}
 
     private void Load_Enter()
     {

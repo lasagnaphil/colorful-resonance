@@ -55,6 +55,12 @@ public class Position : MonoBehaviour
         Y = y;
     }
 
+    public void Set(Vector2i vec)
+    {
+        X = vec.x;
+        Y = vec.y;
+    }
+
     public void Add(Vector2i vec)
     {
         X += vec.x;

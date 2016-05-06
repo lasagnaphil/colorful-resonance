@@ -23,6 +23,9 @@ public class GameStateManager : Singleton<GameStateManager>
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
 
+    // Reference to MapLoader (which loads the map)
+    private MapLoader mapLoader;
+
     // Store a player reference for other objects to use
     public Player player;
 
@@ -37,21 +40,25 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Action PlayerTurn;
     public event Action MonsterTurns;
     public event Action MonsterResets;
-    public event Action ProjectileTurns; 
+    public event Action ProjectileTurns;
+
+    protected void Awake()
+    {
+        tileManager = GetComponent<TileManager>();
+        mapLoader = GetComponent<MapLoader>();
+    }
 
     protected void Start()
     {
         fsm = StateMachine<GameState>.Initialize(this);
-        fsm.ChangeState(GameState.Play);
-
-        tileManager = TileManager.Instance;
+        fsm.ChangeState(GameState.Load);
     }
 
     protected void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            fsm.ChangeState(GameState.Play);
+            fsm.ChangeState(GameState.Load);
         }
     }
 
@@ -124,7 +131,9 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private void Load_Enter()
     {
-        // load data from MapData
+        Debug.Log("Loading Game");
+        mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab);
+        fsm.ChangeState(GameState.Play);
     }
 
     private void Play_Enter()

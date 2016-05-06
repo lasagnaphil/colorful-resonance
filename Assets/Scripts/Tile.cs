@@ -78,11 +78,8 @@ public class Tile : MonoBehaviour
         set
         {
             _data = value;
-            // TODO : should be
-            //  spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDict.GetSprite(_data)
-            // after refactoring
-            if (spriteRenderer != null && tileManager != null)
-                spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
+            if (spriteRenderer != null)
+                spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
         }
     }
 
@@ -104,7 +101,7 @@ public class Tile : MonoBehaviour
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-	    spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
+	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
 	}
 
     void Update()

@@ -21,24 +21,6 @@ public class MonsterPrefabDictionary
     }
 }
 
-[System.Serializable]
-public class OrbSpriteTuple
-{
-    public TileColor color;
-    public Sprite orbSprite;
-}
-
-[System.Serializable]
-public class OrbSpriteDictionary
-{
-    [SerializeField] private List<OrbSpriteTuple> orbSpriteTupleList;
-
-    public Sprite GetSprite(TileColor color)
-    {
-        return orbSpriteTupleList.Find(x => x.color == color).orbSprite;
-    }
-}
-
 public class MapLoader : MonoBehaviour
 {
     public Player player;
@@ -94,7 +76,7 @@ public class MapLoader : MonoBehaviour
 
     public void Start()
     {
-        LoadGameObjects();
+        // LoadGameObjects();
     }
 
     public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
@@ -122,6 +104,8 @@ public class MapLoader : MonoBehaviour
             TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
+
+        LoadGameObjects();
     }
 
     public void LoadGameObjects()

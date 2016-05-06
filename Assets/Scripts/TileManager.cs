@@ -3,25 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-[Serializable]
-public class TileSpriteTuple
-{
-    public TileData tileData;
-    public Sprite sprite;
-}
-
-[Serializable]
-public class TileSpriteDictionary
-{
-    [SerializeField]
-    private List<TileSpriteTuple> tupleList;
-
-    public Sprite GetSprite(TileData tileData)
-    {
-        return tupleList.Find(x => x.tileData == tileData).sprite;
-    }
-}
-
 public class TileManager : Singleton<TileManager>
 {
     [NonSerialized]
@@ -34,7 +15,6 @@ public class TileManager : Singleton<TileManager>
     public Tile tilePrefab;
 
     //public Dictionary<TileData, Sprite> tileDict;
-    public TileSpriteDictionary tileSpriteDict;
 
     private MapLoader mapLoader;
 
@@ -46,7 +26,8 @@ public class TileManager : Singleton<TileManager>
 
     void Start()
     {
-        mapLoader.LoadMap(ref tiles, tilePrefab);
+        // mapLoader.LoadMap(ref tiles, tilePrefab);
+        // mapLoader.LoadGameObjects();
     }
 
     public Tile GetTile(int x, int y)

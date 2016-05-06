@@ -101,13 +101,13 @@ MonoBehaviour:
   orbSpriteDictionary:
     orbSpriteTupleList:
     - color: 0
-      orbSprite: {fileID: 21300000, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+      orbSprite: {fileID: 21300000, guid: 831c03abc4d4b4b558decb518e14778c, type: 3}
     - color: 1
-      orbSprite: {fileID: 21300002, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+      orbSprite: {fileID: 21300000, guid: 65d2f449ec93040ecab96d62f3f7f686, type: 3}
     - color: 2
-      orbSprite: {fileID: 21300004, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+      orbSprite: {fileID: 21300000, guid: 5b9218a2914a7457bb7e55dd947a5458, type: 3}
     - color: 3
-      orbSprite: {fileID: 21300006, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+      orbSprite: {fileID: 21300000, guid: ddc551b06cd7f4742a35a5fbc9e72200, type: 3}
     - color: 4
       orbSprite: {fileID: 21300008, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
     - color: 5

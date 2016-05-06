@@ -67,13 +67,20 @@ public class MapLoader : MonoBehaviour
         LoadPlayerAndMonsters();
     }
 
-    public void LoadMap(Tile[,] tiles, Tile tilePrefab)
+    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
     {
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
         
-        // Load the tiles
+        // Get the width and height information of the map
+        TileManager.Instance.width = mapDataToLoad.width;
+        TileManager.Instance.height = mapDataToLoad.height;
         int width = mapDataToLoad.width;
         int height = mapDataToLoad.height;
+
+        // Instantiate the tile array first
+        tiles = new Tile[width,height];
+
+        // Load the tiles
         for (int i = 0; i < width*height; i++)
         {
             int x = i%width;

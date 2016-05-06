@@ -24,8 +24,11 @@ public class TileSpriteDictionary
 
 public class TileManager : Singleton<TileManager>
 {
-    private Tile[,] tiles;
+    [NonSerialized]
+    public Tile[,] tiles;
+    [NonSerialized]
     public int width;
+    [NonSerialized]
     public int height;
 
     public Tile tilePrefab;
@@ -38,13 +41,12 @@ public class TileManager : Singleton<TileManager>
     protected void Awake()
     {
         mapLoader = GetComponent<MapLoader>();
-        tiles = new Tile[width, height];
         // mapLoader.LoadMap(tiles, tilePrefab);
     }
 
     void Start()
     {
-        mapLoader.LoadMap(tiles, tilePrefab);
+        mapLoader.LoadMap(ref tiles, tilePrefab);
     }
 
     public Tile GetTile(int x, int y)

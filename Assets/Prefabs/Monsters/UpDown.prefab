@@ -55,9 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
-  DamageToPlayer: 0
-  DamageToSelf: 0
-  immuneColor: 0
+  DamageToPlayer: 1
+  DamageToSelf: 1
+  immuneColor: 1
   Health: 0
   pos: {fileID: 0}
   isFacingUp: 0

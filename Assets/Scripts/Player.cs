@@ -43,10 +43,10 @@ public class Player : MonoBehaviour
         }
 
         // Move camera position to player
-        /*
+        
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
-        */
+        
     }
 
     public bool OnTurn(int x, int y)

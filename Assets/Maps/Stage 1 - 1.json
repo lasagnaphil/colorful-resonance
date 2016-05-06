@@ -25,5 +25,11 @@
       "name" : "Standing",
       "position" : {"x": 14, "y": 3}
     }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 3}
+    }
   ]
 }

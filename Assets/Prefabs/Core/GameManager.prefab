@@ -75,6 +75,7 @@ MonoBehaviour:
   player: {fileID: 0}
   monsterHolderObject: {fileID: 0}
   projectileHolderObject: {fileID: 0}
+  orbHolderObject: {fileID: 0}
   turnNumberText: {fileID: 0}
   playerHealthText: {fileID: 0}
 --- !u!1001 &100100000

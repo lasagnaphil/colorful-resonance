@@ -96,6 +96,7 @@ public class MapLoader : MonoBehaviour
         foreach (var monsterData in mapDataToLoad.monsters)
         {
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
+            monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);
         }       
 
@@ -103,6 +104,7 @@ public class MapLoader : MonoBehaviour
         foreach (var orbData in mapDataToLoad.orbs)
         {
             var orb = Instantiate(PrefabDictionary.Instance.orbPrefab);
+            orb.transform.parent = GameStateManager.Instance.orbHolderObject.transform;
             orb.Color = colorDictionary.GetValueOrDefault(orbData.color, () =>
             {
                 Debug.LogError("Failed loading orb color. Defaulting to TileColor.None");

@@ -32,6 +32,7 @@ public class GameStateManager : Singleton<GameStateManager>
     // Reference to "holder" gameobjects
     public GameObject monsterHolderObject;
     public GameObject projectileHolderObject;
+    public GameObject orbHolderObject;
 
     private TileManager tileManager;
     public Text turnNumberText;
@@ -103,6 +104,7 @@ public class GameStateManager : Singleton<GameStateManager>
         if (projectilePrefab != null)
         {
             Projectile projectile = Instantiate(projectilePrefab);
+            projectile.transform.parent = projectileHolderObject.transform;
             projectile.MovingDirection = direction;
             projectile.GetComponent<Position>().Set(x, y);
         }

@@ -250,119 +250,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1561964701}
   m_Script: {fileID: 11500000, guid: 581959d2e3c73d749bb9b290401d52a3, type: 3}
---- !u!1 &360303475
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 360303477}
-  - 114: {fileID: 360303476}
-  m_Layer: 0
-  m_Name: GameData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &360303476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 360303475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6d1c39711cb4340b4fdc24a9b8ff7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileSpriteDictionary:
-    tupleList:
-    - tileData:
-        color: 6
-        type: 0
-      sprite: {fileID: 0}
-    - tileData:
-        color: 0
-        type: 0
-      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
-    - tileData:
-        color: 1
-        type: 0
-      sprite: {fileID: 21300000, guid: bcf48cad502664a03a7e301915d091a1, type: 3}
-    - tileData:
-        color: 2
-        type: 0
-      sprite: {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 3
-        type: 0
-      sprite: {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 4
-        type: 0
-      sprite: {fileID: 21300008, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 5
-        type: 0
-      sprite: {fileID: 21300010, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 6
-        type: 1
-      sprite: {fileID: 0}
-    - tileData:
-        color: 0
-        type: 1
-      sprite: {fileID: 21300012, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 1
-        type: 1
-      sprite: {fileID: 21300014, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 2
-        type: 1
-      sprite: {fileID: 21300016, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 3
-        type: 1
-      sprite: {fileID: 21300018, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 4
-        type: 1
-      sprite: {fileID: 21300020, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-    - tileData:
-        color: 5
-        type: 1
-      sprite: {fileID: 21300022, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
-  orbSpriteDictionary:
-    orbSpriteTupleList:
-    - color: 0
-      orbSprite: {fileID: 21300000, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 1
-      orbSprite: {fileID: 21300002, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 2
-      orbSprite: {fileID: 21300004, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 3
-      orbSprite: {fileID: 21300006, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 4
-      orbSprite: {fileID: 21300008, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 5
-      orbSprite: {fileID: 21300010, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
-    - color: 6
-      orbSprite: {fileID: 0}
---- !u!4 &360303477
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 360303475}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.865295, y: 4.3177147, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
 --- !u!1 &635480854
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +558,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1db751a70f5a6254298cce1bda145483, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1315231242
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.865295
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.3177147
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 468810, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1411227205
 GameObject:

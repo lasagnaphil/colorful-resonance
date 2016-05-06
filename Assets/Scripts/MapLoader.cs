@@ -2,33 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class MonsterPrefabTuple
-{
-    public string name;
-    public Monster monsterPrefab;
-}
-
-[System.Serializable]
-public class MonsterPrefabDictionary
-{
-    [SerializeField]
-    private List<MonsterPrefabTuple> monsterPrefabTupleList;
-
-    public Monster GetMonster(string name)
-    {
-        return monsterPrefabTupleList.Find(x => x.name == name).monsterPrefab;
-    }
-}
-
 public class MapLoader : MonoBehaviour
 {
     public Player player;
 
     public string mapToLoad;
     public List<TextAsset> mapAssetList;
-    public MonsterPrefabDictionary monsterPrefabDict;
-    public Orb orbPrefab;
     
     private List<MapData> mapDataList;
     private MapData mapDataToLoad;
@@ -116,14 +95,14 @@ public class MapLoader : MonoBehaviour
         // Load the monsters
         foreach (var monsterData in mapDataToLoad.monsters)
         {
-            var monster = Instantiate(monsterPrefabDict.GetMonster(monsterData.name));
+            var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
             monster.pos.Set(monsterData.position);
         }       
 
         // Load the orbs
         foreach (var orbData in mapDataToLoad.orbs)
         {
-            var orb = Instantiate(orbPrefab);
+            var orb = Instantiate(PrefabDictionary.Instance.orbPrefab);
             orb.Color = colorDictionary.GetValueOrDefault(orbData.color, () =>
             {
                 Debug.LogError("Failed loading orb color. Defaulting to TileColor.None");

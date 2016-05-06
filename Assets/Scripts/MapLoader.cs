@@ -75,7 +75,7 @@ public class MapLoader : MonoBehaviour
         for (int i = 0; i < width*height; i++)
         {
             int x = i%width;
-            int y = i/width;
+            int y = height - i/width - 1;
             tiles[x, y] = Instantiate(tilePrefab);
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;

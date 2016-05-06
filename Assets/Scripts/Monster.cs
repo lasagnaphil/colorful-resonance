@@ -9,7 +9,7 @@ public class Monster : MonoBehaviour
     public int MaxHealth;
     public int DamageToPlayer;
     public int DamageToSelf;
-    public TileColor immuneColor;
+    public TileColor monstersColor;
 
     public int Health;
 
@@ -32,7 +32,7 @@ public class Monster : MonoBehaviour
     protected virtual void OnTurn()
     {
         TileData currentTileData = TileManager.Instance.GetTileType(pos.X, pos.Y);
-        if (currentTileData.color != immuneColor && currentTileData.color != TileColor.None)
+        if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None)
         {
             Health -= 1;
         }

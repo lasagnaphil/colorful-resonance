@@ -57,7 +57,7 @@ MonoBehaviour:
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 1
-  immuneColor: 1
+  monstersColor: 1
   Health: 0
   pos: {fileID: 0}
   isFacingUp: 0
@@ -97,7 +97,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: monstersColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

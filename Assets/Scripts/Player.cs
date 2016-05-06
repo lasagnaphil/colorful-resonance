@@ -64,6 +64,11 @@ public class Player : MonoBehaviour
             return false;
         }
 
+        pos.X = x;
+        pos.Y = y;
+        tileManager.SetTileDataAndFill(x, y, playerTileColor);
+
+        // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
         if (foundOrb != null)
         {
@@ -71,9 +76,6 @@ public class Player : MonoBehaviour
             Destroy(foundOrb.gameObject);
         }
 
-        pos.X = x;
-        pos.Y = y;
-        tileManager.SetTileDataAndFill(x, y, playerTileColor);
         return true;
     }
 

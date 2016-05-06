@@ -1,6 +1,6 @@
 ﻿namespace Monsters
 {
-    public class Standing : Monster
+    public class StandingMonster : Monster
     {
         protected override void OnTurn()
         {

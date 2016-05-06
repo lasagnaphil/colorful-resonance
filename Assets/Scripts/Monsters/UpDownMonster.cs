@@ -1,6 +1,6 @@
 ﻿namespace Monsters
 {
-    public class UpDown : Monster
+    public class UpDownMonster : Monster
     {
         public bool isFacingUp = false;
 

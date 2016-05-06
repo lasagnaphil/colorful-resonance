@@ -4,7 +4,7 @@ public struct MapData
     public string name;
     public int width;
     public int height;
-    public int[] tiles;
+    public string[] tiles;
     public PlayerData playerData;
     public MonsterData[] monsters;
     public OrbData[] orbs;

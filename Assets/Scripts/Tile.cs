@@ -8,7 +8,7 @@ public enum TileColor
 
 public enum TileType
 {
-    Normal, Wall
+    Normal, Wall, None
 }
 
 [System.Serializable]

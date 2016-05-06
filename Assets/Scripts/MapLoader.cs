@@ -13,7 +13,7 @@ public class MapLoader : MonoBehaviour
     private MapData mapDataToLoad;
 
     private Dictionary<string, TileColor> colorDictionary;
-    private Dictionary<int, TileData> tileDataDictionary;
+    private Dictionary<char, TileData> tileDataDictionary;
 
     protected void Awake()
     {
@@ -27,24 +27,23 @@ public class MapLoader : MonoBehaviour
             {"yellow", TileColor.Yellow},
             {"green", TileColor.Green}
         };
-        tileDataDictionary = new Dictionary<int, TileData>
+        tileDataDictionary = new Dictionary<char, TileData>
         {
-            // Because of serialization issues with dictionary containing tiledata type, 
-            // we hard-code this dictionary as for now.
-            {0, new TileData(TileColor.None, TileType.Normal)},
-            {1, new TileData(TileColor.Black, TileType.Normal)},
-            {2, new TileData(TileColor.White, TileType.Normal)},
-            {3, new TileData(TileColor.Red, TileType.Normal)},
-            {4, new TileData(TileColor.Blue, TileType.Normal)},
-            {5, new TileData(TileColor.Green, TileType.Normal)},
-            {6, new TileData(TileColor.Yellow, TileType.Normal)},
-            {10, new TileData(TileColor.None, TileType.Wall)},
-            {11, new TileData(TileColor.Black, TileType.Wall)},
-            {12, new TileData(TileColor.White, TileType.Wall)},
-            {13, new TileData(TileColor.Red, TileType.Wall)},
-            {14, new TileData(TileColor.Blue, TileType.Wall)},
-            {15, new TileData(TileColor.Yellow, TileType.Wall)},
-            {16, new TileData(TileColor.Green, TileType.Wall)}
+            {'.', new TileData(TileColor.None, TileType.None)},
+            {'o', new TileData(TileColor.None, TileType.Normal)},
+            {'l', new TileData(TileColor.Black, TileType.Normal)},
+            {'w', new TileData(TileColor.White, TileType.Normal)},
+            {'r', new TileData(TileColor.Red, TileType.Normal)},
+            {'b', new TileData(TileColor.Blue, TileType.Normal)},
+            {'y', new TileData(TileColor.Green, TileType.Normal)},
+            {'g', new TileData(TileColor.Yellow, TileType.Normal)},
+            {'O', new TileData(TileColor.None, TileType.Wall)},
+            {'L', new TileData(TileColor.Black, TileType.Wall)},
+            {'W', new TileData(TileColor.White, TileType.Wall)},
+            {'R', new TileData(TileColor.Red, TileType.Wall)},
+            {'B', new TileData(TileColor.Blue, TileType.Wall)},
+            {'Y', new TileData(TileColor.Yellow, TileType.Wall)},
+            {'G', new TileData(TileColor.Green, TileType.Wall)}
         };
 
         mapDataList = mapAssetList.Select(
@@ -68,6 +67,15 @@ public class MapLoader : MonoBehaviour
         int width = mapDataToLoad.width;
         int height = mapDataToLoad.height;
 
+        // parse the tiles (represented in a string)
+        string tileString = string.Join("", mapDataToLoad.tiles);
+
+        char[] tileChars = tileString.ToCharArray().Where(c => c != ' ').ToArray();
+        if (tileChars.Length != width*height)
+        {
+            Debug.LogError("Error parsing tile string: the number of tiles does not match");
+        }
+
         // Instantiate the tile array first
         tiles = new Tile[width,height];
 
@@ -80,7 +88,7 @@ public class MapLoader : MonoBehaviour
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;
             tiles[x, y].transform.parent = this.transform;
-            TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
+            TileData data = tileDataDictionary[tileChars[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
 

@@ -98,6 +98,10 @@ MonoBehaviour:
         color: 5
         type: 1
       sprite: {fileID: 21300022, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 6
+        type: 2
+      sprite: {fileID: 0}
   orbSpriteDictionary:
     orbSpriteTupleList:
     - color: 0

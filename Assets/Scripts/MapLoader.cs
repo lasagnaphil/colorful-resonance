@@ -21,6 +21,24 @@ public class MonsterPrefabDictionary
     }
 }
 
+[System.Serializable]
+public class OrbSpriteTuple
+{
+    public TileColor color;
+    public Sprite orbSprite;
+}
+
+[System.Serializable]
+public class OrbSpriteDictionary
+{
+    [SerializeField] private List<OrbSpriteTuple> orbSpriteTupleList;
+
+    public Sprite GetSprite(TileColor color)
+    {
+        return orbSpriteTupleList.Find(x => x.color == color).orbSprite;
+    }
+}
+
 public class MapLoader : MonoBehaviour
 {
     public Player player;
@@ -28,14 +46,26 @@ public class MapLoader : MonoBehaviour
     public string mapToLoad;
     public List<TextAsset> mapAssetList;
     public MonsterPrefabDictionary monsterPrefabDict;
+    public Orb orbPrefab;
     
     private List<MapData> mapDataList;
     private MapData mapDataToLoad;
 
+    private Dictionary<string, TileColor> colorDictionary;
     private Dictionary<int, TileData> tileDataDictionary;
 
     protected void Awake()
     {
+        colorDictionary = new Dictionary<string, TileColor>
+        {
+            {"none", TileColor.None},
+            {"black", TileColor.Black},
+            {"white", TileColor.White},
+            {"red", TileColor.Red},
+            {"blue", TileColor.Blue},
+            {"yellow", TileColor.Yellow},
+            {"green", TileColor.Green}
+        };
         tileDataDictionary = new Dictionary<int, TileData>
         {
             // Because of serialization issues with dictionary containing tiledata type, 
@@ -64,7 +94,7 @@ public class MapLoader : MonoBehaviour
 
     public void Start()
     {
-        LoadPlayerAndMonsters();
+        LoadGameObjects();
     }
 
     public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
@@ -94,7 +124,7 @@ public class MapLoader : MonoBehaviour
         }
     }
 
-    public void LoadPlayerAndMonsters()
+    public void LoadGameObjects()
     {
         // Load player data
         player.pos.Set(mapDataToLoad.playerData.position);
@@ -105,5 +135,17 @@ public class MapLoader : MonoBehaviour
             var monster = Instantiate(monsterPrefabDict.GetMonster(monsterData.name));
             monster.pos.Set(monsterData.position);
         }       
+
+        // Load the orbs
+        foreach (var orbData in mapDataToLoad.orbs)
+        {
+            var orb = Instantiate(orbPrefab);
+            orb.Color = colorDictionary.GetValueOrDefault(orbData.color, () =>
+            {
+                Debug.LogError("Failed loading orb color. Defaulting to TileColor.None");
+                return TileColor.None;
+            });
+            orb.pos.Set(orbData.position);
+        }
     }
 }

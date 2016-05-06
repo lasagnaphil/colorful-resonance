@@ -62,6 +62,13 @@ public class Player : MonoBehaviour
             return false;
         }
 
+        Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
+        if (foundOrb != null)
+        {
+            playerTileColor = foundOrb.Color;
+            Destroy(foundOrb.gameObject);
+        }
+
         pos.X = x;
         pos.Y = y;
         tileManager.SetTileDataAndFill(x, y, playerTileColor);

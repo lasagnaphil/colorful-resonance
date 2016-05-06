@@ -25,5 +25,15 @@
       "name" : "HShooter",
       "position" : {"x": 5, "y": 5}
     }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 3, "y": 2}
+    },
+    {
+      "color" : "green",
+      "position" : {"x": 6, "y": 7}
+    }
   ]
 }

@@ -25,5 +25,6 @@
       "name" : "Standing",
       "position" : {"x": 6, "y": 4}
     }
-  ]
+  ],
+  "orbs": []
 }

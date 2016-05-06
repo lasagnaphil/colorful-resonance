@@ -37,8 +37,7 @@ public class Player : MonoBehaviour
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
         {
-            // Store the previous location
-            prevPos = pos.GetVector2i();
+            // if moved, next turn
             GameStateManager.Instance.NextTurn();
         }
 
@@ -51,6 +50,9 @@ public class Player : MonoBehaviour
 
     public bool OnTurn(int x, int y)
     {
+        // Store the previous location
+        prevPos = pos.GetVector2i();
+
         if (tileManager.GetTileType(x, y).color == TileColor.None ||
             tileManager.GetTileType(x, y).type == TileType.Wall)
             return false;

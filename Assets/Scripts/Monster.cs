@@ -63,11 +63,9 @@ public class Monster : MonoBehaviour
         if (x == player.pos.X && y == player.pos.Y)
         {
             player.ApplyDamage(DamageToPlayer);
+            player.RevertTurn();
         }
-        else
-        {
-            pos.X = x;
-            pos.Y = y;
-        }
+        pos.X = x;
+        pos.Y = y;
     }
 }

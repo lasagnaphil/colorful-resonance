@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     protected void Start()
     {
         tileManager = TileManager.Instance;
-        tileManager.SetTileData(pos.X, pos.Y, playerTileColor);
+        if (playerTileColor != TileColor.None)
+            tileManager.SetTileData(pos.X, pos.Y, playerTileColor);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
@@ -42,10 +43,10 @@ public class Player : MonoBehaviour
         }
 
         // Move camera position to player
-        /*
+        
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
-        */
+        
     }
 
     public bool OnTurn(int x, int y)
@@ -66,15 +67,16 @@ public class Player : MonoBehaviour
 
         pos.X = x;
         pos.Y = y;
-        tileManager.SetTileDataAndFill(x, y, playerTileColor);
-
+        
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
         if (foundOrb != null)
         {
             playerTileColor = foundOrb.Color;
-            Destroy(foundOrb.gameObject);
         }
+        
+        if ((playerTileColor != TileColor.None) && (foundOrb == null))
+            tileManager.SetTileDataAndFill(x, y, playerTileColor);
 
         return true;
     }

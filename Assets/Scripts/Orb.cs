@@ -4,6 +4,7 @@
 public class Orb : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private TileManager tileManager;
 
     [SerializeField]
     private TileColor color;
@@ -27,11 +28,13 @@ public class Orb : MonoBehaviour
     {
         pos = GetComponent<Position>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        tileManager = TileManager.Instance;;
     }
 
     protected void Start()
     {
         GameStateManager.Instance.AddOrb(this);
+        tileManager.SetTileDataAndFill(pos.X, pos.Y, Color);
     }
 
     protected void OnDestroy()

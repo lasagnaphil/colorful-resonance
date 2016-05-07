@@ -49,7 +49,7 @@ MonoBehaviour:
   tempPos:
     x: 0
     y: 0
-  playerTileColor: 1
+  playerTileColor: 6
   MaxHealth: 3
   Health: 3
 --- !u!114 &11414762

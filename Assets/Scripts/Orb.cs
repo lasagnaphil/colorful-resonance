@@ -34,7 +34,7 @@ public class Orb : MonoBehaviour
     protected void Start()
     {
         GameStateManager.Instance.AddOrb(this);
-        tileManager.SetTileDataAndFill(pos.X, pos.Y, Color);
+        tileManager.SetTileColorAndFill(pos.X, pos.Y, Color);
     }
 
     protected void OnDestroy()

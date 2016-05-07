@@ -14,20 +14,11 @@ public class TileManager : Singleton<TileManager>
 
     public Tile tilePrefab;
 
-    //public Dictionary<TileData, Sprite> tileDict;
-
     private MapLoader mapLoader;
 
     protected void Awake()
     {
         mapLoader = GetComponent<MapLoader>();
-        // mapLoader.LoadMap(tiles, tilePrefab);
-    }
-
-    void Start()
-    {
-        // mapLoader.LoadMap(ref tiles, tilePrefab);
-        // mapLoader.LoadGameObjects();
     }
 
     public Tile GetTile(int x, int y)
@@ -40,9 +31,14 @@ public class TileManager : Singleton<TileManager>
         tiles[x, y].Data = data;
     }
 
-    public void SetTileData(int x, int y, TileColor color)
+    public void SetTileColor(int x, int y, TileColor color)
     {
         tiles[x, y].Data = new TileData(color, tiles[x, y].Data.type);
+    }
+
+    public void SetTileType(int x, int y, TileType type)
+    {
+        tiles[x, y].Data = new TileData(tiles[x, y].Data.color, type);
     }
 
     public void SetTileDataAndFill(int x, int y, TileData data)
@@ -51,13 +47,13 @@ public class TileManager : Singleton<TileManager>
         FillTilesUsingContours(x, y, data.color);
     }
 
-    public void SetTileDataAndFill(int x, int y, TileColor color)
+    public void SetTileColorAndFill(int x, int y, TileColor color)
     {
-        SetTileData(x, y, color);
+        SetTileColor(x, y, color);
         FillTilesUsingContours(x, y, color);
     }
 
-    public TileData GetTileType(int x, int y)
+    public TileData GetTileData(int x, int y)
     {
         return tiles[x, y].Data;
     }
@@ -65,6 +61,11 @@ public class TileManager : Singleton<TileManager>
     public TileColor GetTileColor(int x, int y)
     {
         return tiles[x, y].Data.color;
+    }
+
+    public TileType GetTileType(int x, int y)
+    {
+        return tiles[x, y].Data.type;
     }
 
     public void FindContours(int x, int y, TileColor playerTileColor, List<Vector2i> positions)
@@ -136,8 +137,8 @@ public class TileManager : Singleton<TileManager>
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
-                if (!tileMatrix[i, j])
-                    SetTileData(pRect.x1 + i, pRect.y1 + j, playerTileColor);
+                if (!tileMatrix[i, j] && GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall)
+                    SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
             }
         }
 

@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     {
         tileManager = TileManager.Instance;
         if (playerTileColor != TileColor.None)
-            tileManager.SetTileData(pos.X, pos.Y, playerTileColor);
+            tileManager.SetTileColor(pos.X, pos.Y, playerTileColor);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
@@ -54,8 +54,8 @@ public class Player : MonoBehaviour
         // Store the previous location
         prevPos = pos.GetVector2i();
 
-        if (tileManager.GetTileType(x, y).color == TileColor.None ||
-            tileManager.GetTileType(x, y).type == TileType.Wall)
+        if (tileManager.GetTileData(x, y).color == TileColor.None ||
+            tileManager.GetTileData(x, y).type == TileType.Wall)
             return false;
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         }
         
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
-            tileManager.SetTileDataAndFill(x, y, playerTileColor);
+            tileManager.SetTileColorAndFill(x, y, playerTileColor);
 
         return true;
     }

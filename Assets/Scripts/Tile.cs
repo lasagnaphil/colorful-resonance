@@ -16,12 +16,12 @@ public class TileData
 {
     public TileColor color;
     public TileType type;
-
+   
     public TileData() : this(TileColor.None, TileType.Normal) { }
     public TileData(TileColor color, TileType type)
     {
-        this.color = color;
         this.type = type;
+        this.color = color;
     }
 
     public override bool Equals(object obj)

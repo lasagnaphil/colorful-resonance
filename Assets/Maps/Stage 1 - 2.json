@@ -1,25 +1,25 @@
 {
   "name": "Stage 1 - 2",
-  "width": 6,
+  "width": 8,
   "height": 5,
-  "tiles": ["O O O O O O",
-            "O l l l l O",
-            "O l l l l O",
-            "O l w l l O",
-            "O O O O O O"],
+  "tiles": ["O O O O O O O O",
+            "O l l l l l l O",
+            "O O O l l l l O",
+            "O O O l l l l O",
+            "O O O O O O O O"],
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },
   "monsters": [
     {
       "name" : "UpDown",
-      "position" : {"x": 3, "y": 2}
+      "position" : {"x": 4, "y": 2}
     }
   ],
   "orbs": [
     {
       "color" : "white",
-      "position" : {"x": 2, "y": 3}
+      "position" : {"x": 3, "y": 3}
     }
   ]
 }

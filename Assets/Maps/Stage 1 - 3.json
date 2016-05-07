@@ -3,19 +3,19 @@
   "width": 7,
   "height": 8,
   "tiles": ["O O O O O O O",
-            "O w w w O w O",
+            "O w O w w w O",
             "O w w w w w O",
             "O w w l w w O",
             "O w w w w w O",
             "O w w w w w O",
-            "O w O w w w O",
+            "O w w w O w O",
             "O O O O O O O"],
   "playerData": {
     "position" : {"x": 1, "y": 4}
   },
   "monsters": [
     {
-      "name" : "VShooter",
+      "name" : "HShooter",
       "position" : {"x": 4, "y": 5}
     },
     {

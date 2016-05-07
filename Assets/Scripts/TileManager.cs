@@ -177,8 +177,8 @@ public class TileManager : Singleton<TileManager>
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
                 if (!tileMatrix[i, j] &&
-                   (GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall ||
-                    GetTileData(pRect.x1 + i, pRect.y1 + j) == new TileData(TileColor.None, TileType.Normal)))
+                   (GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall &&
+                    GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
                 {
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
                 }

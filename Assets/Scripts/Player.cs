@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     protected void Start()
     {
         tileManager = TileManager.Instance;
-        tileManager.SetTileData(pos.X, pos.Y, playerTileColor);
+        if (playerTileColor != TileColor.None)
+            tileManager.SetTileColor(pos.X, pos.Y, playerTileColor);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
@@ -37,22 +38,24 @@ public class Player : MonoBehaviour
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
         {
-            // Store the previous location
-            prevPos = pos.GetVector2i();
+            // if moved, next turn
             GameStateManager.Instance.NextTurn();
         }
 
         // Move camera position to player
-        /*
+        
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
-        */
+        
     }
 
     public bool OnTurn(int x, int y)
     {
-        if (tileManager.GetTileType(x, y).color == TileColor.None ||
-            tileManager.GetTileType(x, y).type == TileType.Wall)
+        // Store the previous location
+        prevPos = pos.GetVector2i();
+
+        if (tileManager.GetTileData(x, y).color == TileColor.None ||
+            tileManager.GetTileData(x, y).type == TileType.Wall)
             return false;
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
@@ -64,7 +67,17 @@ public class Player : MonoBehaviour
 
         pos.X = x;
         pos.Y = y;
-        tileManager.SetTileDataAndFill(x, y, playerTileColor);
+        
+        // Consume the orb after the player paints the current color
+        Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
+        if (foundOrb != null)
+        {
+            playerTileColor = foundOrb.Color;
+        }
+        
+        if ((playerTileColor != TileColor.None) && (foundOrb == null))
+            tileManager.SetTileColorAndFill(x, y, playerTileColor);
+
         return true;
     }
 

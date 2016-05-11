@@ -20,3 +20,8 @@
 
 ## Monster data
 Specify the type of monster in field "name"
+
+## Orb data
+Specify the type of color in field "color"
+색깔 이름:
+"none", "black", "white", "red", "blue", "yellow", "green"

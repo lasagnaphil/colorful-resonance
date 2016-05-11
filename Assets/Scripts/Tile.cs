@@ -8,7 +8,7 @@ public enum TileColor
 
 public enum TileType
 {
-    Normal, Wall
+    Normal, Wall, None
 }
 
 [System.Serializable]
@@ -16,12 +16,12 @@ public class TileData
 {
     public TileColor color;
     public TileType type;
-
+   
     public TileData() : this(TileColor.None, TileType.Normal) { }
     public TileData(TileColor color, TileType type)
     {
-        this.color = color;
         this.type = type;
+        this.color = color;
     }
 
     public override bool Equals(object obj)
@@ -78,8 +78,8 @@ public class Tile : MonoBehaviour
         set
         {
             _data = value;
-            if (spriteRenderer != null && tileManager != null)
-                spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
+            if (spriteRenderer != null)
+                spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
         }
     }
 
@@ -101,7 +101,7 @@ public class Tile : MonoBehaviour
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-	    spriteRenderer.sprite = tileManager.tileSpriteDict.GetSprite(_data);
+	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
 	}
 
     void Update()

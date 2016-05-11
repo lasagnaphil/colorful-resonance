@@ -2,25 +2,31 @@
   "name": "Stage 1 - 3",
   "width": 7,
   "height": 8,
-  "tiles": [10, 10, 10, 10, 10, 10, 10,
-            10, 2,  10, 2,  2,  2,  10,
-            10, 2,  2,  2,  2,  2,  10,
-            10, 2,  2,  1,  2,  2,  10,
-            10, 2,  2,  2,  2,  2,  10,
-            10, 2,  2,  2,  2,  2,  10,
-            10, 2,  2,  2,  10, 2,  10,
-            10, 10, 10, 10, 10, 10, 10],
+  "tiles": ["O O O O O O O",
+            "O w O w w w O",
+            "O w w w w w O",
+            "O w w l w w O",
+            "O w w w w w O",
+            "O w w w w w O",
+            "O w w w O w O",
+            "O O O O O O O"],
   "playerData": {
     "position" : {"x": 1, "y": 4}
   },
   "monsters": [
     {
-      "name" : "VShooter",
+      "name" : "HShooter",
       "position" : {"x": 4, "y": 5}
     },
     {
       "name" : "HShooter",
       "position" : {"x": 2, "y": 2}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 4}
     }
   ]
 }

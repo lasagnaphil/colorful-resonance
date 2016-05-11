@@ -2,49 +2,24 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-
-[Serializable]
-public class TileSpriteTuple
-{
-    public TileData tileData;
-    public Sprite sprite;
-}
-
-[Serializable]
-public class TileSpriteDictionary
-{
-    [SerializeField]
-    private List<TileSpriteTuple> tupleList;
-
-    public Sprite GetSprite(TileData tileData)
-    {
-        return tupleList.Find(x => x.tileData == tileData).sprite;
-    }
-}
+using DG.Tweening;
 
 public class TileManager : Singleton<TileManager>
 {
-    private Tile[,] tiles;
+    [NonSerialized]
+    public Tile[,] tiles;
+    [NonSerialized]
     public int width;
+    [NonSerialized]
     public int height;
 
     public Tile tilePrefab;
-
-    //public Dictionary<TileData, Sprite> tileDict;
-    public TileSpriteDictionary tileSpriteDict;
 
     private MapLoader mapLoader;
 
     protected void Awake()
     {
         mapLoader = GetComponent<MapLoader>();
-        tiles = new Tile[width, height];
-        // mapLoader.LoadMap(tiles, tilePrefab);
-    }
-
-    void Start()
-    {
-        mapLoader.LoadMap(tiles, tilePrefab);
     }
 
     public Tile GetTile(int x, int y)
@@ -57,9 +32,14 @@ public class TileManager : Singleton<TileManager>
         tiles[x, y].Data = data;
     }
 
-    public void SetTileData(int x, int y, TileColor color)
+    public void SetTileColor(int x, int y, TileColor color)
     {
         tiles[x, y].Data = new TileData(color, tiles[x, y].Data.type);
+    }
+
+    public void SetTileType(int x, int y, TileType type)
+    {
+        tiles[x, y].Data = new TileData(tiles[x, y].Data.color, type);
     }
 
     public void SetTileDataAndFill(int x, int y, TileData data)
@@ -68,13 +48,13 @@ public class TileManager : Singleton<TileManager>
         FillTilesUsingContours(x, y, data.color);
     }
 
-    public void SetTileDataAndFill(int x, int y, TileColor color)
+    public void SetTileColorAndFill(int x, int y, TileColor color)
     {
-        SetTileData(x, y, color);
+        SetTileColor(x, y, color);
         FillTilesUsingContours(x, y, color);
     }
 
-    public TileData GetTileType(int x, int y)
+    public TileData GetTileData(int x, int y)
     {
         return tiles[x, y].Data;
     }
@@ -82,6 +62,11 @@ public class TileManager : Singleton<TileManager>
     public TileColor GetTileColor(int x, int y)
     {
         return tiles[x, y].Data.color;
+    }
+
+    public TileType GetTileType(int x, int y)
+    {
+        return tiles[x, y].Data.type;
     }
 
     public void FindContours(int x, int y, TileColor playerTileColor, List<Vector2i> positions)
@@ -102,6 +87,23 @@ public class TileManager : Singleton<TileManager>
         }
     }
 
+    public void FindContoursForBlankTile(int x, int y, List<Vector2i> positions, Func<int, int, bool> predicate)
+    {
+        if (x >= 0 && x < width && y >= 0 && y < height)
+        {
+            if (!GetTile(x, y).Marked && predicate(x, y))
+            {
+                positions.Add(new Vector2i(x, y));
+                GetTile(x, y).Marked = true;
+
+                FindContoursForBlankTile(x - 1, y, positions, predicate);
+                FindContoursForBlankTile(x + 1, y, positions, predicate);
+                FindContoursForBlankTile(x, y - 1, positions, predicate);
+                FindContoursForBlankTile(x, y + 1, positions, predicate);
+            }
+        }
+    }
+
     private void ResetMarkers()
     {
         for (int j = 0; j < height; j++)
@@ -119,6 +121,8 @@ public class TileManager : Singleton<TileManager>
 
         List<Vector2i> positions = new List<Vector2i>();
         FindContours(x, y, playerTileColor, positions);
+
+        ResetMarkers(); // reset the markers again, we are going to use the markers later
 
         IntRect pRect = new IntRect(
             positions.Min(pos => pos.x),
@@ -149,12 +153,35 @@ public class TileManager : Singleton<TileManager>
                 FillTileMatrix(tileMatrix, i, pRect.GetHeight() - 1, pRect);
         }
 
+        // Now if there is a blank tile (TileType.None) inside the area we want to fill,
+        // then mark the area and make sure it is not filled
+        List<Vector2i> fillPositionList = new List<Vector2i>();
         for (int j = 0; j < pRect.GetHeight(); j++)
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
-                if (!tileMatrix[i, j])
-                    SetTileData(pRect.x1 + i, pRect.y1 + j, playerTileColor);
+                if (!tileMatrix[i, j] && !GetTile(pRect.x1 + i, pRect.y1 + j).Marked)
+                {
+                    FindContoursForBlankTile(pRect.x1 + i, pRect.y1 + j, fillPositionList, (posX, posY) => !tileMatrix[posX - pRect.x1, posY - pRect.y1]);
+                }
+                if (fillPositionList.Exists(pos => GetTileType(pos.x, pos.y) == TileType.None))
+                {
+                    fillPositionList.ForEach(pos => tileMatrix[pos.x - pRect.x1, pos.y - pRect.y1] = true);
+                    fillPositionList.Clear();
+                }
+            }
+        }
+                
+        for (int j = 0; j < pRect.GetHeight(); j++)
+        {
+            for (int i = 0; i < pRect.GetWidth(); i++)
+            {
+                if (!tileMatrix[i, j] &&
+                   (GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall &&
+                    GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
+                {
+                    SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
+                }
             }
         }
 

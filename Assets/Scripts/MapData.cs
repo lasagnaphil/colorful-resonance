@@ -4,9 +4,10 @@ public struct MapData
     public string name;
     public int width;
     public int height;
-    public int[] tiles;
+    public string[] tiles;
     public PlayerData playerData;
     public MonsterData[] monsters;
+    public OrbData[] orbs;
 }
 
 [System.Serializable]
@@ -19,5 +20,12 @@ public struct PlayerData
 public struct MonsterData
 {
     public string name;
+    public Vector2i position;
+}
+
+[System.Serializable]
+public struct OrbData
+{
+    public string color;
     public Vector2i position;
 }

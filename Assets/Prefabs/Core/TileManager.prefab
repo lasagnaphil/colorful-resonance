@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 470848}
   - 114: {fileID: 11414048}
   - 114: {fileID: 11435928}
+  - 114: {fileID: 11400260}
   m_Layer: 0
   m_Name: TileManager
   m_TagString: Untagged
@@ -29,6 +30,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11400260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6d1c39711cb4340b4fdc24a9b8ff7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbSpriteDictionary:
+    orbSpriteTupleList:
+    - color: 0
+      orbSprite: {fileID: 21300000, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 1
+      orbSprite: {fileID: 21300002, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 2
+      orbSprite: {fileID: 21300004, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 3
+      orbSprite: {fileID: 21300006, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 4
+      orbSprite: {fileID: 21300008, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 5
+      orbSprite: {fileID: 21300010, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 6
+      orbSprite: {fileID: 0}
 --- !u!114 &11414048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,12 +72,19 @@ MonoBehaviour:
   mapToLoad: Tutorial
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
+  - {fileID: 4900000, guid: fb003ffba4201b94e9af0b1826c154b6, type: 3}
+  - {fileID: 4900000, guid: 0d57f9b7a81bfbe4cb9824059db56c98, type: 3}
+  - {fileID: 4900000, guid: 11c097adb0f6cd241b1b139c95a76b0f, type: 3}
+  - {fileID: 4900000, guid: 5a4f781746d30f248a0956e5da9c1b43, type: 3}
   monsterPrefabDict:
     monsterPrefabTupleList:
-    - name: SimpleEnemy
-      monsterPrefab: {fileID: 11475832, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
-    - name: ShootingEnemy
+    - name: Standing
+      monsterPrefab: {fileID: 11497280, guid: 3d2b8b64e9e60e74797ea992a7796155, type: 2}
+    - name: UpDown
+      monsterPrefab: {fileID: 11461312, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
+    - name: HShooter
       monsterPrefab: {fileID: 11406136, guid: 25bc67aa240bb2e4d87f3c2013eef59f, type: 2}
+  orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
 --- !u!114 &11435928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c0139642bba54448de4960cb6a2921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   tileSpriteDict:
     tupleList:
@@ -81,7 +114,7 @@ MonoBehaviour:
     - tileData:
         color: 2
         type: 0
-      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
+      sprite: {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
     - tileData:
         color: 3
         type: 0

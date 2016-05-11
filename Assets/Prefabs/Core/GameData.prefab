@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 468810}
+  - 114: {fileID: 11411678}
+  - 114: {fileID: 11412984}
+  m_Layer: 0
+  m_Name: GameData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468810
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.865295, y: 4.3177147, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11411678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6d1c39711cb4340b4fdc24a9b8ff7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileSpriteDictionary:
+    tupleList:
+    - tileData:
+        color: 6
+        type: 0
+      sprite: {fileID: 0}
+    - tileData:
+        color: 0
+        type: 0
+      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
+    - tileData:
+        color: 1
+        type: 0
+      sprite: {fileID: 21300000, guid: bcf48cad502664a03a7e301915d091a1, type: 3}
+    - tileData:
+        color: 2
+        type: 0
+      sprite: {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 3
+        type: 0
+      sprite: {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 4
+        type: 0
+      sprite: {fileID: 21300008, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 5
+        type: 0
+      sprite: {fileID: 21300010, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 6
+        type: 1
+      sprite: {fileID: 0}
+    - tileData:
+        color: 0
+        type: 1
+      sprite: {fileID: 21300012, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 1
+        type: 1
+      sprite: {fileID: 21300014, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 2
+        type: 1
+      sprite: {fileID: 21300016, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 3
+        type: 1
+      sprite: {fileID: 21300018, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 4
+        type: 1
+      sprite: {fileID: 21300020, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 5
+        type: 1
+      sprite: {fileID: 21300022, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+    - tileData:
+        color: 6
+        type: 2
+      sprite: {fileID: 0}
+  orbSpriteDictionary:
+    orbSpriteTupleList:
+    - color: 0
+      orbSprite: {fileID: 21300000, guid: 831c03abc4d4b4b558decb518e14778c, type: 3}
+    - color: 1
+      orbSprite: {fileID: 21300000, guid: 65d2f449ec93040ecab96d62f3f7f686, type: 3}
+    - color: 2
+      orbSprite: {fileID: 21300000, guid: 5b9218a2914a7457bb7e55dd947a5458, type: 3}
+    - color: 3
+      orbSprite: {fileID: 21300000, guid: ddc551b06cd7f4742a35a5fbc9e72200, type: 3}
+    - color: 4
+      orbSprite: {fileID: 21300008, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 5
+      orbSprite: {fileID: 21300010, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
+    - color: 6
+      orbSprite: {fileID: 0}
+--- !u!114 &11412984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e00a44a2a306242bcc7a64e00aa357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefabDictionary:
+    monsterPrefabTupleList:
+    - name: Standing
+      monsterPrefab: {fileID: 11497280, guid: 3d2b8b64e9e60e74797ea992a7796155, type: 2}
+    - name: UpDown
+      monsterPrefab: {fileID: 11461312, guid: a6581628aa90c0d44bd6fae9858ac155, type: 2}
+    - name: HShooter
+      monsterPrefab: {fileID: 11406136, guid: 25bc67aa240bb2e4d87f3c2013eef59f, type: 2}
+  tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
+  orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 156750}
+  m_IsPrefabParent: 1

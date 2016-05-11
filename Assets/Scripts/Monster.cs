@@ -9,7 +9,7 @@ public class Monster : MonoBehaviour
     public int MaxHealth;
     public int DamageToPlayer;
     public int DamageToSelf;
-    public TileColor immuneColor;
+    public TileColor monstersColor;
 
     public int Health;
 
@@ -31,8 +31,8 @@ public class Monster : MonoBehaviour
     // Override this!!!
     protected virtual void OnTurn()
     {
-        TileData currentTileData = TileManager.Instance.GetTileType(pos.X, pos.Y);
-        if (currentTileData.color != immuneColor && currentTileData.color != TileColor.None)
+        TileData currentTileData = TileManager.Instance.GetTileData(pos.X, pos.Y);
+        if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None)
         {
             Health -= 1;
         }
@@ -63,11 +63,9 @@ public class Monster : MonoBehaviour
         if (x == player.pos.X && y == player.pos.Y)
         {
             player.ApplyDamage(DamageToPlayer);
+            player.RevertTurn();
         }
-        else
-        {
-            pos.X = x;
-            pos.Y = y;
-        }
+        pos.X = x;
+        pos.Y = y;
     }
 }

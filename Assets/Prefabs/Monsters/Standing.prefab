@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 434282}
   - 212: {fileID: 21260666}
   - 114: {fileID: 11422456}
-  - 114: {fileID: 11475832}
+  - 114: {fileID: 11497280}
   m_Layer: 0
-  m_Name: SimpleEnemy
+  m_Name: Standing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 3
   y: 3
---- !u!114 &11475832
+--- !u!114 &11497280
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -56,9 +56,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 1
   DamageToPlayer: 1
-  DamageToSelf: 1
-  immuneColor: 1
-  isFacingUp: 0
+  DamageToSelf: 0
+  immuneColor: 0
+  Health: 0
+  pos: {fileID: 0}
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1871029813
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b7ded79b0324da40aacd157c7303992, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b7779a2ea4cd5a4bb38af69093437ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +96,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: immuneColor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

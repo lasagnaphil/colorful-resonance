@@ -181,6 +181,11 @@ public class TileManager : Singleton<TileManager>
                     GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
                 {
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
+                    if (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal)
+                    {
+                        SetTileType(pRect.x1 + i, pRect.y1 + j, TileType.Normal);
+                        GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
+                    }
                 }
             }
         }

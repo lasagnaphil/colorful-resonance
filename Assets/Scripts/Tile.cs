@@ -86,13 +86,25 @@ public class Tile : MonoBehaviour
     [HideInInspector]
     public Position pos;
 
-    [HideInInspector]
     public bool Marked { get; set; }
+
+    private bool activated;
+    public bool Activated
+    {
+        get { return activated; }
+        set
+        {
+            activated = value;
+            if (spriteRenderer != null)
+                spriteRenderer.color = activated ? Color.red : Color.white;
+        }
+    }
 
     // Always get the reference of Position on Awake() function
     protected void Awake()
     {
         pos = GetComponent<Position>();
+        Activated = false;
     }
 
 	void Start()
@@ -102,9 +114,21 @@ public class Tile : MonoBehaviour
 
 	    transform.position = new Vector3(pos.X, pos.Y);
 	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+
+	    GameStateManager.Instance.TileTurns += OnTurn;
 	}
 
-    void Update()
+    protected void OnTurn()
     {
+        if (Activated) Activated = false;
     }
+
+    protected void OnDestroy()
+    {
+        if (GameStateManager.Instance != null)
+        {
+            GameStateManager.Instance.TileTurns -= OnTurn;
+        }
+    }
+    
 }

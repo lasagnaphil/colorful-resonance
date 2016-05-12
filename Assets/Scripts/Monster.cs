@@ -31,8 +31,9 @@ public class Monster : MonoBehaviour
     // Override this!!!
     protected virtual void OnTurn()
     {
-        TileData currentTileData = TileManager.Instance.GetTileData(pos.X, pos.Y);
-        if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None)
+        Tile currentTile = TileManager.Instance.GetTile(pos.X, pos.Y);
+        TileData currentTileData = currentTile.Data;
+        if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None && currentTile.Activated)
         {
             Health -= 1;
         }

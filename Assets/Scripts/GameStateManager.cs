@@ -38,6 +38,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public Text turnNumberText;
     public Text playerHealthText;
 
+    public event Action TileTurns;
     public event Action PlayerTurn;
     public event Action MonsterTurns;
     public event Action MonsterResets;
@@ -68,6 +69,8 @@ public class GameStateManager : Singleton<GameStateManager>
         TurnNumber++;
 
         // In here : update all the players / monsters / objects
+        if (TileTurns != null)
+            TileTurns();
         if (PlayerTurn != null)
             PlayerTurn();
         if (ProjectileTurns != null)

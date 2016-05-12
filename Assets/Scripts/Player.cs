@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -49,20 +50,22 @@ public class Player : MonoBehaviour
         
     }
 
-    public bool OnTurn(int x, int y)
+    public Sequence OnTurn(int x, int y)
     {
+        Sequence sequence = DOTween.Sequence();
+
         // Store the previous location
         prevPos = pos.GetVector2i();
 
         if (tileManager.GetTileData(x, y).color == TileColor.None ||
             tileManager.GetTileData(x, y).type == TileType.Wall)
-            return false;
+            return sequence;
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
         if (foundMonster != null)
         {
             ApplyDamage(foundMonster.DamageToPlayer);
-            return false;
+            return sequence;
         }
 
         pos.X = x;
@@ -78,7 +81,7 @@ public class Player : MonoBehaviour
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
             tileManager.SetTileColorAndFill(x, y, playerTileColor);
 
-        return true;
+        return sequence;
     }
 
     public void ApplyDamage(int damage)

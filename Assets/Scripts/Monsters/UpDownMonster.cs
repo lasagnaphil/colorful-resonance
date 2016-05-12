@@ -1,4 +1,6 @@
-﻿namespace Monsters
+﻿using DG.Tweening;
+
+namespace Monsters
 {
     public class UpDownMonster : Monster
     {
@@ -6,9 +8,10 @@
         public int moveCooldown = 2;
         int moveCount = 1;
         
-        protected override void OnTurn()
+        protected override Sequence OnTurn()
         {
-            base.OnTurn();
+            Sequence sequence = base.OnTurn();
+
             if (moveCount == moveCooldown)
             {
                 if (isFacingUp) Move(pos.X, pos.Y + 1);
@@ -18,6 +21,8 @@
                 moveCount = 0;    
             }
             moveCount++;
+
+            return sequence;
         }
     }
 }

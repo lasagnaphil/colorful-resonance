@@ -1,10 +1,13 @@
-﻿namespace Monsters
+﻿using DG.Tweening;
+
+namespace Monsters
 {
     public class StandingMonster : Monster
     {
-        protected override void OnTurn()
+        protected override Sequence OnTurn()
         {
-            base.OnTurn();
+            Sequence sequence = base.OnTurn();
+            return sequence;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 using Utils;
 
 [RequireComponent(typeof(Position))]
@@ -21,8 +22,10 @@ public class Projectile : MonoBehaviour
         GameStateManager.Instance.ProjectileTurns += OnTurn;
     }
 
-    protected virtual void OnTurn()
+    protected virtual Sequence OnTurn()
     {
+        Sequence sequence = DOTween.Sequence();
+
         // Store the previous location
         prevPos = pos.GetVector2i();
 
@@ -44,6 +47,8 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        return sequence;
     }
 
     protected void OnDestroy()

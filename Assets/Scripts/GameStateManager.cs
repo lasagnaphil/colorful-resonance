@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using MonsterLove.StateMachine;
 using UnityEngine.UI;
 using Utils;
@@ -39,10 +40,10 @@ public class GameStateManager : Singleton<GameStateManager>
     public Text playerHealthText;
 
     public event Action TileTurns;
-    public event Action PlayerTurn;
-    public event Action MonsterTurns;
+    public event Func<Sequence> PlayerTurn;
+    public event Func<Sequence> MonsterTurns;
     public event Action MonsterResets;
-    public event Action ProjectileTurns;
+    public event Func<Sequence> ProjectileTurns;
 
     protected void Awake()
     {

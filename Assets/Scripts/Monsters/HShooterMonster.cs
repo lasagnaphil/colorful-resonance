@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 using Utils;
 
 public class HShooterMonster: Monster
@@ -11,9 +12,10 @@ public class HShooterMonster: Monster
     private int shootTimer = 0;
     public int ShootInterval;
 
-    protected override void OnTurn()
+    protected override Sequence OnTurn()
     {
-        base.OnTurn();
+        Sequence sequence = base.OnTurn();
+
         shootTimer++;
 
         if (shootTimer == ShootInterval)
@@ -32,5 +34,7 @@ public class HShooterMonster: Monster
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+
+        return sequence;
     }
 }

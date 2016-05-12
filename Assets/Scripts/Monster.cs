@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using UnityEngine;
 
 // Base monster class. Inherit from this when creating new monsters.
@@ -29,8 +30,10 @@ public class Monster : MonoBehaviour
     }
 
     // Override this!!!
-    protected virtual void OnTurn()
+    protected virtual Sequence OnTurn()
     {
+        Sequence sequence = DOTween.Sequence();
+
         Tile currentTile = TileManager.Instance.GetTile(pos.X, pos.Y);
         TileData currentTileData = currentTile.Data;
         if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None && currentTile.Activated)
@@ -41,6 +44,8 @@ public class Monster : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        return sequence;
     }
 
     protected virtual void OnReset()
@@ -54,7 +59,7 @@ public class Monster : MonoBehaviour
         {
             GameStateManager.Instance.RemoveMonster(this);
             GameStateManager.Instance.MonsterTurns -= OnTurn;
-            GameStateManager.Instance.MonsterTurns -= OnReset;
+            GameStateManager.Instance.MonsterResets -= OnReset;
         }
     }
 

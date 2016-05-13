@@ -31,6 +31,9 @@ public class Player : MonoBehaviour
 
     protected void Update()
     {
+        if (Health == 0)
+            Destroy(gameObject);
+
         tempPos.x = pos.X; tempPos.y = pos.Y;
         if (Input.GetKey(KeyCode.Space))
         {
@@ -131,8 +134,8 @@ public class Player : MonoBehaviour
 
     public void ApplyDamage(int damage)
     {
-        Health -= damage;
-        // TODO: if health is zero or below then die
+        if (Health > 0) Health -= damage;
+        else Debug.Log("Error!! Health is NEGATIVE!!");        
     }
 
     public void RevertTurn()

@@ -63,7 +63,7 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void Move(int x, int y)
+    public void CheckForPlayer(int x, int y)
     {
         var player = GameStateManager.Instance.player;
         if (x == player.pos.X && y == player.pos.Y)
@@ -71,7 +71,17 @@ public class Monster : MonoBehaviour
             player.ApplyDamage(DamageToPlayer);
             player.RevertTurn();
         }
+    }
+    public void Move(int x, int y)
+    {
+        CheckForPlayer(x, y);
         pos.X = x;
         pos.Y = y;
+    }
+
+    public Tween SequencedMove(int x, int y)
+    {
+        CheckForPlayer(x, y);
+        return pos.AnimatedMove(x, y, 0.2f);
     }
 }

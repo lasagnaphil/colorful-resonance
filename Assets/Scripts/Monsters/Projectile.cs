@@ -30,7 +30,8 @@ public class Projectile : MonoBehaviour
         prevPos = pos.GetVector2i();
 
         // Move the projectile based on the position
-        pos.Add(DirectionHelper.ToVector2i(MovingDirection));
+        var moveDir = DirectionHelper.ToVector2i(MovingDirection);
+        sequence.Append(pos.AnimatedMove(pos.X + moveDir.x, pos.Y + moveDir.y, 0.2f));
 
         // If the position of the projectile is in the player's location
         // then apply damage to player

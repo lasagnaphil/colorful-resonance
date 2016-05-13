@@ -32,16 +32,39 @@ public class Player : MonoBehaviour
     protected void Update()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPos.x--;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x++;
-        if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y++;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y--;
         if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPos.x = tempPos.x - 2;
-            if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x = tempPos.x + 2;
-            if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y = tempPos.y + 2;
-            if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y = tempPos.y - 2;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                tempPos.x = tempPos.x - 3;
+                if (!(PositionCheck()))
+                    tempPos.x = tempPos.x + 3;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                tempPos.x = tempPos.x + 3;
+                if (!(PositionCheck()))
+                    tempPos.x = tempPos.x - 3;
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                tempPos.x = tempPos.y + 3;
+                if (!(PositionCheck()))
+                    tempPos.y = tempPos.y - 3;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                tempPos.x = tempPos.y - 3;
+                if (!(PositionCheck()))
+                    tempPos.y = tempPos.y + 3;
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPos.x--;
+            if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x++;
+            if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y++;
+            if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y--;
         }
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
@@ -100,5 +123,12 @@ public class Player : MonoBehaviour
     {
         pos.X = prevPos.x;
         pos.Y = prevPos.y;
+    }
+
+    private bool PositionCheck()
+    {
+        if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
+            return false;
+        else return true;
     }
 }

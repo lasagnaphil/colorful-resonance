@@ -247,7 +247,7 @@ Prefab:
       objectReference: {fileID: 343368824}
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: mapToLoad
-      value: Stage 1 - 1
+      value: Tutorial
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}

@@ -56,11 +56,15 @@ public class TileManager : Singleton<TileManager>
 
     public TileData GetTileData(int x, int y)
     {
+        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+            return new TileData(TileColor.None, TileType.None);
         return tiles[x, y].Data;
     }
 
     public TileColor GetTileColor(int x, int y)
     {
+        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+            return TileColor.None;
         return tiles[x, y].Data.color;
     }
 

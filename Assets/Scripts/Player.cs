@@ -48,13 +48,13 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                tempPos.x = tempPos.y + 3;
+                tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                tempPos.x = tempPos.y - 3;
+                tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y + 3;
             }

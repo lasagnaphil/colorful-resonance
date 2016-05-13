@@ -36,6 +36,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x++;
         if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y++;
         if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y--;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPos.x = tempPos.x - 2;
+            if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x = tempPos.x + 2;
+            if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y = tempPos.y + 2;
+            if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y = tempPos.y - 2;
+        }
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
         {

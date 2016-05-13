@@ -61,10 +61,26 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow)) tempPos.x--;
-            if (Input.GetKeyDown(KeyCode.RightArrow)) tempPos.x++;
-            if (Input.GetKeyDown(KeyCode.UpArrow)) tempPos.y++;
-            if (Input.GetKeyDown(KeyCode.DownArrow)) tempPos.y--;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                tempPos.x--;
+                if (!(PositionCheck())) tempPos.x++;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                tempPos.x++;
+                if (!(PositionCheck())) tempPos.x--;
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                tempPos.y++;
+                if (!(PositionCheck())) tempPos.y--;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                tempPos.y--;
+                if (!(PositionCheck())) tempPos.y++;
+            }
         }
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)

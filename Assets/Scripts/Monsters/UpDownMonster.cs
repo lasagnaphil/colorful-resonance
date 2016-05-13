@@ -14,8 +14,8 @@ namespace Monsters
 
             if (moveCount == moveCooldown)
             {
-                if (isFacingUp) Move(pos.X, pos.Y + 1);
-                else Move(pos.X, pos.Y - 1);
+                if (isFacingUp) sequence.Append(pos.AnimatedMove(pos.X, pos.Y + 1, 0.2f));
+                else sequence.Append(pos.AnimatedMove(pos.X, pos.Y - 1, 0.2f));
                 isFacingUp = !isFacingUp;
                 
                 moveCount = 0;    

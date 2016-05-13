@@ -3,12 +3,17 @@ using System.Collections;
 using DG.Tweening;
 using Utils;
 
+public enum ProjectileType
+{
+    Normal, GoThrough
+}
 [RequireComponent(typeof(Position))]
 public class Projectile : MonoBehaviour
 {
     public int Duration; // if duration is -1 then never dies
     public int Damage;
     public Direction MovingDirection;
+    public ProjectileType Type;
 
     protected Position pos;
     protected Vector2i prevPos;
@@ -30,7 +35,8 @@ public class Projectile : MonoBehaviour
         prevPos = pos.GetVector2i();
 
         // Move the projectile based on the position
-        pos.Add(DirectionHelper.ToVector2i(MovingDirection));
+        var moveDir = DirectionHelper.ToVector2i(MovingDirection);
+        sequence.Append(pos.AnimatedMove(pos.X + moveDir.x, pos.Y + moveDir.y, 0.2f));
 
         // If the position of the projectile is in the player's location
         // then apply damage to player
@@ -39,6 +45,18 @@ public class Projectile : MonoBehaviour
              player.prevPos.x == pos.X && player.prevPos.y == pos.Y))
         {
             player.ApplyDamage(Damage);
+            if (Type != ProjectileType.GoThrough)
+            {
+                Destroy(this.gameObject);
+                return sequence;
+            }
+        }
+
+        if (TileManager.Instance.GetTileType(pos.X, pos.Y) == TileType.Wall &&
+            Type != ProjectileType.GoThrough)
+        {
+            Destroy(this.gameObject);
+            return sequence;
         }
 
         // If the projectile is out of bounds, then destroy it

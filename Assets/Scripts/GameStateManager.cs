@@ -69,15 +69,14 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         TurnNumber++;
 
-        // In here : update all the players / monsters / objects
-        if (TileTurns != null)
-            TileTurns();
-        if (PlayerTurn != null)
-            PlayerTurn();
-        if (ProjectileTurns != null)
-            ProjectileTurns();
-        if (MonsterTurns != null)
-            MonsterTurns();
+        Sequence sequence = DOTween.Sequence();
+
+        if (TileTurns != null) sequence.AppendCallback(() => TileTurns());
+        sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
+        sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
+        sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
+
+        sequence.Play();
     }
 
     public void ResetTurn()

@@ -68,8 +68,7 @@ public class Player : MonoBehaviour
             return sequence;
         }
 
-        pos.X = x;
-        pos.Y = y;
+        sequence.Append(pos.AnimatedMove(x, y, 0.2f));
         
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);

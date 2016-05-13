@@ -7,4 +7,6 @@ public struct Vector2i
         this.x = x;
         this.y = y;
     }
+
+    public Vector2i(Vector2i vec) : this(vec.x, vec.y) { }
 }

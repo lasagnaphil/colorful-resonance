@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 // 2d integer vector component
 // Use this instead of Unity's Transform to move inside fixed 2D grid
@@ -53,6 +54,18 @@ public class Position : MonoBehaviour
     {
         X = x;
         Y = y;
+    }
+
+    public Tween AnimatedMove(int x, int y, float duration)
+    {
+        this.x = x;
+        this.y = y;
+        return transform.DOMove(GetVector3(), duration);
+    }
+
+    public Tween AnimatedMove(Vector2i vec, float duration)
+    {
+        return AnimatedMove(vec.x, vec.y, duration);
     }
 
     public void Set(Vector2i vec)

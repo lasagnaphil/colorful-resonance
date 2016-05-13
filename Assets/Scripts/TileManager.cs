@@ -66,6 +66,8 @@ public class TileManager : Singleton<TileManager>
 
     public TileType GetTileType(int x, int y)
     {
+        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+            return TileType.None;
         return tiles[x, y].Data.type;
     }
 

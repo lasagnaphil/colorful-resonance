@@ -5,7 +5,7 @@
   "tiles": [". O O O O O O O O .",
             "O O w w w L L w O O",
             "O w w w w w w w w O",
-            "O w w l w w w w w O",
+            "O w w w w w w w w O",
             "O w w w w w w w w O",
             "O O w w w L L w O O",
             ". O O O O O O O O ."],
@@ -26,5 +26,10 @@
       "position" : {"x": 6, "y": 4}
     }
   ],
-  "orbs": []
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 3}
+    }
+  ]
 }

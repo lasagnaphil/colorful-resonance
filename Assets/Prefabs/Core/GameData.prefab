@@ -49,11 +49,11 @@ MonoBehaviour:
     - tileData:
         color: 0
         type: 0
-      sprite: {fileID: 21300000, guid: 511e62ee1d2234e09b4a6132b7ed49ec, type: 3}
+      sprite: {fileID: 21300000, guid: c10d960226d814620ab546c9bb1dbf3e, type: 3}
     - tileData:
         color: 1
         type: 0
-      sprite: {fileID: 21300000, guid: bcf48cad502664a03a7e301915d091a1, type: 3}
+      sprite: {fileID: 21300000, guid: d8a5feef7a6544c499c5970686c41009, type: 3}
     - tileData:
         color: 2
         type: 0
@@ -77,11 +77,11 @@ MonoBehaviour:
     - tileData:
         color: 0
         type: 1
-      sprite: {fileID: 21300012, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 4649581e45a4f4d0d99fd0bef31f41e2, type: 3}
     - tileData:
         color: 1
         type: 1
-      sprite: {fileID: 21300014, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 24c8e9119a3b140d1bc35b8b8f568c14, type: 3}
     - tileData:
         color: 2
         type: 1

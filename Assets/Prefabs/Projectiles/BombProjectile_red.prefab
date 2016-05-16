@@ -70,6 +70,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5f33167b037b44dbc717dae2a03131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Duration: 0
+  Damage: 0
+  MovingDirection: 0
+  Type: 0
+  BombColor: 4
+  damage: 2
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1

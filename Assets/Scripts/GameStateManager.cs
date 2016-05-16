@@ -90,7 +90,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         sequence.Play();
 
-        if (player.Health == 0)
+        if (player.Health <= 0)
         {
             fsm.ChangeState(GameState.Lose);
         }

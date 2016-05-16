@@ -3,7 +3,7 @@ using System.Collections;
 using Utils;
 using DG.Tweening;
 
-public class Bomb : Projectile
+public class BombProjectile : Projectile
 {
     public TileColor BombColor;
     public int damage;

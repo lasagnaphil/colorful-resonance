@@ -161,8 +161,9 @@ public class GameStateManager : Singleton<GameStateManager>
         projectiles.Clear();
         orbs.Clear();
 
-        // reset player health and turn number
+        // reset player and turn number
         player.Health = player.MaxHealth;
+        player.playerTileColor = TileColor.None;
         TurnNumber = 0;
 
         // load the map

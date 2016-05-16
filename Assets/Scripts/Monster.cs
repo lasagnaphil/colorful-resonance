@@ -53,7 +53,7 @@ public class Monster : MonoBehaviour
         Health = MaxHealth;
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (GameStateManager.Instance != null)
         {

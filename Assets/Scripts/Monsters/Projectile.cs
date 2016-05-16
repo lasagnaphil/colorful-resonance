@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour
     {
         pos = GetComponent<Position>();
         player = GameStateManager.Instance.player;
+        GameStateManager.Instance.AddProjectile(this);
         GameStateManager.Instance.ProjectileTurns += OnTurn;
     }
 

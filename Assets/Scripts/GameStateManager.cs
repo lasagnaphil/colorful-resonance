@@ -77,6 +77,11 @@ public class GameStateManager : Singleton<GameStateManager>
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
 
         sequence.Play();
+
+        if (player.Health == 0)
+        {
+            fsm.ChangeState(GameState.Lose);
+        }
     }
 
     public void ResetTurn()
@@ -137,6 +142,30 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Load_Enter()
     {
         Debug.Log("Loading Game");
+        // if there are gameobjects left from previous play
+        // then we destroy it first
+        for (int i = 0; i < tileManager.width; i++)
+        {
+            for (int j = 0; j < tileManager.height; j++)
+            {
+                Destroy(TileManager.Instance.tiles[i,j].gameObject);
+
+            }
+        }
+        
+        monsters.ForEach(m => Destroy(m.gameObject));
+        projectiles.ForEach(p => Destroy(p.gameObject));
+        orbs.ForEach(o => Destroy(o.gameObject));
+
+        monsters.Clear();
+        projectiles.Clear();
+        orbs.Clear();
+
+        // reset player health and turn number
+        player.Health = player.MaxHealth;
+        TurnNumber = 0;
+
+        // load the map
         mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab);
         fsm.ChangeState(GameState.Play);
     }
@@ -149,27 +178,34 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private void Play_Update()
     {
+        player.GameUpdate();
+
         turnNumberText.text = "Turn number : " + TurnNumber;
         playerHealthText.text = "Player health : " + player.Health + " / " + player.MaxHealth;
     }
 
     private void Play_Exit()
     {
-        Debug.Log("Game Over");
     }
 
     // show lose state text (with the option to restart / go back main menu)
     private void Lose_Enter()
     {
+        Debug.Log("Player Lose : Press R to restart");
     }
 
     private void Lose_Update()
     {
         // if restart button is pressed then call ResetTurn() and go back to Play State
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            fsm.ChangeState(GameState.Load);
+        }
     }
 
     private void Win_Enter()
     {
+        Debug.Log("Player Win");
     }
 
     private void Win_Update()

@@ -29,11 +29,8 @@ public class Player : MonoBehaviour
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
-    protected void Update()
+    public void GameUpdate()
     {
-        if (Health == 0)
-            Destroy(gameObject);
-
         tempPos.x = pos.X; tempPos.y = pos.Y;
         if (Input.GetKey(KeyCode.Space))
         {

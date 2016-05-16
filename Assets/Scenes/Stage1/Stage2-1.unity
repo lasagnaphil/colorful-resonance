@@ -217,6 +217,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 343368824}
     - target: {fileID: 11479270, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: player
       value: 
@@ -241,14 +245,6 @@ Prefab:
       propertyPath: playerHealthText
       value: 
       objectReference: {fileID: 183318896}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 343368824}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapToLoad
-      value: Stage 1 - 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -303,10 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

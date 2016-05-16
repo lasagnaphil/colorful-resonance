@@ -18,8 +18,11 @@ public class HomingMissileMonster : Monster
     {
         base.OnDestroy();
 
-        Direction moveDir = Direction.Left;
-        GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);
+        if (GameStateManager.Instance.isLoading)
+        {
+            Direction moveDir = Direction.Left;
+            GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);
+        }
     }
 }
 

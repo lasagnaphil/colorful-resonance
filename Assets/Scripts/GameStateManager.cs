@@ -20,6 +20,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public int TurnNumber { get; private set; }
 
     private StateMachine<GameState> fsm;
+    public bool isLoading = false;
+
     private List<Monster> monsters = new List<Monster>();
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
@@ -63,6 +65,11 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             fsm.ChangeState(GameState.Load);
         }
+    }
+
+    public GameState GetCurrentState()
+    {
+        return fsm.State;
     }
 
     public void NextTurn()
@@ -142,6 +149,8 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Load_Enter()
     {
         Debug.Log("Loading Game");
+        isLoading = true;
+
         // if there are gameobjects left from previous play
         // then we destroy it first
         for (int i = 0; i < tileManager.width; i++)
@@ -169,6 +178,11 @@ public class GameStateManager : Singleton<GameStateManager>
         // load the map
         mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab);
         fsm.ChangeState(GameState.Play);
+    }
+
+    private void Load_Exit()
+    {
+        isLoading = false;
     }
 
     private void Play_Enter()

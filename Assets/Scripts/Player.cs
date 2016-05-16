@@ -36,12 +36,14 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                TurnLeft();
                 tempPos.x = tempPos.x - 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                TurnRight();
                 tempPos.x = tempPos.x + 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
@@ -63,11 +65,13 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                TurnLeft();
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                TurnRight();
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
             }
@@ -147,5 +151,15 @@ public class Player : MonoBehaviour
         if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
             return false;
         else return true;
+    }
+    
+    void TurnLeft()
+    {
+        GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+    }
+    
+    void TurnRight()
+    {
+        GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
     }
 }

@@ -17,8 +17,8 @@ public class Bomb : Projectile
     {
         Sequence sequence = DOTween.Sequence();
         base.OnTurn();
-        deltaX = player.GetComponent<Position>().X - pos.X;
-        deltaY = player.GetComponent<Position>().Y - pos.Y;
+        deltaX = player.pos.X - pos.X;
+        deltaY = player.pos.Y - pos.Y;
 
         TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
         TileManager.Instance.SetTileColor(pos.X + 1, pos.Y, BombColor);
@@ -30,7 +30,7 @@ public class Bomb : Projectile
         TileManager.Instance.SetTileColor(pos.X + 1, pos.Y - 1, BombColor);
         TileManager.Instance.SetTileColor(pos.X - 1, pos.Y - 1, BombColor);
 
-        if (Mathf.Abs(deltaX) <= 1 || Mathf.Abs(deltaY) <= 1)
+        if (Mathf.Abs(deltaX) <= 1 && Mathf.Abs(deltaY) <= 1)
         {
             player.ApplyDamage(damage);
         }

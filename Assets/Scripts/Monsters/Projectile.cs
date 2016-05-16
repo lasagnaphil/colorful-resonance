@@ -38,6 +38,11 @@ public class Projectile : MonoBehaviour
         var moveDir = DirectionHelper.ToVector2i(MovingDirection);
         sequence.Append(pos.AnimatedMove(pos.X + moveDir.x, pos.Y + moveDir.y, 0.2f));
 
+        return CheckAndDestroy(sequence);
+    }
+
+    Sequence CheckAndDestroy(Sequence sequence)
+    {
         // If the position of the projectile is in the player's location
         // then apply damage to player
         if ((player.pos.X == pos.X && player.pos.Y == pos.Y) ||
@@ -67,6 +72,7 @@ public class Projectile : MonoBehaviour
         }
 
         return sequence;
+        
     }
 
     protected void OnDestroy()

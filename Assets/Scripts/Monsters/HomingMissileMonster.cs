@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using Utils;
 
-public class HomingMissileMonster : MonoBehaviour {
+public class HomingMissileMonster : Monster
+{
+   public Projectile HomingProjectile;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    protected override Sequence OnTurn()
+    {
+        Sequence sequence = base.OnTurn();
+
+        return sequence;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+
+        Direction moveDir = Direction.Left;
+        GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);
+    }
 }
+

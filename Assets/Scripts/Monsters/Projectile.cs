@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
         return CheckAndDestroy(sequence);
     }
 
-    Sequence CheckAndDestroy(Sequence sequence)
+    protected Sequence CheckAndDestroy(Sequence sequence)
     {
         // If the position of the projectile is in the player's location
         // then apply damage to player

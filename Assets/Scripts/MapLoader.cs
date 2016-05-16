@@ -59,6 +59,11 @@ public class MapLoader : MonoBehaviour
 
     public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
     {
+        if (!mapDataList.Exists(x => x.name == mapToLoad))
+        {
+            Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
+            return;
+        }
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
         
         // Get the width and height information of the map

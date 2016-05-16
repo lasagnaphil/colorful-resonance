@@ -4,7 +4,7 @@
   "height": 7,
   "tiles": [". O O O O O O O O .",
             "O O w w w w w w O O",
-            "O w w w r r r r w O",
+            "O w w w w w w w w O",
             "O b b b w w w w w O",
             "O w w w y y y y w O",
             "O O w w w w w w O O",
@@ -18,7 +18,7 @@
       "position" : {"x": 6, "y": 2}
     },
     {
-      "name" : "HomingMissile",
+      "name" : "BoomBoom",
       "position" : {"x": 6, "y": 4}
     }
   ],

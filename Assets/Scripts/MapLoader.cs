@@ -93,6 +93,7 @@ public class MapLoader : MonoBehaviour
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;
             tiles[x, y].transform.parent = this.transform;
+            tiles[x, y].GetComponent<SpriteRenderer>().sortingOrder = i;
             TileData data = tileDataDictionary[tileChars[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }

@@ -14,7 +14,7 @@
   },
   "monsters": [
     {
-      "name" : "HomingMissile",
+      "name" : "PaintWall",
       "position" : {"x": 6, "y": 2}
     },
     {

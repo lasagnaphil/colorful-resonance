@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 496142}
   - 212: {fileID: 21207512}
   - 114: {fileID: 11400748}
-  - 114: {fileID: 11403520}
   - 114: {fileID: 11471230}
   m_Layer: 0
   m_Name: BombProjectile_ToYellow
@@ -44,21 +43,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
---- !u!114 &11403520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80880e25597b5774b825903801857bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Duration: -1
-  Damage: 2
-  MovingDirection: 0
-  Type: 0
 --- !u!114 &11471230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5f33167b037b44dbc717dae2a03131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 0
-  Damage: 0
+  Duration: -1
+  Damage: 2
   MovingDirection: 0
   Type: 0
   BombColor: 4

@@ -6,7 +6,6 @@ using DG.Tweening;
 public class BombProjectile : Projectile
 {
     public TileColor BombColor;
-    public int damage;
 
     private int turn = 0;
 
@@ -32,7 +31,7 @@ public class BombProjectile : Projectile
 
         if (Mathf.Abs(deltaX) <= 1 && Mathf.Abs(deltaY) <= 1)
         {
-            player.ApplyDamage(damage);
+            player.ApplyDamage(Damage);
         }
 
         Destroy(gameObject);

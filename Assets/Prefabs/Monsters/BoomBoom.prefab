@@ -60,7 +60,7 @@ MonoBehaviour:
   monstersColor: 2
   Health: 0
   pos: {fileID: 0}
-  BombProjectile: {fileID: 11403520, guid: 24a3868b6cddbf244a821a0e37b2bc67, type: 2}
+  BombProjectile: {fileID: 11471230, guid: 24a3868b6cddbf244a821a0e37b2bc67, type: 2}
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

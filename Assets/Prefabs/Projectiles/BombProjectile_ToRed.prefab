@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11403520}
   - 114: {fileID: 11471230}
   m_Layer: 0
-  m_Name: BombProjectile_red
+  m_Name: BombProjectile_ToRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   Damage: 0
   MovingDirection: 0
   Type: 0
-  BombColor: 4
+  BombColor: 2
   damage: 2
 --- !u!212 &21207512
 SpriteRenderer:

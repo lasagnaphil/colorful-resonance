@@ -139,6 +139,8 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11406136, guid: 25bc67aa240bb2e4d87f3c2013eef59f, type: 2}
     - name: HomingMissile
       monsterPrefab: {fileID: 11469214, guid: f27fe6dc0922bac4491212adc2c08ed1, type: 2}
+    - name: BoomBoom
+      monsterPrefab: {fileID: 11451626, guid: 5f9ab1849cf166c4cb644013cbbc8b33, type: 2}
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
 --- !u!1001 &100100000

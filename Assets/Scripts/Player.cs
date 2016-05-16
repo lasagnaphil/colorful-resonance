@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Player : MonoBehaviour
     public TileColor playerTileColor;
     public int MaxHealth;
     public int Health;
-
+    
     protected void Awake()
     {
         pos = GetComponent<Position>();
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || GetBlinkButtonState())
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
@@ -63,24 +64,24 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || GetDirectionSetBySwipe() == "Left")
             {
                 TurnLeft();
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
             {
                 TurnRight();
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
             {
                 tempPos.y++;
                 if (!(PositionCheck())) tempPos.y--;
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
             {
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;
@@ -151,6 +152,22 @@ public class Player : MonoBehaviour
         if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
             return false;
         else return true;
+    }
+
+    bool GetBlinkButtonState()
+    {
+        if (FindObjectOfType<MobileInputManager>() == null)
+            return false;
+        
+        return FindObjectOfType<MobileInputManager>().isBlinkButtonClicked;
+    }
+
+    string GetDirectionSetBySwipe()
+    {
+        if (FindObjectOfType<MobileInputManager>() == null)
+            return "";
+        
+        return FindObjectOfType<MobileInputManager>().destDirection;
     }
     
     void TurnLeft()

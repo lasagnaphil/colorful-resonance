@@ -3,7 +3,7 @@ using System.Collections;
 using Utils;
 using DG.Tweening;
 
-public class HomingMissile : Projectile
+public class HomingMissileProjectile : Projectile
 {
     int deltaX;
     int deltaY;

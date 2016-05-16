@@ -5,7 +5,7 @@ using Utils;
 
 public class HomingMissileMonster : Monster
 {
-   public Projectile HomingProjectile;
+    public Projectile HomingProjectile;
 
     protected override Sequence OnTurn()
     {

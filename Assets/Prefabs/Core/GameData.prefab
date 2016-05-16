@@ -57,15 +57,15 @@ MonoBehaviour:
     - tileData:
         color: 2
         type: 0
-      sprite: {fileID: 21300004, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 7cc46385b2c8047b5a3b06d82fb5a666, type: 3}
     - tileData:
         color: 3
         type: 0
-      sprite: {fileID: 21300006, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 83d2eda702e6b4845ab86750a3aa348b, type: 3}
     - tileData:
         color: 4
         type: 0
-      sprite: {fileID: 21300008, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: bd9ccd78c1d2b4806b1a6c6cba79d33b, type: 3}
     - tileData:
         color: 5
         type: 0
@@ -85,15 +85,15 @@ MonoBehaviour:
     - tileData:
         color: 2
         type: 1
-      sprite: {fileID: 21300016, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: a82aa2a5e95f74936be72d70590d6cfb, type: 3}
     - tileData:
         color: 3
         type: 1
-      sprite: {fileID: 21300018, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: ba5b14eb3999e4215a8bdb3cba8c46bb, type: 3}
     - tileData:
         color: 4
         type: 1
-      sprite: {fileID: 21300020, guid: 6908c86af13725343a576f0dc59327c1, type: 3}
+      sprite: {fileID: 21300000, guid: 3b14fb7c0d1fe4923ad3250d8d3b4178, type: 3}
     - tileData:
         color: 5
         type: 1

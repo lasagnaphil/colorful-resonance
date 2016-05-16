@@ -44,7 +44,7 @@ MonoBehaviour:
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 0
-  monstersColor: 0
+  monstersColor: 2
   Health: 0
   pos: {fileID: 0}
   HomingProjectile: {fileID: 11487290, guid: 33e2e14de36a7fb4aa1f5bba3b879245, type: 2}

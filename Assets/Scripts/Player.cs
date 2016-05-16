@@ -43,19 +43,19 @@ public class Player : MonoBehaviour
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 tempPos.x = tempPos.x + 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
@@ -69,17 +69,17 @@ public class Player : MonoBehaviour
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
             }
-            if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 tempPos.y++;
                 if (!(PositionCheck())) tempPos.y--;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;

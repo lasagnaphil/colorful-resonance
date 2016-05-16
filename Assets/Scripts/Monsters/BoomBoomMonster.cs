@@ -3,9 +3,9 @@ using System.Collections;
 using DG.Tweening;
 using Utils;
 
-public class HomingMissileMonster : Monster
+public class BoomBoomMonster : Monster
 {
-    public Projectile HomingProjectile;
+    public Projectile BombProjectile;
 
     protected override Sequence OnTurn()
     {
@@ -18,11 +18,10 @@ public class HomingMissileMonster : Monster
     {
         base.OnDestroy();
 
-        if (GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading)
+        if (!GameStateManager.Instance.IsLoading)
         {
             Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);
+            GameStateManager.Instance.SpawnProjectile(BombProjectile, pos.X, pos.Y, moveDir);
         }
     }
 }
-

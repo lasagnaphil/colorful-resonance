@@ -59,6 +59,11 @@ public class MapLoader : MonoBehaviour
 
     public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
     {
+        if (!mapDataList.Exists(x => x.name == mapToLoad))
+        {
+            Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
+            return;
+        }
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
         
         // Get the width and height information of the map
@@ -88,6 +93,7 @@ public class MapLoader : MonoBehaviour
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;
             tiles[x, y].transform.parent = this.transform;
+            tiles[x, y].GetComponent<SpriteRenderer>().sortingOrder = i;
             TileData data = tileDataDictionary[tileChars[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }

@@ -1,0 +1,31 @@
+{
+  "name": "Stage 1 - 1 - EQ",
+  "width": 10,
+  "height": 7,
+  "tiles": [". O O O O O O O O .",
+            "O O w w w w w w O O",
+            "O w w w w w w w w O",
+            "O b b b w w w w w O",
+            "O w w w y y y y w O",
+            "O O w w w w w w O O",
+            ". O O O O O O O O ."],
+  "playerData": {
+    "position" : {"x": 1, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 6, "y": 2}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 6, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 3, "y": 3}
+    }
+  ]
+}

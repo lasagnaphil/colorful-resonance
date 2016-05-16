@@ -20,6 +20,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public int TurnNumber { get; private set; }
 
     private StateMachine<GameState> fsm;
+    public bool IsLoading = false;
+
     private List<Monster> monsters = new List<Monster>();
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
@@ -65,6 +67,16 @@ public class GameStateManager : Singleton<GameStateManager>
         }
     }
 
+    public GameState GetCurrentState()
+    {
+        return fsm.State;
+    }
+
+    public bool IsInStateTransition()
+    {
+        return fsm.IsInTransition;
+    }
+
     public void NextTurn()
     {
         TurnNumber++;
@@ -78,7 +90,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         sequence.Play();
 
-        if (player.Health == 0)
+        if (player.Health <= 0)
         {
             fsm.ChangeState(GameState.Lose);
         }
@@ -142,6 +154,8 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Load_Enter()
     {
         Debug.Log("Loading Game");
+        IsLoading = true;
+
         // if there are gameobjects left from previous play
         // then we destroy it first
         for (int i = 0; i < tileManager.width; i++)
@@ -153,9 +167,9 @@ public class GameStateManager : Singleton<GameStateManager>
             }
         }
         
-        monsters.ForEach(m => Destroy(m.gameObject));
-        projectiles.ForEach(p => Destroy(p.gameObject));
-        orbs.ForEach(o => Destroy(o.gameObject));
+        monsters.ForEach(m => DestroyImmediate(m.gameObject));
+        projectiles.ForEach(p => DestroyImmediate(p.gameObject));
+        orbs.ForEach(o => DestroyImmediate(o.gameObject));
 
         monsters.Clear();
         projectiles.Clear();
@@ -171,8 +185,13 @@ public class GameStateManager : Singleton<GameStateManager>
         fsm.ChangeState(GameState.Play);
     }
 
+    private void Load_Exit()
+    {
+    }
+
     private void Play_Enter()
     {
+        IsLoading = false;
         ResetTurn();
         Debug.Log("Game Start");
     }

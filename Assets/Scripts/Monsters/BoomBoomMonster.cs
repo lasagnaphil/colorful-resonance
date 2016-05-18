@@ -18,7 +18,7 @@ public class BoomBoomMonster : Monster
     {
         base.OnDestroy();
 
-        if (!GameStateManager.Instance.IsLoading)
+        if (CheckBeforeDestroy)
         {
             Direction moveDir = Direction.None;
             GameStateManager.Instance.SpawnProjectile(BombProjectile, pos.X, pos.Y, moveDir);

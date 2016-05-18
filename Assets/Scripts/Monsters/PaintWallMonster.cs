@@ -22,7 +22,7 @@ public class PaintWallMonster : Monster
     {
         base.OnDestroy();
         
-        if (!GameStateManager.Instance.IsLoading)
+        if (CheckBeforeDestroy)
         {
             GameObject player = GameObject.Find("Player");
             

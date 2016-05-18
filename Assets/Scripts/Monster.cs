@@ -16,6 +16,13 @@ public class Monster : MonoBehaviour
 
     public Position pos;
 
+    protected bool applicationIsQuitting = false;
+
+    protected bool CheckBeforeDestroy
+    {
+        get { return GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading && !applicationIsQuitting; }
+    }
+
     protected void Awake()
     {
         pos = GetComponent<Position>();
@@ -61,6 +68,11 @@ public class Monster : MonoBehaviour
             GameStateManager.Instance.MonsterTurns -= OnTurn;
             GameStateManager.Instance.MonsterResets -= OnReset;
         }
+    }
+
+    protected void OnApplicationQuit()
+    {
+        applicationIsQuitting = true;
     }
 
     public void CheckForPlayer(int x, int y)

@@ -83,7 +83,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         Sequence sequence = DOTween.Sequence();
 
-        if (TileTurns != null) sequence.AppendCallback(() => TileTurns());
+        if (TileTurns != null) TileTurns();
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));

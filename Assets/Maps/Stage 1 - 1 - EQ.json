@@ -3,11 +3,11 @@
   "width": 10,
   "height": 7,
   "tiles": [". O O O O O O O O .",
-            "O O w w w w w w O O",
-            "O w w w w w w w w O",
-            "O b b b w w w w w O",
-            "O w w w y y y y w O",
-            "O O w w w w w w O O",
+            "O O r r r r r r O O",
+            "O r r r r r r r r O",
+            "O r r r r r r r r O",
+            "O r r r r r r r r O",
+            "O O r r r r r r O O",
             ". O O O O O O O O ."],
   "playerData": {
     "position" : {"x": 1, "y": 3}

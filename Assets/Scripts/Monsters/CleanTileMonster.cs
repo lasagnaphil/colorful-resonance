@@ -23,23 +23,26 @@ public class CleanTileMonster : Monster
             return sequence;
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            deltaX = deltaX + 1;
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            deltaX = deltaX - 1;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-            deltaY = deltaY - 1;
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            deltaY = deltaY + 1;
-
         if (deltaX > 0)
+        {
             AnimatedMove(sequence, pos.X + 1, pos.Y);
+            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+        }
         else if (deltaX < 0)
+        {
             AnimatedMove(sequence, pos.X - 1, pos.Y);
+            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+        }
         else if (deltaY > 0)
+        {
             AnimatedMove(sequence, pos.X, pos.Y + 1);
+            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+        }
         else if (deltaY < 0)
+        {
             AnimatedMove(sequence, pos.X, pos.Y - 1);
+            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+        }
 
         return sequence;
     }

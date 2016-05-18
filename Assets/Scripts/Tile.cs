@@ -88,7 +88,7 @@ public class Tile : MonoBehaviour
 
     public bool Marked { get; set; }
 
-    private bool activated;
+    private bool activated = false;
     public bool Activated
     {
         get { return activated; }
@@ -104,7 +104,6 @@ public class Tile : MonoBehaviour
     protected void Awake()
     {
         pos = GetComponent<Position>();
-        Activated = false;
     }
 
 	void Start()

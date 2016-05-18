@@ -14,17 +14,17 @@
   },
   "monsters": [
     {
-      "name" : "PaintWall",
+      "name" : "CleanTile",
       "position" : {"x": 6, "y": 2}
     },
     {
-      "name" : "BoomBoom",
+      "name" : "CleanTile",
       "position" : {"x": 6, "y": 4}
     }
   ],
   "orbs": [
     {
-      "color" : "red",
+      "color" : "blue",
       "position" : {"x": 3, "y": 3}
     }
   ]

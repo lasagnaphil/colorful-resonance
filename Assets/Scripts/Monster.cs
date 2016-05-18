@@ -16,6 +16,7 @@ public class Monster : MonoBehaviour
 
     public Position pos;
 
+    public bool moveCancelled = false;
     protected bool applicationIsQuitting = false;
 
     protected bool CheckBeforeDestroy
@@ -78,25 +79,30 @@ public class Monster : MonoBehaviour
         applicationIsQuitting = true;
     }
 
-    public void CheckForPlayer(int x, int y)
-    {
-        var player = GameStateManager.Instance.player;
-        if (x == player.pos.X && y == player.pos.Y)
-        {
-            player.ApplyDamage(DamageToPlayer);
-            player.RevertTurn();
-        }
-    }
+    // This function does not check player position anymore...
     public void Move(int x, int y)
     {
-        CheckForPlayer(x, y);
         pos.X = x;
         pos.Y = y;
     }
 
-    public Tween SequencedMove(int x, int y)
+    // This function returns false if the move has succeeded, and
+    // returns true if the move has failed (because of player)
+    public bool AnimatedMove(Sequence sequence, int x, int y)
     {
-        CheckForPlayer(x, y);
-        return pos.AnimatedMove(x, y, 0.2f);
+        var player = GameStateManager.Instance.player;
+        if (x == player.pos.X && y == player.pos.Y)
+        {
+            var prevPos = new Vector2i(this.pos.X, this.pos.Y);
+            player.ApplyDamage(DamageToPlayer);
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f));
+            sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
+            return false;
+        }
+        else
+        {
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f));
+            return true;
+        }
     }
 }

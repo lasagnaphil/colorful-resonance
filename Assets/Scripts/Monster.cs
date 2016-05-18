@@ -62,9 +62,12 @@ public class Monster : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (GameStateManager.Instance != null)
+        if (CheckBeforeDestroy)
         {
             GameStateManager.Instance.RemoveMonster(this);
+        }
+        if (GameStateManager.Instance != null)
+        {
             GameStateManager.Instance.MonsterTurns -= OnTurn;
             GameStateManager.Instance.MonsterResets -= OnReset;
         }

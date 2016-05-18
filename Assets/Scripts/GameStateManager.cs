@@ -163,7 +163,6 @@ public class GameStateManager : Singleton<GameStateManager>
             for (int j = 0; j < tileManager.height; j++)
             {
                 Destroy(TileManager.Instance.tiles[i,j].gameObject);
-
             }
         }
         

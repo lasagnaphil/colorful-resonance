@@ -3,28 +3,28 @@
   "width": 10,
   "height": 7,
   "tiles": [". O O O O O O O O .",
-            "O O w w w w w w O O",
-            "O w w w w w w w w O",
-            "O b b b w w w w w O",
-            "O w w w y y y y w O",
-            "O O w w w w w w O O",
+            "O O r r r r r r O O",
+            "O r r r r r r r r O",
+            "O r r r r r r r r O",
+            "O r r r r r r r r O",
+            "O O r r r r r r O O",
             ". O O O O O O O O ."],
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },
   "monsters": [
     {
-      "name" : "PaintWall",
+      "name" : "CleanTile",
       "position" : {"x": 6, "y": 2}
     },
     {
-      "name" : "BoomBoom",
+      "name" : "CleanTile",
       "position" : {"x": 6, "y": 4}
     }
   ],
   "orbs": [
     {
-      "color" : "red",
+      "color" : "blue",
       "position" : {"x": 3, "y": 3}
     }
   ]

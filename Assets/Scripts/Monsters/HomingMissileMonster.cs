@@ -18,7 +18,7 @@ public class HomingMissileMonster : Monster
     {
         base.OnDestroy();
 
-        if (GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading)
+        if (CheckBeforeDestroy)
         {
             Direction moveDir = Direction.None;
             GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);

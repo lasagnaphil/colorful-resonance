@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
         if (foundMonster != null)
         {
             ApplyDamage(foundMonster.DamageToPlayer);
+            foundMonster.moveCancelled = true;
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
             return sequence;

@@ -12,13 +12,26 @@ namespace Monsters
         {
             Sequence sequence = base.OnTurn();
 
+            if (moveCancelled)
+            {
+                moveCancelled = false;
+                return sequence;
+            }
+
             if (moveCount == moveCooldown)
             {
-                if (isFacingUp) sequence.Append(pos.AnimatedMove(pos.X, pos.Y + 1, 0.2f));
-                else sequence.Append(pos.AnimatedMove(pos.X, pos.Y - 1, 0.2f));
-                isFacingUp = !isFacingUp;
-                
-                moveCount = 0;    
+                var newPos = isFacingUp ? new Vector2i(pos.X, pos.Y + 1) : new Vector2i(pos.X, pos.Y - 1);
+                // if the move is successful then reset the counter
+                if (AnimatedMove(sequence, newPos.x, newPos.y))
+                {
+                    isFacingUp = !isFacingUp;
+                    moveCount = 0;
+                }
+                // else... make it do the thing next turn
+                else
+                {
+                    moveCount -= 1;
+                }
             }
             moveCount++;
 

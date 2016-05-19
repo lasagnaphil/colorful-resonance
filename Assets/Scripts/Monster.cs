@@ -16,6 +16,14 @@ public class Monster : MonoBehaviour
 
     public Position pos;
 
+    public bool moveCancelled = false;
+    protected bool applicationIsQuitting = false;
+
+    protected bool CheckBeforeDestroy
+    {
+        get { return GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading && !applicationIsQuitting; }
+    }
+
     protected void Awake()
     {
         pos = GetComponent<Position>();
@@ -55,33 +63,46 @@ public class Monster : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (GameStateManager.Instance != null)
+        if (CheckBeforeDestroy)
         {
             GameStateManager.Instance.RemoveMonster(this);
+        }
+        if (GameStateManager.Instance != null)
+        {
             GameStateManager.Instance.MonsterTurns -= OnTurn;
             GameStateManager.Instance.MonsterResets -= OnReset;
         }
     }
 
-    public void CheckForPlayer(int x, int y)
+    protected void OnApplicationQuit()
     {
-        var player = GameStateManager.Instance.player;
-        if (x == player.pos.X && y == player.pos.Y)
-        {
-            player.ApplyDamage(DamageToPlayer);
-            player.RevertTurn();
-        }
+        applicationIsQuitting = true;
     }
+
+    // This function does not check player position anymore...
     public void Move(int x, int y)
     {
-        CheckForPlayer(x, y);
         pos.X = x;
         pos.Y = y;
     }
 
-    public Tween SequencedMove(int x, int y)
+    // This function returns false if the move has succeeded, and
+    // returns true if the move has failed (because of player)
+    public bool AnimatedMove(Sequence sequence, int x, int y)
     {
-        CheckForPlayer(x, y);
-        return pos.AnimatedMove(x, y, 0.2f);
+        var player = GameStateManager.Instance.player;
+        if (x == player.pos.X && y == player.pos.Y)
+        {
+            var prevPos = new Vector2i(this.pos.X, this.pos.Y);
+            player.ApplyDamage(DamageToPlayer);
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f));
+            sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
+            return false;
+        }
+        else
+        {
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f));
+            return true;
+        }
     }
 }

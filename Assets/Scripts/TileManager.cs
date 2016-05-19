@@ -56,21 +56,21 @@ public class TileManager : Singleton<TileManager>
 
     public TileData GetTileData(int x, int y)
     {
-        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+        if (x < 0 || x >= width || y < 0 || y >= height)
             return new TileData(TileColor.None, TileType.None);
         return tiles[x, y].Data;
     }
 
     public TileColor GetTileColor(int x, int y)
     {
-        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+        if (x < 0 || x >= width || y < 0 || y >= height)
             return TileColor.None;
         return tiles[x, y].Data.color;
     }
 
     public TileType GetTileType(int x, int y)
     {
-        if ((x < 0 || x >= tiles.GetLength(0)) || (y < 0 || y >= tiles.GetLength(1)))
+        if (x < 0 || x >= width || y < 0 || y >= height)
             return TileType.None;
         return tiles[x, y].Data.type;
     }
@@ -189,7 +189,6 @@ public class TileManager : Singleton<TileManager>
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
                     if (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal)
                     {
-                        SetTileType(pRect.x1 + i, pRect.y1 + j, TileType.Normal);
                         GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
                     }
                 }

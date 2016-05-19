@@ -97,6 +97,8 @@ public class MapLoader : MonoBehaviour
             TileData data = tileDataDictionary[tileChars[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
+        
+        gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
 
         LoadGameObjects();
     }

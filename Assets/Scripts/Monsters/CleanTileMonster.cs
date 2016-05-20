@@ -7,6 +7,7 @@ public class CleanTileMonster : Monster
 {
     int deltaX;
     int deltaY;
+    int CoolTime;
 
     protected override Sequence OnTurn()
     {
@@ -23,25 +24,37 @@ public class CleanTileMonster : Monster
             return sequence;
         }
 
-        if (deltaX > 0)
+        if (CoolTime < 2)
+            CoolTime++;
+        else if(CoolTime == 2)
         {
-            AnimatedMove(sequence, pos.X + 1, pos.Y);
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-        }
-        else if (deltaX < 0)
-        {
-            AnimatedMove(sequence, pos.X - 1, pos.Y);
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-        }
-        else if (deltaY > 0)
-        {
-            AnimatedMove(sequence, pos.X, pos.Y + 1);
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-        }
-        else if (deltaY < 0)
-        {
-            AnimatedMove(sequence, pos.X, pos.Y - 1);
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+            if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+            {
+                if (deltaX > 0)
+                {
+                    AnimatedMove(sequence, pos.X + 1, pos.Y);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+                else if (deltaX < 0)
+                {
+                    AnimatedMove(sequence, pos.X - 1, pos.Y);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+            }
+            else
+            {
+                if (deltaY > 0)
+                {
+                    AnimatedMove(sequence, pos.X, pos.Y + 1);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+                else if (deltaY < 0)
+                {
+                    AnimatedMove(sequence, pos.X, pos.Y - 1);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+            }
+            CoolTime = 0;
         }
 
         return sequence;

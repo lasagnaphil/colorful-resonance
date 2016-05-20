@@ -1,14 +1,34 @@
 {
   "name": "Stage 1 - 1 - EQ",
-  "width": 10,
-  "height": 7,
-  "tiles": [". O O O O O O O O .",
-            "O O r r r r r r O O",
-            "O r r r r r r r r O",
-            "O r r r r r r r r O",
-            "O r r r r r r r r O",
-            "O O r r r r r r O O",
-            ". O O O O O O O O ."],
+  "width": 42,
+  "height": 27,
+  "tiles": [". O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O .",
+            "O O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O",
+            "O O r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r r O O",
+        	". O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O ."],
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },
@@ -20,12 +40,24 @@
     {
       "name" : "CleanTile",
       "position" : {"x": 6, "y": 4}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 20, "y": 4}
     }
   ],
   "orbs": [
     {
       "color" : "blue",
       "position" : {"x": 3, "y": 3}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 20, "y": 20}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 10, "y": 10}
     }
   ]
 }

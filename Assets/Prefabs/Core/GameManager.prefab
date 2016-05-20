@@ -48,7 +48,7 @@ MonoBehaviour:
     type: 2}
   widthThresold: 20
   heightThresold: 10
-  backgroundColor: 0
+  backgroundColor: 1
 --- !u!114 &11416646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,6 +82,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 5a4f781746d30f248a0956e5da9c1b43, type: 3}
   - {fileID: 4900000, guid: 2443bed53e9ff4c60808cff14485b081, type: 3}
   - {fileID: 4900000, guid: 2cb9746eb07c2ca4fbbc281fddfa2569, type: 3}
+  - {fileID: 4900000, guid: 5419ebd1f757c9c4fb1b6b66dd01462e, type: 3}
 --- !u!114 &11479270
 MonoBehaviour:
   m_ObjectHideFlags: 1

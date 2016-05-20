@@ -28,25 +28,31 @@ public class CleanTileMonster : Monster
             CoolTime++;
         else if(CoolTime == 2)
         {
-            if (deltaX > 0)
+            if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
             {
-                AnimatedMove(sequence, pos.X + 1, pos.Y);
-                TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                if (deltaX > 0)
+                {
+                    AnimatedMove(sequence, pos.X + 1, pos.Y);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+                else if (deltaX < 0)
+                {
+                    AnimatedMove(sequence, pos.X - 1, pos.Y);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
             }
-            else if (deltaX < 0)
+            else
             {
-                AnimatedMove(sequence, pos.X - 1, pos.Y);
-                TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-            }
-            else if (deltaY > 0)
-            {
-                AnimatedMove(sequence, pos.X, pos.Y + 1);
-                TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-            }
-            else if (deltaY < 0)
-            {
-                AnimatedMove(sequence, pos.X, pos.Y - 1);
-                TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                if (deltaY > 0)
+                {
+                    AnimatedMove(sequence, pos.X, pos.Y + 1);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
+                else if (deltaY < 0)
+                {
+                    AnimatedMove(sequence, pos.X, pos.Y - 1);
+                    TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                }
             }
             CoolTime = 0;
         }

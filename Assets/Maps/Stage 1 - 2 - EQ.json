@@ -18,7 +18,7 @@
       "position" : {"x": 6, "y": 2}
     },
     {
-      "name" : "Rain",
+      "name" : "CleanTile",
       "position" : {"x": 6, "y": 3}
     }
   ],

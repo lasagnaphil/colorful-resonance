@@ -1,0 +1,45 @@
+{
+  "name": "Stage 1 - 5 - EQ",
+  "width": 15,
+  "height": 7,
+  "tiles": [
+            ". . . O O O O O . O O O O O O",
+            ". . . O R R R O . O y w r y O",
+            "O O O O R w R O O O w w b w O",
+            "O w w w w w r b b b b b b b O",
+            "O O O O R w R O O O w w b w O",
+            ". . . O R R R O . O y w r y O",
+            ". . . O O O O O . O O O O O O"
+           ],
+  "playerData": {
+    "position" : {"x": 1, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 2}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 2}
+    },
+    {
+      "name" : "PaintWall",
+      "position" : {"x": 12, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 3, "y": 3}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 12, "y": 3}
+    }
+  ]
+}

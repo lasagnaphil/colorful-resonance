@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: Stage 1 - 4
+  mapToLoad: Stage 1 - 1 - EQ
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
   - {fileID: 4900000, guid: fb003ffba4201b94e9af0b1826c154b6, type: 3}

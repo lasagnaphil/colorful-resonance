@@ -24,7 +24,7 @@
   ],
   "orbs": [
     {
-      "color" : "black",
+      "color" : "blue",
       "position" : {"x": 3, "y": 3}
     }
   ]

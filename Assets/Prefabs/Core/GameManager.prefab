@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11479270}
   - 114: {fileID: 11416646}
   - 114: {fileID: 11457974}
+  - 114: {fileID: 11411732}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -30,6 +31,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11411732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0bd824b0abd4ce2927f836b6deb61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grayBackgroundTilePrefab: {fileID: 199842, guid: 4232f07810144448c8dc2454391ef847,
+    type: 2}
+  coloredBackgroundTilePrefab: {fileID: 199842, guid: cc5fd9b1fab564acda24f750c322decf,
+    type: 2}
+  widthThresold: 20
+  heightThresold: 10
+  backgroundColor: 1
 --- !u!114 &11416646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: Stage 1 - 1 - EQ
+  mapToLoad: Stage 1 - 5 - EQ
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
   - {fileID: 4900000, guid: fb003ffba4201b94e9af0b1826c154b6, type: 3}
@@ -63,6 +82,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 5a4f781746d30f248a0956e5da9c1b43, type: 3}
   - {fileID: 4900000, guid: 2443bed53e9ff4c60808cff14485b081, type: 3}
   - {fileID: 4900000, guid: 2cb9746eb07c2ca4fbbc281fddfa2569, type: 3}
+  - {fileID: 4900000, guid: 5419ebd1f757c9c4fb1b6b66dd01462e, type: 3}
+  - {fileID: 4900000, guid: 749e093e4be9ee949ba6ead443ee16f1, type: 3}
+  - {fileID: 4900000, guid: 0cbf1e73d95f3ce46a537e9c388935af, type: 3}
+  - {fileID: 4900000, guid: 086d6e9231527c94dadc7c9f3e01aee6, type: 3}
 --- !u!114 &11479270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258712c7b4e5e864fb304b1060bea918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsLoading: 0
   player: {fileID: 0}
   monsterHolderObject: {fileID: 0}
   projectileHolderObject: {fileID: 0}

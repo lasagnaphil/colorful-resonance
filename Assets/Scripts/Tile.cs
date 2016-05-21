@@ -113,9 +113,18 @@ public class Tile : MonoBehaviour
 
 	    transform.position = new Vector3(pos.X, pos.Y);
 	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
-
+        UpdateColorIndex();
+        
 	    GameStateManager.Instance.TileTurns += OnTurn;
 	}
+    
+    public void UpdateColorIndex()
+    {
+        int newColorIndex = (int)_data.color;
+        if (_data.type == TileType.Wall)
+            newColorIndex += 10;
+        gameObject.GetComponent<Animator>().SetInteger("colorIndex", newColorIndex);    
+    }
 
     protected void OnTurn()
     {

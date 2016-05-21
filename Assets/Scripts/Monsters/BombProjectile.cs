@@ -19,15 +19,16 @@ public class BombProjectile : Projectile
         deltaX = player.pos.X - pos.X;
         deltaY = player.pos.Y - pos.Y;
 
-        TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
-        TileManager.Instance.SetTileColor(pos.X + 1, pos.Y, BombColor);
-        TileManager.Instance.SetTileColor(pos.X - 1, pos.Y, BombColor);
-        TileManager.Instance.SetTileColor(pos.X, pos.Y + 1, BombColor);
-        TileManager.Instance.SetTileColor(pos.X + 1, pos.Y + 1, BombColor);
-        TileManager.Instance.SetTileColor(pos.X - 1, pos.Y + 1, BombColor);
-        TileManager.Instance.SetTileColor(pos.X, pos.Y - 1, BombColor);
-        TileManager.Instance.SetTileColor(pos.X + 1, pos.Y - 1, BombColor);
-        TileManager.Instance.SetTileColor(pos.X - 1, pos.Y - 1, BombColor);
+        for (int k = 0; k < 3; k++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.Wall && TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.None)
+                {
+                    TileManager.Instance.SetTileColor(pos.X - 1 + k, pos.Y - 1 + j, BombColor);
+                }
+            }
+        }
 
         if (Mathf.Abs(deltaX) <= 1 && Mathf.Abs(deltaY) <= 1)
         {

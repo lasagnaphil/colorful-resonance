@@ -35,6 +35,7 @@ public class TileManager : Singleton<TileManager>
     public void SetTileColor(int x, int y, TileColor color)
     {
         tiles[x, y].Data = new TileData(color, tiles[x, y].Data.type);
+        tiles[x, y].UpdateColorIndex(); 
     }
 
     public void SetTileType(int x, int y, TileType type)

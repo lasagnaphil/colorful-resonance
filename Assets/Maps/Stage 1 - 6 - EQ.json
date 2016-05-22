@@ -1,0 +1,81 @@
+{
+  "name": "Stage 1 - 6 - EQ",
+  "width": 18,
+  "height": 11,
+  "tiles": [
+            ". . . . . . . . . R R R R R R R R R",
+            ". . . . . . . . . R w w w w w w w R",
+            ". . . . . . . . . R w w w w w w w R",
+            ". . . . . . . . . R w w w w w w w R",
+            "O O O O O O O O O R w w w w w w w R",
+            "O w w w w w w w w w w w w w w w w R",
+            "O O O w w w O O O R w w w w w w w R",
+            ". . O w w w O . . R w w w w w w w R",
+            ". . O O O O O . . R w w w w w w w R",
+            ". . . . . . . . . R w w w w w w w R",
+            ". . . . . . . . . R R R R R R R R R"
+           ],
+  "playerData": {
+    "position" : {"x": 1, "y": 5}
+  },
+  "monsters": [
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 6}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 8}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 13, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 13, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 13, "y": 6}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 13, "y": 8}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 15, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 15, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 15, "y": 6}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 15, "y": 8}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 5}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 13, "y": 5}
+    }
+  ]
+}

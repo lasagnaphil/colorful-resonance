@@ -87,6 +87,14 @@ public class GameStateManager : Singleton<GameStateManager>
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
+        sequence.OnComplete(() =>
+        {
+            Debug.Log("Monsters.Count : " + monsters.Count);
+            if (monsters.Count == 0)
+            {
+                fsm.ChangeState(GameState.Win);
+            }
+        });
 
         sequence.Play();
 
@@ -224,10 +232,15 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private void Win_Enter()
     {
-        Debug.Log("Player Win");
+        Debug.Log("Player Win : Press Enter to go to next level");
     }
 
     private void Win_Update()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            mapLoader.SetLevelToNext();
+            fsm.ChangeState(GameState.Load);
+        }
     }
 }

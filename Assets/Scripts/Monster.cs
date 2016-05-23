@@ -51,6 +51,7 @@ public class Monster : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(this.gameObject);
+            if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
         }
 
         return sequence;
@@ -63,10 +64,6 @@ public class Monster : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (CheckBeforeDestroy)
-        {
-            GameStateManager.Instance.RemoveMonster(this);
-        }
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.MonsterTurns -= OnTurn;

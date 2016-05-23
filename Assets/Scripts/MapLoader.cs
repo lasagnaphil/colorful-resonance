@@ -57,6 +57,22 @@ public class MapLoader : MonoBehaviour
         // LoadGameObjects();
     }
 
+    public void SetLevelToNext()
+    {
+        int index;
+        for (index = 0; index < mapAssetList.Count; index++)
+        {
+            if (mapDataList[index].name == mapToLoad)
+            {
+                if (index != mapAssetList.Count - 1)
+                    mapToLoad = mapDataList[index + 1].name;
+                else
+                    Debug.Log("This is the last level! Reloading the same level again.");
+                return;
+            }
+        }
+    }
+
     public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
     {
         if (!mapDataList.Exists(x => x.name == mapToLoad))

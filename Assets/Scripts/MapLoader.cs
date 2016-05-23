@@ -73,11 +73,12 @@ public class MapLoader : MonoBehaviour
         }
     }
 
-    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
+    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab, out WinCondition winCondition)
     {
         if (!mapDataList.Exists(x => x.name == mapToLoad))
         {
             Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
+            winCondition = new WinCondition();
             return;
         }
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
@@ -117,6 +118,9 @@ public class MapLoader : MonoBehaviour
         gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
 
         LoadGameObjects();
+
+        // win condition is always Elimination (as for now)
+        winCondition = new EliminationWinCondition();
     }
 
     public void LoadGameObjects()

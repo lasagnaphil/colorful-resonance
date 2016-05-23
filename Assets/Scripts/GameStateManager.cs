@@ -32,6 +32,10 @@ public class GameStateManager : Singleton<GameStateManager>
     // Store a player reference for other objects to use
     public Player player;
 
+    // Current win condition mode
+    public WinCondition winCondition;
+    public int numOfTurnsToSurvive;
+
     // Reference to "holder" gameobjects
     public GameObject monsterHolderObject;
     public GameObject projectileHolderObject;
@@ -89,19 +93,27 @@ public class GameStateManager : Singleton<GameStateManager>
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
         sequence.OnComplete(() =>
         {
-            Debug.Log("Monsters.Count : " + monsters.Count);
-            if (monsters.Count == 0)
+            if (player.Health <= 0)
             {
-                fsm.ChangeState(GameState.Win);
+                fsm.ChangeState(GameState.Lose);
+            }
+            if (winCondition is EliminationWinCondition)
+            {
+                if (monsters.Count == 0)
+                {
+                    fsm.ChangeState(GameState.Win);
+                }
+            }
+            else if (winCondition is SurvivalWinCondition)
+            {
+                if (TurnNumber >= (winCondition as SurvivalWinCondition).numOfTurns)
+                {
+                    fsm.ChangeState(GameState.Win);
+                }
             }
         });
 
         sequence.Play();
-
-        if (player.Health <= 0)
-        {
-            fsm.ChangeState(GameState.Lose);
-        }
     }
 
     public void ResetTurn()
@@ -188,7 +200,7 @@ public class GameStateManager : Singleton<GameStateManager>
         TurnNumber = 0;
 
         // load the map
-        mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab);
+        mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab, out winCondition);
         fsm.ChangeState(GameState.Play);
     }
 

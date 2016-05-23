@@ -2,6 +2,7 @@
 public struct MapData
 {
     public string name;
+    //public string winCondition;
     public int width;
     public int height;
     public string[] tiles;

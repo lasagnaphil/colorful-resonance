@@ -15,14 +15,20 @@ public class HomingMissileProjectile : Projectile
         deltaX = player.GetComponent<Position>().X - pos.X;
         deltaY = player.GetComponent<Position>().Y - pos.Y;
 
-        if (deltaX > 0)
-            MovingDirection = Direction.Right;
-        else if (deltaX < 0)
-            MovingDirection = Direction.Left;
-        else if (deltaY > 0)
-            MovingDirection = Direction.Up;
-        else if (deltaY < 0)
-            MovingDirection = Direction.Down;
+        if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+        {
+            if (deltaX > 0)
+                MovingDirection = Direction.Right;
+            else if (deltaX < 0)
+                MovingDirection = Direction.Left;
+        }
+        else
+        {
+            if (deltaY > 0)
+                MovingDirection = Direction.Up;
+            else if (deltaY < 0)
+                MovingDirection = Direction.Down;
+        }
 
         return CheckAndDestroy(sequence);
     }

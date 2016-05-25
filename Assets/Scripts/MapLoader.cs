@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class MapLoader : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class MapLoader : MonoBehaviour
         };
 
         mapDataList = mapAssetList.Select(
-            asset => JsonUtility.FromJson<MapData>(asset.text))
+            asset => JsonHelper.Deserialize<MapData>(asset.text))
             .ToList();
 
     }
@@ -57,11 +58,28 @@ public class MapLoader : MonoBehaviour
         // LoadGameObjects();
     }
 
-    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab)
+    public void SetLevelToNext()
+    {
+        int index;
+        for (index = 0; index < mapAssetList.Count; index++)
+        {
+            if (mapDataList[index].name == mapToLoad)
+            {
+                if (index != mapAssetList.Count - 1)
+                    mapToLoad = mapDataList[index + 1].name;
+                else
+                    Debug.Log("This is the last level! Reloading the same level again.");
+                return;
+            }
+        }
+    }
+
+    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab, out WinCondition winCondition)
     {
         if (!mapDataList.Exists(x => x.name == mapToLoad))
         {
             Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
+            winCondition = new WinCondition();
             return;
         }
         mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
@@ -101,6 +119,9 @@ public class MapLoader : MonoBehaviour
         gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
 
         LoadGameObjects();
+
+        // win condition is always Elimination (as for now)
+        winCondition = mapDataToLoad.winCondition;
     }
 
     public void LoadGameObjects()

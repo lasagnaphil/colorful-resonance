@@ -1,7 +1,10 @@
-﻿[System.Serializable]
+﻿using FullSerializer;
+
+[System.Serializable, fsObject(Converter = typeof(MapDataConverter))]
 public struct MapData
 {
     public string name;
+    public WinCondition winCondition;
     public int width;
     public int height;
     public string[] tiles;

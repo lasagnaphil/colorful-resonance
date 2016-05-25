@@ -51,6 +51,7 @@ public class Monster : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(this.gameObject);
+            if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
         }
 
         return sequence;
@@ -63,10 +64,6 @@ public class Monster : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        if (CheckBeforeDestroy)
-        {
-            GameStateManager.Instance.RemoveMonster(this);
-        }
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.MonsterTurns -= OnTurn;
@@ -90,6 +87,14 @@ public class Monster : MonoBehaviour
     // returns true if the move has failed (because of player)
     public bool AnimatedMove(Sequence sequence, int x, int y)
     {
+        // Check if another monster is in the position we want to move
+        Monster monster = GameStateManager.Instance.CheckMonsterPosition(x, y);
+        if (monster != null)
+        {
+            return false;
+        }
+
+        // Check if the player is in the position we want to move
         var player = GameStateManager.Instance.player;
         if (x == player.pos.X && y == player.pos.Y)
         {

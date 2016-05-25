@@ -179,6 +179,13 @@ public class TileManager : Singleton<TileManager>
             }
         }
                 
+        HashSet<Vector2i> borderPositions = new HashSet<Vector2i>();
+        List<Vector2i> adjacentPositions = new List<Vector2i>()
+        {
+            new Vector2i(-1, 1), new Vector2i(0, 1), new Vector2i(1, 1),
+            new Vector2i(-1, 0), new Vector2i(1, 0),
+            new Vector2i(1, -1), new Vector2i(0, -1), new Vector2i(-1, -1)
+        };
         for (int j = 0; j < pRect.GetHeight(); j++)
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
@@ -187,6 +194,9 @@ public class TileManager : Singleton<TileManager>
                    (GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall &&
                     GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
                 {
+                    adjacentPositions.Select(pos => new Vector2i(pRect.x1 + i + pos.x, pRect.y1 + j + pos.y)).ToList().ForEach(
+                        pos => borderPositions.Add(new Vector2i(pos.x, pos.y)));
+
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
                     if (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal)
                     {
@@ -196,6 +206,15 @@ public class TileManager : Singleton<TileManager>
             }
         }
 
+        // Activate the borders of the filled tiles too!
+        foreach (var pos in borderPositions)
+        {
+            SetTileColor(pos.x, pos.y, playerTileColor);
+            if (GetTileType(pos.x, pos.y) == TileType.Normal)
+            {
+                GetTile(pos.x, pos.y).Activated = true;
+            }
+        }
     }
 
     public void FillTileMatrix(bool[,] tileMatrix, int x, int y, IntRect pRect)

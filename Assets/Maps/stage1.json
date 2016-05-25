@@ -1,5 +1,8 @@
 {
   "name": "Tutorial",
+  "winCondition": "Survival",
+  "numOfTurnsToWin" : 10,
+
   "width": 10,
   "height": 10,
   "tiles": ["L L L L L L L L L L",

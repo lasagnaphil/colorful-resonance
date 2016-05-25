@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 public class MapLoader : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class MapLoader : MonoBehaviour
         };
 
         mapDataList = mapAssetList.Select(
-            asset => JsonUtility.FromJson<MapData>(asset.text))
+            asset => JsonHelper.Deserialize<MapData>(asset.text))
             .ToList();
 
     }
@@ -120,7 +121,7 @@ public class MapLoader : MonoBehaviour
         LoadGameObjects();
 
         // win condition is always Elimination (as for now)
-        winCondition = new EliminationWinCondition();
+        winCondition = mapDataToLoad.winCondition;
     }
 
     public void LoadGameObjects()

@@ -16,14 +16,14 @@ namespace Utils
             else return fsJsonPrinter.CompressedJson(data);
         }
 
-        public static object Deserialize<T>(object value, string serializedState, bool warnings = true)
+        public static T Deserialize<T>(string serializedState, bool warnings = true)
         {
             fsData data = fsJsonParser.Parse(serializedState);
             object deserialized = null;
             if (warnings) _serializer.TryDeserialize(data, typeof (T), ref deserialized).AssertSuccess();
             else _serializer.TryDeserialize(data, typeof (T), ref deserialized).AssertSuccessWithoutWarnings();
             
-            return deserialized;
+            return (T)deserialized;
         }
 
     }

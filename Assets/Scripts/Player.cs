@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     private TileManager tileManager;
 
+    private Animator animator;
+
     public new Camera camera;
 
     public Position pos;
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     protected void Awake()
     {
         pos = GetComponent<Position>();
+        animator = GetComponent<Animator>();
     }
 
     protected void Start()
@@ -122,7 +125,13 @@ public class Player : MonoBehaviour
             return sequence;
         }
 
-        sequence.Append(pos.AnimatedMove(x, y, 0.2f));
+        sequence.AppendCallback(() =>
+        {
+            // execute two animations at the same time
+            // wish there was a JoinCallback() method in DOTween...
+            pos.AnimatedMove(x, y, 0.2f).Play();
+            animator.SetTrigger("Move");
+        });
         
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);

@@ -3,23 +3,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using MonsterLove.StateMachine;
+using States;
 using UnityEngine.UI;
 using Utils;
-
-public enum GameState
-{
-    Load,
-    Play,
-    Win,
-    Lose
-}
 
 public class GameStateManager : Singleton<GameStateManager>
 {
     public int TurnNumber { get; private set; }
 
-    private StateMachine<GameState> fsm;
+    //private StateMachine<GameState> fsm;
+    private IGameState state; 
+
     public bool IsLoading = false;
 
     private List<Monster> monsters = new List<Monster>();
@@ -27,7 +21,8 @@ public class GameStateManager : Singleton<GameStateManager>
     private List<Orb> orbs = new List<Orb>();
 
     // Reference to MapLoader (which loads the map)
-    private MapLoader mapLoader;
+    [NonSerialized]
+    public MapLoader mapLoader;
 
     // Store a player reference for other objects to use
     public Player player;
@@ -59,26 +54,23 @@ public class GameStateManager : Singleton<GameStateManager>
 
     protected void Start()
     {
-        fsm = StateMachine<GameState>.Initialize(this);
-        fsm.ChangeState(GameState.Load);
+        ChangeState<GameStateLoad>();
     }
 
     protected void Update()
     {
+        state.Update(this);
         if (Input.GetKeyDown(KeyCode.R))
         {
-            fsm.ChangeState(GameState.Load);
+            ChangeState<GameStateLoad>();
         }
     }
 
-    public GameState GetCurrentState()
+    public void ChangeState<T>(params object[] args) where T : IGameState
     {
-        return fsm.State;
-    }
-
-    public bool IsInStateTransition()
-    {
-        return fsm.IsInTransition;
+        if (state != null) state.Exit(this);
+        state = (T) Activator.CreateInstance(typeof (T), args);
+        if (state != null) state.Enter(this);
     }
 
     public void NextTurn()
@@ -95,20 +87,20 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             if (player.Health <= 0)
             {
-                fsm.ChangeState(GameState.Lose);
+                ChangeState<GameStateLose>();
             }
             if (winCondition is EliminationWinCondition)
             {
                 if (monsters.Count == 0)
                 {
-                    fsm.ChangeState(GameState.Win);
+                    ChangeState<GameStateWin>();
                 }
             }
             else if (winCondition is SurvivalWinCondition)
             {
                 if (TurnNumber >= (winCondition as SurvivalWinCondition).numOfTurns)
                 {
-                    fsm.ChangeState(GameState.Win);
+                    ChangeState<GameStateWin>();
                 }
             }
         });
@@ -171,7 +163,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public void RemoveOrb(Orb orb) { orbs.Remove(orb);}
     public void ResetOrb() { orbs.Clear();}
 
-    private void Load_Enter()
+    public void LoadGame()
     {
         Debug.Log("Loading Game");
         IsLoading = true;
@@ -201,58 +193,5 @@ public class GameStateManager : Singleton<GameStateManager>
 
         // load the map
         mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab, out winCondition);
-        fsm.ChangeState(GameState.Play);
-    }
-
-    private void Load_Exit()
-    {
-    }
-
-    private void Play_Enter()
-    {
-        IsLoading = false;
-        ResetTurn();
-        Debug.Log("Game Start");
-    }
-
-    private void Play_Update()
-    {
-        player.GameUpdate();
-
-        turnNumberText.text = "Turn number : " + TurnNumber;
-        playerHealthText.text = "Player health : " + player.Health + " / " + player.MaxHealth;
-    }
-
-    private void Play_Exit()
-    {
-    }
-
-    // show lose state text (with the option to restart / go back main menu)
-    private void Lose_Enter()
-    {
-        Debug.Log("Player Lose : Press R to restart");
-    }
-
-    private void Lose_Update()
-    {
-        // if restart button is pressed then call ResetTurn() and go back to Play State
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            fsm.ChangeState(GameState.Load);
-        }
-    }
-
-    private void Win_Enter()
-    {
-        Debug.Log("Player Win : Press Enter to go to next level");
-    }
-
-    private void Win_Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            mapLoader.SetLevelToNext();
-            fsm.ChangeState(GameState.Load);
-        }
     }
 }

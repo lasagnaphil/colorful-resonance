@@ -11,7 +11,24 @@ public class MapDataConverter : fsDirectConverter<MapData>
 
     protected override fsResult DoSerialize(MapData mapData, Dictionary<string, fsData> serialized)
     {
-        // Not implementing serializing mapdata...
+        SerializeMember(serialized, null, "name", mapData.name);
+
+        if (mapData.winCondition is EliminationWinCondition)
+            serialized["winCondition"] = new fsData("Elimination");
+        else if (mapData.winCondition is SurvivalWinCondition)
+        {
+            serialized["winCondition"] = new fsData("Survival");
+            SerializeMember(serialized, null, "numOfTurnsToWin",
+                (mapData.winCondition as SurvivalWinCondition).numOfTurns);
+        }
+
+        SerializeMember(serialized, null, "width", mapData.width);
+        SerializeMember(serialized, null, "height", mapData.height);
+        SerializeMember(serialized, null, "tiles", mapData.tiles);
+        SerializeMember(serialized, null, "playerData", mapData.playerData);
+        SerializeMember(serialized, null, "monsters", mapData.monsters);
+        SerializeMember(serialized, null, "orbs", mapData.orbs);
+
         return fsResult.Success;
     }
 

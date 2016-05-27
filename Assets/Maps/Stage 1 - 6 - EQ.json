@@ -20,6 +20,10 @@
   },
   "monsters": [
     {
+      "name" : "HShooter",
+      "position" : {"x": 4, "y": 4}
+    },
+    {
       "name" : "HomingMissile",
       "position" : {"x": 11, "y": 2}
     },
@@ -74,8 +78,8 @@
       "position" : {"x": 2, "y": 5}
     },
     {
-      "color" : "yellow",
-      "position" : {"x": 13, "y": 5}
+      "color" : "black",
+      "position" : {"x": 15, "y": 5}
     }
   ]
 }

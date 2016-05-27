@@ -7,7 +7,7 @@ public struct MapData
     public WinCondition winCondition;
     public int width;
     public int height;
-    public string[] tiles;
+    public char[] tiles;
     public PlayerData playerData;
     public MonsterData[] monsters;
     public OrbData[] orbs;

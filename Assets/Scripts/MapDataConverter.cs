@@ -1,9 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using FullSerializer;
+using UnityEngine;
 
 public class MapDataConverter : fsDirectConverter<MapData>
 {
+    private fsResult CheckField(Dictionary<string, fsData> data, string key, fsDataType type, out fsData subItem)
+    {
+        fsResult result = CheckKey(data, key, out subItem);
+        result += CheckType(subItem, type);
+        return result;
+    }
+
     public override object CreateInstance(fsData data, Type storageType)
     {
         return new MapData();
@@ -24,7 +34,21 @@ public class MapDataConverter : fsDirectConverter<MapData>
 
         SerializeMember(serialized, null, "width", mapData.width);
         SerializeMember(serialized, null, "height", mapData.height);
+        //SerializeMember(serialized, null, "tiles", mapData.tiles);
+        string[] serializedTiles = new string[mapData.height];
+        StringBuilder strBuilder = new StringBuilder();
+        for(int i = 0; i < mapData.width * mapData.height; i++)
+        {
+            if (i%mapData.width == 0 && i != 0)
+            {
+                serializedTiles[i/mapData.width] = strBuilder.ToString();
+                strBuilder = new StringBuilder();
+            }
+            strBuilder.Append(mapData.tiles[i]);
+            if (i != mapData.width * mapData.height - 1) strBuilder.Append(" ");
+        }
         SerializeMember(serialized, null, "tiles", mapData.tiles);
+
         SerializeMember(serialized, null, "playerData", mapData.playerData);
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
@@ -48,8 +72,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
                     break;
                 case "Survival":
                     fsData turnsData;
-                    if ((result += CheckKey(data, "numOfTurnsToWin", out turnsData)).Failed) return result;
-                    if ((result += CheckType(turnsData, fsDataType.Int64)).Failed) return result;
+                    if ((result += CheckField(data, "numOfTurnsToWin", fsDataType.Int64, out turnsData)).Failed) return result;
                     mapData.winCondition = new SurvivalWinCondition((int) turnsData.AsInt64);
                     break;
             }
@@ -59,10 +82,10 @@ public class MapDataConverter : fsDirectConverter<MapData>
             // default map mode is elimination
             mapData.winCondition = new EliminationWinCondition();
         }
+        
         if ((result += DeserializeMember(data, null, "name", out mapData.name)).Failed ||
            (result += DeserializeMember(data, null, "width", out mapData.width)).Failed ||
            (result += DeserializeMember(data, null, "height", out mapData.height)).Failed ||
-           (result += DeserializeMember(data, null, "tiles", out mapData.tiles)).Failed ||
            (result += DeserializeMember(data, null, "playerData", out mapData.playerData)).Failed ||
            (result += DeserializeMember(data, null, "monsters", out mapData.monsters)).Failed ||
            (result += DeserializeMember(data, null, "orbs", out mapData.orbs)).Failed)
@@ -70,7 +93,24 @@ public class MapDataConverter : fsDirectConverter<MapData>
             return result;
         }
             
-        
+         // deserialization of tiles : convert a list of string into a list of chars
+        fsData tilesData;
+        if ((result += CheckField(data, "tiles", fsDataType.Array, out tilesData)).Failed) return result;
+        List<fsData> tilesDataList = tilesData.AsList;
+        StringBuilder tilesDataStr = new StringBuilder();
+        foreach(var tilesDataLine in tilesDataList)
+        {
+            if ((result += CheckType(tilesDataLine, fsDataType.String)).Failed) return result;
+            tilesDataStr.Append(tilesDataLine.AsString);
+        }
+        // parse the tiles (represented in a string)
+        char[] tileChars = tilesDataStr.ToString().ToCharArray().Where(c => c != ' ').ToArray();
+        if (tileChars.Length != mapData.width*mapData.height)
+        {
+            Debug.LogError("Error parsing tile string: the number of tiles does not match");
+        }
+        mapData.tiles = tileChars;
+
         return result;
     }
 }

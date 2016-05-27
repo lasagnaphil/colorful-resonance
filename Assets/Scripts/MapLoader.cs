@@ -13,6 +13,11 @@ public class MapLoader : MonoBehaviour
     private List<MapData> mapDataList;
     private MapData mapDataToLoad;
 
+    public MapData CurrentMapData
+    {
+        get { return mapDataToLoad; }
+    }
+
     private Dictionary<string, TileColor> colorDictionary;
     private Dictionary<char, TileData> tileDataDictionary;
 
@@ -90,15 +95,6 @@ public class MapLoader : MonoBehaviour
         int width = mapDataToLoad.width;
         int height = mapDataToLoad.height;
 
-        // parse the tiles (represented in a string)
-        string tileString = string.Join("", mapDataToLoad.tiles);
-
-        char[] tileChars = tileString.ToCharArray().Where(c => c != ' ').ToArray();
-        if (tileChars.Length != width*height)
-        {
-            Debug.LogError("Error parsing tile string: the number of tiles does not match");
-        }
-
         // Instantiate the tile array first
         tiles = new Tile[width,height];
 
@@ -112,7 +108,7 @@ public class MapLoader : MonoBehaviour
             tiles[x, y].pos.Y = y;
             tiles[x, y].transform.parent = this.transform;
             tiles[x, y].GetComponent<SpriteRenderer>().sortingOrder = i;
-            TileData data = tileDataDictionary[tileChars[i]];
+            TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
         

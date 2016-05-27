@@ -24,11 +24,13 @@ public class GameStateManager : Singleton<GameStateManager>
     [NonSerialized]
     public MapLoader mapLoader;
 
+    // GameStateManager stores the current map data
+    public MapData mapData;
+
     // Store a player reference for other objects to use
     public Player player;
 
     // Current win condition mode
-    public WinCondition winCondition;
     public int numOfTurnsToSurvive;
 
     // Reference to "holder" gameobjects
@@ -89,16 +91,16 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 ChangeState<GameStateLose>();
             }
-            if (winCondition is EliminationWinCondition)
+            if (mapData.winCondition is EliminationWinCondition)
             {
                 if (monsters.Count == 0)
                 {
                     ChangeState<GameStateWin>();
                 }
             }
-            else if (winCondition is SurvivalWinCondition)
+            else if (mapData.winCondition is SurvivalWinCondition)
             {
-                if (TurnNumber >= (winCondition as SurvivalWinCondition).numOfTurns)
+                if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
                 {
                     ChangeState<GameStateWin>();
                 }
@@ -192,6 +194,6 @@ public class GameStateManager : Singleton<GameStateManager>
         TurnNumber = 0;
 
         // load the map
-        mapLoader.LoadMap(ref tileManager.tiles, tileManager.tilePrefab, out winCondition);
+        mapData = mapLoader.LoadMap();
     }
 }

@@ -9,20 +9,18 @@ public class MapLoader : MonoBehaviour
 
     public string mapToLoad;
     public List<TextAsset> mapAssetList;
-    
-    private List<MapData> mapDataList;
-    private MapData mapDataToLoad;
 
-    public MapData CurrentMapData
-    {
-        get { return mapDataToLoad; }
-    }
+    private List<MapData> mapDataList;
 
     private Dictionary<string, TileColor> colorDictionary;
     private Dictionary<char, TileData> tileDataDictionary;
 
+    private TileManager tileManager;
+
     protected void Awake()
     {
+        tileManager = GetComponent<TileManager>();
+
         colorDictionary = new Dictionary<string, TileColor>
         {
             {"none", TileColor.None},
@@ -79,30 +77,37 @@ public class MapLoader : MonoBehaviour
         }
     }
 
-    public void LoadMap(ref Tile[,] tiles, Tile tilePrefab, out WinCondition winCondition)
+    public void InitializeTileArray(ref Tile[,] tiles, int width, int height)
     {
+        tiles = new Tile[width, height];
+    }
+
+    public MapData LoadMap()
+    {
+        tileManager = TileManager.Instance;
+        Tile tilePrefab = tileManager.tilePrefab;
+
         if (!mapDataList.Exists(x => x.name == mapToLoad))
         {
             Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
-            winCondition = new WinCondition();
-            return;
+            return null;
         }
-        mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
-        
-        // Get the width and height information of the map
-        TileManager.Instance.width = mapDataToLoad.width;
-        TileManager.Instance.height = mapDataToLoad.height;
+        MapData mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
+
+        InitializeTileArray(ref tileManager.tiles, mapDataToLoad.width, mapDataToLoad.height);
+
         int width = mapDataToLoad.width;
         int height = mapDataToLoad.height;
+        tileManager.width = width;
+        tileManager.height = height;
 
-        // Instantiate the tile array first
-        tiles = new Tile[width,height];
+        Tile[,] tiles = tileManager.tiles;
 
         // Load the tiles
-        for (int i = 0; i < width*height; i++)
+        for (int i = 0; i < width * height; i++)
         {
-            int x = i%width;
-            int y = height - i/width - 1;
+            int x = i % width;
+            int y = height - i / width - 1;
             tiles[x, y] = Instantiate(tilePrefab);
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;
@@ -111,16 +116,15 @@ public class MapLoader : MonoBehaviour
             TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
         }
-        
+
         gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
 
-        LoadGameObjects();
+        LoadGameObjects(mapDataToLoad);
 
-        // win condition is always Elimination (as for now)
-        winCondition = mapDataToLoad.winCondition;
+        return mapDataToLoad;
     }
 
-    public void LoadGameObjects()
+    public void LoadGameObjects(MapData mapDataToLoad)
     {
         // Load player data
         player.pos.Set(mapDataToLoad.playerData.position);
@@ -131,7 +135,7 @@ public class MapLoader : MonoBehaviour
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
             monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);
-        }       
+        }
 
         // Load the orbs
         foreach (var orbData in mapDataToLoad.orbs)

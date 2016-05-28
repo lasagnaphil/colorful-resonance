@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public int MaxHealth;
     public int Health;
     
+    public ParticleSystem auraParticle;
+    
     protected void Awake()
     {
         pos = GetComponent<Position>();
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         tileManager = TileManager.Instance;
         if (playerTileColor != TileColor.None)
             tileManager.SetTileColor(pos.X, pos.Y, playerTileColor);
+        UpdateAuraColor();
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
 
@@ -135,6 +138,7 @@ public class Player : MonoBehaviour
         if (foundOrb != null)
         {
             playerTileColor = foundOrb.Color;
+            UpdateAuraColor();
         }
         
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
@@ -175,6 +179,22 @@ public class Player : MonoBehaviour
             return "";
         
         return FindObjectOfType<MobileInputManager>().destDirection;
+    }
+    
+    void UpdateAuraColor()
+    {
+        if (playerTileColor == TileColor.None)
+            auraParticle.startColor = new Color(0, 0, 0, 0);
+        else if (playerTileColor == TileColor.Black)
+            auraParticle.startColor = new Color(0, 0, 0, 1);
+        else if (playerTileColor == TileColor.White)
+            auraParticle.startColor = new Color(1, 1, 1, 1);
+        else if (playerTileColor == TileColor.Red)
+            auraParticle.startColor = new Color(249f/255f, 123f/255f, 188f/255f, 1);
+        else if (playerTileColor == TileColor.Blue)
+            auraParticle.startColor = new Color(84f/255f, 202f/255f, 249f/255f, 1);
+        else if (playerTileColor == TileColor.Yellow)
+            auraParticle.startColor = new Color(253f/255f, 249f/255f, 87f/255f, 1);
     }
     
     void TurnLeft()

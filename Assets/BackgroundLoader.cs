@@ -28,9 +28,9 @@ public class BackgroundLoader : MonoBehaviour {
 		if (backgroundColor == BackgroundColor.colored)
 			bgTilePrefab = coloredBackgroundTilePrefab;
 			
-		for (int x = width - widthThresold; x < width + widthThresold; x++)
+		for (int x = 0 - widthThresold; x < width + widthThresold; x++)
 		{		
-			for (int y = height - heightThresold; y < height + heightThresold; y++)
+			for (int y = 0 - heightThresold; y < height + heightThresold; y++)
 			{
 				GameObject bgTile = Instantiate(bgTilePrefab);
 				bgTile.transform.position = new Vector3(x, y);

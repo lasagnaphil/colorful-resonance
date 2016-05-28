@@ -1,0 +1,23 @@
+{
+    "name": "Stage 1 - 7",
+    "width": 10,
+    "height": 7,
+    "tiles": [". . . . . . . . . .",
+              ". w w w w w w w w .",
+              ". w w w w w w w w .",
+              ". w w w o w w w w .",
+              ". w w o o w w w w .",
+              ". w w w w w w w w .",
+              ". w w w w w w w w .",
+              ". w w w w w w w w .",
+              ". . . . . . . . . ."],
+    "playerData": {
+        "position" : {"x": 1, "y": 3}
+    },
+    "monsters": [
+        {
+            "name" : "Standing",
+			"position" : {"x": 1, "y": 1}
+        }
+    ]
+}

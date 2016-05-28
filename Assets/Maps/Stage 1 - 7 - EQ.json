@@ -22,6 +22,10 @@
     {
       "name" : "Invincible",
       "position" : {"x": 15, "y": 8}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 11, "y": 4}
     }
   ],
   "orbs": [

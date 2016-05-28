@@ -25,7 +25,7 @@ namespace States
             }
             if (Input.GetKeyDown(KeyCode.F6))
             {
-                // TODO: save map data to disk
+                gsm.ChangeState<GameStateSave>();
             }
         }
 

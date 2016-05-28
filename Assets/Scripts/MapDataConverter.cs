@@ -37,17 +37,18 @@ public class MapDataConverter : fsDirectConverter<MapData>
         //SerializeMember(serialized, null, "tiles", mapData.tiles);
         string[] serializedTiles = new string[mapData.height];
         StringBuilder strBuilder = new StringBuilder();
-        for(int i = 0; i < mapData.width * mapData.height; i++)
+        for(int i = 0; i <= mapData.width * mapData.height; i++)
         {
             if (i%mapData.width == 0 && i != 0)
             {
-                serializedTiles[i/mapData.width] = strBuilder.ToString();
+                serializedTiles[i/mapData.width - 1] = strBuilder.ToString();
+                if (i == mapData.width*mapData.height) break;
                 strBuilder = new StringBuilder();
             }
             strBuilder.Append(mapData.tiles[i]);
-            if (i != mapData.width * mapData.height - 1) strBuilder.Append(" ");
+            if (i%mapData.width != mapData.width - 1) strBuilder.Append(" ");
         }
-        SerializeMember(serialized, null, "tiles", mapData.tiles);
+        SerializeMember(serialized, null, "tiles", serializedTiles);
 
         SerializeMember(serialized, null, "playerData", mapData.playerData);
         SerializeMember(serialized, null, "monsters", mapData.monsters);

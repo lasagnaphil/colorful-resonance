@@ -35,6 +35,13 @@ public class Player : MonoBehaviour
         UpdateAuraColor();
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
+    
+    public void Restart()
+    {
+        Health = MaxHealth;
+        playerTileColor = TileColor.None;
+        UpdateAuraColor();    
+    }
 
     public void GameUpdate()
     {

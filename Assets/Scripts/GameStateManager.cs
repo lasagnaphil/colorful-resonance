@@ -108,6 +108,7 @@ public class GameStateManager : Singleton<GameStateManager>
         });
 
         sequence.Play();
+        Debug.Log("Orb count: " + orbs.Count);
     }
 
     public void ResetTurn()
@@ -190,9 +191,29 @@ public class GameStateManager : Singleton<GameStateManager>
             }
         }
         
-        monsters.ForEach(m => DestroyImmediate(m.gameObject));
-        projectiles.ForEach(p => DestroyImmediate(p.gameObject));
-        orbs.ForEach(o => DestroyImmediate(o.gameObject));
+        // One of the most weirdest behaviors of Unity I've ever seen
+        // Need to loop backwards if we want to destroy all objects
+        /* WRONG : 
+        for (int i = 0; i < orbs.Count; i++)
+        {
+            DestroyImmediate(orbs[i].gameObject);
+            Debug.Log("Orb destroyed!");
+        }
+        */
+        // This is because when we destrooy the orb gameObject, the Orb component is also destroyed,
+        // therefore deleting the element itself, decreasing the list count by 1. (I thought that the orb element would just become a null reference...)
+        for (int i = orbs.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(orbs[i].gameObject);
+        }
+        for (int i = monsters.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(monsters[i].gameObject);
+        }
+        for (int i = projectiles.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(projectiles[i].gameObject);
+        }
 
         monsters.Clear();
         projectiles.Clear();

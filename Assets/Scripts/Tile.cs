@@ -133,7 +133,9 @@ public class Tile : MonoBehaviour
     {
         int newColorIndex = (int)_data.color;
         if (_data.type == TileType.Wall)
-            newColorIndex += 10;
+            newColorIndex += 10;            
+        if (_data.type == TileType.None && _data.color == TileColor.None)
+            newColorIndex = -1;
         gameObject.GetComponent<Animator>().SetInteger("colorIndex", newColorIndex);    
     }
 

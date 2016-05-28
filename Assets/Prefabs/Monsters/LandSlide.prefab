@@ -48,7 +48,7 @@ MonoBehaviour:
   Health: 0
   pos: {fileID: 0}
   moveCancelled: 0
-  LandSlideProjectile: {fileID: 11406326, guid: dc00a00d6d5121140a93ef237aaebbce,
+  LandSlideProjectile: {fileID: 11405938, guid: dc00a00d6d5121140a93ef237aaebbce,
     type: 2}
 --- !u!114 &11494404
 MonoBehaviour:

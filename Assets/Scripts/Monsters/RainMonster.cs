@@ -24,8 +24,8 @@ public class RainMonster : Monster
             Width = TileManager.Instance.width;
             Height = TileManager.Instance.height;
 
-            SpawnPointX = Random.Range(1, Width - 1);
-            SpawnPointY = Random.Range(1, Height - 1);
+            SpawnPointX = GameStateManager.Instance.player.GetComponent<Position>().X;
+            SpawnPointY = GameStateManager.Instance.player.GetComponent<Position>().Y;
 
             Direction moveDir = Direction.None;
             GameStateManager.Instance.SpawnProjectile(RainProjectile, SpawnPointX, SpawnPointY, moveDir);

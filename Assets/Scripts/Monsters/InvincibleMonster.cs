@@ -28,9 +28,9 @@ namespace Monsters
 
             if (CoolTime < 6)
                 CoolTime++;
-            else CoolTime = 0;
+            else CoolTime = 1;
 
-            if (CoolTime >= 3)
+            if (CoolTime > 3)
             {
                 monstersColor = TileColor.Black;
 

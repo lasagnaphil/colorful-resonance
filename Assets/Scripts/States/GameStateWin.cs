@@ -6,7 +6,7 @@ namespace States
     {
         public void Enter(GameStateManager gsm)
         {
-            Debug.Log("Player Win : Press Enter to go to next level");
+            Debug.Log("Player Win : Press Enter to go to next level, Press R to restart");
         }
 
         public void Update(GameStateManager gsm)
@@ -14,6 +14,10 @@ namespace States
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 gsm.mapLoader.SetLevelToNext();
+                gsm.ChangeState<GameStateLoad>();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
                 gsm.ChangeState<GameStateLoad>();
             }
         }

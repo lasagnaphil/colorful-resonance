@@ -27,6 +27,10 @@ namespace States
             {
                 gsm.ChangeState<GameStateSave>();
             }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                gsm.ChangeState<GameStateLoad>();
+            }
         }
 
         public void Exit(GameStateManager gsm)

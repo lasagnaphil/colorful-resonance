@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DG.Tweening;
 using States;
 using UnityEngine.UI;
@@ -62,10 +63,6 @@ public class GameStateManager : Singleton<GameStateManager>
     protected void Update()
     {
         state.Update(this);
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ChangeState<GameStateLoad>();
-        }
     }
 
     public void ChangeState<T>(params object[] args) where T : IGameState
@@ -108,7 +105,6 @@ public class GameStateManager : Singleton<GameStateManager>
         });
 
         sequence.Play();
-        Debug.Log("Orb count: " + orbs.Count);
     }
 
     public void ResetTurn()
@@ -200,7 +196,7 @@ public class GameStateManager : Singleton<GameStateManager>
             Debug.Log("Orb destroyed!");
         }
         */
-        // This is because when we destrooy the orb gameObject, the Orb component is also destroyed,
+        // This is because when we destroy the orb gameObject, the Orb component is also destroyed,
         // therefore deleting the element itself, decreasing the list count by 1. (I thought that the orb element would just become a null reference...)
         for (int i = orbs.Count - 1; i >= 0; i--)
         {

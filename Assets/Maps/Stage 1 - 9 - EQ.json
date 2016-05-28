@@ -1,37 +1,49 @@
 {
-  "name": "Stage 1 - 7 - EQ",
-  "width": 18,
-  "height": 11,
+  "name": "Stage 1 - 9 - EQ",
+  "width": 10,
+  "height": 7,
   "tiles": [
-            ". . . . . . . . . R R R R R R R R R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            "O O O O O O O O O R w w w w w w w R",
-            "O w w w w w w w w w w w w w w w w R",
-            "O O O w w w O O O R w w w w w w w R",
-            ". . O w w w O . . R w w w w w w w R",
-            ". . O O O O O . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R R R R R R R R R"
+            ". w w w w w w w w .",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            ". w w w w w w w w ."
            ],
   "playerData": {
-    "position" : {"x": 1, "y": 5}
+    "position" : {"x": 5, "y": 3}
   },
   "monsters": [
     {
-      "name" : "Invincible",
-      "position" : {"x": 15, "y": 8}
+      "name" : "Rain",
+      "position" : {"x": 2, "y": 1}
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 11, "y": 4}
+      "position" : {"x": 3, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 8, "y": 3}
+    },
+    {
+      "name" : "PaintWall",
+      "position" : {"x": 5, "y": 2}
     }
   ],
   "orbs": [
     {
-      "color" : "yellow",
+      "color" : "blue",
       "position" : {"x": 2, "y": 5}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 6}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 8, "y": 2}
     }
   ]
 }

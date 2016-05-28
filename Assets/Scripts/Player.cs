@@ -125,14 +125,11 @@ public class Player : MonoBehaviour
             return sequence;
         }
 
-        sequence.AppendCallback(() =>
+        sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
         {
-            // execute two animations at the same time
-            // wish there was a JoinCallback() method in DOTween...
-            pos.AnimatedMove(x, y, 0.2f).Play();
             animator.SetTrigger("Move");
-        });
-        
+        }));
+                
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
         if (foundOrb != null)

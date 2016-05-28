@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 434282}
   - 212: {fileID: 21260666}
   - 114: {fileID: 11422456}
-  - 114: {fileID: 11497280}
+  - 114: {fileID: 11455820}
   m_Layer: 0
   m_Name: Invincible
   m_TagString: Untagged
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 3
   y: 3
---- !u!114 &11497280
+--- !u!114 &11455820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,13 +51,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 135842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc3b6e218c14a049b4fc3f9179ca600, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dbe68d00acd1b447a2795cf901399a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 0
-  monstersColor: 0
+  monstersColor: 4
   Health: 0
   pos: {fileID: 0}
   moveCancelled: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1871029813
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b7779a2ea4cd5a4bb38af69093437ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ad65210ec1a48c42827fb7c36605a98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private TileManager tileManager;
 
     private Animator animator;
+    private MobileInputManager mobileInputManager;
 
     public new Camera camera;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
+        mobileInputManager = FindObjectOfType<MobileInputManager>();
     }
 
     protected void Start()
@@ -174,18 +176,18 @@ public class Player : MonoBehaviour
 
     bool GetBlinkButtonState()
     {
-        if (FindObjectOfType<MobileInputManager>() == null)
+        if (mobileInputManager == null)
             return false;
         
-        return FindObjectOfType<MobileInputManager>().isBlinkButtonClicked;
+        return mobileInputManager.isBlinkButtonClicked;
     }
 
     string GetDirectionSetBySwipe()
     {
-        if (FindObjectOfType<MobileInputManager>() == null)
+        if (mobileInputManager == null)
             return "";
         
-        return FindObjectOfType<MobileInputManager>().destDirection;
+        return mobileInputManager.destDirection;
     }
     
     void UpdateAuraColor()
@@ -206,11 +208,11 @@ public class Player : MonoBehaviour
     
     void TurnLeft()
     {
-        GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
     
     void TurnRight()
     {
-        GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+        transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 }

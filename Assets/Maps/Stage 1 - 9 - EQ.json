@@ -1,0 +1,49 @@
+{
+  "name": "Stage 1 - 9 - EQ",
+  "width": 10,
+  "height": 7,
+  "tiles": [
+            ". w w w w w w w w .",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            ". w w w w w w w w ."
+           ],
+  "playerData": {
+    "position" : {"x": 5, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "Rain",
+      "position" : {"x": 2, "y": 1}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 3, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 8, "y": 3}
+    },
+    {
+      "name" : "PaintWall",
+      "position" : {"x": 5, "y": 2}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "blue",
+      "position" : {"x": 2, "y": 5}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 6}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 8, "y": 2}
+    }
+  ]
+}

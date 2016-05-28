@@ -1,0 +1,38 @@
+{
+  "name": "Stage 1 - 8 - EQ",
+  "width": 13,
+  "height": 12,
+  "tiles": [
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            ". . . . . . w . . . . . .",
+            ". . . . . . . . . . . . .",
+            ". . . . Y Y Y . . . . . .",
+            ". . . . Y w w . . . . . .",
+            ". . . . Y Y Y . . . . . .",
+            ". . . . . . . . . . . . .",
+            ". . . . . . w . . . . . .",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w"
+           ],
+  "playerData": {
+    "position" : {"x": 6, "y": 0}
+  },
+  "monsters": [
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 6, "y": 6}
+    },
+	{
+      "name" : "Invincible",
+      "position" : {"x": 9, "y": 0}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "yellow",
+      "position" : {"x": 12, "y": 11}
+    }
+  ]
+}

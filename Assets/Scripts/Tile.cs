@@ -79,7 +79,11 @@ public class Tile : MonoBehaviour
         {
             _data = value;
             if (spriteRenderer != null)
+            {
                 spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+                if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
+                else spriteRenderer.sortingLayerName = "Tile";
+            }
         }
     }
 
@@ -95,8 +99,7 @@ public class Tile : MonoBehaviour
         set
         {
             activated = value;
-            if (spriteRenderer != null)
-                spriteRenderer.color = activated ? Color.red : Color.white;
+            if (spriteRenderer != null) UpdateSprite();
         }
     }
 
@@ -106,13 +109,21 @@ public class Tile : MonoBehaviour
         pos = GetComponent<Position>();
     }
 
+    private void UpdateSprite()
+    {
+	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+        if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
+        else spriteRenderer.sortingLayerName = "Tile";
+    }
+
 	void Start()
 	{
 	    tileManager = TileManager.Instance;
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
 	    transform.position = new Vector3(pos.X, pos.Y);
-	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+
+        UpdateSprite();
         UpdateColorIndex();
         
 	    GameStateManager.Instance.TileTurns += OnTurn;

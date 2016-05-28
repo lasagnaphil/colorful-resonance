@@ -151,6 +151,16 @@ public class GameStateManager : Singleton<GameStateManager>
     public void RemoveProjectile(Projectile projectile) { projectiles.Remove(projectile); }
     public void ResetProjectile() { projectiles.Clear(); }
 
+    public Projectile CheckProjectilePosition(int x, int y)
+    {
+        return projectiles.Find(projectile => projectile.pos.X == x && projectile.pos.Y == y);
+    }
+
+    public Projectile CheckProjectilePosition(Vector2i pos)
+    {
+        return CheckProjectilePosition(pos.x, pos.y);
+    }
+
     public Orb CheckOrbPosition(int x, int y)
     {
         return orbs.Find(orb => orb.pos.X == x && orb.pos.Y == y);

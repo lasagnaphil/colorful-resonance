@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     public Direction MovingDirection;
     public ProjectileType Type;
 
-    protected Position pos;
+    public Position pos;
     protected Vector2i prevPos;
 
     protected Player player;

@@ -47,6 +47,9 @@ TagManager:
   - name: Orb
     uniqueID: 4060162331
     locked: 0
+  - name: Aura
+    uniqueID: 2666764017
+    locked: 0
   - name: Monster
     uniqueID: 2423937483
     locked: 0
@@ -55,4 +58,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 3618504947
+    locked: 0
+  - name: Effect
+    uniqueID: 3368590281
     locked: 0

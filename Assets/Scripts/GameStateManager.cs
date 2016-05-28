@@ -116,7 +116,7 @@ public class GameStateManager : Singleton<GameStateManager>
             MonsterResets();
     }
 
-    public void AddMonster(Monster monster) { monsters.Add(monster); }
+    public void AddMonster(Monster monster) { monsters.Add(monster); } 
     public void RemoveMonster(Monster monster) { monsters.Remove(monster); }
     public void ResetMonsters(Monster monster) { monsters.Clear(); }
 

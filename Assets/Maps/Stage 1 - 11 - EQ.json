@@ -1,37 +1,78 @@
 {
-  "name": "Stage 1 - 7 - EQ",
-  "width": 18,
-  "height": 11,
+  "name": "Stage 1 - 11 - EQ",
+  "width": 14,
+  "height": 8,
   "tiles": [
-            ". . . . . . . . . R R R R R R R R R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            "O O O O O O O O O R w w w w w w w R",
-            "O w w w w w w w w w w w w w w w w R",
-            "O O O w w w O O O R w w w w w w w R",
-            ". . O w w w O . . R w w w w w w w R",
-            ". . O O O O O . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R R R R R R R R R"
+            ". y y y y y y y y y y . . .",
+            "y y w w w w w w w w y . . .",
+            "y w w w w w w w w w y R R R",
+            "y w w w w w w w w w y w w w",
+            "y w w w w w w w w w y w w w",
+            "y w w w w w w w w w y R R R",
+            "y y w w w w w w w w y . . .",
+            ". y y y y y y y y y y . . ."
            ],
   "playerData": {
-    "position" : {"x": 1, "y": 5}
+    "position" : {"x": 1, "y": 1}
   },
   "monsters": [
     {
-      "name" : "Invincible",
-      "position" : {"x": 15, "y": 8}
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 3}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 4}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 5, "y": 3}
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 11, "y": 4}
+      "position" : {"x": 4, "y": 2}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 2, "y": 4}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 5, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 7, "y": 2}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 6, "y": 4}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 8, "y": 2}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 7, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 3, "y": 5}
     }
   ],
   "orbs": [
     {
       "color" : "yellow",
-      "position" : {"x": 2, "y": 5}
+      "position" : {"x": 2, "y": 2}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 13, "y": 3}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 13, "y": 4}
     }
   ]
 }

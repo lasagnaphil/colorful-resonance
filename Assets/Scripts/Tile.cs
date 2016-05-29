@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum TileColor
 {
-    Black, White, Red, Blue, Yellow, Green, None
+    Black, White, Red, Blue, Yellow, Green, None, Transparent
 }
 
 public enum TileType
@@ -80,7 +80,7 @@ public class Tile : MonoBehaviour
             _data = value;
             if (spriteRenderer != null)
             {
-                spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+                // spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
                 if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
                 else spriteRenderer.sortingLayerName = "Tile";
             }
@@ -111,7 +111,7 @@ public class Tile : MonoBehaviour
 
     private void UpdateSprite()
     {
-	    spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
+	    // spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
         if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
         else spriteRenderer.sortingLayerName = "Tile";
     }
@@ -134,7 +134,7 @@ public class Tile : MonoBehaviour
         int newColorIndex = (int)_data.color;
         if (_data.type == TileType.Wall)
             newColorIndex += 10;            
-        if (_data.type == TileType.None && _data.color == TileColor.None)
+        if (_data.color == TileColor.None)
             newColorIndex = -1;
         gameObject.GetComponent<Animator>().SetInteger("colorIndex", newColorIndex);    
     }

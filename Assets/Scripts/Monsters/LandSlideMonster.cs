@@ -34,7 +34,6 @@ public class LandSlideMonster : Monster
             {
                 if (deltaX > 0)
                 {
-                    Debug.Log("Right");
                     if (CheckPosition(pos.X + 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
@@ -42,7 +41,6 @@ public class LandSlideMonster : Monster
                 }
                 else if (deltaX < 0)
                 {
-                    Debug.Log("Left");
                     if (CheckPosition(pos.X - 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X - 1, pos.Y);
@@ -53,7 +51,6 @@ public class LandSlideMonster : Monster
             {
                 if (deltaY > 0)
                 {
-                    Debug.Log("Up");
                     if (CheckPosition(pos.X, pos.Y + 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
@@ -61,7 +58,6 @@ public class LandSlideMonster : Monster
                 }
                 else if (deltaY < 0)
                 {
-                    Debug.Log("Down");
                     if (CheckPosition(pos.X, pos.Y - 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y - 1);

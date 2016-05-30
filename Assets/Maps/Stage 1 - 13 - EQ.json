@@ -1,37 +1,52 @@
 {
-  "name": "Stage 1 - 7 - EQ",
-  "width": 18,
+  "name": "Stage 1 - 13 - EQ",
+  "width": 15,
   "height": 11,
   "tiles": [
-            ". . . . . . . . . R R R R R R R R R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            "O O O O O O O O O R w w w w w w w R",
-            "O w w w w w w w w w w w w w w w w R",
-            "O O O w w w O O O R w w w w w w w R",
-            ". . O w w w O . . R w w w w w w w R",
-            ". . O O O O O . . R w w w w w w w R",
-            ". . . . . . . . . R w w w w w w w R",
-            ". . . . . . . . . R R R R R R R R R"
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w"
            ],
   "playerData": {
     "position" : {"x": 1, "y": 5}
   },
   "monsters": [
     {
-      "name" : "Invincible",
-      "position" : {"x": 15, "y": 8}
+      "name" : "HomingMissile",
+      "position" : {"x": 6, "y": 1}
     },
     {
-      "name" : "LandSlide",
-      "position" : {"x": 11, "y": 4}
+      "name" : "HomingMissile",
+      "position" : {"x": 14, "y": 3}
+    },
+    {
+      "name" : "Rain",
+      "position" : {"x": 1, "y": 2}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 10, "y": 2}
     }
   ],
   "orbs": [
     {
+      "color" : "red",
+      "position" : {"x": 0, "y": 4}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 19, "y": 5}
+    }
+    {
       "color" : "yellow",
-      "position" : {"x": 2, "y": 5}
+      "position" : {"x": 14, "y": 4}
     }
   ]
 }

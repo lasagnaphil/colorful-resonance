@@ -218,6 +218,8 @@ public class TileManager : Singleton<TileManager>
                 {
                     GetTile(pos.x, pos.y).Activated = true;
                     GetTile(pos.x, pos.y).PlayEffect();
+                
+                    GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Jump");
                 }
             }
         }

@@ -86,6 +86,7 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             if (player.Health <= 0)
             {
+                player.GetComponent<Animator>().SetBool("IsDead", true);
                 ChangeState<GameStateLose>();
             }
             if (mapData.winCondition is EliminationWinCondition)

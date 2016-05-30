@@ -13,6 +13,7 @@ namespace States
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                gsm.player.GetComponent<Animator>().SetTrigger("Restart");
                 gsm.ChangeState<GameStateLoad>();
             }
         }

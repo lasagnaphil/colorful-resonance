@@ -88,7 +88,6 @@ public class Position : MonoBehaviour
     public Tween AnimatedMove(int x, int y, float duration)
     {
         SetDepth(y);
-        // transform.position = new Vector3(this.x, this.y, z);
         this.x = x;
         this.y = y;
         return transform.DOMove(GetVector3(), duration);

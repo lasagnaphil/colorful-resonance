@@ -31,7 +31,7 @@ public class Position : MonoBehaviour
         set
         {
             y = value;
-            SetDepth(y - TileManager.Instance.height);
+            SetDepth(y);
             transform.position = new Vector3(x, y, z);
         }
     }
@@ -54,13 +54,13 @@ public class Position : MonoBehaviour
 
     public void SetDepth(int depth)
     {
-        z = depth + (z - Mathf.Floor(z));
+        z = (depth) + (z - Mathf.Floor(z));
     }
 
     protected void Awake()
     {
         z = Mathf.Floor(z) + (99 - (float) spriteLayer)*0.01f;
-        SetDepth(y - TileManager.Instance.height);
+        SetDepth(y);
         transform.position = new Vector3(x, y, z);
     }
 
@@ -87,7 +87,7 @@ public class Position : MonoBehaviour
 
     public Tween AnimatedMove(int x, int y, float duration)
     {
-        SetDepth(y - TileManager.Instance.height);
+        SetDepth(y);
         // transform.position = new Vector3(this.x, this.y, z);
         this.x = x;
         this.y = y;

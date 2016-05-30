@@ -4,13 +4,13 @@
   "height": 7,
   "tiles": [". O O O O O O O O .",
             "O O w w w R R w O O",
-            "O r r r r r r r w O",
+            "O w r r r r r r w O",
             "O r w w r B B w w O",
-            "O w r r r y y y w O",
+            "O r r r r y y y w O",
             "O O w w w Y Y w O O",
             ". O O O O O O O O ."],
   "playerData": {
-    "position" : {"x": 1, "y": 4}
+    "position" : {"x": 2, "y": 2}
   },
   "monsters": [
     {
@@ -26,6 +26,22 @@
     {
       "color" : "red",
       "position" : {"x": 1, "y": 3}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 1, "y": 2}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 1, "y": 4}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 8, "y": 4}
+    },
+    {
+      "color" : "black",
+      "position" : {"x": 8, "y": 2}
     }
   ]
 }

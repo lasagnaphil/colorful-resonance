@@ -44,9 +44,10 @@ MonoBehaviour:
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 0
-  immuneColor: 0
+  monstersColor: 0
   Health: 0
   pos: {fileID: 0}
+  moveCancelled: 0
   isFacingRight: 0
   projectilePrefab: {fileID: 11403520, guid: 098655dc2cb3a7943b8744bd8021d10d, type: 2}
   ShootInterval: 3
@@ -63,6 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 5
   y: 5
+  spriteLayer: 3
+  z: 0
 --- !u!212 &21208718
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -112,9 +112,9 @@ public class MapLoader : MonoBehaviour
             tiles[x, y].pos.X = x;
             tiles[x, y].pos.Y = y;
             tiles[x, y].transform.parent = this.transform;
-            tiles[x, y].GetComponent<SpriteRenderer>().sortingOrder = (height - y);
             TileData data = tileDataDictionary[mapDataToLoad.tiles[i]];
             tiles[x, y].Data = new TileData(data.color, data.type);
+            if (data.type == TileType.Wall) tiles[x, y].pos.SpriteLayer = SpriteLayer.WallTile;
         }
 
         gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
@@ -135,7 +135,6 @@ public class MapLoader : MonoBehaviour
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
             monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);
-            monster.GetComponent<SpriteRenderer>().sortingOrder = (tileManager.height - monster.pos.Y);
         }
 
         // Load the orbs
@@ -149,7 +148,6 @@ public class MapLoader : MonoBehaviour
                 return TileColor.None;
             });
             orb.pos.Set(orbData.position);
-            orb.GetComponent<SpriteRenderer>().sortingOrder = (tileManager.height - orb.pos.Y);
         }
     }
 }

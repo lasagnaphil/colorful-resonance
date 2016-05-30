@@ -208,11 +208,11 @@ public class Player : MonoBehaviour
     
     void TurnLeft()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
     }
     
     void TurnRight()
     {
-        transform.rotation = Quaternion.Euler(0, 180, 0);
+        transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
     }
 }

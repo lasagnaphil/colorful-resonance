@@ -43,6 +43,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  spriteLayer: 5
+  z: 0
 --- !u!114 &11487290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,6 +60,7 @@ MonoBehaviour:
   Damage: 1
   MovingDirection: 0
   Type: 0
+  pos: {fileID: 0}
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1

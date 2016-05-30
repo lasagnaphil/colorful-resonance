@@ -43,6 +43,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 3
   y: 3
+  spriteLayer: 3
+  z: 0
 --- !u!114 &11461312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,7 +62,9 @@ MonoBehaviour:
   monstersColor: 1
   Health: 0
   pos: {fileID: 0}
+  moveCancelled: 0
   isFacingUp: 0
+  moveCooldown: 2
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

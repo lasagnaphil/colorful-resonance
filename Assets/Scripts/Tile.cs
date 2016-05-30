@@ -121,8 +121,6 @@ public class Tile : MonoBehaviour
 	    tileManager = TileManager.Instance;
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
-	    transform.position = new Vector3(pos.X, pos.Y);
-
         UpdateSprite();
         UpdateColorIndex();
         

@@ -4,6 +4,11 @@ using UnityEngine;
 // 2d integer vector component
 // Use this instead of Unity's Transform to move inside fixed 2D grid
 
+public enum SpriteLayer
+{
+    Tile, Orb, Aura, Monster, Player, WallTile, Projectile, Effect
+}
+
 public class Position : MonoBehaviour
 {
     [SerializeField] private int x;
@@ -14,7 +19,7 @@ public class Position : MonoBehaviour
         set
         {
             x = value;
-            transform.position = new Vector2(x, y);
+            transform.position = new Vector3(x, y, z);
         }
     }
 
@@ -26,13 +31,37 @@ public class Position : MonoBehaviour
         set
         {
             y = value;
-            transform.position = new Vector2(x, y);
+            SetDepth(y - TileManager.Instance.height);
+            transform.position = new Vector3(x, y, z);
         }
+    }
+
+    [SerializeField] private SpriteLayer spriteLayer;
+
+    public SpriteLayer SpriteLayer
+    {
+        get { return spriteLayer; }
+        set
+        {
+            spriteLayer = value;
+            // supported up to 100 different layers
+            z = Mathf.Floor(z) + (99 - (float)spriteLayer)*0.01f;
+            transform.position = new Vector3(x, y, z);
+        }
+    }
+
+    [SerializeField] private float z;
+
+    public void SetDepth(int depth)
+    {
+        z = depth + (z - Mathf.Floor(z));
     }
 
     protected void Awake()
     {
-        transform.position = new Vector2(x, y);
+        z = Mathf.Floor(z) + (99 - (float) spriteLayer)*0.01f;
+        SetDepth(y - TileManager.Instance.height);
+        transform.position = new Vector3(x, y, z);
     }
 
     public Vector2 GetVector2()
@@ -47,7 +76,7 @@ public class Position : MonoBehaviour
 
     public Vector3 GetVector3()
     {
-        return new Vector3((float) x, (float) y, 0f);
+        return new Vector3((float) x, (float) y, z);
     }
 
     public void Set(int x, int y)
@@ -58,6 +87,8 @@ public class Position : MonoBehaviour
 
     public Tween AnimatedMove(int x, int y, float duration)
     {
+        SetDepth(y - TileManager.Instance.height);
+        // transform.position = new Vector3(this.x, this.y, z);
         this.x = x;
         this.y = y;
         return transform.DOMove(GetVector3(), duration);

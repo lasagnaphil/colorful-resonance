@@ -59,6 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  spriteLayer: 5
+  z: 0
 --- !u!212 &21244688
 SpriteRenderer:
   m_ObjectHideFlags: 1

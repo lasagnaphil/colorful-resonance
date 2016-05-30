@@ -86,6 +86,8 @@ public class Tile : MonoBehaviour
             }
         }
     }
+    
+    public GameObject redParticle;
 
     [HideInInspector]
     public Position pos;
@@ -114,6 +116,12 @@ public class Tile : MonoBehaviour
 	    // spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
         if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
         else spriteRenderer.sortingLayerName = "Tile";
+    }
+
+    public void PlayEffect()
+    {
+        GameObject particle = Instantiate(redParticle, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        Destroy(particle,1);
     }
 
 	void Start()

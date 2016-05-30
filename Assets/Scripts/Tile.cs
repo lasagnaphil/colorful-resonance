@@ -104,8 +104,8 @@ public class Tile : MonoBehaviour
             if (spriteRenderer != null)
             {
                 UpdateSprite();
-                if (activated) spriteRenderer.color = Color.red;
-                else spriteRenderer.color = Color.white;
+                // if (activated) spriteRenderer.color = Color.red;
+                // else spriteRenderer.color = Color.white;
             }
         }
     }

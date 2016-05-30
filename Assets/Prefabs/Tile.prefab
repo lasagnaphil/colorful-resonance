@@ -62,7 +62,7 @@ MonoBehaviour:
   _data:
     color: 6
     type: 0
-  redParticle: {fileID: 148970, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
+  redParticle: {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
   pos: {fileID: 0}
 --- !u!114 &11465542
 MonoBehaviour:
@@ -123,7 +123,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: redParticle
       value: 
-      objectReference: {fileID: 148970, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
+      objectReference: {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199842}

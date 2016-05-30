@@ -4,13 +4,13 @@
   "height": 7,
   "tiles": [". O O O O O O O O .",
             "O O w w w R R w O O",
-            "O w r r r r r r w O",
+            "O r r r r r r r w O",
             "O r w w r B B w w O",
-            "O r r r r y y y w O",
+            "O w r r r y y y w O",
             "O O w w w Y Y w O O",
             ". O O O O O O O O ."],
   "playerData": {
-    "position" : {"x": 1, "y": 2}
+    "position" : {"x": 1, "y": 4}
   },
   "monsters": [
     {

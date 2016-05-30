@@ -87,7 +87,7 @@ public class Tile : MonoBehaviour
         }
     }
     
-    public GameObject redParticle;
+    public GameObject[] particles;
 
     [HideInInspector]
     public Position pos;
@@ -125,7 +125,10 @@ public class Tile : MonoBehaviour
 
     public void PlayEffect()
     {
-        GameObject particle = Instantiate(redParticle, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        int colorIndex = (int)_data.color;
+        if (colorIndex > 4)
+            return;
+        GameObject particle = Instantiate(particles[colorIndex], transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
         Destroy(particle,1);
     }
 

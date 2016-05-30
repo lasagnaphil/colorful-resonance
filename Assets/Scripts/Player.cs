@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public void Restart()
     {
         Health = MaxHealth;
+        animator.SetBool("IsDead", false);
         playerTileColor = TileColor.None;
         UpdateAuraColor();    
     }

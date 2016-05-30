@@ -31,7 +31,7 @@
     },
     {
       "name" : "CleanTile",
-      "position" : {"x": 1, "y": 2}
+      "position" : {"x": 15, "y": 3}
     },
     {
       "name" : "LandSlide",

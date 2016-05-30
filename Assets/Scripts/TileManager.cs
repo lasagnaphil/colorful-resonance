@@ -209,10 +209,14 @@ public class TileManager : Singleton<TileManager>
         // Activate the borders of the filled tiles too!
         foreach (var pos in borderPositions)
         {
-            SetTileColor(pos.x, pos.y, playerTileColor);
-            if (GetTileType(pos.x, pos.y) == TileType.Normal)
+            if (GetTileType(pos.x, pos.y) != TileType.Wall &&
+                GetTileData(pos.x, pos.y) != new TileData(TileColor.None, TileType.Normal))
             {
-                GetTile(pos.x, pos.y).Activated = true;
+                SetTileColor(pos.x, pos.y, playerTileColor);
+                if (GetTileType(pos.x, pos.y) == TileType.Normal)
+                {
+                    GetTile(pos.x, pos.y).Activated = true;
+                }
             }
         }
     }

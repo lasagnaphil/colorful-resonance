@@ -50,7 +50,7 @@
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 8, "y": 2}
+      "position" : {"x": 8, "y": 3}
     },
     {
       "name" : "LandSlide",
@@ -59,6 +59,18 @@
     {
       "name" : "LandSlide",
       "position" : {"x": 3, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 3, "y": 1}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 1, "y": 5}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 9, "y": 5}
     }
   ],
   "orbs": [

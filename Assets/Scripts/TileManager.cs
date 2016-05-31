@@ -201,6 +201,7 @@ public class TileManager : Singleton<TileManager>
                     if (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal)
                     {
                         GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
+                        GetTile(pRect.x1 + i, pRect.y1 + j).PlayEffect();
                     }
                 }
             }
@@ -216,6 +217,9 @@ public class TileManager : Singleton<TileManager>
                 if (GetTileType(pos.x, pos.y) == TileType.Normal)
                 {
                     GetTile(pos.x, pos.y).Activated = true;
+                    GetTile(pos.x, pos.y).PlayEffect();
+                
+                    GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Jump");
                 }
             }
         }

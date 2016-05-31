@@ -62,6 +62,12 @@ MonoBehaviour:
   _data:
     color: 6
     type: 0
+  particles:
+  - {fileID: 184026, guid: 40a8de31a36fc436baca31fcb3b18061, type: 2}
+  - {fileID: 184026, guid: 3a7cdd849e8324dd4be84429cb28022f, type: 2}
+  - {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
+  - {fileID: 184026, guid: 33717b314476445c3a9a8c5b1702b08a, type: 2}
+  - {fileID: 184026, guid: 589c377eb4d604f10a99c890f57c6e4d, type: 2}
   pos: {fileID: 0}
 --- !u!114 &11465542
 MonoBehaviour:
@@ -76,6 +82,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  spriteLayer: 0
+  z: 0
 --- !u!212 &21200592
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -114,9 +122,37 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: particles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c8ae9186abadf4d9f8dabb0925fa6c83, type: 2}
+    - target: {fileID: 0}
+      propertyPath: redParticle
+      value: 
+      objectReference: {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[0]
+      value: 
+      objectReference: {fileID: 184026, guid: 40a8de31a36fc436baca31fcb3b18061, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[1]
+      value: 
+      objectReference: {fileID: 184026, guid: 3a7cdd849e8324dd4be84429cb28022f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[2]
+      value: 
+      objectReference: {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[3]
+      value: 
+      objectReference: {fileID: 184026, guid: 33717b314476445c3a9a8c5b1702b08a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[4]
+      value: 
+      objectReference: {fileID: 184026, guid: 589c377eb4d604f10a99c890f57c6e4d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199842}

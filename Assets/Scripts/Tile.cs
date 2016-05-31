@@ -86,6 +86,8 @@ public class Tile : MonoBehaviour
             }
         }
     }
+    
+    public GameObject[] particles;
 
     [HideInInspector]
     public Position pos;
@@ -102,8 +104,8 @@ public class Tile : MonoBehaviour
             if (spriteRenderer != null)
             {
                 UpdateSprite();
-                if (activated) spriteRenderer.color = Color.red;
-                else spriteRenderer.color = Color.white;
+                // if (activated) spriteRenderer.color = Color.red;
+                // else spriteRenderer.color = Color.white;
             }
         }
     }
@@ -119,6 +121,15 @@ public class Tile : MonoBehaviour
 	    // spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
         if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
         else spriteRenderer.sortingLayerName = "Tile";
+    }
+
+    public void PlayEffect()
+    {
+        int colorIndex = (int)_data.color;
+        if (colorIndex > 4)
+            return;
+        GameObject particle = Instantiate(particles[colorIndex], transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        Destroy(particle,1);
     }
 
 	void Start()

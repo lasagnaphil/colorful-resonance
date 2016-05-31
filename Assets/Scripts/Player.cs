@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public int Health;
     
     public ParticleSystem auraParticle;
+    public ParticleSystem damagedParticle;
     
     protected void Awake()
     {
@@ -35,14 +36,17 @@ public class Player : MonoBehaviour
         if (playerTileColor != TileColor.None)
             tileManager.SetTileColor(pos.X, pos.Y, playerTileColor);
         UpdateAuraColor();
+        damagedParticle.gameObject.SetActive(false);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
     }
     
     public void Restart()
     {
         Health = MaxHealth;
+        animator.SetBool("IsDead", false);
         playerTileColor = TileColor.None;
         UpdateAuraColor();    
+        damagedParticle.gameObject.SetActive(false);
     }
 
     public void GameUpdate()
@@ -135,6 +139,7 @@ public class Player : MonoBehaviour
             sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
             {
                 animator.SetTrigger("Hit");
+                StartCoroutine(PlayDamageEffect());
             }));
             sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
             return sequence;
@@ -217,5 +222,12 @@ public class Player : MonoBehaviour
     void TurnRight()
     {
         transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+    }
+    
+    IEnumerator PlayDamageEffect()
+    {
+        damagedParticle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        damagedParticle.gameObject.SetActive(false);
     }
 }

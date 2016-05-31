@@ -185,10 +185,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.size
-      value: 26
-      objectReference: {fileID: 0}
     - target: {fileID: 449362, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -249,58 +245,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 343368824}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[13]
-      value: 
-      objectReference: {fileID: 4900000, guid: 16bf2d88bb372e649adae91d7c8d52e0, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[14]
-      value: 
-      objectReference: {fileID: 4900000, guid: e109927bc538edb4f9b8014beffc4263, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[15]
-      value: 
-      objectReference: {fileID: 4900000, guid: aacca4661c928cb4895f0734ca471244, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[16]
-      value: 
-      objectReference: {fileID: 4900000, guid: 1a0340440060da64b8823560ab8a2cb4, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[17]
-      value: 
-      objectReference: {fileID: 4900000, guid: 2e456aa4ad53f1441a7c945800f5479b, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[18]
-      value: 
-      objectReference: {fileID: 4900000, guid: bac89fff2a21f6b46a70c552b836ec91, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[19]
-      value: 
-      objectReference: {fileID: 4900000, guid: c8ecc597c60088f4eb7457ba7cb11c4b, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[20]
-      value: 
-      objectReference: {fileID: 4900000, guid: 024a788f9305c4b40a6ed2b9c1bb77de, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[21]
-      value: 
-      objectReference: {fileID: 4900000, guid: 8467afeae1221694fb49a3f843fcaad3, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[22]
-      value: 
-      objectReference: {fileID: 4900000, guid: 5faded58bebdee149b988f2d0260abbc, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[23]
-      value: 
-      objectReference: {fileID: 4900000, guid: cfa6fce32145e734dbdccd97b7cca8a2, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[24]
-      value: 
-      objectReference: {fileID: 4900000, guid: ff489c33d06b37047a15b7c3418ccaeb, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[25]
-      value: 
-      objectReference: {fileID: 4900000, guid: 97d4e55286606d04b82501e50a7b0a47, type: 3}
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: mapToLoad
       value: Stage 1 - 10 - EQ

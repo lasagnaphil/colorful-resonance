@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: -1
-  Damage: 2
+  Damage: 0
   MovingDirection: 0
   Type: 0
   pos: {fileID: 0}

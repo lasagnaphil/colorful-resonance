@@ -30,6 +30,6 @@ public class HomingMissileProjectile : Projectile
                 MovingDirection = Direction.Down;
         }
 
-        return CheckAndDestroy(sequence);
+        return sequence;
     }
 }

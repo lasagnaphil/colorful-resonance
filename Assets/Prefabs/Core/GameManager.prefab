@@ -73,14 +73,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: Stage 1 - 13 - EQ
+  mapToLoad: Stage 2 - 1
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
   - {fileID: 4900000, guid: 30c5b7c6e64c27f49873780d1d97a67c, type: 3}
   - {fileID: 4900000, guid: ea8893f43e124404d8b3dafcf7a67d43, type: 3}
   - {fileID: 4900000, guid: ad037238f90449e4fa38da3deea9eec2, type: 3}
   - {fileID: 4900000, guid: 6fb88ff74e6d35744b713593eba70550, type: 3}
-  - {fileID: 4900000, guid: 2443bed53e9ff4c60808cff14485b081, type: 3}
+  - {fileID: 4900000, guid: 059e66e0445bf6749ba03c5fb41a5e5b, type: 3}
   - {fileID: 4900000, guid: 2f34e4e85c58a4a4f8b1ba074ee1d046, type: 3}
   - {fileID: 4900000, guid: 526c917a47a9d4d459ea89d0fff97f5a, type: 3}
   - {fileID: 4900000, guid: 9a6e55191203cb141b93cd6a43db1098, type: 3}
@@ -101,6 +101,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 40413c2b69c8a404086a5956f7a8ebd3, type: 3}
   - {fileID: 4900000, guid: e48ccbee9bb74ea4591cf5069e3bb468, type: 3}
   - {fileID: 4900000, guid: 8c208cf1695388845a6447b5a8fa12ad, type: 3}
+  - {fileID: 4900000, guid: c79c2f19dc839c14ea9275e02407b7c6, type: 3}
 --- !u!114 &11479270
 MonoBehaviour:
   m_ObjectHideFlags: 1

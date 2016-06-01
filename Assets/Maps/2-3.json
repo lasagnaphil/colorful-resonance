@@ -1,0 +1,37 @@
+{
+  "name": "Stage 2 - 3",
+  "width": 12,
+  "height": 7,
+  "tiles": [
+        ". . . . . O O O O O O O",
+	    	". . . . . O w y y y w O",
+	    	"O O O O O R r r w w w O",
+	    	"O w w w w w w r w w w O",
+	   		"O O O O O R r r w w w O",
+	    	". . . . . O w y y y w O",
+        ". . . . . O O O O O O O"
+        ],
+  "playerData": {
+    "position" : {"x": 1, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 3, "y": 3}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 6, "y": 3}
+    }
+],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 3}
+    },
+    {
+    	"color" : "blue",
+      "position" : {"x": 10, "y": 3}
+    }
+  ]
+}

@@ -63,6 +63,8 @@ MonoBehaviour:
   Health: 0
   pos: {fileID: 0}
   moveCancelled: 0
+  Angry: {fileID: 21300000, guid: 7f18b3a33ba8568429f88c4844b4b8e6, type: 3}
+  Normal: {fileID: 21300000, guid: 3ad65210ec1a48c42827fb7c36605a98, type: 3}
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

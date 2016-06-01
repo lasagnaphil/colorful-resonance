@@ -1,37 +1,41 @@
 {
   "name": "Stage 2 - 3",
-  "width": 12,
+  "width": 11,
   "height": 7,
   "tiles": [
-        ". . . . . O O O O O O O",
-	    	". . . . . O w y y y w O",
-	    	"O O O O O R r r w w w O",
-	    	"O w w w w w w r w w w O",
-	   		"O O O O O R r r w w w O",
-	    	". . . . . O w y y y w O",
-        ". . . . . O O O O O O O"
+        ". w r r w w w y y w .",
+        "w b b b b w b b b b w",
+        "B w . w w b w y y w B",
+        "R y r w b w b y r w Y",
+        "B r r w w b w w . w B",
+        "w b b b b w b b b b w",
+        ". w y y w w w r r w ."
         ],
   "playerData": {
-    "position" : {"x": 1, "y": 3}
+    "position" : {"x": 5, "y": 3}
   },
   "monsters": [
     {
-      "name" : "CleanTile",
-      "position" : {"x": 3, "y": 3}
+      "name" : "Invincible",
+      "position" : {"x": 3, "y": 2}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 6, "y": 3}
+      "position" : {"x": 8, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 4, "y": 4}
     }
 ],
   "orbs": [
     {
       "color" : "red",
-      "position" : {"x": 2, "y": 3}
+      "position" : {"x": 2, "y": 2}
     },
     {
-    	"color" : "blue",
-      "position" : {"x": 10, "y": 3}
+    	"color" : "yellow",
+      "position" : {"x": 7, "y": 4}
     }
   ]
 }

@@ -185,6 +185,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: mapAssetList.Array.size
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 449362, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -245,6 +249,14 @@ Prefab:
       propertyPath: playerHealthText
       value: 
       objectReference: {fileID: 183318896}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: mapToLoad
+      value: Stage 2 - 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: mapAssetList.Array.data[29]
+      value: 
+      objectReference: {fileID: 4900000, guid: 8f6a121e1eb4e194da2731f49a7f1a1a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0

@@ -7,6 +7,9 @@ namespace Monsters
 {
     public class InvincibleMonster : Monster
     {
+        public Sprite Angry;
+        public Sprite Normal;
+
         int deltaX;
         int deltaY;
         int CoolTime;
@@ -33,6 +36,7 @@ namespace Monsters
             if (CoolTime > 3)
             {
                 monstersColor = TileColor.Black;
+                GetComponent<SpriteRenderer>().sprite = Angry;
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
@@ -64,6 +68,7 @@ namespace Monsters
             else
             {
                 monstersColor = TileColor.Yellow;
+                GetComponent<SpriteRenderer>().sprite = Normal;
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {

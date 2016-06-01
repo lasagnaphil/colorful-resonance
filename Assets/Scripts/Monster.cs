@@ -100,6 +100,7 @@ public class Monster : MonoBehaviour
         {
             var prevPos = new Vector2i(this.pos.X, this.pos.Y);
             player.ApplyDamage(DamageToPlayer);
+            sequence.AppendCallback(() => player.GetComponent<Animator>().SetTrigger("Hit"));
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
             return false;

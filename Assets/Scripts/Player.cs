@@ -198,9 +198,9 @@ public class Player : MonoBehaviour
         return mobileInputManager.destDirection;
     }
     
-    void UpdateAuraColor()
+    public void UpdateAuraColor()
     {
-        if (playerTileColor == TileColor.None)
+        if (playerTileColor == TileColor.None || Health <= 0)
             auraParticle.startColor = new Color(0, 0, 0, 0);
         else if (playerTileColor == TileColor.Black)
             auraParticle.startColor = new Color(0, 0, 0, 1);

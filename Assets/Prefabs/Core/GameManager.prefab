@@ -76,10 +76,10 @@ MonoBehaviour:
   mapToLoad: Stage 1 - 13 - EQ
   mapAssetList:
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
-  - {fileID: 4900000, guid: fb003ffba4201b94e9af0b1826c154b6, type: 3}
-  - {fileID: 4900000, guid: 0d57f9b7a81bfbe4cb9824059db56c98, type: 3}
-  - {fileID: 4900000, guid: 11c097adb0f6cd241b1b139c95a76b0f, type: 3}
-  - {fileID: 4900000, guid: 5a4f781746d30f248a0956e5da9c1b43, type: 3}
+  - {fileID: 4900000, guid: 30c5b7c6e64c27f49873780d1d97a67c, type: 3}
+  - {fileID: 4900000, guid: ea8893f43e124404d8b3dafcf7a67d43, type: 3}
+  - {fileID: 4900000, guid: ad037238f90449e4fa38da3deea9eec2, type: 3}
+  - {fileID: 4900000, guid: 6fb88ff74e6d35744b713593eba70550, type: 3}
   - {fileID: 4900000, guid: 2443bed53e9ff4c60808cff14485b081, type: 3}
   - {fileID: 4900000, guid: 2f34e4e85c58a4a4f8b1ba074ee1d046, type: 3}
   - {fileID: 4900000, guid: 526c917a47a9d4d459ea89d0fff97f5a, type: 3}

@@ -40,7 +40,7 @@ namespace Monsters
             {
                 monstersColor = TileColor.Black;
                 GetComponent<SpriteRenderer>().sprite = Angry;
-                ShieldInactive();
+                ShieldActive();
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
@@ -73,7 +73,7 @@ namespace Monsters
             {
                 monstersColor = TileColor.Yellow;
                 GetComponent<SpriteRenderer>().sprite = Normal;
-                ShieldActive();
+                ShieldInactive();
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {

@@ -18,6 +18,7 @@ public class Monster : MonoBehaviour
 
     public bool moveCancelled = false;
     protected bool applicationIsQuitting = false;
+    public bool destroyed = false;
 
     protected bool CheckBeforeDestroy
     {
@@ -52,6 +53,7 @@ public class Monster : MonoBehaviour
         {
             Destroy(this.gameObject);
             if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
+            destroyed = true;
         }
 
         return sequence;

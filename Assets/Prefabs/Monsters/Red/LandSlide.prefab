@@ -44,10 +44,11 @@ MonoBehaviour:
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 0
-  monstersColor: 4
+  monstersColor: 2
   Health: 0
   pos: {fileID: 0}
   moveCancelled: 0
+  destroyed: 0
   LandSlideProjectile: {fileID: 11405938, guid: dc00a00d6d5121140a93ef237aaebbce,
     type: 2}
 --- !u!114 &11494404
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 45b9c2bfc079b264784b02f7f16268d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebf77e9d01bfc20439e9ac56a39cd2e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

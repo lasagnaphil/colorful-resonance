@@ -3,13 +3,13 @@
   "width": 15,
   "height": 7,
   "tiles": [
-            ". . . O O O O O . O O O O O O",
-            ". . . O R R R O . O y w r y O",
-            "O O O O R w R O O O w w b w O",
-            "O w w w w w r b b b b b b b O",
-            "O O O O R w R O O O w w b w O",
-            ". . . O R R R O . O y w r y O",
-            ". . . O O O O O . O O O O O O"
+            ". . . O O O O O . B Y B Y B Y",
+            ". . . O R R R O . Y y w r y B",
+            "O O O O R w R O O B w w b w Y",
+            "O w w w w w r b b b b b b b B",
+            "O O O O R w R O O B w w b w Y",
+            ". . . O R R R O . Y y w r y B",
+            ". . . O O O O O . B Y B Y B Y"
            ],
   "playerData": {
     "position" : {"x": 1, "y": 3}
@@ -39,7 +39,7 @@
     },
     {
       "color" : "yellow",
-      "position" : {"x": 12, "y": 3}
+      "position" : {"x": 11, "y": 4}
     }
   ]
 }

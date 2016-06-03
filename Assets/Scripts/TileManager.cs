@@ -163,10 +163,12 @@ public class TileManager : Singleton<TileManager>
         // Now if there is a blank tile (TileType.None) inside the area we want to fill,
         // then mark the area and make sure it is not filled
         List<Vector2i> fillPositionList = new List<Vector2i>();
+
         for (int j = 0; j < pRect.GetHeight(); j++)
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
+                fillPositionList = new List<Vector2i>();
                 if (!tileMatrix[i, j] && !GetTile(pRect.x1 + i, pRect.y1 + j).Marked)
                 {
                     FindContoursForBlankTile(pRect.x1 + i, pRect.y1 + j, fillPositionList, (posX, posY) => !tileMatrix[posX - pRect.x1, posY - pRect.y1]);

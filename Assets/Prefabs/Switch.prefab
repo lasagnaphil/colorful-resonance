@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21282422}
   - 114: {fileID: 11440322}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

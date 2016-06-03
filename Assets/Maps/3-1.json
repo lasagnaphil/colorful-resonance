@@ -1,61 +1,45 @@
 {
-  "name": "Stage 2 - 5",
-  "width": 13,
-  "height": 15,
+  "name": "Stage 3 - 1",
+  "width": 15,
+  "height": 7,
   "tiles": [
-            ". . . . . . B . . . . . .",
-            ". . . . . R w Y . . . . .",
-            ". . . . R w w w Y . . . .",
-            ". R R R w w w w w Y Y Y .",
-            "B w w w w w w w w w w w R",
-            ". Y w w w w w w w w w B .",
-            ". . Y w w w w w w w B . .",
-            ". . . Y w w w w w B . . .",
-            ". . Y w w w w w w w B . .",
-            ". Y w w w w w w w w w B .",
-            "R w w w w w w w w w w w Y",
-            ". B B B w w w w w R R R .",
-            ". . . . B w w w R . . . .",
-            ". . . . . B w R . . . . .",
-            ". . . . . . Y . . . . . ."
+            ". . . O O O O O . O O O O O O",
+            ". . . O R R R O . O y w r y O",
+            "O O O O R w R O O O w w b w O",
+            "O w w w w w r b b b b b b b O",
+            "O O O O R w R O O O w w b w O",
+            ". . . O R R R O . O y w r y O",
+            ". . . O O O O O . O O O O O O"
            ],
   "playerData": {
-    "position" : {"x": 6, "y": 1}
+    "position" : {"x": 1, "y": 3}
   },
   "monsters": [
     {
-      "name" : "HomingMissile",
-      "position" : {"x": 6, "y": 3}
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 2}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 4}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 12, "y": 4}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 3, "y": 10}
-    },
-    {
-      "name" : "HomingMissile",
-      "position" : {"x": 8, "y": 9}
-    },
-    {
-      "name" : "CleanTile",
-      "position" : {"x": 6, "y": 12}
-    },
-    {
-      "name" : "Invincible",
-      "position" : {"x": 10, "y": 4}
+      "position" : {"x": 11, "y": 2}
     }
   ],
   "orbs": [
     {
       "color" : "red",
-      "position" : {"x": 1, "y": 10}
+      "position" : {"x": 3, "y": 3}
     },
     {
-      "color" : "blue",
-      "position" : {"x": 11, "y": 4}
-    }
-    {
       "color" : "yellow",
-      "position" : {"x": 6, "y": 13}
+      "position" : {"x": 12, "y": 3}
     }
   ]
 }

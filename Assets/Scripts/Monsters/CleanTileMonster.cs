@@ -12,6 +12,8 @@ public class CleanTileMonster : Monster
     protected override Sequence OnTurn()
     {
         Sequence sequence = base.OnTurn();
+        if (destroyed) return sequence;
+
         Player player = GameStateManager.Instance.player;
         Position PlayerPos = player.GetComponent<Position>();
 

@@ -1,73 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &170632
+--- !u!1 &189096
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 496142}
-  - 212: {fileID: 21207512}
-  - 114: {fileID: 11400748}
-  - 114: {fileID: 11471230}
+  - 4: {fileID: 401892}
+  - 212: {fileID: 21208718}
+  - 114: {fileID: 11410468}
+  - 114: {fileID: 11412510}
   m_Layer: 0
-  m_Name: BombProjectile_ToWhite
+  m_Name: VShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &496142
+--- !u!4 &401892
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170632}
+  m_GameObject: {fileID: 189096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 4, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 5, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11400748
+--- !u!114 &11410468
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170632}
+  m_GameObject: {fileID: 189096}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
-  spriteLayer: 5
+  x: 5
+  y: 5
+  spriteLayer: 3
   z: 0
---- !u!114 &11471230
+--- !u!114 &11412510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170632}
+  m_GameObject: {fileID: 189096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5f33167b037b44dbc717dae2a03131, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a1ed722dcf28914d8c0a0e7ee71f0d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: -1
-  Damage: 0
-  MovingDirection: 0
-  Type: 0
+  MaxHealth: 1
+  DamageToPlayer: 1
+  DamageToSelf: 0
+  monstersColor: 1
+  Health: 0
   pos: {fileID: 0}
-  BombColor: 1
---- !u!212 &21207512
+  moveCancelled: 0
+  destroyed: 0
+  isFacingUp: 0
+  projectilePrefab: {fileID: 11403520, guid: 098655dc2cb3a7943b8744bd8021d10d, type: 2}
+  ShootInterval: 3
+--- !u!212 &21208718
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170632}
+  m_GameObject: {fileID: 189096}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -88,8 +93,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0c286846d7a2a54780e6bc09a89abd6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.553}
+  m_Sprite: {fileID: 21300000, guid: a1d1ab7374589624aa2997ba46061f76, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!1001 &100100000
@@ -100,19 +105,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 04160cd6e9976ea4c94b5e821529f086,
-        type: 3}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalScale.y
-      value: 1
+      propertyPath: immuneColor
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 170632}
+  m_RootGameObject: {fileID: 189096}
   m_IsPrefabParent: 1

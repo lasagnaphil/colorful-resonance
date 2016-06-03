@@ -3,21 +3,16 @@
   "width": 13,
   "height": 15,
   "tiles": [
-            ". . . . . . B . . . . . .",
-            ". . . . . R w Y . . . . .",
-            ". . . . R w w w Y . . . .",
-            ". R R R w w w w w Y Y Y .",
-            "B w w w w w w w w w w w R",
-            ". Y w w w w w w w w w B .",
-            ". . Y w w w w w w w B . .",
-            ". . . Y w w w w w B . . .",
-            ". . Y w w w w w w w B . .",
-            ". Y w w w w w w w w w B .",
-            "R w w w w w w w w w w w Y",
-            ". B B B w w w w w R R R .",
-            ". . . . B w w w R . . . .",
-            ". . . . . B w R . . . . .",
-            ". . . . . . Y . . . . . ."
+            ". w w w w w w w w w w w .",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w",
+            ". w w w w w w w w w w w ."
            ],
   "playerData": {
     "position" : {"x": 6, "y": 1}

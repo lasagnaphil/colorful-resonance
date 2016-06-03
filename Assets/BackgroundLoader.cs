@@ -4,8 +4,7 @@ using System.Collections;
 public class BackgroundLoader : MonoBehaviour {
 	public enum BackgroundColor {gray, colored}
 
-	public GameObject grayBackgroundTilePrefab;
-	public GameObject coloredBackgroundTilePrefab;
+	public GameObject backgroundTilePrefab;
 
 	public int widthThresold;
 	public int heightThresold;
@@ -24,16 +23,23 @@ public class BackgroundLoader : MonoBehaviour {
 
 	public void LoadBackgroundTiles(int width, int height)
 	{	
-		GameObject bgTilePrefab = grayBackgroundTilePrefab;
-		if (backgroundColor == BackgroundColor.colored)
-			bgTilePrefab = coloredBackgroundTilePrefab;
+		// GameObject bgTilePrefab = grayBackgroundTilePrefab;
+		// if (backgroundColor == BackgroundColor.colored)
+		// 	bgTilePrefab = coloredBackgroundTilePrefab;
 			
 		for (int x = 0 - widthThresold; x < width + widthThresold; x++)
 		{		
 			for (int y = 0 - heightThresold; y < height + heightThresold; y++)
 			{
-				GameObject bgTile = Instantiate(bgTilePrefab);
+				GameObject bgTile = Instantiate(backgroundTilePrefab);
 				bgTile.transform.position = new Vector3(x, y);
+				bgTile.transform.parent = gameObject.transform;
+				
+				if (backgroundColor == BackgroundColor.colored)
+					bgTile.GetComponent<BackgroundTile>().SetColor(true);
+				else
+					bgTile.GetComponent<BackgroundTile>().SetColor(false);
+				
 				bgTile.GetComponent<SpriteRenderer>().sortingOrder = -1;
 			}
 		}

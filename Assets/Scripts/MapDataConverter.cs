@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using FullSerializer;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
 
         SerializeMember(serialized, null, "width", mapData.width);
         SerializeMember(serialized, null, "height", mapData.height);
-        //SerializeMember(serialized, null, "tiles", mapData.tiles);
+
         string[] serializedTiles = new string[mapData.height];
         StringBuilder strBuilder = new StringBuilder();
         for(int i = 0; i <= mapData.width * mapData.height; i++)
@@ -53,6 +54,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
         SerializeMember(serialized, null, "playerData", mapData.playerData);
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
+        SerializeMember(serialized, null, "buttons", mapData.buttons);
 
         return fsResult.Success;
     }
@@ -92,6 +94,18 @@ public class MapDataConverter : fsDirectConverter<MapData>
            (result += DeserializeMember(data, null, "orbs", out mapData.orbs)).Failed)
         {
             return result;
+        }
+
+        // deserialization of buttons (optional field)
+        fsData buttonsData;
+        if (CheckKey(data, "buttons", out buttonsData).Succeeded)
+        {
+            if ((result += DeserializeMember(data, null, "buttons", out mapData.buttons)).Failed) return result;
+        }
+        else
+        {
+            // if there is no buttons field then just make the buttons list empty
+            mapData.buttons = new ButtonData[0];
         }
             
          // deserialization of tiles : convert a list of string into a list of chars

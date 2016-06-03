@@ -11,6 +11,7 @@ public class MapData
     public PlayerData playerData;
     public MonsterData[] monsters;
     public OrbData[] orbs;
+    public ButtonData[] buttons;
 }
 
 [System.Serializable]
@@ -30,5 +31,12 @@ public class MonsterData
 public class OrbData
 {
     public string color;
+    public Vector2i position;
+}
+
+[System.Serializable]
+public class ButtonData
+{
+    public string name;
     public Vector2i position;
 }

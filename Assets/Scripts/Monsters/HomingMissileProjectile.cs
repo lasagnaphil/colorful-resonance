@@ -18,16 +18,28 @@ public class HomingMissileProjectile : Projectile
         if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
         {
             if (deltaX > 0)
+            {
                 MovingDirection = Direction.Right;
+                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180);
+            }
             else if (deltaX < 0)
+            {
                 MovingDirection = Direction.Left;
+                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         else
         {
             if (deltaY > 0)
+            {
                 MovingDirection = Direction.Up;
+                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 270);
+            }
             else if (deltaY < 0)
+            {
                 MovingDirection = Direction.Down;
+                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90);
+            }
         }
 
         return sequence;

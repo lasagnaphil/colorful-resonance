@@ -151,6 +151,8 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11455820, guid: 7ab7cc31e065f4842931033044636041, type: 2}
     - name: LandSlide
       monsterPrefab: {fileID: 11445850, guid: 082708a2b20bac541bf30a7d10e3a3a9, type: 2}
+    - name: VShooter
+      monsterPrefab: {fileID: 11412510, guid: 99a49bcf4b1a23546896dba04d364aad, type: 2}
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
 --- !u!1001 &100100000

@@ -20,6 +20,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public List<Monster> monsters = new List<Monster>();
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
+    public List<Button> buttons = new List<Button>();
 
     // Reference to MapLoader (which loads the map)
     [NonSerialized]
@@ -38,6 +39,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public GameObject monsterHolderObject;
     public GameObject projectileHolderObject;
     public GameObject orbHolderObject;
+    public GameObject buttonHolderObject;
 
     private TileManager tileManager;
     public Text turnNumberText;
@@ -48,6 +50,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Func<Sequence> MonsterTurns;
     public event Action MonsterResets;
     public event Func<Sequence> ProjectileTurns;
+    public event Action ButtonTurns;
 
     protected void Awake()
     {
@@ -82,6 +85,7 @@ public class GameStateManager : Singleton<GameStateManager>
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
+        ButtonTurns();
         sequence.OnComplete(() =>
         {
             if (player.Health <= 0)
@@ -212,10 +216,15 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             DestroyImmediate(projectiles[i].gameObject);
         }
+        for (int i = buttons.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(buttons[i].gameObject);
+        }
 
         monsters.Clear();
         projectiles.Clear();
         orbs.Clear();
+        buttons.Clear();
 
         // reset player and turn number
         player.Restart();

@@ -9,6 +9,9 @@ namespace Monsters
     {
         public Sprite Angry;
         public Sprite Normal;
+        
+        public GameObject shieldEffectObject;
+        GameObject shieldEffect;
 
         int deltaX;
         int deltaY;
@@ -37,6 +40,7 @@ namespace Monsters
             {
                 monstersColor = TileColor.Black;
                 GetComponent<SpriteRenderer>().sprite = Angry;
+                ShieldInactive();
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
@@ -69,6 +73,7 @@ namespace Monsters
             {
                 monstersColor = TileColor.Yellow;
                 GetComponent<SpriteRenderer>().sprite = Normal;
+                ShieldActive();
 
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
@@ -99,6 +104,21 @@ namespace Monsters
             }
 
             return sequence;
+        }
+
+        void ShieldActive()
+        {
+            if (shieldEffect == null)
+            {
+                shieldEffect = Instantiate(shieldEffectObject, transform.position - new Vector3(0, 0.05f, 0), Quaternion.identity) as GameObject;
+                shieldEffect.transform.parent = gameObject.transform;
+            }
+        }
+        
+        void ShieldInactive()
+        {
+            if (shieldEffect != null)
+                Destroy(shieldEffect);
         }
 
         bool CheckPosition(int a, int b)

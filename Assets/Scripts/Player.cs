@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
     
+    public GameObject[] arrowObjects;
+    
     protected void Awake()
     {
         pos = GetComponent<Position>();
@@ -38,6 +40,8 @@ public class Player : MonoBehaviour
         UpdateAuraColor();
         damagedParticle.gameObject.SetActive(false);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
+        
+        ArrowInactive();
     }
     
     public void Restart()
@@ -47,15 +51,37 @@ public class Player : MonoBehaviour
         playerTileColor = TileColor.None;
         UpdateAuraColor();    
         damagedParticle.gameObject.SetActive(false);
+        
+        ArrowInactive();
+    }
+
+    void ArrowActive()
+    {
+        foreach (var arrowObject in arrowObjects)
+        {
+            int arrowPosX = (int)arrowObject.transform.position.x;
+            int arrowPosY = (int)arrowObject.transform.position.y;
+            
+            if (tileManager.GetTileType(arrowPosX, arrowPosY) == TileType.Normal)
+                arrowObject.SetActive(true);
+        }
+    }
+    
+    void ArrowInactive()
+    {
+        foreach (var arrowObject in arrowObjects)
+        {
+            arrowObject.SetActive(false);
+        }
     }
 
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
         if (Input.GetKey(KeyCode.Space) || GetBlinkButtonState())
-        {
+        {   
             if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
+            {                
                 TurnLeft();
                 tempPos.x = tempPos.x - 3;
                 if (!(PositionCheck()))
@@ -83,6 +109,8 @@ public class Player : MonoBehaviour
         }
         else
         {
+            ArrowInactive();
+            
             if (Input.GetKeyDown(KeyCode.LeftArrow) || GetDirectionSetBySwipe() == "Left")
             {
                 TurnLeft();
@@ -105,6 +133,20 @@ public class Player : MonoBehaviour
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;
             }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ArrowActive();
+        }
+        
+        if ((Input.GetKeyUp(KeyCode.Space)) ||
+            (Input.GetKeyDown(KeyCode.LeftArrow)) ||
+            (Input.GetKeyDown(KeyCode.RightArrow)) ||
+            (Input.GetKeyDown(KeyCode.UpArrow)) ||
+            (Input.GetKeyDown(KeyCode.DownArrow)))
+        {
+            ArrowInactive();
         }
 
         if (tempPos.x != pos.X || tempPos.y != pos.Y)

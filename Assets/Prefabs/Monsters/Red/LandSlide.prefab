@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 455222}
   - 212: {fileID: 21225104}
   - 114: {fileID: 11494404}
-  - 114: {fileID: 11495398}
+  - 114: {fileID: 11445850}
   m_Layer: 0
-  m_Name: CleanTile
+  m_Name: LandSlide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +30,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11445850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44ed0fc19e120e48a86c2ae81d24bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 1
+  DamageToPlayer: 1
+  DamageToSelf: 0
+  monstersColor: 2
+  Health: 0
+  pos: {fileID: 0}
+  moveCancelled: 0
+  destroyed: 0
+  LandSlideProjectile: {fileID: 11405938, guid: dc00a00d6d5121140a93ef237aaebbce,
+    type: 2}
 --- !u!114 &11494404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,24 +66,6 @@ MonoBehaviour:
   y: 5
   spriteLayer: 3
   z: 0
---- !u!114 &11495398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb8c5989b2034340a3b76d9fa655d40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 1
-  DamageToPlayer: 1
-  DamageToSelf: 1
-  monstersColor: 3
-  Health: 0
-  pos: {fileID: 0}
-  moveCancelled: 0
 --- !u!212 &21225104
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -89,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b7ded79b0324da40aacd157c7303992, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ebf77e9d01bfc20439e9ac56a39cd2e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

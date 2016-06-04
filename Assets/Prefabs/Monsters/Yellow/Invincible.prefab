@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 434282}
   - 212: {fileID: 21260666}
   - 114: {fileID: 11422456}
-  - 114: {fileID: 11463554}
+  - 114: {fileID: 11455820}
   m_Layer: 0
-  m_Name: PaintWall
+  m_Name: Invincible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   y: 3
   spriteLayer: 3
   z: 0
---- !u!114 &11463554
+--- !u!114 &11455820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,17 +53,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 135842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6229d38768498144b86e60f3573a0820, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dbe68d00acd1b447a2795cf901399a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 1
   DamageToPlayer: 1
-  DamageToSelf: 1
-  monstersColor: 2
+  DamageToSelf: 0
+  monstersColor: 4
   Health: 0
   pos: {fileID: 0}
   moveCancelled: 0
-  PaintBomb: {fileID: 11461542, guid: 03d172ed99d381d4f9cc55f79db7222a, type: 2}
+  destroyed: 0
+  Angry: {fileID: 21300000, guid: 7f18b3a33ba8568429f88c4844b4b8e6, type: 3}
+  Normal: {fileID: 21300000, guid: 3ad65210ec1a48c42827fb7c36605a98, type: 3}
+  shieldEffectObject: {fileID: 143460, guid: 9577c98f34e20416e9dab61ff92fbd3f, type: 2}
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -90,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e93b60afe36d2e24b88c2d416dd36f80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ad65210ec1a48c42827fb7c36605a98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,9 +105,17 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: monstersColor
-      value: 1
+      propertyPath: immuneColor
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shieldEffect
+      value: 
+      objectReference: {fileID: 143460, guid: 9577c98f34e20416e9dab61ff92fbd3f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: shieldEffectObject
+      value: 
+      objectReference: {fileID: 143460, guid: 9577c98f34e20416e9dab61ff92fbd3f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

@@ -9,9 +9,9 @@ public class MapLoader : MonoBehaviour
     public Player player;
 
     public string mapToLoad;
+    public int mapIndex;
     public List<TextAsset> mapAssetList;
-
-    private List<MapData> mapDataList;
+    private MapData mapDataToLoad;
 
     private Dictionary<string, TileColor> colorDictionary;
     private Dictionary<char, TileData> tileDataDictionary;
@@ -51,31 +51,28 @@ public class MapLoader : MonoBehaviour
             {'G', new TileData(TileColor.Green, TileType.Wall)}
         };
 
-        mapDataList = mapAssetList.Select(
-            asset => JsonHelper.Deserialize<MapData>(asset.text))
-            .ToList();
-
+        mapIndex = FindLevelIndexByName(mapToLoad);
+        // mapDataToLoad = JsonHelper.Deserialize<MapData>(mapAssetList[mapIndex].text);
     }
 
-    public void Start()
-    {
-        // LoadGameObjects();
-    }
-
-    public void SetLevelToNext()
+    public int FindLevelIndexByName(string mapName)
     {
         int index;
         for (index = 0; index < mapAssetList.Count; index++)
         {
-            if (mapDataList[index].name == mapToLoad)
-            {
-                if (index != mapAssetList.Count - 1)
-                    mapToLoad = mapDataList[index + 1].name;
-                else
-                    Debug.Log("This is the last level! Reloading the same level again.");
-                return;
-            }
+            if (mapAssetList[index].name == mapToLoad) return index;
         }
+        Debug.Log("Cannot find level with name \"" + mapName + "\"");
+        return -1;
+    }
+
+    public void SetLevelToNext()
+    {
+        if (mapIndex == mapAssetList.Count - 1)
+        {
+            Debug.Log("This is the last level! Reloading the same level again.");
+        }
+        else mapIndex++;
     }
 
     public void InitializeTileArray(ref Tile[,] tiles, int width, int height)
@@ -88,12 +85,7 @@ public class MapLoader : MonoBehaviour
         tileManager = TileManager.Instance;
         Tile tilePrefab = tileManager.tilePrefab;
 
-        if (!mapDataList.Exists(x => x.name == mapToLoad))
-        {
-            Debug.LogError("Error loading map: map name " + mapToLoad + " not found");
-            return null;
-        }
-        MapData mapDataToLoad = mapDataList.Find(x => x.name == mapToLoad);
+        mapDataToLoad = JsonHelper.Deserialize<MapData>(mapAssetList[mapIndex].text);
 
         InitializeTileArray(ref tileManager.tiles, mapDataToLoad.width, mapDataToLoad.height);
 

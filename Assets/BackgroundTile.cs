@@ -3,36 +3,23 @@ using System.Collections;
 
 public class BackgroundTile : MonoBehaviour {
 
-	public Sprite graySprite;
-	public Sprite coloredSprite;
-	
 	public float delay;
 	public float minAlphaValue;
-	
-	new SpriteRenderer renderer;
+    public string type;
 
-	// Use this for initialization
+	private SpriteRenderer spriteRenderer;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
 	void Start () {
-		StartCoroutine(RepeatFade());
+		if (type == "color") StartCoroutine(RepeatFade());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
-	public void SetColor(bool isColored)
-	{
-		renderer = GetComponent<SpriteRenderer>();
-		if (!isColored)
-			renderer.sprite = graySprite;
-		else
-			renderer.sprite = coloredSprite;
-	}	
 	
 	IEnumerator RepeatFade()
 	{
-		renderer = GetComponent<SpriteRenderer>();
 		// float delta = (1.0f - minAlphaValue)/20f;
 
 		int remain6 = (((int)transform.position.x+20) + ((int)transform.position.y+20)) % 6;
@@ -54,14 +41,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Yellow
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -70,14 +57,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Red
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -86,14 +73,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Blue
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -107,14 +94,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Blue
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -123,14 +110,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Yellow
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -139,14 +126,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Red
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -160,14 +147,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Red
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-238f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-238f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 
 												(255f-213f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -176,14 +163,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Blue
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-206f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-206f)/(20f*255f), 
 												(255f-226f)/(20f*255f), 
 												(255f-231f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
@@ -192,14 +179,14 @@ public class BackgroundTile : MonoBehaviour {
 				// Yellow
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color -= new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color -= new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);
 				}	
 				for (int i = 0; i < 20; i++)
 				{
-					renderer.color += new Color((255f-240f)/(20f*255f), 
+					spriteRenderer.color += new Color((255f-240f)/(20f*255f), 
 												(255f-244f)/(20f*255f), 
 												(255f-219f)/(20f*255f), 0);
 					yield return new WaitForSeconds(delay);

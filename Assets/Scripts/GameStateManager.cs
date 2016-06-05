@@ -21,6 +21,7 @@ public class GameStateManager : Singleton<GameStateManager>
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
     public List<Button> buttons = new List<Button>();
+    public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
 
     // Reference to MapLoader (which loads the map)
     [NonSerialized]
@@ -222,11 +223,16 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             DestroyImmediate(buttons[i].gameObject);
         }
+        for (int i = bkgTiles.Count - 1; i > -0; i--)
+        {
+            DestroyImmediate(bkgTiles[i].gameObject);
+        }
 
         monsters.Clear();
         projectiles.Clear();
         orbs.Clear();
         buttons.Clear();
+        bkgTiles.Clear();
 
         // reset player and turn number
         player.Restart();

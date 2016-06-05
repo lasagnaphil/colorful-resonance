@@ -9,6 +9,7 @@ public class MapData
     public int width;
     public int height;
     public char[] tiles;
+    public string background;
     public PlayerData playerData;
     public MonsterData[] monsters;
     public OrbData[] orbs;

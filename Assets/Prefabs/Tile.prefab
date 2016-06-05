@@ -68,6 +68,12 @@ MonoBehaviour:
   - {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
   - {fileID: 184026, guid: 33717b314476445c3a9a8c5b1702b08a, type: 2}
   - {fileID: 184026, guid: 589c377eb4d604f10a99c890f57c6e4d, type: 2}
+  subParticles:
+  - {fileID: 136142, guid: c3f9b8845f25b4490b0adfe602547d79, type: 2}
+  - {fileID: 154648, guid: 8109fb17503b4412f9a45153d9781268, type: 2}
+  - {fileID: 142984, guid: b3cabe2d3519d4686b0236c8ca8bdaf9, type: 2}
+  - {fileID: 162600, guid: f3a81c0312c004b0a80a5493aca6cd11, type: 2}
+  - {fileID: 186670, guid: d53b5520e002c44d8905dbebe69f3e76, type: 2}
   pos: {fileID: 0}
 --- !u!114 &11465542
 MonoBehaviour:
@@ -126,6 +132,10 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: subParticles.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c8ae9186abadf4d9f8dabb0925fa6c83, type: 2}
@@ -153,6 +163,26 @@ Prefab:
       propertyPath: particles.Array.data[4]
       value: 
       objectReference: {fileID: 184026, guid: 589c377eb4d604f10a99c890f57c6e4d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: subParticles.Array.data[0]
+      value: 
+      objectReference: {fileID: 136142, guid: c3f9b8845f25b4490b0adfe602547d79, type: 2}
+    - target: {fileID: 0}
+      propertyPath: subParticles.Array.data[1]
+      value: 
+      objectReference: {fileID: 154648, guid: 8109fb17503b4412f9a45153d9781268, type: 2}
+    - target: {fileID: 0}
+      propertyPath: subParticles.Array.data[2]
+      value: 
+      objectReference: {fileID: 142984, guid: b3cabe2d3519d4686b0236c8ca8bdaf9, type: 2}
+    - target: {fileID: 0}
+      propertyPath: subParticles.Array.data[3]
+      value: 
+      objectReference: {fileID: 162600, guid: f3a81c0312c004b0a80a5493aca6cd11, type: 2}
+    - target: {fileID: 0}
+      propertyPath: subParticles.Array.data[4]
+      value: 
+      objectReference: {fileID: 186670, guid: d53b5520e002c44d8905dbebe69f3e76, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199842}

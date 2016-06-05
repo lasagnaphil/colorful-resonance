@@ -39,8 +39,27 @@ public class OrbSpriteDictionary
     }
 }
 
+[System.Serializable]
+public class BackgroundSpriteTuple
+{
+    public string name;
+    public Sprite bkgSprite;
+}
+
+[System.Serializable]
+public class BackgroundSpriteDictionary
+{
+    [SerializeField] private List<BackgroundSpriteTuple> bkgSpriteTupleList;
+
+    public Sprite GetSprite(string name)
+    {
+        return bkgSpriteTupleList.Find(x => x.name == name).bkgSprite;
+    }
+}
+
 public class SpriteDictionary : Singleton<SpriteDictionary>
 {
     public TileSpriteDictionary tileSpriteDictionary;
     public OrbSpriteDictionary orbSpriteDictionary;
+    public BackgroundSpriteDictionary bkgSpriteDictionary;
 }

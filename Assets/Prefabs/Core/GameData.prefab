@@ -118,6 +118,12 @@ MonoBehaviour:
       orbSprite: {fileID: 21300010, guid: 9b10236727ce4bf47ac45119b28cc67e, type: 3}
     - color: 6
       orbSprite: {fileID: 0}
+  bkgSpriteDictionary:
+    bkgSpriteTupleList:
+    - name: gray
+      bkgSprite: {fileID: 21300000, guid: 91fc693cb4e62404b841fe1034be9780, type: 3}
+    - name: color
+      bkgSprite: {fileID: 21300000, guid: d7bb695ff13144c3ca4c1f8837fd8646, type: 3}
 --- !u!114 &11412984
 MonoBehaviour:
   m_ObjectHideFlags: 1

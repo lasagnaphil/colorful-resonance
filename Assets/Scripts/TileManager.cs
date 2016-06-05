@@ -30,17 +30,19 @@ public class TileManager : Singleton<TileManager>
     public void SetTileData(int x, int y, TileData data)
     {
         tiles[x, y].Data = data;
+        tiles[x, y].UpdateIndex(); 
     }
 
     public void SetTileColor(int x, int y, TileColor color)
     {
         tiles[x, y].Data = new TileData(color, tiles[x, y].Data.type);
-        tiles[x, y].UpdateColorIndex(); 
+        tiles[x, y].UpdateIndex(); 
     }
 
     public void SetTileType(int x, int y, TileType type)
     {
         tiles[x, y].Data = new TileData(tiles[x, y].Data.color, type);
+        tiles[x, y].UpdateIndex();
     }
 
     public void SetTileDataAndFill(int x, int y, TileData data)

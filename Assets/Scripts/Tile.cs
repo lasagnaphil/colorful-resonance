@@ -136,8 +136,8 @@ public class Tile : MonoBehaviour
         int colorIndex = (int)_data.color;
         if (colorIndex > 4)
             return;
-        GameObject subParticle = Instantiate(particles[colorIndex], transform.position + new Vector3(0,0,-0.1f), Quaternion.identity) as GameObject;
-        Destroy(subParticle,1);
+        GameObject subParticle = Instantiate(subParticles[colorIndex], transform.position + new Vector3(0,0,1f), Quaternion.identity) as GameObject;
+        Destroy(subParticle,2);
     }
 
 	void Start()

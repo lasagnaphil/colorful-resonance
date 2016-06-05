@@ -201,7 +201,11 @@ public class Player : MonoBehaviour
         }
         
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
+        {
             tileManager.SetTileColorAndFill(x, y, playerTileColor);
+            
+            tileManager.GetTile(x, y).PlaySubEffect();
+        }
 
         return sequence;
     }

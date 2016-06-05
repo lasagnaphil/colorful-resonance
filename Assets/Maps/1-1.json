@@ -11,6 +11,7 @@
 	    	". . . . . O l l l O . O w w w w w O",
         ". . . . . O O O O O . O O O O O O O"
       ],
+  "background": "gray",
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },

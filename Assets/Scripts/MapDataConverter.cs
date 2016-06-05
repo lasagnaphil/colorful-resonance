@@ -35,6 +35,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
 
         SerializeMember(serialized, null, "width", mapData.width);
         SerializeMember(serialized, null, "height", mapData.height);
+        SerializeMember(serialized, null, "background", mapData.background);
 
         string[] serializedTiles = new string[mapData.height];
         StringBuilder strBuilder = new StringBuilder();
@@ -94,6 +95,18 @@ public class MapDataConverter : fsDirectConverter<MapData>
            (result += DeserializeMember(data, null, "orbs", out mapData.orbs)).Failed)
         {
             return result;
+        }
+
+        // deserialization of background field (optional : defaults to color)
+        fsData bkgData;
+        if (CheckKey(data, "background", out bkgData).Succeeded)
+        {
+            if ((result += DeserializeMember(data, null, "background", out mapData.background)).Failed) return result;
+        }
+        else
+        {
+            mapData.background = "color";
+            Debug.Log(mapData.background);
         }
 
         // deserialization of buttons (optional field)

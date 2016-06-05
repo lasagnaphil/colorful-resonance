@@ -118,9 +118,10 @@ public class MapLoader : MonoBehaviour
             if (data.type == TileType.Wall) tiles[x, y].pos.SpriteLayer = SpriteLayer.WallTile;
         }
 
-        gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(width, height);
-
         LoadGameObjects(mapDataToLoad);
+
+        // Load background tiles
+        gameObject.GetComponent<BackgroundLoader>().LoadBackgroundTiles(mapDataToLoad.background, width, height);
 
         return mapDataToLoad;
     }

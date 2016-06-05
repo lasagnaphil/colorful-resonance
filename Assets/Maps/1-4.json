@@ -12,6 +12,7 @@
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },
+  "background": "gray",
   "monsters": [
     {
       "name" : "Standing",

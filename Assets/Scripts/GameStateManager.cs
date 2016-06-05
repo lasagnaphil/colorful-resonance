@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DG.Tweening;
+using SelectLevel;
 using States;
 using UnityEngine.UI;
 using Utils;
@@ -63,6 +64,17 @@ public class GameStateManager : Singleton<GameStateManager>
 
     protected void Start()
     {
+        var levelInfoSender = FindObjectOfType<LevelInfoSender>();
+
+        // if the user is coming from the select button...
+        // then there will be a LevelInfoSender object in our scene
+        // so load the current map name from it
+        if (levelInfoSender != null)
+        {
+            mapLoader.mapToLoad = levelInfoSender.levelName;
+            mapLoader.mapIndex = mapLoader.FindLevelIndexByName(mapLoader.mapToLoad);
+        }
+
         ChangeState<GameStateLoad>();
     }
 

@@ -80,9 +80,7 @@ public class Tile : MonoBehaviour
             _data = value;
             if (spriteRenderer != null)
             {
-                // spriteRenderer.sprite = SpriteDictionary.Instance.tileSpriteDictionary.GetSprite(_data);
-                if (_data.type == TileType.Wall) spriteRenderer.sortingLayerName = "WallTile";
-                else spriteRenderer.sortingLayerName = "Tile";
+                UpdateSprite();
             }
         }
     }
@@ -148,12 +146,12 @@ public class Tile : MonoBehaviour
 	    spriteRenderer = GetComponent<SpriteRenderer>();
 
         UpdateSprite();
-        UpdateColorIndex();
+        UpdateIndex();
         
 	    GameStateManager.Instance.TileTurns += OnTurn;
 	}
     
-    public void UpdateColorIndex()
+    public void UpdateIndex()
     {
         int newColorIndex = (int)_data.color;
         if (_data.type == TileType.Wall)

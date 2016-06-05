@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
+using Buttons;
 using UnityEngine;
 using Utils;
 
@@ -148,6 +149,19 @@ public class MapLoader : MonoBehaviour
                 return TileColor.None;
             });
             orb.pos.Set(orbData.position);
+        }
+
+        // Load the buttons
+        foreach (var buttonData in mapDataToLoad.buttons)
+        {
+            var button = Instantiate(PrefabDictionary.Instance.buttonPrefabDictionary.GetButton(buttonData.name));
+            //button.transform.parent = GameStateManager.Instance.buttonHolderObject.transform;
+            button.pos.Set(buttonData.position);
+            if (button is WallToggleButton)
+            {
+                (button as WallToggleButton).wallTogglePos = new Vector2i(buttonData.togglePosition);
+                (button as WallToggleButton).isWallOnButtonOff = buttonData.isWallOnButtonOff;
+            }
         }
     }
 }

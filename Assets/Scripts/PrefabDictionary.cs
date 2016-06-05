@@ -2,6 +2,24 @@
 using System.Collections.Generic;
 
 [System.Serializable]
+public class ButtonPrefabTuple
+{
+    public string name;
+    public Button buttonPrefab;
+}
+
+[System.Serializable]
+public class ButtonPrefabDictionary
+{
+    [SerializeField] private List<ButtonPrefabTuple> buttonPrefabTupleList;
+
+    public Button GetButton(string name)
+    {
+        return buttonPrefabTupleList.Find(x => x.name == name).buttonPrefab;
+    }
+}
+
+[System.Serializable]
 public class MonsterPrefabTuple
 {
     public string name;
@@ -23,6 +41,7 @@ public class MonsterPrefabDictionary
 public class PrefabDictionary : Singleton<PrefabDictionary>
 {
     public MonsterPrefabDictionary monsterPrefabDictionary;
+    public ButtonPrefabDictionary buttonPrefabDictionary;
     public Tile tilePrefab;
     public Orb orbPrefab;
 }

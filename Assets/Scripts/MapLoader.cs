@@ -155,7 +155,7 @@ public class MapLoader : MonoBehaviour
         foreach (var buttonData in mapDataToLoad.buttons)
         {
             var button = Instantiate(PrefabDictionary.Instance.buttonPrefabDictionary.GetButton(buttonData.name));
-            button.transform.parent = GameStateManager.Instance.buttonHolderObject.transform;
+            //button.transform.parent = GameStateManager.Instance.buttonHolderObject.transform;
             button.pos.Set(buttonData.position);
             if (button is WallToggleButton)
             {

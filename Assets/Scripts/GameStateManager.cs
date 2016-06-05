@@ -39,7 +39,9 @@ public class GameStateManager : Singleton<GameStateManager>
     public GameObject monsterHolderObject;
     public GameObject projectileHolderObject;
     public GameObject orbHolderObject;
-    public GameObject buttonHolderObject;
+    // We won't be using holder gameobjects for the buttons;
+    // then we would have to add the object into every scene that we have made manually
+    // public GameObject buttonHolderObject;
 
     private TileManager tileManager;
     public Text turnNumberText;

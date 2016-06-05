@@ -195,18 +195,15 @@ public class TileManager : Singleton<TileManager>
             for (int i = 0; i < pRect.GetWidth(); i++)
             {
                 if (!tileMatrix[i, j] &&
-                   (GetTileType(pRect.x1 + i, pRect.y1 + j) != TileType.Wall &&
+                   (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal &&
                     GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
                 {
                     adjacentPositions.Select(pos => new Vector2i(pRect.x1 + i + pos.x, pRect.y1 + j + pos.y)).ToList().ForEach(
                         pos => borderPositions.Add(new Vector2i(pos.x, pos.y)));
 
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
-                    if (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal)
-                    {
-                        GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
-                        GetTile(pRect.x1 + i, pRect.y1 + j).PlayEffect();
-                    }
+                    GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
+                    GetTile(pRect.x1 + i, pRect.y1 + j).PlayEffect();
                 }
             }
         }
@@ -214,17 +211,14 @@ public class TileManager : Singleton<TileManager>
         // Activate the borders of the filled tiles too!
         foreach (var pos in borderPositions)
         {
-            if (GetTileType(pos.x, pos.y) != TileType.Wall &&
+            if (GetTileType(pos.x, pos.y) == TileType.Normal &&
                 GetTileData(pos.x, pos.y) != new TileData(TileColor.None, TileType.Normal))
             {
                 SetTileColor(pos.x, pos.y, playerTileColor);
-                if (GetTileType(pos.x, pos.y) == TileType.Normal)
-                {
-                    GetTile(pos.x, pos.y).Activated = true;
-                    GetTile(pos.x, pos.y).PlayEffect();
-                
-                    GameObject.Find("Player").GetComponent<Animator>().SetTrigger("Jump");
-                }
+                GetTile(pos.x, pos.y).Activated = true;
+                GetTile(pos.x, pos.y).PlayEffect();
+            
+                GameStateManager.Instance.player.GetComponent<Animator>().SetTrigger("Jump");
             }
         }
     }

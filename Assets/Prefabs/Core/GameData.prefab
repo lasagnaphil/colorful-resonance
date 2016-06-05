@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.865295, y: 4.3177147, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,6 +151,10 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11455820, guid: 7ab7cc31e065f4842931033044636041, type: 2}
     - name: LandSlide
       monsterPrefab: {fileID: 11445850, guid: 082708a2b20bac541bf30a7d10e3a3a9, type: 2}
+  buttonPrefabDictionary:
+    buttonPrefabTupleList:
+    - name: WallToggleButton
+      buttonPrefab: {fileID: 11489438, guid: d6b9916103513cd4ca7c470717e5d982, type: 2}
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
 --- !u!1001 &100100000

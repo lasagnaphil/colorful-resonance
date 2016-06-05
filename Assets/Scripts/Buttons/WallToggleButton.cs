@@ -1,23 +1,29 @@
-﻿namespace Buttons
+﻿using UnityEngine;
+
+namespace Buttons
 {
     public class WallToggleButton : Button
     {
         public Vector2i wallTogglePos;
-        public bool isWallOnButtonStateOff;
+        public bool isWallOnButtonOff;
         public TileColor wallColor;
 
-        protected virtual void OnTurn()
+        protected override void OnTurn()
         {
             base.OnTurn();
-            Tile wallTile = TileManager.Instance.GetTile(wallTogglePos.x, wallTogglePos.y);
-
             if (IsActive)
             {
-                wallTile.Data.type = isWallOnButtonStateOff ? TileType.Normal : TileType.Wall;
+                TileManager.Instance.SetTileType(
+                    wallTogglePos.x, wallTogglePos.y,
+                    isWallOnButtonOff ? TileType.Normal : TileType.Wall);
+                Debug.Log("isActive true");
             }
             else
             {
-                wallTile.Data.type = isWallOnButtonStateOff ? TileType.Wall : TileType.Normal;
+                TileManager.Instance.SetTileType(
+                    wallTogglePos.x, wallTogglePos.y,
+                    isWallOnButtonOff ? TileType.Wall : TileType.Normal);
+                Debug.Log("isActive false");
             }
         }
     }

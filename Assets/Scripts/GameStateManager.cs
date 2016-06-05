@@ -85,7 +85,7 @@ public class GameStateManager : Singleton<GameStateManager>
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
         sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
-        ButtonTurns();
+        if (ButtonTurns != null) ButtonTurns();
         sequence.OnComplete(() =>
         {
             if (player.Health <= 0)

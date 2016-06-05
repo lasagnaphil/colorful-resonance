@@ -1,4 +1,5 @@
 ﻿using FullSerializer;
+using UnityEditor;
 
 [System.Serializable, fsObject(Converter = typeof(MapDataConverter))]
 public class MapData
@@ -39,4 +40,6 @@ public class ButtonData
 {
     public string name;
     public Vector2i position;
+    public Vector2i togglePosition;
+    public bool isWallOnButtonOff;
 }

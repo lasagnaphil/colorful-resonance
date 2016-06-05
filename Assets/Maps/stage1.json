@@ -12,7 +12,7 @@
             "L w L L w w w w w L",
             "L w w L w w w w w L",
             "L w w w w w w w w L",
-            "L w w L w L L L w L",
+            "L w w w w L L L w L",
             "L w w w w w w w w L",
             "L L L L L L L L L L"],
   "playerData":
@@ -31,10 +31,6 @@
   ],
   "orbs": [
     {
-      "color" : "black",
-      "position" : {"x": 3, "y": 2}
-    },
-    {
       "color" : "green",
       "position" : {"x": 6, "y": 7}
     }
@@ -42,7 +38,9 @@
   "buttons": [
 	{
 	  "name" : "WallToggleButton",
-	  "position" : {"x": 1, "y": 1}
+	  "position" : {"x": 3, "y": 2},
+	  "togglePosition" : {"x": 1, "y": 0},
+	  "isWallOnButtonOff" : true
 	}
   ]
 }

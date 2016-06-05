@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum SpriteLayer
 {
-    Tile, Orb, Aura, Monster, Player, WallTile, Projectile, Effect
+    Tile, Button, Orb, Aura, Monster, Player, WallTile, Projectile, Effect
 }
 
 public class Position : MonoBehaviour

@@ -196,7 +196,8 @@ public class TileManager : Singleton<TileManager>
             {
                 if (!tileMatrix[i, j] &&
                    (GetTileType(pRect.x1 + i, pRect.y1 + j) == TileType.Normal &&
-                    GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)))
+                    GetTileData(pRect.x1 + i, pRect.y1 + j) != new TileData(TileColor.None, TileType.Normal)) &&
+                    GameStateManager.Instance.CheckOrbPosition(pRect.x1 + i, pRect.y1 + j) == null)
                 {
                     adjacentPositions.Select(pos => new Vector2i(pRect.x1 + i + pos.x, pRect.y1 + j + pos.y)).ToList().ForEach(
                         pos => borderPositions.Add(new Vector2i(pos.x, pos.y)));
@@ -212,7 +213,8 @@ public class TileManager : Singleton<TileManager>
         foreach (var pos in borderPositions)
         {
             if (GetTileType(pos.x, pos.y) == TileType.Normal &&
-                GetTileData(pos.x, pos.y) != new TileData(TileColor.None, TileType.Normal))
+                GetTileData(pos.x, pos.y) != new TileData(TileColor.None, TileType.Normal) &&
+                GameStateManager.Instance.CheckOrbPosition(pos.x, pos.y) == null)
             {
                 SetTileColor(pos.x, pos.y, playerTileColor);
                 GetTile(pos.x, pos.y).Activated = true;

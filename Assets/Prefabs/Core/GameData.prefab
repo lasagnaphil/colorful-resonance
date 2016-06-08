@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.865295, y: 4.3177147, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,6 +161,8 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11412510, guid: 99a49bcf4b1a23546896dba04d364aad, type: 2}
     - name: CreateWall
       monsterPrefab: {fileID: 11462634, guid: 556431428e0200f49948d7320470fd30, type: 2}
+    - name: Mob
+      monsterPrefab: {fileID: 11469192, guid: b06341dd730e8dd40af7eb5befd7f1a1, type: 2}
   buttonPrefabDictionary:
     buttonPrefabTupleList:
     - name: WallToggleButton

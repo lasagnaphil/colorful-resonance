@@ -163,6 +163,8 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11462634, guid: 556431428e0200f49948d7320470fd30, type: 2}
     - name: Mob
       monsterPrefab: {fileID: 11469192, guid: b06341dd730e8dd40af7eb5befd7f1a1, type: 2}
+    - name: WaterBalloon
+      monsterPrefab: {fileID: 11489150, guid: 7eccf46cf345f984396b2b3af98ec873, type: 2}
   buttonPrefabDictionary:
     buttonPrefabTupleList:
     - name: WallToggleButton

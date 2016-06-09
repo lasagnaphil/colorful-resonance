@@ -54,6 +54,7 @@ public class Monster : MonoBehaviour
             Destroy(this.gameObject);
             if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
             destroyed = true;
+            GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.MonsterDie);
         }
 
         return sequence;

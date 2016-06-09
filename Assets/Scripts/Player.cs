@@ -237,7 +237,8 @@ public class Player : MonoBehaviour
         
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
         {
-            tileManager.SetTileColorAndFill(x, y, playerTileColor);
+            bool fillingExecuted = tileManager.SetTileColorAndFill(x, y, playerTileColor);
+            if (fillingExecuted) soundManager.Play(SoundManager.Sounds.TileActivate);
             
             tileManager.GetTile(x, y).PlaySubEffect();
         }

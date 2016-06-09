@@ -233,6 +233,7 @@ GameObject:
   - 114: {fileID: 11457974}
   - 114: {fileID: 11411732}
   - 114: {fileID: 11469482}
+  - 114: {fileID: 11475048}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1036,7 +1037,7 @@ MonoBehaviour:
   projectileHolderObject: {fileID: 0}
   orbHolderObject: {fileID: 0}
   soundManager: {fileID: 0}
-  turnNumberText: {fileID: 0}
+  turnNumberText: {fileID: 11490376}
   playerHealthImages:
   - {fileID: 11495872}
   - {fileID: 11474138}

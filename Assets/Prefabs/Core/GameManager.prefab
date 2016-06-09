@@ -939,6 +939,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11475048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundDataList:
+  - soundEnum: 0
+    audioClip: {fileID: 8300000, guid: 105cfa1cb2ef03d458e973a8488360c6, type: 3}
+    volume: 1
+  - soundEnum: 1
+    audioClip: {fileID: 8300000, guid: 2377965d48814544f884c576f4899ee3, type: 3}
+    volume: 1
+  - soundEnum: 2
+    audioClip: {fileID: 8300000, guid: 423b83fa35a74004a910d03c57ee0863, type: 3}
+    volume: 1
+  - soundEnum: 3
+    audioClip: {fileID: 8300000, guid: 49c6e8a8424a0684cb7c0d965c61341d, type: 3}
+    volume: 1
+  - soundEnum: 4
+    audioClip: {fileID: 8300000, guid: 15d4abe3a217ba142ae92da384f193b7, type: 3}
+    volume: 1
+  - soundEnum: 5
+    audioClip: {fileID: 8300000, guid: 903c7df89378cde40bbd38cbb4c6793f, type: 3}
+    volume: 1
 --- !u!114 &11479136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1005,7 +1035,8 @@ MonoBehaviour:
   monsterHolderObject: {fileID: 0}
   projectileHolderObject: {fileID: 0}
   orbHolderObject: {fileID: 0}
-  turnNumberText: {fileID: 11490376}
+  soundManager: {fileID: 0}
+  turnNumberText: {fileID: 0}
   playerHealthImages:
   - {fileID: 11495872}
   - {fileID: 11474138}
@@ -1403,6 +1434,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

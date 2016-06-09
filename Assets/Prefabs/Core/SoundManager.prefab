@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 401222}
   - 82: {fileID: 8249562}
+  - 114: {fileID: 11404792}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -37,7 +38,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 011e1d9bf02665d44a4f1352f702df79, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 02330231a1ae95142af09b4447fbe2fd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -102,6 +103,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &11404792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3871e1f1554765d49b2b2ffe92add19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundDataList:
+  - soundEnum: 0
+    audioClip: {fileID: 8300000, guid: 105cfa1cb2ef03d458e973a8488360c6, type: 3}
+    volume: 1
+  - soundEnum: 1
+    audioClip: {fileID: 8300000, guid: 2377965d48814544f884c576f4899ee3, type: 3}
+    volume: 1
+  - soundEnum: 2
+    audioClip: {fileID: 8300000, guid: 423b83fa35a74004a910d03c57ee0863, type: 3}
+    volume: 0.99
+  - soundEnum: 3
+    audioClip: {fileID: 8300000, guid: 49c6e8a8424a0684cb7c0d965c61341d, type: 3}
+    volume: 1
+  - soundEnum: 4
+    audioClip: {fileID: 8300000, guid: 15d4abe3a217ba142ae92da384f193b7, type: 3}
+    volume: 1
+  - soundEnum: 5
+    audioClip: {fileID: 8300000, guid: 903c7df89378cde40bbd38cbb4c6793f, type: 3}
+    volume: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

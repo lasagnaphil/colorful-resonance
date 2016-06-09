@@ -7,6 +7,7 @@ public class MobMonster : Monster
 {
     int deltaX;
     int deltaY;
+    int Cleaning;
     int CoolTime;
 
     protected override Sequence OnTurn()
@@ -17,8 +18,8 @@ public class MobMonster : Monster
         Player player = GameStateManager.Instance.player;
         Position PlayerPos = player.GetComponent<Position>();
 
-        deltaX = PlayerPos.X - pos.X - 1;
-        deltaY = PlayerPos.Y - pos.Y - 1;
+        deltaX = PlayerPos.X - pos.X;
+        deltaY = PlayerPos.Y - pos.Y;
 
         if (moveCancelled)
         {
@@ -27,26 +28,50 @@ public class MobMonster : Monster
         }
 
         if (TileManager.Instance.GetTileColor(pos.X, pos.Y) == TileColor.Blue)
-            CoolTime++;
+            Cleaning++;
         else
         {
-            CoolTime = 0;
-            if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+            Cleaning = 0;
+
+            if (CoolTime < 1)
+                CoolTime++;
+            else if (CoolTime == 1)
             {
-                if (deltaX > 0)
+                if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
-                    if (CheckPosition(pos.X + 1, pos.Y))
+                    if (deltaX > 0)
                     {
-                        AnimatedMove(sequence, pos.X + 1, pos.Y);
+                        if (CheckPosition(pos.X + 1, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X + 1, pos.Y);
+                        }
+                    }
+                    else if (deltaX < 0)
+                    {
+                        if (CheckPosition(pos.X - 1, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X - 1, pos.Y);
+                        }
                     }
                 }
-                else if (deltaX < 0)
+                else
                 {
-                    if (CheckPosition(pos.X - 1, pos.Y))
+                    if (deltaY > 0)
                     {
-                        AnimatedMove(sequence, pos.X - 1, pos.Y);
+                        if (CheckPosition(pos.X, pos.Y + 1))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y + 1);
+                        }
+                    }
+                    else if (deltaY < 0)
+                    {
+                        if (CheckPosition(pos.X, pos.Y - 1))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y - 1);
+                        }
                     }
                 }
+                CoolTime = 0;
             }
             else
             {
@@ -67,10 +92,10 @@ public class MobMonster : Monster
             }
         }
 
-        if (CoolTime == 2)
+        if (Cleaning == 2)
         {
             TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-            CoolTime = 0;
+            Cleaning = 0;
         }
 
         return sequence;

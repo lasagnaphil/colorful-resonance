@@ -3,14 +3,14 @@
   "width": 13,
   "height": 8,
   "tiles": [
-            "R R R R w w w w w B B B B",
+            "R R Y Y w w w w w w w B B",
             "R w w w w w w w w w w w B",
-            "R w w w w w Y w w w w w B",
-            "R w w w w Y . Y w w w w B",
-            "B w w w w Y . Y w w w r R",
-            "B w w w w w Y w w w w w R",
-            "B w w w w w w w w r w w R",
-            "B B B B w w w w w R R R R"
+            "R w w w w w Y w w w w w Y",
+            "R w w w w Y . Y w w w w Y",
+            "B w w w w Y . Y b b b w w",
+            "B w w w w w Y w w w w w w",
+            "B w w w w w w w w w w w w",
+            "B B w w w w w w w w w w Y"
            ],
   "playerData": {
     "position" : {"x": 10, "y": 2}
@@ -18,23 +18,27 @@
   "monsters": [
     {
       "name" : "HomingMissile",
-      "position" : {"x": 11, "y": 2}
+      "position" : {"x": 11, "y": 6}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 10, "y": 1}
+      "position" : {"x": 1, "y": 1}
     },
     {
-      "name" : "CleanTile",
+      "name" : "Mob",
       "position" : {"x": 9, "y": 4}
     },
     {
       "name" : "PaintWall",
-      "position" : {"x": 11, "y": 1}
+      "position" : {"x": 9, "y": 1}
     },
     {
-      "name" : "Rain",
-      "position" : {"x": 1, "y": 1}
+      "name" : "PaintWall",
+      "position" : {"x": 11, "y": 2}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 2, "y": 6}
     }
   ],
   "orbs": [
@@ -45,6 +49,10 @@
     {
       "color" : "blue",
       "position" : {"x": 1, "y": 6}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 3, "y": 4}
     }
   ]
 }

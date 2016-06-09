@@ -23,11 +23,11 @@
       "position" : {"x": 14, "y": 3}
     },
     {
-      "name" : "CleanTile",
+      "name" : "Mob",
       "position" : {"x": 1, "y": 2}
     },
     {
-      "name" : "Invincible",
+      "name" : "Shield",
       "position" : {"x": 10, "y": 2}
     }
   ],

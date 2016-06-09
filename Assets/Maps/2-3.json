@@ -16,7 +16,7 @@
   },
   "monsters": [
     {
-      "name" : "Invincible",
+      "name" : "Shield",
       "position" : {"x": 3, "y": 2}
     },
     {

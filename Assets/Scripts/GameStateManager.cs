@@ -47,7 +47,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private TileManager tileManager;
     public Text turnNumberText;
-    public Text playerHealthText;
+    public Image[] playerHealthImages;
 
     public event Action TileTurns;
     public event Func<Sequence> PlayerTurn;

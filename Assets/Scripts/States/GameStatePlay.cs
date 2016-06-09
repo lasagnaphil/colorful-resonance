@@ -31,6 +31,18 @@ namespace States
             {
                 gsm.ChangeState<GameStateLoad>();
             }
+            if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                && Input.GetKeyDown(KeyCode.RightBracket))
+            {
+                gsm.mapLoader.SetLevelToNext();
+                gsm.ChangeState<GameStateLoad>();
+            }
+            if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                && Input.GetKeyDown(KeyCode.LeftBracket))
+            {
+                gsm.mapLoader.SetLevelToPrevious();
+                gsm.ChangeState<GameStateLoad>();
+            }
         }
 
         // MaxHealth = 3;

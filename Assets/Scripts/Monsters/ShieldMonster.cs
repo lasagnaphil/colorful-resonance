@@ -5,6 +5,8 @@ using Utils;
 
 public class ShieldMonster : Monster
 {
+    public Sprite ShieldOff;
+
     int deltaX;
     int deltaY;
     int CoolTime;
@@ -25,6 +27,9 @@ public class ShieldMonster : Monster
             moveCancelled = false;
             return sequence;
         }
+
+        if (Health == 1)
+            GetComponent<SpriteRenderer>().sprite = ShieldOff;
 
         if (CoolTime < 2)
             CoolTime++;

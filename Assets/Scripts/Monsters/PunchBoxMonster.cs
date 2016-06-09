@@ -34,6 +34,7 @@ public class PunchBoxMonster : Monster
             state = 2;
             GetComponent<SpriteRenderer>().sprite = PunchBox;
             MaxHealth = 1;
+            Health = 1;
         }
 
         if (state == 2)

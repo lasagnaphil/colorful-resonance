@@ -5,9 +5,9 @@
   "tiles": [
             "w w w w w w w w w w",
             "w y w w w w w w y w",
-            "w w w w w w w w w w",
             "w w w w y y w w w w",
-            "w w w w w w w w w w",
+            "w w w y . . y w w w",
+            "w w w w y y w w w w",
             "w y w w w w w w y w",
             "w w w w w w w w w w",
            ],
@@ -21,19 +21,15 @@
     },
     {
       "name" : "Mob",
-      "position" : {"x": 7, "y": 4}
+      "position" : {"x": 2, "y": 4}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 7, "y": 4}
+      "position" : {"x": 3, "y": 6}
     },
     {
-      "name" : "BoomBoom",
-      "position" : {"x": 7, "y": 4}
-    },
-    {
-      "name" : "CleanTile",
-      "position" : {"x": 3, "y": 3}
+      "name" : "HomingMissile",
+      "position" : {"x": 0, "y": 3}
     },
     {
       "name" : "Teleport",
@@ -43,15 +39,23 @@
   "orbs": [
     {
       "color" : "red",
-      "position" : {"x": 1, "y": 5}
+      "position" : {"x": 2, "y": 6}
     },
     {
       "color" : "blue",
-      "position" : {"x": 2, "y": 5}
+      "position" : {"x": 1, "y": 6}
     },
     {
       "color" : "yellow",
-      "position" : {"x": 3, "y": 5}
+      "position" : {"x": 0, "y": 6}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 0, "y": 4}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 0, "y": 5}
     }
   ]
 }

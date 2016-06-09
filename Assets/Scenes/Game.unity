@@ -193,40 +193,13 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400810, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 1593625429}
+    - target: {fileID: 11400810, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
       propertyPath: camera
       value: 
       objectReference: {fileID: 859390976}
-    - target: {fileID: 21250976, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2a5d22ee55014e4ab4cba21caaaca7f,
-        type: 3}
-    - target: {fileID: 21212206, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2a5d22ee55014e4ab4cba21caaaca7f,
-        type: 3}
-    - target: {fileID: 21280024, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c2a5d22ee55014e4ab4cba21caaaca7f,
-        type: 3}
-    - target: {fileID: 173828, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 168150, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 171914, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 132902, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8141fe4ae8441c4d896b7b849b4121a, type: 2}
   m_IsPrefabParent: 0
@@ -438,6 +411,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &1593625429 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11475048, guid: 1500979a1a0021843b433fb3ab71031a,
+    type: 2}
+  m_PrefabInternal: {fileID: 197900791}
+  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
 --- !u!1 &1946494923
 GameObject:
   m_ObjectHideFlags: 0

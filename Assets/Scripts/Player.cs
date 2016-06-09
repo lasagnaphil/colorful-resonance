@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private Animator animator;
     private MobileInputManager mobileInputManager;
 
+    public SoundManager soundManager;
+
     public new Camera camera;
 
     public Position pos;
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
         mobileInputManager = FindObjectOfType<MobileInputManager>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     protected void Start()
@@ -196,6 +199,24 @@ public class Player : MonoBehaviour
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
         if (foundOrb != null)
         {
+            if (playerTileColor != foundOrb.Color)
+            {
+                if (foundOrb.Color == TileColor.Red)
+                {
+                    soundManager.StopAll();
+                    soundManager.Play(SoundManager.Sounds.Red);
+                }
+                else if (foundOrb.Color == TileColor.Blue)
+                {
+                    soundManager.StopAll();
+                    soundManager.Play(SoundManager.Sounds.Blue);
+                }
+                else if (foundOrb.Color == TileColor.Yellow)
+                {
+                    soundManager.StopAll();
+                    soundManager.Play(SoundManager.Sounds.Yellow);
+                }
+            }
             playerTileColor = foundOrb.Color;
             UpdateAuraColor();
         }

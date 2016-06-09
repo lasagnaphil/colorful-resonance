@@ -85,7 +85,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         if (soundManager != null)
         {
-            soundManager.Play(SoundManager.Sounds.Main);
+            soundManager.Play(SoundManager.Sounds.Main, true);
         }
         else
             Debug.Log("SoundManager is null.");
@@ -120,6 +120,13 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
                 player.UpdateAuraColor();
+                if (soundManager != null)
+                {
+                    soundManager.StopAll();
+                    soundManager.Play(SoundManager.Sounds.Die);
+                }
+                else
+                    Debug.Log("SoundManager is null.");
                 resultUIManager.PopupLoseUI();
                 ChangeState<GameStateLose>();
             }
@@ -127,6 +134,15 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 if (monsters.Count == 0)
                 {
+                    if (soundManager != null)
+                    {
+                        soundManager.StopAll();
+                        soundManager.Play(SoundManager.Sounds.Clear);
+                    }
+                    else
+                    {
+                        Debug.Log("SoundManager is null.");
+                    }
                     resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
                 }
@@ -135,6 +151,15 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
                 {
+                    if (soundManager != null)
+                    {
+                        soundManager.StopAll();
+                        soundManager.Play(SoundManager.Sounds.Clear);
+                    }
+                    else
+                    {
+                        Debug.Log("SoundManager is null.");
+                    }
                     resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
                 }
@@ -268,7 +293,15 @@ public class GameStateManager : Singleton<GameStateManager>
 
         // load the map
         mapData = mapLoader.LoadMap();
-        
+
+        if (soundManager != null)
+        {
+            soundManager.StopAll();
+            soundManager.Play(SoundManager.Sounds.Main);
+        }
+        else
+            Debug.Log("SoundManager is null.");
+
         resultUIManager.Initialize();
     }
 }

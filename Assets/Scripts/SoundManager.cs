@@ -31,7 +31,14 @@ public class SoundManager : Singleton<SoundManager>
         Die,
         Red,
         Blue,
-        Yellow
+        Yellow,
+        Blink,
+        Explosion,
+        GetOrb,
+        Hit,
+        Jump,
+        MonsterDie,
+        TileActivate
     }
 
     public List<AudioSourceData> audioSources = new List<AudioSourceData>();
@@ -71,5 +78,10 @@ public class SoundManager : Singleton<SoundManager>
         audioSources
             .FindAll(x => x.soundEnum == soundEnum)
             .ForEach(x => x.source.Stop());
+    }
+
+    public void StopAll()
+    {
+        audioSources.ForEach(x => x.source.Stop());
     }
 }

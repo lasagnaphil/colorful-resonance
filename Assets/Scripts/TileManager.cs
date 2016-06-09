@@ -14,12 +14,14 @@ public class TileManager : Singleton<TileManager>
     public int height;
 
     public Tile tilePrefab;
+    public SoundManager soundManager;
 
     private MapLoader mapLoader;
 
     protected void Awake()
     {
         mapLoader = GetComponent<MapLoader>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     public Tile GetTile(int x, int y)

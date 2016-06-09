@@ -165,6 +165,12 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11469192, guid: b06341dd730e8dd40af7eb5befd7f1a1, type: 2}
     - name: WaterBalloon
       monsterPrefab: {fileID: 11489150, guid: 7eccf46cf345f984396b2b3af98ec873, type: 2}
+    - name: Teleport
+      monsterPrefab: {fileID: 11467618, guid: a2ed30793ee22f5488eaeb01c7e20c06, type: 2}
+    - name: Shield
+      monsterPrefab: {fileID: 11411906, guid: 3ab68803f136a87459a28c6b58be18b2, type: 2}
+    - name: PunchBox
+      monsterPrefab: {fileID: 11431306, guid: 18bce2c4c3c200147895b65704094d95, type: 2}
   buttonPrefabDictionary:
     buttonPrefabTupleList:
     - name: WallToggleButton

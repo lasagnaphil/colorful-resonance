@@ -45,6 +45,9 @@ public class GameStateManager : Singleton<GameStateManager>
     // then we would have to add the object into every scene that we have made manually
     // public GameObject buttonHolderObject;
 
+    // Plays sound as game state changes
+    public SoundManager soundManager;
+
     private TileManager tileManager;
     public Text turnNumberText;
     public Image[] playerHealthImages;
@@ -60,6 +63,7 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         tileManager = GetComponent<TileManager>();
         mapLoader = GetComponent<MapLoader>();
+        soundManager = GetComponent<SoundManager>();
     }
 
     protected void Start()
@@ -76,6 +80,13 @@ public class GameStateManager : Singleton<GameStateManager>
         }
 
         ChangeState<GameStateLoad>();
+
+        if (soundManager != null)
+        {
+            soundManager.Play(SoundManager.Sounds.Main);
+        }
+        else
+            Debug.Log("SoundManager is null.");
     }
 
     protected void Update()

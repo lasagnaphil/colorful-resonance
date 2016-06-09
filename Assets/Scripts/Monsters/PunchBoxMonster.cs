@@ -3,11 +3,13 @@ using System.Collections;
 using DG.Tweening;
 using Utils;
 
-public class MobMonster : Monster
+public class PunchBoxMonster : Monster
 {
+    public Sprite PunchBox;
+
     int deltaX;
     int deltaY;
-    int Cleaning;
+    int state;
     int CoolTime;
 
     protected override Sequence OnTurn()
@@ -27,15 +29,19 @@ public class MobMonster : Monster
             return sequence;
         }
 
-        if (TileManager.Instance.GetTileColor(pos.X, pos.Y) == TileColor.Blue)
-            Cleaning++;
-        else
+        if (state != 2 && Mathf.Abs(deltaX) <= 1 && Mathf.Abs(deltaY) <= 1)
         {
-            Cleaning = 0;
+            state = 2;
+            GetComponent<SpriteRenderer>().sprite = PunchBox;
+            MaxHealth = 1;
+            Health = 1;
+        }
 
-            if (CoolTime < 1)
+        if (state == 2)
+        {
+            if (CoolTime < 2)
                 CoolTime++;
-            else if (CoolTime == 1)
+            else if (CoolTime == 2)
             {
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
@@ -73,29 +79,6 @@ public class MobMonster : Monster
                 }
                 CoolTime = 0;
             }
-            else
-            {
-                if (deltaY > 0)
-                {
-                    if (CheckPosition(pos.X, pos.Y + 1))
-                    {
-                        AnimatedMove(sequence, pos.X, pos.Y + 1);
-                    }
-                }
-                else if (deltaY < 0)
-                {
-                    if (CheckPosition(pos.X, pos.Y - 1))
-                    {
-                        AnimatedMove(sequence, pos.X, pos.Y - 1);
-                    }
-                }
-            }
-        }
-
-        if (Cleaning == 2)
-        {
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-            Cleaning = 0;
         }
 
         return sequence;

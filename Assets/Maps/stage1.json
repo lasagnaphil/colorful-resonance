@@ -23,10 +23,6 @@
     {
       "name" : "UpDown",
       "position" : {"x": 3, "y": 3}
-    },
-    {
-      "name" : "HShooter",
-      "position" : {"x": 5, "y": 5}
     }
   ],
   "orbs": [
@@ -40,6 +36,12 @@
 	  "name" : "WallToggleButton",
 	  "position" : {"x": 3, "y": 2},
 	  "togglePosition" : {"x": 1, "y": 0},
+	  "isWallOnButtonOff" : true
+	},
+	{
+	  "name" : "WallToggleLever",
+	  "position" : {"x": 5, "y": 3},
+	  "togglePosition" : {"x": 2, "y": 0},
 	  "isWallOnButtonOff" : true
 	}
   ]

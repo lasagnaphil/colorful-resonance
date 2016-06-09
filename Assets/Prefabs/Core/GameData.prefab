@@ -175,6 +175,8 @@ MonoBehaviour:
     buttonPrefabTupleList:
     - name: WallToggleButton
       buttonPrefab: {fileID: 11489438, guid: d6b9916103513cd4ca7c470717e5d982, type: 2}
+    - name: WallToggleLever
+      buttonPrefab: {fileID: 11427718, guid: e2a2af82b11c8d34ba811d12847a5f6d, type: 2}
   tilePrefab: {fileID: 11441470, guid: 9e769e630211c5a4cb0e8544ad8efafb, type: 2}
   orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
 --- !u!1001 &100100000

@@ -32,7 +32,7 @@ public class Button : MonoBehaviour {
 		renderer = GetComponent<SpriteRenderer>();
     }
 
-	bool IsPushed()
+	protected bool IsPushed()
 	{
 		bool isPushed = false;
 		

@@ -73,6 +73,17 @@ public class MapLoader : MonoBehaviour
             Debug.Log("This is the last level! Reloading the same level again.");
         }
         else mapIndex++;
+        mapToLoad = mapAssetList[mapIndex].name;
+    }
+
+    public void SetLevelToPrevious()
+    {
+        if (mapIndex == 0)
+        {
+            Debug.Log("This is the first level! Reloading the same level again.");
+        }
+        else mapIndex--;
+        mapToLoad = mapAssetList[mapIndex].name;
     }
 
     public void InitializeTileArray(ref Tile[,] tiles, int width, int height)
@@ -152,8 +163,15 @@ public class MapLoader : MonoBehaviour
             button.pos.Set(buttonData.position);
             if (button is WallToggleButton)
             {
-                (button as WallToggleButton).wallTogglePos = new Vector2i(buttonData.togglePosition);
-                (button as WallToggleButton).isWallOnButtonOff = buttonData.isWallOnButtonOff;
+                var wallToggleButton = button as WallToggleButton;
+                wallToggleButton.wallTogglePos = new Vector2i(buttonData.togglePosition);
+                wallToggleButton.isWallOnButtonOff = buttonData.isWallOnButtonOff;
+            }
+            if (button is WallToggleLever)
+            {
+                var wallToggleLever = button as WallToggleLever;
+                wallToggleLever.wallTogglePos = new Vector2i(buttonData.togglePosition);
+                wallToggleLever.isWallOnButtonOff = buttonData.isWallOnButtonOff;
             }
         }
     }

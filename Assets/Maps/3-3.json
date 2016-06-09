@@ -1,7 +1,7 @@
 {
   "name": "Stage 3 - 3",
   "width": 10,
-  "height": 6,
+  "height": 7,
   "tiles": [
             "w w w w w w w w w w",
             "w y w w w w w w y w",
@@ -37,7 +37,7 @@
     },
     {
       "name" : "Teleport",
-      "position" : {"x": 5, "y": 3}
+      "position" : {"x": 5, "y": 5}
     }
   ],
   "orbs": [

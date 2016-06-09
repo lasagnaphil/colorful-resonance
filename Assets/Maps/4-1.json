@@ -1,0 +1,58 @@
+{
+  "name": "Stage 4 - 1",
+  "width": 13,
+  "height": 8,
+  "tiles": [
+            "R R Y Y w w w w w w w B B",
+            "R w w w w w w w w w w w B",
+            "R w w w w w Y w w w w w Y",
+            "R w w w w Y . Y w w w w Y",
+            "B w w w w Y . Y b b b w w",
+            "B w w w w w Y w w w w w w",
+            "B w w w w w w w w w w w w",
+            "B B w w w w w w w w w w Y"
+           ],
+  "playerData": {
+    "position" : {"x": 10, "y": 2}
+  },
+  "monsters": [
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 6}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 1, "y": 1}
+    },
+    {
+      "name" : "Mob",
+      "position" : {"x": 9, "y": 4}
+    },
+    {
+      "name" : "PaintWall",
+      "position" : {"x": 9, "y": 1}
+    },
+    {
+      "name" : "PaintWall",
+      "position" : {"x": 11, "y": 2}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 2, "y": 6}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 9, "y": 2}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 1, "y": 6}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 3, "y": 4}
+    }
+  ]
+}

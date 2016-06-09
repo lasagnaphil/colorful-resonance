@@ -46,9 +46,10 @@ public class GameStateManager : Singleton<GameStateManager>
     // public GameObject buttonHolderObject;
 
     private TileManager tileManager;
+    private ResultUIManager resultUIManager;
     public Text turnNumberText;
     public Image[] playerHealthImages;
-
+    
     public event Action TileTurns;
     public event Func<Sequence> PlayerTurn;
     public event Func<Sequence> MonsterTurns;
@@ -59,6 +60,7 @@ public class GameStateManager : Singleton<GameStateManager>
     protected void Awake()
     {
         tileManager = GetComponent<TileManager>();
+        resultUIManager = GetComponent<ResultUIManager>();
         mapLoader = GetComponent<MapLoader>();
     }
 
@@ -107,12 +109,14 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
                 player.UpdateAuraColor();
+                resultUIManager.PopupLoseUI();
                 ChangeState<GameStateLose>();
             }
             if (mapData.winCondition is EliminationWinCondition)
             {
                 if (monsters.Count == 0)
                 {
+                    resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
                 }
             }
@@ -120,6 +124,7 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
                 {
+                    resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
                 }
             }
@@ -252,5 +257,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         // load the map
         mapData = mapLoader.LoadMap();
+        
+        resultUIManager.Initialize();
     }
 }

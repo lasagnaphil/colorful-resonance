@@ -73,6 +73,7 @@ public class MapLoader : MonoBehaviour
             Debug.Log("This is the last level! Reloading the same level again.");
         }
         else mapIndex++;
+        mapToLoad = mapAssetList[mapIndex].name;
     }
 
     public void InitializeTileArray(ref Tile[,] tiles, int width, int height)

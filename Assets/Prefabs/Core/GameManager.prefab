@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: 2-1
+  mapToLoad: 1-1
   mapIndex: 0
   mapAssetList:
   - {fileID: 4900000, guid: 30c5b7c6e64c27f49873780d1d97a67c, type: 3}

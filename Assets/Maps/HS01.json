@@ -1,0 +1,39 @@
+{
+  "name": "HS01",
+  "width": 10,
+  "height": 10,
+  "tiles": ["L L L L L L L L L L",
+            "L w w w w w w w w L",
+            "L w o o w w w o w L",
+            "L w o w w w w w w L",
+            "L w L w w w w w w L",
+            "L w w w w w w w w L",
+            "L w w w w w w w w L",
+            "L w w w w o O O w L",
+            "L w w w w w w w w L",
+            "L L L L L L L L L L"],
+  "playerData":
+  {
+    "position": {"x": 2, "y": 1}
+  },
+  "monsters": [
+    {
+      "name" : "UpDown",
+      "position" : {"x": 3, "y": 3}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 5, "y": 5}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 2}
+    },
+    {
+      "color" : "green",
+      "position" : {"x": 6, "y": 7}
+    }
+  ]
+}

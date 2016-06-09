@@ -36,9 +36,12 @@ public class SoundManager : Singleton<SoundManager>
         Explosion,
         GetOrb,
         Hit,
-        Jump,
         MonsterDie,
-        TileActivate
+        TileActivate,
+        Move1,
+        Move2,
+        Move3,
+        Move4
     }
 
     public List<AudioSourceData> audioSources = new List<AudioSourceData>();

@@ -47,16 +47,16 @@ public class TileManager : Singleton<TileManager>
         tiles[x, y].UpdateIndex();
     }
 
-    public void SetTileDataAndFill(int x, int y, TileData data)
+    public bool SetTileDataAndFill(int x, int y, TileData data)
     {
         SetTileData(x, y, data);
-        FillTilesUsingContours(x, y, data.color);
+        return FillTilesUsingContours(x, y, data.color);
     }
 
-    public void SetTileColorAndFill(int x, int y, TileColor color)
+    public bool SetTileColorAndFill(int x, int y, TileColor color)
     {
         SetTileColor(x, y, color);
-        FillTilesUsingContours(x, y, color);
+        return FillTilesUsingContours(x, y, color);
     }
 
     public TileData GetTileData(int x, int y)
@@ -126,8 +126,9 @@ public class TileManager : Singleton<TileManager>
         }
     }
 
-    public void FillTilesUsingContours(int x, int y, TileColor playerTileColor)
+    public bool FillTilesUsingContours(int x, int y, TileColor playerTileColor)
     {
+        bool fillingExecuted = false;
         ResetMarkers();
 
         List<Vector2i> positions = new List<Vector2i>();
@@ -192,6 +193,7 @@ public class TileManager : Singleton<TileManager>
             new Vector2i(-1, 0), new Vector2i(1, 0),
             new Vector2i(1, -1), new Vector2i(0, -1), new Vector2i(-1, -1)
         };
+        
         for (int j = 0; j < pRect.GetHeight(); j++)
         {
             for (int i = 0; i < pRect.GetWidth(); i++)
@@ -207,6 +209,7 @@ public class TileManager : Singleton<TileManager>
                     SetTileColor(pRect.x1 + i, pRect.y1 + j, playerTileColor);
                     GetTile(pRect.x1 + i, pRect.y1 + j).Activated = true;
                     GetTile(pRect.x1 + i, pRect.y1 + j).PlayEffect();
+                    fillingExecuted = true;
                 }
             }
         }
@@ -225,6 +228,8 @@ public class TileManager : Singleton<TileManager>
                 GameStateManager.Instance.player.GetComponent<Animator>().SetTrigger("Jump");
             }
         }
+
+        return fillingExecuted;
     }
 
     public void FillTileMatrix(bool[,] tileMatrix, int x, int y, IntRect pRect)

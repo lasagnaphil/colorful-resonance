@@ -89,6 +89,8 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x - 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
+                else
+                    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -96,19 +98,26 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x + 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
+                else
+                    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
+                else
+                    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y + 3;
+                else
+                    soundManager.Play(SoundManager.Sounds.Blink);
             }
+            
         }
         else
         {
@@ -119,22 +128,26 @@ public class Player : MonoBehaviour
                 TurnLeft();
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
+                else soundManager.Play(SoundManager.Sounds.Move1);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
             {
                 TurnRight();
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
+                else soundManager.Play(SoundManager.Sounds.Move2);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
             {
                 tempPos.y++;
                 if (!(PositionCheck())) tempPos.y--;
+                else soundManager.Play(SoundManager.Sounds.Move3);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
             {
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;
+                else soundManager.Play(SoundManager.Sounds.Move4);
             }
         }
         
@@ -179,6 +192,7 @@ public class Player : MonoBehaviour
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
         if (foundMonster != null)
         {
+            soundManager.Play(SoundManager.Sounds.Hit);
             ApplyDamage(foundMonster.DamageToPlayer);
             foundMonster.moveCancelled = true;
             sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
@@ -204,17 +218,17 @@ public class Player : MonoBehaviour
                 if (foundOrb.Color == TileColor.Red)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Red);
+                    soundManager.Play(SoundManager.Sounds.Red, true);
                 }
                 else if (foundOrb.Color == TileColor.Blue)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Blue);
+                    soundManager.Play(SoundManager.Sounds.Blue, true);
                 }
                 else if (foundOrb.Color == TileColor.Yellow)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Yellow);
+                    soundManager.Play(SoundManager.Sounds.Yellow, true);
                 }
             }
             playerTileColor = foundOrb.Color;
@@ -223,7 +237,8 @@ public class Player : MonoBehaviour
         
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
         {
-            tileManager.SetTileColorAndFill(x, y, playerTileColor);
+            bool fillingExecuted = tileManager.SetTileColorAndFill(x, y, playerTileColor);
+            if (fillingExecuted) soundManager.Play(SoundManager.Sounds.TileActivate);
             
             tileManager.GetTile(x, y).PlaySubEffect();
         }

@@ -60,8 +60,9 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
 
-    protected void Awake()
+    public override void Awake()
     {
+        base.Awake();
         tileManager = GetComponent<TileManager>();
         resultUIManager = GetComponent<ResultUIManager>();
         mapLoader = GetComponent<MapLoader>();

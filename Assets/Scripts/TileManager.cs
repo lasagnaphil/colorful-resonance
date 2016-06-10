@@ -20,6 +20,7 @@ public class TileManager : Singleton<TileManager>
 
     protected void Awake()
     {
+        base.Awake();
         mapLoader = GetComponent<MapLoader>();
         soundManager = FindObjectOfType<SoundManager>();
     }

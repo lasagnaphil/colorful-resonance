@@ -89,8 +89,9 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x - 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
-                else
-                    soundManager.Play(SoundManager.Sounds.Blink);
+                // inactivate until we find better sound
+                //else
+                //    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
@@ -98,24 +99,24 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x + 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
-                else
-                    soundManager.Play(SoundManager.Sounds.Blink);
+                //else
+                //    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
-                else
-                    soundManager.Play(SoundManager.Sounds.Blink);
+                //else
+                //    soundManager.Play(SoundManager.Sounds.Blink);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y + 3;
-                else
-                    soundManager.Play(SoundManager.Sounds.Blink);
+                //else
+                //    soundManager.Play(SoundManager.Sounds.Blink);
             }
             
         }
@@ -128,26 +129,26 @@ public class Player : MonoBehaviour
                 TurnLeft();
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
-                else soundManager.Play(SoundManager.Sounds.Move1);
+                //else soundManager.Play(SoundManager.Sounds.Move1);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
             {
                 TurnRight();
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
-                else soundManager.Play(SoundManager.Sounds.Move2);
+                //else soundManager.Play(SoundManager.Sounds.Move2);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
             {
                 tempPos.y++;
                 if (!(PositionCheck())) tempPos.y--;
-                else soundManager.Play(SoundManager.Sounds.Move3);
+                //else soundManager.Play(SoundManager.Sounds.Move3);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
             {
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;
-                else soundManager.Play(SoundManager.Sounds.Move4);
+                //else soundManager.Play(SoundManager.Sounds.Move4);
             }
         }
         

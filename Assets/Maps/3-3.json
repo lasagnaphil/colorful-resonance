@@ -1,61 +1,63 @@
 {
   "name": "Stage 3 - 3",
-  "width": 10,
-  "height": 7,
+  "width": 12,
+  "height": 9,
   "tiles": [
-            "w w w w w w w w w w",
-            "w y w w w w w w y w",
-            "w w w w y y w w w w",
-            "w w w y . . y w w w",
-            "w w w w y y w w w w",
-            "w y w w w w w w y w",
-            "w w w w w w w w w w",
+            "Y Y B R R R B B B Y R R",
+            "Y w w w w w w w w w w R",
+            "B w Y w w w w w w y w Y",
+            "R w w w w y y w w w w B",
+            "R w w w y . . y w w w B",
+            "R w w w w y y w w w w B",
+            "Y w y w w w w w w y w Y",
+            "Y w w w w w w w w w w Y",
+            "Y Y Y B B B R R R Y Y Y"
            ],
   "playerData": {
-    "position" : {"x": 0, "y": 0}
+    "position" : {"x": 1, "y": 1}
   },
   "monsters": [
     {
       "name" : "Shield",
-      "position" : {"x": 7, "y": 4}
+      "position" : {"x": 8, "y": 5}
     },
     {
       "name" : "Mob",
-      "position" : {"x": 2, "y": 4}
+      "position" : {"x": 3, "y": 5}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 3, "y": 6}
+      "position" : {"x": 4, "y": 7}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 0, "y": 3}
+      "position" : {"x": 1, "y": 4}
     },
     {
       "name" : "Teleport",
-      "position" : {"x": 5, "y": 5}
+      "position" : {"x": 6, "y": 6}
     }
   ],
   "orbs": [
     {
       "color" : "red",
-      "position" : {"x": 2, "y": 6}
+      "position" : {"x": 3, "y": 7}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 2, "y": 7}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 1, "y": 7}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 1, "y": 5}
     },
     {
       "color" : "blue",
       "position" : {"x": 1, "y": 6}
-    },
-    {
-      "color" : "yellow",
-      "position" : {"x": 0, "y": 6}
-    },
-    {
-      "color" : "red",
-      "position" : {"x": 0, "y": 4}
-    },
-    {
-      "color" : "blue",
-      "position" : {"x": 0, "y": 5}
     }
   ]
 }

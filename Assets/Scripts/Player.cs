@@ -192,7 +192,6 @@ public class Player : MonoBehaviour
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
         if (foundMonster != null)
         {
-            soundManager.Play(SoundManager.Sounds.Hit);
             ApplyDamage(foundMonster.DamageToPlayer);
             foundMonster.moveCancelled = true;
             sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
@@ -250,6 +249,7 @@ public class Player : MonoBehaviour
     {
         if (Health > 0) Health -= damage;
         animator.SetTrigger("Hit");
+        soundManager.Play(SoundManager.Sounds.Hit);
     }
 
     public void RevertTurn()

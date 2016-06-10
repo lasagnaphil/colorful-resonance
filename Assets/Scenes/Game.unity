@@ -385,6 +385,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11412984, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
+      propertyPath: monsterPrefabDictionary.monsterPrefabTupleList.Array.data[14].name
+      value: Blink
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e663fecd39ab464689738e9e4c7fbec, type: 2}
   m_IsPrefabParent: 0

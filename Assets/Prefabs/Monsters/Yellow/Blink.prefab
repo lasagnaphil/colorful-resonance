@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11422456}
   - 114: {fileID: 11467618}
   m_Layer: 0
-  m_Name: Teleport
+  m_Name: Blink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6dc1f06cd1ee50e4fbbe548c588bd92c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54e8d5ecf7a0ddd45b36acce317d6206, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

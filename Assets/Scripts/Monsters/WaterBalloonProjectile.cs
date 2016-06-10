@@ -12,6 +12,12 @@ public class WaterBalloonProjectile : Projectile
     int deltaX;
     int deltaY;
 
+    protected virtual void Start()
+    {
+        base.Start();
+        updateDirection = false;
+    }
+
     protected override Sequence OnTurn()
     {
         Sequence sequence = DOTween.Sequence();

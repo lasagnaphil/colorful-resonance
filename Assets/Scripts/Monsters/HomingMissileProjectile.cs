@@ -12,20 +12,18 @@ public class HomingMissileProjectile : Projectile
     {
         Sequence sequence = DOTween.Sequence();
         base.OnTurn();
-        deltaX = player.GetComponent<Position>().X - pos.X;
-        deltaY = player.GetComponent<Position>().Y - pos.Y;
+        deltaX = player.pos.X - pos.X;
+        deltaY = player.pos.Y - pos.Y;
 
         if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
         {
             if (deltaX > 0)
             {
                 MovingDirection = Direction.Right;
-                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 180);
             }
             else if (deltaX < 0)
             {
                 MovingDirection = Direction.Left;
-                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
             }
         }
         else
@@ -33,12 +31,10 @@ public class HomingMissileProjectile : Projectile
             if (deltaY > 0)
             {
                 MovingDirection = Direction.Up;
-                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 270);
             }
             else if (deltaY < 0)
             {
                 MovingDirection = Direction.Down;
-                GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 90);
             }
         }
 

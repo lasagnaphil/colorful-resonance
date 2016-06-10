@@ -17,10 +17,11 @@ public class Projectile : MonoBehaviour
 
     public Position pos;
     protected Vector2i prevPos;
+    public bool updateDirection = true;
 
     protected Player player;
 
-    protected void Start()
+    protected virtual void Start()
     {
         pos = GetComponent<Position>();
         player = GameStateManager.Instance.player;
@@ -38,6 +39,10 @@ public class Projectile : MonoBehaviour
         // Move the projectile based on the position
         var moveDir = DirectionHelper.ToVector2i(MovingDirection);
         sequence.Append(pos.AnimatedMove(pos.X + moveDir.x, pos.Y + moveDir.y, 0.2f));
+
+        // Update the projectile rotation
+        if (updateDirection)
+            transform.rotation = DirectionHelper.ToQuaternion(MovingDirection);
 
         return CheckAndDestroy(sequence);
     }

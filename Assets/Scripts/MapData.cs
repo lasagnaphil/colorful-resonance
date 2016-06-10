@@ -1,5 +1,5 @@
 ﻿using FullSerializer;
-using UnityEditor;
+// using UnityEditor;
 
 [System.Serializable, fsObject(Converter = typeof(MapDataConverter))]
 public class MapData

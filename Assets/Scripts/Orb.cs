@@ -23,6 +23,8 @@ public class Orb : MonoBehaviour
     }
 
     public Position pos;
+    
+    public GameObject[] orbEffectObjects;
 
     protected void Awake()
     {
@@ -35,11 +37,20 @@ public class Orb : MonoBehaviour
     {
         GameStateManager.Instance.AddOrb(this);
         tileManager.SetTileColorAndFill(pos.X, pos.Y, Color);
+        
+        SetEffect(Color);
     }
 
     protected void OnDestroy()
     {
         if (GameStateManager.Instance != null)
             GameStateManager.Instance.RemoveOrb(this);
+    }
+    
+    void SetEffect(TileColor color)
+    {
+        int colorIndex = (int)color;
+        GameObject effectObject = Instantiate(orbEffectObjects[colorIndex], transform.position, Quaternion.identity) as GameObject;
+        effectObject.transform.parent = gameObject.transform;
     }
 }

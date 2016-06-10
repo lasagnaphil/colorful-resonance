@@ -53,7 +53,7 @@
   "orbs": [
     {
       "color" : "yellow",
-      "position" : {"x": 12, "y": 11}
+      "position" : {"x": 6, "y": 6}
     },
     {
       "color" : "blue",

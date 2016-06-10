@@ -10,7 +10,7 @@
             "b b b B . Y Y Y . R w w R",
             "b b b Y . Y w Y . R w w R",
             "w w w w . Y w Y . w w w R",
-            "w w w Y . . . . . R w w R",
+            "w w w Y . Y Y Y . R w w R",
             "w w w B . . . . . R w w R",
             "w w w B . . . . . R w w R",
             "w w w B . . . . . R w w R",
@@ -42,18 +42,30 @@
       "position" : {"x": 10, "y": 7}
     },
     {
+      "name" : "BoomBoom",
+      "position" : {"x": 10, "y": 8}
+    },
+    {
       "name" : "HomingMissile",
       "position" : {"x": 10, "y": 4}
     },
     {
       "name" : "HomingMissile",
       "position" : {"x": 11, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 9}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 10}
     }
   ],
   "orbs": [
     {
       "color" : "yellow",
-      "position" : {"x": 12, "y": 11}
+      "position" : {"x": 11, "y": 11}
     },
     {
       "color" : "blue",
@@ -62,6 +74,26 @@
     {
       "color" : "red",
       "position" : {"x": 0, "y": 0}
+    }
+  ],
+  "buttons": [
+    {
+      "name" : "WallToggleLever",
+      "position" : {"x": 0, "y": 12},
+      "togglePosition" : {"x": 5, "y": 5},
+      "isWallOnButtonOff" : true
+    },
+    {
+      "name" : "WallToggleLever",
+      "position" : {"x": 0, "y": 12},
+      "togglePosition" : {"x": 6, "y": 5},
+      "isWallOnButtonOff" : true
+    },
+    {
+      "name" : "WallToggleLever",
+      "position" : {"x": 0, "y": 12},
+      "togglePosition" : {"x": 7, "y": 5},
+      "isWallOnButtonOff" : true
     }
   ]
 }

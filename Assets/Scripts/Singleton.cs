@@ -4,76 +4,42 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance;
+    public static T Instance;
 
-    private static object _lock = new object();
-
-    public static T Instance
+    public virtual void Awake()
     {
-        get
+        if (Instance == null)
         {
-            if (applicationIsQuitting)
+            T[] instances = FindObjectsOfType<T>() as T[];
+            if (instances.Length != 1)
             {
-                /*
-                Debug.LogWarning("[Singleton] Instance '" + typeof(T) +
-                    "' already destroyed on application quit." +
-                    " Won't create again - returning null.");
-                    */
-                return null;
+                Debug.LogError("Singleton count is wrong " + instances.Length);
             }
 
-            lock (_lock)
+            Instance = FindObjectOfType<T>();
+
+            if (Instance == null)
             {
-                if (_instance == null)
-                {
-                    _instance = (T)FindObjectOfType(typeof(T));
-
-                    if (FindObjectsOfType(typeof(T)).Length > 1)
-                    {
-                        Debug.LogError("[Singleton] Something went really wrong " +
-                            " - there should never be more than 1 singleton!" +
-                            " Reopening the scene might fix it.");
-                        return _instance;
-                    }
-
-                    if (_instance == null)
-                    {
-                        GameObject singleton = new GameObject();
-                        _instance = singleton.AddComponent<T>();
-                        singleton.name = "(singleton) " + typeof(T).ToString();
-
-                        DontDestroyOnLoad(singleton);
-
-                        Debug.Log("[Singleton] An instance of " + typeof(T) +
-                            " is needed in the scene, so '" + singleton +
-                            "' was created with DontDestroyOnLoad.");
-                    }
-                    else {
-                        /*
-                        Debug.Log("[Singleton] Using instance already created: " +
-                            _instance.gameObject.name);
-                            */
-                    }
-                }
-
-                return _instance;
+                Debug.LogError("Cannot find singleton");
             }
+        }
+        else
+        {
+            Debug.LogError("Singleton is duplicated");
         }
     }
 
-    private static bool applicationIsQuitting = false;
-    /// <summary>
-    /// When Unity quits, it destroys objects in a random order.
-    /// In principle, a Singleton is only destroyed when application quits.
-    /// If any script calls Instance after it have been destroyed, 
-    ///   it will create a buggy ghost object that will stay on the Editor scene
-    ///   even after stopping playing the Application. Really bad!
-    /// So, this was made to be sure we're not creating that buggy ghost object.
-    /// </summary>
-    public void OnDestroy()
+    void OnDestroy()
     {
-        applicationIsQuitting = true;
+        if (Instance == null)
+        {
+            Debug.LogError("Sigleton is not instantiated");
+        }
+        else
+        {
+            Instance = null;
+        }
     }
 }

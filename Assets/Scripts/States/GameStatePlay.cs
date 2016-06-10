@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utils;
 
 namespace States
@@ -42,6 +43,10 @@ namespace States
             {
                 gsm.mapLoader.SetLevelToPrevious();
                 gsm.ChangeState<GameStateLoad>();
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Select");
             }
         }
 

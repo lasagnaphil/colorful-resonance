@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 496142}
   - 212: {fileID: 21207512}
   - 114: {fileID: 11400748}
-  - 114: {fileID: 11471230}
+  - 114: {fileID: 11454384}
   m_Layer: 0
   m_Name: RainProjectile
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   y: 0
   spriteLayer: 5
   z: 0
---- !u!114 &11471230
+--- !u!114 &11454384
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 170632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5f33167b037b44dbc717dae2a03131, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f44b3d270deafd499417375e4b7437b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Duration: -1
@@ -125,6 +125,14 @@ Prefab:
       propertyPath: effectObject
       value: 
       objectReference: {fileID: 125412, guid: a6c0b757e612248e2b832d8ae23ab0f2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Duration
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BombColor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170632}

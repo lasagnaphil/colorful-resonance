@@ -5,30 +5,34 @@ using DG.Tweening;
 
 public class RainProjectile : Projectile
 {
+    public TileColor BombColor;
     public GameObject effectObject;
+
+    private int turn = 0;
+
+    int deltaX;
+    int deltaY;
     
     protected override Sequence OnTurn()
     {
         Sequence sequence = DOTween.Sequence();
         base.OnTurn();
-        int n = 0;
+        deltaX = player.pos.X - pos.X;
+        deltaY = player.pos.Y - pos.Y;
 
-        if (n == 1)
+        for (int k = 0; k < 3; k++)
         {
-            Destroy(gameObject);
-            for (int k = 0; k < 3; k++)
+            for (int j = 0; j < 3; j++)
             {
-                for (int j = 0; j < 3; j++)
+                if (TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.Wall && TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.None)
                 {
-                    if (TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.Wall && TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.None)
-                    {
-                        TileManager.Instance.SetTileColor(pos.X - 1 + k, pos.Y - 1 + j, TileColor.White);
-                    }
+                    TileManager.Instance.SetTileColor(pos.X - 1 + k, pos.Y - 1 + j, BombColor);
+                    Destroy(Instantiate(effectObject, TileManager.Instance.GetTile(pos.X - 1 + k, pos.Y - 1 + j).transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject, 2);
                 }
             }
-        }     
+        }
 
-        n++;
+        Destroy(gameObject);
         return CheckAndDestroy(sequence);
     }
 }

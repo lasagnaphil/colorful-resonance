@@ -3,25 +3,25 @@
   "width": 14,
   "height": 8,
   "tiles": [
-            ". y y y y y y y y y y . . .",
-            "y y w w w w w w w w y . . .",
-            "y w w w w w w w w w y R R R",
-            "y w w w w w w w w w y w w w",
-            "y w w w w w w w w w y w w w",
-            "y w w w w w w w w w y R R R",
-            "y y w w w w w w w w y . . .",
-            ". y y y y y y y y y y . . ."
+            ". r r r r r r r r r r . . .",
+            "r r w w w w w w w w r . . .",
+            "r w w w w w w w w w r Y Y Y",
+            "r w w w w w w w w w r w w w",
+            "r w w w w w w w w w r w w w",
+            "r w w w w w w w w w r Y Y Y",
+            "r r w w w w w w w w r . . .",
+            ". r r r r r r r r r r . . ."
            ],
   "playerData": {
     "position" : {"x": 1, "y": 1}
   },
   "monsters": [
     {
-      "name" : "HomingMissile",
+      "name" : "PunchBox",
       "position" : {"x": 11, "y": 3}
     },
     {
-      "name" : "HomingMissile",
+      "name" : "PunchBox",
       "position" : {"x": 11, "y": 4}
     },
     {
@@ -76,11 +76,11 @@
   "orbs": [
     {
       "color" : "yellow",
-      "position" : {"x": 2, "y": 2}
+      "position" : {"x": 13, "y": 3}
     },
     {
       "color" : "red",
-      "position" : {"x": 13, "y": 3}
+      "position" : {"x": 2, "y": 2}
     },
     {
       "color" : "blue",

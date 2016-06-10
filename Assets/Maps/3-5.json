@@ -1,61 +1,59 @@
 {
-  "name": "Stage 2 - 5",
-  "width": 13,
-  "height": 15,
+  "name": "Stage 3 - 5",
+  "width": 19,
+  "height": 17,
   "tiles": [
-            ". . . . . . B . . . . . .",
-            ". . . . . R w Y . . . . .",
-            ". . . . R w w w Y . . . .",
-            ". R R R w w w w w Y Y Y .",
-            "B w w w w w w w w w w w R",
-            ". Y w w w w w w w w w B .",
-            ". . Y w w w w w w w B . .",
-            ". . . Y w w w w w B . . .",
-            ". . Y w w w w w w w B . .",
-            ". Y w w w w w w w w w B .",
-            "R w w w w w w w w w w w Y",
-            ". B B B w w w w w R R R .",
-            ". . . . B w w w R . . . .",
-            ". . . . . B w R . . . . .",
-            ". . . . . . Y . . . . . ."
+            "B w B B B B B B B B B B B B B B B B Y",
+            "R w B w w w w w w w w w w w w w w w R",
+            "Y w B w B B B B B B B B B B B B B w B",
+            "B w B w B w w w w w w w w w w w B w Y",
+            "R w B w Y w Y Y Y Y Y Y Y Y Y w B w R",
+            "Y w B w Y w Y w w w w w w w Y w B w B",
+            "B w B w Y w Y w R R R R R w Y w B w Y",
+            "R w B w Y w Y w R w w w R w Y w B w R",
+            "Y w B w Y w Y w R R R w R w Y w B w B",
+            "B w B w Y w Y w w w w w R w Y w B w Y",
+            "R w B w Y w Y Y Y Y Y Y Y w Y w B w R",
+            "Y w B w Y w w w w w w w w w Y w B w B",
+            "B w B w Y Y Y Y Y Y Y Y Y Y Y w B w Y",
+            "R w B w w w w w w w w w w w w w B w R",
+            "Y w B B B B B B B B B B B B B B B w B",
+            "B w w w w w w w w w w w w w w w w w Y",
+            "R Y B R Y B R Y B R Y B R Y B R Y B R"
            ],
   "playerData": {
-    "position" : {"x": 6, "y": 1}
+    "position" : {"x": 1, "y": 16}
   },
   "monsters": [
     {
       "name" : "HomingMissile",
-      "position" : {"x": 6, "y": 3}
-    },
-    {
-      "name" : "HomingMissile",
-      "position" : {"x": 3, "y": 10}
-    },
-    {
-      "name" : "HomingMissile",
-      "position" : {"x": 8, "y": 9}
+      "position" : {"x": 11, "y": 9}
     },
     {
       "name" : "CleanTile",
-      "position" : {"x": 6, "y": 12}
+      "position" : {"x": 15, "y": 3}
     },
     {
-      "name" : "Invincible",
-      "position" : {"x": 10, "y": 4}
+      "name" : "LandSlide",
+     "position" : {"x": 7, "y": 7}
+    }
+    {
+      "name" : "LandSlide",
+     "position" : {"x": 5, "y": 5}
     }
   ],
   "orbs": [
     {
+      "color" : "yellow",
+      "position" : {"x": 9, "y": 9}
+    },
+    {
       "color" : "red",
-      "position" : {"x": 1, "y": 10}
+      "position" : {"x": 1, "y": 1}
     },
     {
       "color" : "blue",
-      "position" : {"x": 11, "y": 4}
-    }
-    {
-      "color" : "yellow",
-      "position" : {"x": 6, "y": 13}
+      "position" : {"x": 13, "y": 5}
     }
   ]
 }

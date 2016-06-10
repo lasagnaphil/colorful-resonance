@@ -6,6 +6,7 @@ using DG.Tweening;
 public class BombProjectile : Projectile
 {
     public TileColor BombColor;
+    public GameObject effectObject;
 
     private int turn = 0;
 
@@ -40,6 +41,10 @@ public class BombProjectile : Projectile
         {
             player.ApplyDamage(Damage);
         }
+
+        GameObject effectParticle = Instantiate(effectObject, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        effectParticle.GetComponent<ParticleSystem>().startSize = 4;
+        Destroy(effectParticle, 2);
 
         Destroy(gameObject);
         return CheckAndDestroy(sequence);

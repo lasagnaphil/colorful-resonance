@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class RainProjectile : Projectile
 {
+    public GameObject effectObject;
+    
     protected override Sequence OnTurn()
     {
         Sequence sequence = DOTween.Sequence();
@@ -24,8 +26,7 @@ public class RainProjectile : Projectile
                     }
                 }
             }
-        }
-        
+        }     
 
         n++;
         return CheckAndDestroy(sequence);

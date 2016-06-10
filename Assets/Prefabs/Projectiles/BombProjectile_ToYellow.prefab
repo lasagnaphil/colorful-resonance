@@ -61,7 +61,9 @@ MonoBehaviour:
   MovingDirection: 0
   Type: 0
   pos: {fileID: 0}
+  updateDirection: 1
   BombColor: 4
+  effectObject: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,6 +102,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: effectObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1253baa04c3335b49b96f3aa8dfcc18f,
@@ -112,6 +118,30 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: effectObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObject
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170632}

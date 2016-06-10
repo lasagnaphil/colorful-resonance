@@ -81,19 +81,19 @@
       "name" : "WallToggleLever",
       "position" : {"x": 0, "y": 12},
       "togglePosition" : {"x": 5, "y": 5},
-      "isWallOnButtonOff" : true
+      "isWallOnButtonOff" : false
     },
     {
       "name" : "WallToggleLever",
       "position" : {"x": 0, "y": 12},
       "togglePosition" : {"x": 6, "y": 5},
-      "isWallOnButtonOff" : true
+      "isWallOnButtonOff" : false
     },
     {
       "name" : "WallToggleLever",
       "position" : {"x": 0, "y": 12},
       "togglePosition" : {"x": 7, "y": 5},
-      "isWallOnButtonOff" : true
+      "isWallOnButtonOff" : false
     }
   ]
 }

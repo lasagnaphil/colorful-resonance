@@ -61,6 +61,7 @@ MonoBehaviour:
   MovingDirection: 0
   Type: 0
   pos: {fileID: 0}
+  updateDirection: 1
   BombColor: 1
 --- !u!212 &21207512
 SpriteRenderer:
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6c8e54b530bf6ff4484bf3e0cb52349d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4437b3e8113fd6540af161e4ca3f84b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.553}
   m_FlipX: 0
   m_FlipY: 0

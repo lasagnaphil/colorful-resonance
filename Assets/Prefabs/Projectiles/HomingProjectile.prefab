@@ -61,6 +61,8 @@ MonoBehaviour:
   MovingDirection: 0
   Type: 0
   pos: {fileID: 0}
+  updateDirection: 1
+  destroyEffectObject: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -103,6 +105,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: d75d82f29e27ea64696b4686b33020a6,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: destroyEffectObject
+      value: 
+      objectReference: {fileID: 125412, guid: 3234302ff14ca4c8eb69c894af13539c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170632}

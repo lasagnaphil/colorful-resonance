@@ -40,9 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5be31cd10bc40fd81c172544d63eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onButton: {fileID: 21300000, guid: 23e5427c25def43c9b32169b6770c77c, type: 3}
-  offButton: {fileID: 21300000, guid: 30381b043b6b24d0f9b14b34266255c6, type: 3}
-  pos: {fileID: 0}
+  onButton: {fileID: 21300000, guid: eee433efeb605204b87ef6b816d0e5de, type: 3}
+  offButton: {fileID: 21300000, guid: 4ddc5118b5a840e4c9008c6cf86fa67e, type: 3}
   isActive: 0
 --- !u!212 &21282422
 SpriteRenderer:
@@ -93,6 +92,16 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onButton
+      value: 
+      objectReference: {fileID: 21300000, guid: eee433efeb605204b87ef6b816d0e5de,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: offButton
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ddc5118b5a840e4c9008c6cf86fa67e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 178160}

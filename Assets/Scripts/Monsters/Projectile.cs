@@ -81,7 +81,7 @@ public class Projectile : MonoBehaviour
         
     }
 
-    protected void OnDestroy()
+    protected virtual void OnDestroy()
     {
         if (GameStateManager.Instance != null)
         {

@@ -61,6 +61,7 @@ MonoBehaviour:
   MovingDirection: 0
   Type: 0
   pos: {fileID: 0}
+  updateDirection: 1
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1

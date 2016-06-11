@@ -5,9 +5,20 @@ using DG.Tweening;
 
 public class HomingMissileProjectile : Projectile
 {
+    public GameObject destroyEffectObject;
+    
     int deltaX;
     int deltaY;
-
+    
+    protected override void OnDestroy()
+    {
+        GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
+        effectParticle.GetComponent<ParticleSystem>().startSize = 3;
+        Destroy(effectParticle, 2);
+        
+        base.OnDestroy();
+    }
+    
     protected override Sequence OnTurn()
     {
         Sequence sequence = DOTween.Sequence();

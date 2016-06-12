@@ -10,9 +10,12 @@ public class ButtonEffector : MonoBehaviour {
 	public TileColor color;
 	GameObject baseEffect;
 	GameObject highlightEffect;
+	Image buttonImage;
 
 	// Use this for initialization
 	void Start () {
+		buttonImage = gameObject.GetComponent<Image>();
+
 		int colorIndex = (int)color;
 		baseEffect = Instantiate(baseEffects[colorIndex], transform.position + new Vector3(0,0,1), Quaternion.identity) as GameObject;
 		highlightEffect = Instantiate(highlightEffects[colorIndex], transform.position, Quaternion.identity) as GameObject;
@@ -21,16 +24,25 @@ public class ButtonEffector : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((gameObject == EventSystem.current.currentSelectedGameObject) &&
-			(highlightEffect.activeInHierarchy == false))
+		if (gameObject == EventSystem.current.currentSelectedGameObject)
 		{
-			highlightEffect.SetActive(true);
-		}
+			buttonImage.color = new Color(1, 1, 1, 1);
 
-		if ((gameObject != EventSystem.current.currentSelectedGameObject) &&
-			(highlightEffect.activeInHierarchy == true))
+			if (highlightEffect.activeInHierarchy == false)
+				highlightEffect.SetActive(true);
+
+			if (baseEffect.activeInHierarchy == false)
+				baseEffect.SetActive(true);
+		}
+		else
 		{
-			highlightEffect.SetActive(false);
+			buttonImage.color = new Color(0.6f, 0.6f, 0.6f, 1);
+
+			if (highlightEffect.activeInHierarchy == true)
+				highlightEffect.SetActive(false);
+
+			if (baseEffect.activeInHierarchy == true)
+				baseEffect.SetActive(false);
 		}
 	}
 }

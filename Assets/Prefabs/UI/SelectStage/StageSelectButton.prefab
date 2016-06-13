@@ -47,7 +47,7 @@ Animator:
   m_GameObject: {fileID: 192862}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: be07e54d8afd64c859445ae6dd44293f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3d091f3244ae24cbdb3ea39a97d55062, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1-1
+  m_Text: 2-1
 --- !u!114 &11404688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fdcba7068b9d6a46ae9b050337b9dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 1-1
+  levelName: 2-1
 --- !u!114 &11411860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,18 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEffects:
-  - {fileID: 123816, guid: 0f978b2aa90204b2c837f7dab7c94b2a, type: 2}
-  - {fileID: 101742, guid: fdf0dab6243004eeeb0246989ccc3f1b, type: 2}
-  - {fileID: 146298, guid: 0065bcc0d598c432b9b9dbe7c0cff260, type: 2}
-  - {fileID: 103934, guid: bcbfb3b5e3af847b68de44327d7c2244, type: 2}
-  - {fileID: 192104, guid: 95cceeb9bc6e84ad195fe71561df0734, type: 2}
+  - {fileID: 123816, guid: 13cebd52872124bd98c34a70a4a4a0cd, type: 2}
+  - {fileID: 101742, guid: d44eb379360694858b5e17ab33e68551, type: 2}
+  - {fileID: 146298, guid: a359c4807320744feb8152257cdd292d, type: 2}
+  - {fileID: 103934, guid: 89ce3c6dcfd5940e9b6fadae52159df1, type: 2}
+  - {fileID: 192104, guid: 6400fe2f1972245c9ab20e445c069bb1, type: 2}
   highlightEffects:
   - {fileID: 184026, guid: 40a8de31a36fc436baca31fcb3b18061, type: 2}
   - {fileID: 184026, guid: 3a7cdd849e8324dd4be84429cb28022f, type: 2}
   - {fileID: 184026, guid: 6d67e48f2502148a9a11d417deac2be6, type: 2}
   - {fileID: 184026, guid: 33717b314476445c3a9a8c5b1702b08a, type: 2}
   - {fileID: 184026, guid: 589c377eb4d604f10a99c890f57c6e4d, type: 2}
-  color: 0
+  color: 2
 --- !u!114 &11415574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,10 +141,10 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.52205884, g: 0.5335748, b: 0.5335748, a: 1}
+    m_HighlightedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 38cce78cc3bee462daa3fefc50307b19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8012588d3f4c64031bef1df7cb116f41, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -230,7 +230,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 350}
+  m_AnchoredPosition: {x: -450, y: 400}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22467018
@@ -240,7 +240,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22422226}

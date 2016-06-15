@@ -1,28 +1,37 @@
 {
-  "name": "Stage 4 - 2",
+  "name": "Stage 4 - 4",
   "width": 4,
-  "height": 6,
+  "height": 3,
   "tiles": [
-            ". w w w",
-            ". w w w",
-            "w w w w",
-            ". w . .",
-            ". w w w",
-            ". . . w",
+            "w R R R R R R B B B B B B",
+            "w w w w w w R B w b b w w",
+            "w R R R R R R B B B B B B"
            ],
   "playerData": {
-    "position" : {"x": 3, "y": 0}
+    "position" : {"x": 0, "y": 0}
   },
   "monsters": [
     {
-      "name" : "WaterBalloon",
-      "position" : {"x": 2, "y": 4}
+      "name" : "HomingMissile",
+      "position" : {"x": 2, "y": 1}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 3, "y": 1}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 11, "y": 1}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 12, "y": 1}
     }
   ],
   "orbs": [
     {
-      "color" : "blue",
-      "position" : {"x": 1, "y": 1}
+      "color" : "red",
+      "position" : {"x": 0, "y": 1}
     }
   ]
 }

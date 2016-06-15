@@ -1,0 +1,68 @@
+{
+  "name": "Stage 5 - 3",
+  "width": 18,
+  "height": 6,
+  "tiles": [
+            "w w w w B w . . . . . . w w w w w w",
+            "R w w w w w . . . . . . w w w w w w",
+            "w w w w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w w w w",
+            "w w w w w R . . . . . . w w w w w w",
+            "w B w w w w . . . . . . w w w w w w",
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 0}
+  },
+  "monsters": [
+    {
+      "name" : "WaterBalloon",
+      "position" : {"x": 4, "y": 4}
+    },
+    {
+      "name" : "PaintWall_ToYellow",
+      "position" : {"x": 1, "y": 4}
+    },
+    {
+      "name" : "CleanTile",
+      "position" : {"x": 14, "y": 2}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 3, "y": 1}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 8, "y": 3}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 13, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 16, "y": 4}
+    },
+    {
+      "name" : "LandSlide",
+      "position" : {"x": 13, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 14, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "blue",
+      "position" : {"x": 17, "y": 0}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 0, "y": 1}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 17, "y": 5}
+    }
+  ]
+}

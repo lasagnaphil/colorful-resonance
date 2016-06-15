@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DG.Tweening;
+using JetBrains.Annotations;
 using SelectLevel;
 using States;
 using UnityEngine.UI;
@@ -60,6 +62,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
 
+    public bool isTurnExecuting;
+
     public override void Awake()
     {
         base.Awake();
@@ -106,17 +110,21 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public void NextTurn()
     {
+        int tempVar = 0;
         TurnNumber++;
 
-        Sequence sequence = DOTween.Sequence();
-
         if (TileTurns != null) TileTurns();
-        sequence.AddSequence(SequenceHelper.SimultaneousSequence(PlayerTurn));
-        sequence.AddSequence(SequenceHelper.SimultaneousSequence(ProjectileTurns));
-        sequence.AddSequence(SequenceHelper.SimultaneousSequence(MonsterTurns));
+        SequenceHelper.SimultaneousSequence(PlayerTurn).Play();
+        isTurnExecuting = true;
+        Invoke("AfterPlayerTurn", 0.3f);
+    }
+    public void AfterPlayerTurn()
+    {
+        SequenceHelper.SimultaneousSequence(ProjectileTurns).Play();
+        SequenceHelper.SimultaneousSequence(MonsterTurns).Play();
         if (ButtonTurns != null) ButtonTurns();
-        sequence.OnComplete(() =>
-        {
+        //sequence.OnComplete(() =>
+        //{
             if (player.Health <= 0)
             {
                 player.GetComponent<Animator>().SetBool("IsDead", true);
@@ -165,9 +173,10 @@ public class GameStateManager : Singleton<GameStateManager>
                     ChangeState<GameStateWin>();
                 }
             }
-        });
+        isTurnExecuting = false;
+        //});
 
-        sequence.Play();
+        //sequence.Play();
     }
 
     public void ResetTurn()

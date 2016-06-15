@@ -7,11 +7,12 @@ namespace SelectLevel
 {
     public class SelectLevelManager : MonoBehaviour
     {
-        public UnityEngine.UI.Button buttonPrefab;
-        public LevelInfoSender levelInfoSender;
-
-        public Image buttonBoard;
-
-        private List<UnityEngine.UI.Button> buttons;
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Main");
+            }
+        }
     }
 }

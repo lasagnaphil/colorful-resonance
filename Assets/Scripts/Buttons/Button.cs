@@ -21,7 +21,8 @@ public class Button : MonoBehaviour {
         set
         {
             isActive = value;
-            renderer.sprite = isActive ? onButton : offButton;
+            if (renderer != null)
+                renderer.sprite = isActive ? onButton : offButton;
             if (isActive) Debug.Log("Button activated!");
         }
     }
@@ -43,7 +44,7 @@ public class Button : MonoBehaviour {
 		}
 
 	    if (GameStateManager.Instance.CheckMonsterPosition(pos.X, pos.Y) != null) isPushed = true;
-		
+
 		return isPushed;
 	}
 

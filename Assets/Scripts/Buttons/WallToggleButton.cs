@@ -25,6 +25,20 @@ namespace Buttons
                     isWallOnButtonOff ? TileType.Wall : TileType.Normal);
                 Debug.Log("isActive false");
             }
+            if (TileManager.Instance.GetTileType(wallTogglePos.x, wallTogglePos.y) == TileType.Wall)
+            {
+                Monster monster = GameStateManager.Instance.CheckMonsterPosition(wallTogglePos.x, wallTogglePos.y);
+                if (monster != null)
+                {
+                    monster.Health -= 100;
+                    monster.CheckHealth();
+                }
+                Player player = GameStateManager.Instance.player;
+                if (player.pos.X == wallTogglePos.x && player.pos.Y == wallTogglePos.y)
+                {
+                    player.ApplyDamage(100);
+                }
+            }
         }
     }
 }

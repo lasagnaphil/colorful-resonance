@@ -12,6 +12,12 @@ namespace Utils
             thisSeq.AppendCallback(() => seq.Play());
         }
 
+        public static void AddSequentialSequence(this Sequence thisSeq, Sequence seq, float interval)
+        {
+            thisSeq.AppendInterval(interval);
+            thisSeq.AppendCallback(() => seq.Play());
+        }
+
         public static Sequence SequentialSequence(List<Sequence> seq)
         {
             Sequence sequence = DOTween.Sequence();

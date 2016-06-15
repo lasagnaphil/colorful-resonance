@@ -49,6 +49,12 @@ public class Monster : MonoBehaviour
         {
             Health -= 1;
         }
+
+        return sequence;
+    }
+
+    public void CheckHealth()
+    {
         if (Health <= 0)
         {
             Destroy(this.gameObject);
@@ -56,8 +62,6 @@ public class Monster : MonoBehaviour
             destroyed = true;
             GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.MonsterDie);
         }
-
-        return sequence;
     }
 
     protected virtual void OnReset()

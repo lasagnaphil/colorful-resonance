@@ -286,7 +286,7 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             DestroyImmediate(buttons[i].gameObject);
         }
-        for (int i = bkgTiles.Count - 1; i > -0; i--)
+        for (int i = bkgTiles.Count - 1; i >= 0; i--)
         {
             DestroyImmediate(bkgTiles[i].gameObject);
         }

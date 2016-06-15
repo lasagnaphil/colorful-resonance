@@ -61,4 +61,10 @@ public class Button : MonoBehaviour {
 	{
 	    IsActive = IsPushed();
 	}
+
+    void OnDestroy()
+    {
+        if (GameStateManager.Instance != null)
+            GameStateManager.Instance.ButtonTurns -= OnTurn;
+    }
 }

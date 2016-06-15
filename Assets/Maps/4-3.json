@@ -1,28 +1,123 @@
 {
-  "name": "Stage 4 - 2",
-  "width": 4,
-  "height": 6,
+  "name": "Stage 4 - 3",
+  "width": 21,
+  "height": 5,
   "tiles": [
-            ". w w w",
-            ". w w w",
-            "w w w w",
-            ". w . .",
-            ". w w w",
-            ". . . w",
+            "w w w w w . . Y Y Y Y Y Y Y Y Y Y Y Y Y .",
+            "w w w w w . . y w w w w w w w w w w w w Y",
+            "w w w w w . . Y w w w w w w w w w w w w Y",
+            "w w w w w . . R w w w w w w w w w w w Y Y",
+            "w w w w w . . Y Y Y Y Y Y Y Y Y Y Y Y Y ."
            ],
   "playerData": {
-    "position" : {"x": 3, "y": 0}
+    "position" : {"x": 0, "y": 0}
   },
   "monsters": [
     {
-      "name" : "WaterBalloon",
-      "position" : {"x": 2, "y": 4}
+      "name" : "PunchBox",
+      "position" : {"x": 2, "y": 2}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 4, "y": 4}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 8, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 9, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 9, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 10, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 10, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 11, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 11, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 12, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 12, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 13, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 13, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 14, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 14, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 15, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 15, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 16, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 16, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 17, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 17, "y": 3}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 18, "y": 1}
     }
   ],
   "orbs": [
     {
-      "color" : "blue",
+      "color" : "yellow",
       "position" : {"x": 1, "y": 1}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 19, "y": 2}
     }
+  ],
+  "buttons": [
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 3, "y": 1},
+    "togglePosition" : {"x": 7, "y": 1},
+    "isWallOnButtonOff" : true
+  }
   ]
 }

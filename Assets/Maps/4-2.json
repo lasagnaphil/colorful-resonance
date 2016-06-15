@@ -26,31 +26,31 @@
       "position" : {"x": 12, "y": 4}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 11, "y": 3}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 11, "y": 4}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 11, "y": 5}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 12, "y": 3}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 12, "y": 5}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 13, "y": 3}
     },
     {
-      "name" : "Shield",
+      "name" : "NoShield",
       "position" : {"x": 13, "y": 5}
     },
     {
@@ -133,7 +133,7 @@
     },
     {
       "color" : "blue",
-      "position" : {"x": 16, "y": 2}
+      "position" : {"x": 13, "y": 5}
     }
   ],
   "buttons": [

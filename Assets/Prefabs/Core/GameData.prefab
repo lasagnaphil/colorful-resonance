@@ -171,6 +171,8 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11411906, guid: 3ab68803f136a87459a28c6b58be18b2, type: 2}
     - name: PunchBox
       monsterPrefab: {fileID: 11431306, guid: 18bce2c4c3c200147895b65704094d95, type: 2}
+    - name: NoShield
+      monsterPrefab: {fileID: 11411906, guid: d3f6e1813391ea343a0864e6489fb6c1, type: 2}
   buttonPrefabDictionary:
     buttonPrefabTupleList:
     - name: WallToggleButton

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Buttons;
 using UnityEngine;
 using Utils;
+using UnityEngine.SceneManagement;
 
 public class MapLoader : MonoBehaviour
 {
@@ -68,6 +69,12 @@ public class MapLoader : MonoBehaviour
 
     public void SetLevelToNext()
     {
+        // Temp method.
+        if (mapIndex == 17)
+        {
+            SceneManager.LoadScene("Credit");
+        }
+
         if (mapIndex == mapAssetList.Count - 1)
         {
             Debug.Log("This is the last level! Reloading the same level again.");

@@ -10,13 +10,11 @@ public class HomingMissileProjectile : Projectile
     int deltaX;
     int deltaY;
     
-    protected override void OnDestroy()
+    protected override void DestroyByPlayerCollision()
     {
         GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
         effectParticle.GetComponent<ParticleSystem>().startSize = 3;
         Destroy(effectParticle, 2);
-        
-        base.OnDestroy();
     }
     
     protected override Sequence OnTurn()

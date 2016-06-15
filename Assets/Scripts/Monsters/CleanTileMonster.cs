@@ -37,7 +37,8 @@ public class CleanTileMonster : Monster
                     if (CheckPosition(pos.X + 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
-                        TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
                 else if (deltaX < 0)
@@ -45,7 +46,8 @@ public class CleanTileMonster : Monster
                     if (CheckPosition(pos.X - 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X - 1, pos.Y);
-                        TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
             }
@@ -56,7 +58,8 @@ public class CleanTileMonster : Monster
                     if (CheckPosition(pos.X, pos.Y + 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
-                        TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
                 else if (deltaY < 0)
@@ -64,7 +67,8 @@ public class CleanTileMonster : Monster
                     if (CheckPosition(pos.X, pos.Y - 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y - 1);
-                        TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
             }

@@ -19,7 +19,8 @@ public class PaintProjectile : Projectile
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.None)
+                    if (TileManager.Instance.GetTileType(pos.X - 1 + k, pos.Y - 1 + j) != TileType.None &&
+                        GameStateManager.Instance.CheckOrbPosition(pos.X - 1 + k, pos.Y - 1 + j) == null)
                     {
                         TileManager.Instance.SetTileColor(pos.X - 1 + k, pos.Y - 1 + j, BombColor);
                     }

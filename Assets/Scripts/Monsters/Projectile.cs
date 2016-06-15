@@ -47,6 +47,11 @@ public class Projectile : MonoBehaviour
         return CheckAndDestroy(sequence);
     }
 
+    protected virtual void DestroyByPlayerCollision()
+    {
+
+    }
+
     protected virtual Sequence CheckAndDestroy(Sequence sequence)
     {
         // If the position of the projectile is in the player's location
@@ -58,6 +63,7 @@ public class Projectile : MonoBehaviour
             player.ApplyDamage(Damage);
             if (Type != ProjectileType.GoThrough)
             {
+                DestroyByPlayerCollision();
                 Destroy(this.gameObject);
                 return sequence;
             }

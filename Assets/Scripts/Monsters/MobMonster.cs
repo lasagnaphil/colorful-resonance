@@ -94,7 +94,8 @@ public class MobMonster : Monster
 
         if (Cleaning == 2)
         {
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+            if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+                TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
             Cleaning = 0;
         }
 

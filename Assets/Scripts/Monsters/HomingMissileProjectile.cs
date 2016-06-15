@@ -5,17 +5,15 @@ using DG.Tweening;
 
 public class HomingMissileProjectile : Projectile
 {
-    public GameObject destroyEffectObject;
-    
     int deltaX;
     int deltaY;
     
-    protected override void DestroyByPlayerCollision()
-    {
-        GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
-        effectParticle.GetComponent<ParticleSystem>().startSize = 3;
-        Destroy(effectParticle, 2);
-    }
+    // protected override void DestroyByCollision()
+    // {
+    //     GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
+    //     effectParticle.GetComponent<ParticleSystem>().startSize = 3;
+    //     Destroy(effectParticle, 2);
+    // }
     
     protected override Sequence OnTurn()
     {

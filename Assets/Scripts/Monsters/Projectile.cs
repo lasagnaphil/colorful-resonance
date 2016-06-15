@@ -14,6 +14,7 @@ public class Projectile : MonoBehaviour
     public int Damage;
     public Direction MovingDirection;
     public ProjectileType Type;
+    public GameObject destroyEffectObject;
 
     public Position pos;
     protected Vector2i prevPos;
@@ -47,9 +48,12 @@ public class Projectile : MonoBehaviour
         return CheckAndDestroy(sequence);
     }
 
-    protected virtual void DestroyByPlayerCollision()
+    protected virtual void DestroyByCollision()
     {
-
+        if (destroyEffectObject == null) return ;
+        GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
+        effectParticle.GetComponent<ParticleSystem>().startSize = 3;
+        Destroy(effectParticle, 2);
     }
 
     protected virtual Sequence CheckAndDestroy(Sequence sequence)
@@ -63,7 +67,7 @@ public class Projectile : MonoBehaviour
             player.ApplyDamage(Damage);
             if (Type != ProjectileType.GoThrough)
             {
-                DestroyByPlayerCollision();
+                DestroyByCollision();
                 Destroy(this.gameObject);
                 return sequence;
             }
@@ -72,6 +76,7 @@ public class Projectile : MonoBehaviour
         if (TileManager.Instance.GetTileType(pos.X, pos.Y) == TileType.Wall &&
             Type != ProjectileType.GoThrough)
         {
+            DestroyByCollision();
             Destroy(this.gameObject);
             return sequence;
         }

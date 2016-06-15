@@ -45,7 +45,9 @@ MonoBehaviour:
   Damage: 0
   MovingDirection: 0
   Type: 0
+  destroyEffectObject: {fileID: 125412, guid: e107c29bc6669452ba4bfb6c7fbe5265, type: 2}
   pos: {fileID: 0}
+  updateDirection: 1
 --- !u!114 &11468342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +105,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 1253baa04c3335b49b96f3aa8dfcc18f,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: destroyEffectObject
+      value: 
+      objectReference: {fileID: 125412, guid: e107c29bc6669452ba4bfb6c7fbe5265, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133862}

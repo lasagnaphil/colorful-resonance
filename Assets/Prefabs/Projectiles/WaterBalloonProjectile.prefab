@@ -60,6 +60,7 @@ MonoBehaviour:
   Damage: 0
   MovingDirection: 0
   Type: 0
+  destroyEffectObject: {fileID: 125412, guid: 4f0e7cae378324db19af4b089ce5dd11, type: 2}
   pos: {fileID: 0}
   updateDirection: 1
   BombColor: 1
@@ -113,6 +114,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destroyEffectObject
+      value: 
+      objectReference: {fileID: 125412, guid: 4f0e7cae378324db19af4b089ce5dd11, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170632}

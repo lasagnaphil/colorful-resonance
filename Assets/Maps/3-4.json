@@ -5,15 +5,15 @@
   "tiles": [
             "w w w B . . . . . R R R R",
             "w w w B . . . . . R w w R",
-            "w w w B . . . . . R w w R",
-            "w w w B . . . . . R w w R",
-            "b b b B . Y Y Y . R w w R",
-            "b b b Y . Y w Y . R w w R",
-            "w w w w . Y w Y . w w w R",
             "w w w Y . Y Y Y . R w w R",
-            "w w w B . . . . . R w w R",
-            "w w w B . . . . . R w w R",
-            "w w w B . . . . . R w w R",
+            "w w w w . Y w Y . R w w R",
+            "b b b Y . Y w Y . R w w R",
+            "b b b B . Y w Y . R w w R",
+            "w w w B . Y w Y . R w w R",
+            "w w w B . Y w Y . R w w R",
+            "w w w B . Y w Y . R w w R",
+            "w w w B . Y w Y . w w w R",
+            "w w w B . Y Y Y . R w w R",
             "w w w B . . . . . R w w R",
             "w w w B . . . . . R R R R",
            ],
@@ -74,26 +74,6 @@
     {
       "color" : "red",
       "position" : {"x": 0, "y": 0}
-    }
-  ],
-  "buttons": [
-    {
-      "name" : "WallToggleLever",
-      "position" : {"x": 0, "y": 12},
-      "togglePosition" : {"x": 5, "y": 5},
-      "isWallOnButtonOff" : false
-    },
-    {
-      "name" : "WallToggleLever",
-      "position" : {"x": 0, "y": 12},
-      "togglePosition" : {"x": 6, "y": 5},
-      "isWallOnButtonOff" : false
-    },
-    {
-      "name" : "WallToggleLever",
-      "position" : {"x": 0, "y": 12},
-      "togglePosition" : {"x": 7, "y": 5},
-      "isWallOnButtonOff" : false
     }
   ]
 }

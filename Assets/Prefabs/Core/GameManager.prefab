@@ -839,6 +839,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 44d6962786ca45d4e8beb878e8587305, type: 3}
   - {fileID: 4900000, guid: 41a9461f94d063f499151ffb05377832, type: 3}
   - {fileID: 4900000, guid: 2a40f355d58aa97419125e81e399c342, type: 3}
+  - {fileID: 4900000, guid: 1587a4e818d62bb4292c4af2d5c4a98e, type: 3}
+  - {fileID: 4900000, guid: 9bbdcb3e206eacc468103317bc095081, type: 3}
+  - {fileID: 4900000, guid: 47730bf9d95db774bb8b95bc84e9ecca, type: 3}
+  - {fileID: 4900000, guid: ba8324f3989e3d54bb08369f780daec5, type: 3}
   - {fileID: 4900000, guid: 6daa5aa70ee974c44bc90f93a5dd1739, type: 3}
   - {fileID: 4900000, guid: b5bddc60f34c2ff42bce5f6ddb6f2122, type: 3}
 --- !u!114 &11460732
@@ -1521,6 +1525,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

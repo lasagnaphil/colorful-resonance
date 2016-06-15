@@ -1,0 +1,28 @@
+{
+  "name": "Stage 4 - 2",
+  "width": 4,
+  "height": 6,
+  "tiles": [
+            ". w w w",
+            ". w w w",
+            "w w w w",
+            ". w . .",
+            ". w w w",
+            ". . . w",
+           ],
+  "playerData": {
+    "position" : {"x": 3, "y": 0}
+  },
+  "monsters": [
+    {
+      "name" : "WaterBalloon",
+      "position" : {"x": 2, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "blue",
+      "position" : {"x": 1, "y": 1}
+    }
+  ]
+}

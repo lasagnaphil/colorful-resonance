@@ -25,7 +25,8 @@ public class WaterBalloonProjectile : Projectile
         deltaX = player.pos.X - pos.X;
         deltaY = player.pos.Y - pos.Y;
 
-        TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
+        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+            TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
 
         if (Mathf.Abs(deltaX) == 0 && Mathf.Abs(deltaY) == 0)
         {

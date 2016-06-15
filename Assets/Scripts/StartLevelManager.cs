@@ -14,5 +14,10 @@ namespace DefaultNamespace
         {
             SceneManager.LoadScene("Credit");
         }
+
+        public void GoToNoteLevel()
+        {
+            SceneManager.LoadScene("Note");
+        }
     }
 }

@@ -124,10 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 343368824}
     - target: {fileID: 11479270, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: player
       value: 
@@ -144,6 +140,14 @@ Prefab:
       propertyPath: orbHolderObject
       value: 
       objectReference: {fileID: 1205444965}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 343368824}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: mapToLoad
+      value: 4-2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0

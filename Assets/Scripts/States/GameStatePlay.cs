@@ -15,7 +15,9 @@ namespace States
 
         public void Update(GameStateManager gsm)
         {
-            gsm.player.GameUpdate();
+            gsm.player.CameraUpdate();
+            if (!gsm.isTurnExecuting)
+                gsm.player.GameUpdate();
 
             gsm.turnNumberText.text = gsm.TurnNumber.ToString();
             UpdatePlayerHealth(gsm);

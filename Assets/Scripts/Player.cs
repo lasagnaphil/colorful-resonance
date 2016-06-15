@@ -78,6 +78,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void CameraUpdate()
+    {
+        // Move camera position to player
+        var camPos = camera.transform.position;
+        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
+    }
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
@@ -171,10 +177,6 @@ public class Player : MonoBehaviour
             GameStateManager.Instance.NextTurn();
         }
 
-        // Move camera position to player
-        
-        var camPos = camera.transform.position;
-        camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
         
     }
 

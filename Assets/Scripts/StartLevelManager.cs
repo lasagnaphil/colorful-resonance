@@ -9,5 +9,10 @@ namespace DefaultNamespace
         {
             SceneManager.LoadScene("Select");
         }
+
+        public void GoToCreditLevel()
+        {
+            SceneManager.LoadScene("Credit");
+        }
     }
 }

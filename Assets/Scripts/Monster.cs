@@ -48,6 +48,7 @@ public class Monster : MonoBehaviour
         if (currentTileData.color == monstersColor && currentTileData.color != TileColor.None && currentTile.Activated)
         {
             Health -= 1;
+            CheckHealth();
         }
 
         return sequence;

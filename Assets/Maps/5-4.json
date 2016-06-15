@@ -1,15 +1,15 @@
 {
-  "name": "Stage 5 - 2",
+  "name": "Stage 5 - 4",
   "width": 10,
   "height": 7,
   "tiles": [
-            ". w w w w w w w w .",
-            "w w w w w w w w w w",
-            "w w w w w w w w w w",
-            "w w w w w w w w w w",
-            "w w w w w w w w w w",
-            "w w w w w w w w w w",
-            ". w w w w w w w w ."
+            "w w w w w w . . . Y w w w w w w",
+            "w w w w w w . . . B w w w w w w",
+            "w w w w w w . . . R w w w N w w",
+            "w w w w w w R . . w w w w w w w",
+            "w w w w w w . . . R w P w w w w",
+            "w w w w w w . . . B w w w w w w",
+            "w w w w w w . . . Y w w w w w w"
            ],
   "playerData": {
     "position" : {"x": 5, "y": 3}

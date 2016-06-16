@@ -42,6 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: ca3ec05035e19d748b88a20d8b0caba5, type: 3}
+  - {fileID: 21300000, guid: 0084ffad47733454ba503923d8cb7659, type: 3}
 --- !u!212 &21248686
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -95,7 +96,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: c7158db773340bf479458bdff81aca64,
+      objectReference: {fileID: 21300000, guid: 0084ffad47733454ba503923d8cb7659,
         type: 3}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[2]

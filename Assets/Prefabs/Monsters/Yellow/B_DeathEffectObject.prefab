@@ -41,7 +41,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 54e8d5ecf7a0ddd45b36acce317d6206, type: 3}
+  - {fileID: 21300000, guid: 4ca20e1eb63fed74299327d80a57afb7, type: 3}
+  - {fileID: 21300000, guid: 93eef16e603e7ba42b9ef803c60ba670, type: 3}
+  - {fileID: 21300000, guid: cc5851d34234f8f47b8717f67f632520, type: 3}
+  - {fileID: 21300000, guid: 5aedeb4de1ba1284dabe5f4a718d6251, type: 3}
+  - {fileID: 21300000, guid: d6d2560d6d4b7774592e6fad96a31940, type: 3}
 --- !u!212 &21248686
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,12 +85,12 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: sprites.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 54e8d5ecf7a0ddd45b36acce317d6206,
+      objectReference: {fileID: 21300000, guid: 4ca20e1eb63fed74299327d80a57afb7,
         type: 3}
     - target: {fileID: 0}
       propertyPath: playTime
@@ -95,17 +99,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: c7158db773340bf479458bdff81aca64,
+      objectReference: {fileID: 21300000, guid: 93eef16e603e7ba42b9ef803c60ba670,
         type: 3}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: c7158db773340bf479458bdff81aca64,
+      objectReference: {fileID: 21300000, guid: cc5851d34234f8f47b8717f67f632520,
         type: 3}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: c7158db773340bf479458bdff81aca64,
+      objectReference: {fileID: 21300000, guid: 5aedeb4de1ba1284dabe5f4a718d6251,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: d6d2560d6d4b7774592e6fad96a31940,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

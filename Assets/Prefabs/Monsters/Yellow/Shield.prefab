@@ -49,6 +49,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: cfbd7f72e784d48f4997a9e94c4b8e0e, type: 2}
   ShieldOff: {fileID: 21300000, guid: d6c1f1416e0ef824899af14f3b365431, type: 3}
 --- !u!114 &11422456
 MonoBehaviour:
@@ -119,6 +120,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: d6c1f1416e0ef824899af14f3b365431,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: cfbd7f72e784d48f4997a9e94c4b8e0e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

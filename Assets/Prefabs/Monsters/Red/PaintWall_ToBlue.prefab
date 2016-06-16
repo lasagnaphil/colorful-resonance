@@ -64,6 +64,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: 276c3fc7f97e24359a89734513964ac6, type: 2}
   PaintBomb: {fileID: 11461542, guid: 03d172ed99d381d4f9cc55f79db7222a, type: 2}
 --- !u!212 &21260666
 SpriteRenderer:
@@ -111,6 +112,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: c7158db773340bf479458bdff81aca64,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: 276c3fc7f97e24359a89734513964ac6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

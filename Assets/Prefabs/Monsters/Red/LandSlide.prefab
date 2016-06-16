@@ -49,6 +49,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: e99a3ed686ecc49a3bed77e558a1a028, type: 2}
   LandSlideProjectile: {fileID: 11405938, guid: dc00a00d6d5121140a93ef237aaebbce,
     type: 2}
 --- !u!114 &11494404
@@ -102,7 +103,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: e99a3ed686ecc49a3bed77e558a1a028, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129888}

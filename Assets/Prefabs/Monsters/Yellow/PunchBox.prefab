@@ -64,6 +64,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: 50a55c302647d4853833684582d0d5ac, type: 2}
   PunchBox: {fileID: 21300000, guid: ca3ec05035e19d748b88a20d8b0caba5, type: 3}
 --- !u!212 &21260666
 SpriteRenderer:
@@ -114,6 +115,10 @@ Prefab:
       propertyPath: shieldEffectObject
       value: 
       objectReference: {fileID: 143460, guid: 9577c98f34e20416e9dab61ff92fbd3f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: 50a55c302647d4853833684582d0d5ac, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

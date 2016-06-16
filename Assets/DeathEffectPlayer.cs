@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DeathEffectPlayer : MonoBehaviour {
 
-	public float playTime = 0.3f;
-	public int defaultFrame = 3;
+	float playTime = 0.4f;
+	int defaultFrame = 5;
 
 	public Sprite[] sprites;
 
@@ -18,15 +18,16 @@ public class DeathEffectPlayer : MonoBehaviour {
 			for (int i = 0; i < frame; i++)
 			{
 				sr.sprite = sprites[i];
-				yield return new WaitForSeconds(0.3f/(float)frame);
+				yield return new WaitForSeconds(playTime/(float)frame);
 			}
 		}
 		else
 		{
+			sr.sprite = sprites[0];
 			for (int i = 0; i < defaultFrame; i++)
 			{
-				sr.color -= new Color(0,0,0, 1f/(float)defaultFrame);
-				yield return new WaitForSeconds(0.3f/(float)defaultFrame);
+				sr.color -= new Color(0,0,0, 0.8f/(float)defaultFrame);
+				yield return new WaitForSeconds(playTime/(float)defaultFrame);
 			}
 		}
 		Destroy(gameObject);;

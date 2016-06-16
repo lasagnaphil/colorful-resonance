@@ -49,6 +49,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: aac4fceffaba844aa9b2bf6ef39a4c2c, type: 2}
   HomingProjectile: {fileID: 11487290, guid: 33e2e14de36a7fb4aa1f5bba3b879245, type: 2}
 --- !u!114 &11494404
 MonoBehaviour:
@@ -101,7 +102,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: aac4fceffaba844aa9b2bf6ef39a4c2c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129888}

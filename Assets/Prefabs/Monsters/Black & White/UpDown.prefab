@@ -64,6 +64,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
+  deathEffectObject: {fileID: 129912, guid: 871d469638b294a9f8d9e4600ae99e74, type: 2}
   isFacingUp: 0
   moveCooldown: 2
 --- !u!212 &21260666
@@ -107,6 +108,10 @@ Prefab:
       propertyPath: monstersColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: deathEffectObject
+      value: 
+      objectReference: {fileID: 129912, guid: 871d469638b294a9f8d9e4600ae99e74, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

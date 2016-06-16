@@ -60,6 +60,7 @@ MonoBehaviour:
   Damage: 1
   MovingDirection: 0
   Type: 0
+  destroyEffectObject: {fileID: 125412, guid: e107c29bc6669452ba4bfb6c7fbe5265, type: 2}
   pos: {fileID: 0}
   updateDirection: 1
   BombColor: 4
@@ -89,7 +90,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f654d74a27da50a439753ec0b8c27ee1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1253baa04c3335b49b96f3aa8dfcc18f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +104,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f654d74a27da50a439753ec0b8c27ee1,
+      objectReference: {fileID: 21300000, guid: 1253baa04c3335b49b96f3aa8dfcc18f,
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
@@ -113,6 +114,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destroyEffectObject
+      value: 
+      objectReference: {fileID: 125412, guid: e107c29bc6669452ba4bfb6c7fbe5265, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170632}

@@ -43,7 +43,7 @@ public class BombProjectile : Projectile
         }
 
         GameObject effectParticle = Instantiate(effectObject, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
-        effectParticle.GetComponent<ParticleSystem>().startSize = 4;
+        effectParticle.GetComponent<ParticleSystem>().startSize = 6;
         Destroy(effectParticle, 2);
 
         Destroy(gameObject);

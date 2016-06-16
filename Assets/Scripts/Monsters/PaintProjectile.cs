@@ -7,6 +7,13 @@ public class PaintProjectile : Projectile
 {
     public TileColor BombColor;
 
+    protected override void DestroyByCollision()
+    {
+        GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        effectParticle.GetComponent<ParticleSystem>().startSize = 6;
+        Destroy(effectParticle, 2);
+    }
+
     protected override Sequence OnTurn()
     {
         Sequence sequence = DOTween.Sequence();

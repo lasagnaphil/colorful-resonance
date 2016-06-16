@@ -64,6 +64,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   updateDirection: 1
   BombColor: 1
+  effectObject: {fileID: 125412, guid: 4f0e7cae378324db19af4b089ce5dd11, type: 2}
 --- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,6 +117,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: destroyEffectObject
+      value: 
+      objectReference: {fileID: 125412, guid: 4f0e7cae378324db19af4b089ce5dd11, type: 2}
+    - target: {fileID: 0}
+      propertyPath: effectObject
       value: 
       objectReference: {fileID: 125412, guid: 4f0e7cae378324db19af4b089ce5dd11, type: 2}
     m_RemovedComponents: []

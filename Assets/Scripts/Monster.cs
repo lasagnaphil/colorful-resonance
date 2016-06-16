@@ -20,6 +20,8 @@ public class Monster : MonoBehaviour
     protected bool applicationIsQuitting = false;
     public bool destroyed = false;
 
+    public GameObject deathEffectObject;
+
     protected bool CheckBeforeDestroy
     {
         get { return GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading && !applicationIsQuitting; }
@@ -36,6 +38,8 @@ public class Monster : MonoBehaviour
         GameStateManager.Instance.AddMonster(this);
         GameStateManager.Instance.MonsterTurns += OnTurn;
         GameStateManager.Instance.MonsterResets += OnReset;
+
+        deathEffectObject = PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name)
     }
 
     // Override this!!!
@@ -58,6 +62,8 @@ public class Monster : MonoBehaviour
     {
         if (Health <= 0)
         {
+            Instantiate(deathEffectObject, gameObject.transform.position, Quaternion.identity);
+
             Destroy(this.gameObject);
             if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
             destroyed = true;

@@ -10,6 +10,14 @@ public class BlinkMonster : Monster
     int CoolTime;
     bool Danger = false;
 
+    SpriteRenderer sr;
+    public Sprite[] images;
+
+    // protected override void Start()
+    // {
+    //     sr = GetComponent<SpriteRenderer>();
+    // }
+
     protected override Sequence OnTurn()
     {
         Sequence sequence = base.OnTurn();
@@ -28,10 +36,20 @@ public class BlinkMonster : Monster
         }
         else
         {
-            if (CoolTime < 2)
+            sr = gameObject.GetComponent<SpriteRenderer>();
+            if (CoolTime == 0)
+            {
+                sr.sprite = images[1];
                 CoolTime++;
+            }
+            else if (CoolTime == 1)
+            {
+                sr.sprite = images[2];
+                CoolTime++;
+            }
             else if (CoolTime == 2)
             {
+                sr.sprite = images[0];
                 if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
                 {
                     if (deltaX > 0)

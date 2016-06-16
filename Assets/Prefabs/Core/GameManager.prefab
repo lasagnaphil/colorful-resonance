@@ -1146,16 +1146,16 @@ MonoBehaviour:
   soundDataList:
   - soundEnum: 0
     audioClip: {fileID: 8300000, guid: 105cfa1cb2ef03d458e973a8488360c6, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 1
     audioClip: {fileID: 8300000, guid: 2377965d48814544f884c576f4899ee3, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 2
     audioClip: {fileID: 8300000, guid: 423b83fa35a74004a910d03c57ee0863, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 3
     audioClip: {fileID: 8300000, guid: 49c6e8a8424a0684cb7c0d965c61341d, type: 3}
-    volume: 0.515
+    volume: 0.3
   - soundEnum: 4
     audioClip: {fileID: 8300000, guid: 15d4abe3a217ba142ae92da384f193b7, type: 3}
     volume: 1
@@ -1164,16 +1164,16 @@ MonoBehaviour:
     volume: 1
   - soundEnum: 6
     audioClip: {fileID: 8300000, guid: 868ab9c394984664eb402e86efa704f4, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 7
     audioClip: {fileID: 8300000, guid: 01bf62bfa31922e4cb347dc9b6b90b4e, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 8
     audioClip: {fileID: 8300000, guid: 8062fff4b93ce1a48a36ed1c4ebaecbf, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 9
     audioClip: {fileID: 8300000, guid: 6409bf7a42fc4f540965950af099f7e8, type: 3}
-    volume: 1
+    volume: 0.8
   - soundEnum: 10
     audioClip: {fileID: 8300000, guid: ce5583e67c3409f45a013444cc041398, type: 3}
     volume: 0.85
@@ -1182,16 +1182,16 @@ MonoBehaviour:
     volume: 0.3
   - soundEnum: 12
     audioClip: {fileID: 8300000, guid: 957202727e68f8543a64d065ead950d9, type: 3}
-    volume: 0.187
+    volume: 0.2
   - soundEnum: 13
     audioClip: {fileID: 8300000, guid: 54f2103a31598ce48b75f016e0b92ad5, type: 3}
-    volume: 0.231
+    volume: 0.2
   - soundEnum: 14
     audioClip: {fileID: 8300000, guid: 090c8e0a4c3964f4a8f286b2feb1470c, type: 3}
-    volume: 0.256
+    volume: 0.2
   - soundEnum: 15
     audioClip: {fileID: 8300000, guid: 558454c3d2a8572488e7a5172e9a58bd, type: 3}
-    volume: 0.3
+    volume: 0.2
 --- !u!114 &11479136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1731,6 +1731,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

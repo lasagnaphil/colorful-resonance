@@ -42,6 +42,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 21300000, guid: 4b7779a2ea4cd5a4bb38af69093437ea, type: 3}
+  - {fileID: 21300000, guid: b4233821d75c7a14999f2831c6e83560, type: 3}
+  - {fileID: 21300000, guid: 4694848d2eff06c4b8dd08f76b6af340, type: 3}
+  - {fileID: 21300000, guid: 6dfe800339dc80c4aa500f8324713079, type: 3}
 --- !u!212 &21248686
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -81,7 +84,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: sprites.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sprites.Array.data[0]
@@ -92,6 +95,21 @@ Prefab:
       propertyPath: playTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: b4233821d75c7a14999f2831c6e83560,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4694848d2eff06c4b8dd08f76b6af340,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dfe800339dc80c4aa500f8324713079,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129912}

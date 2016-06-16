@@ -49,7 +49,7 @@ MonoBehaviour:
   pos: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
-  ShieldOff: {fileID: 21300000, guid: 53b7a22013c9dc447a7de74dde7f39d0, type: 3}
+  ShieldOff: {fileID: 21300000, guid: d6c1f1416e0ef824899af14f3b365431, type: 3}
 --- !u!114 &11422456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +114,11 @@ Prefab:
       propertyPath: shieldEffectObject
       value: 
       objectReference: {fileID: 143460, guid: 9577c98f34e20416e9dab61ff92fbd3f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: ShieldOff
+      value: 
+      objectReference: {fileID: 21300000, guid: d6c1f1416e0ef824899af14f3b365431,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135842}

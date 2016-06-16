@@ -134,26 +134,26 @@ public class Player : MonoBehaviour
                 TurnLeft();
                 tempPos.x--;
                 if (!(PositionCheck())) tempPos.x++;
-                //else soundManager.Play(SoundManager.Sounds.Move1);
+                else soundManager.Play(SoundManager.Sounds.Move1);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
             {
                 TurnRight();
                 tempPos.x++;
                 if (!(PositionCheck())) tempPos.x--;
-                //else soundManager.Play(SoundManager.Sounds.Move2);
+                else soundManager.Play(SoundManager.Sounds.Move1);
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
             {
                 tempPos.y++;
                 if (!(PositionCheck())) tempPos.y--;
-                //else soundManager.Play(SoundManager.Sounds.Move3);
+                else soundManager.Play(SoundManager.Sounds.Move1);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
             {
                 tempPos.y--;
                 if (!(PositionCheck())) tempPos.y++;
-                //else soundManager.Play(SoundManager.Sounds.Move4);
+                else soundManager.Play(SoundManager.Sounds.Move1);
             }
         }
         

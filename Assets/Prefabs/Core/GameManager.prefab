@@ -1181,8 +1181,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 727cfac77fd07c543899361cfc7d772b, type: 3}
     volume: 0.3
   - soundEnum: 12
-    audioClip: {fileID: 8300000, guid: 957202727e68f8543a64d065ead950d9, type: 3}
-    volume: 0.2
+    audioClip: {fileID: 8300000, guid: aad2073764d38f34da48e891a1b2532e, type: 3}
+    volume: 0.5
   - soundEnum: 13
     audioClip: {fileID: 8300000, guid: 54f2103a31598ce48b75f016e0b92ad5, type: 3}
     volume: 0.2

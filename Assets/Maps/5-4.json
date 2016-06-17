@@ -28,7 +28,7 @@
       "position" : {"x": 8, "y": 3}
     },
     {
-      "name" : "PaintWall",
+      "name" : "PaintWall_ToRed",
       "position" : {"x": 5, "y": 2}
     }
   ],

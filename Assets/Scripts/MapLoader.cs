@@ -70,7 +70,7 @@ public class MapLoader : MonoBehaviour
     public void SetLevelToNext()
     {
         // Temp method.
-        if (mapIndex == 17)
+        if (mapIndex == 22)
         {
             SceneManager.LoadScene("Credit");
         }

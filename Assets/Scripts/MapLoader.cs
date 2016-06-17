@@ -69,12 +69,6 @@ public class MapLoader : MonoBehaviour
 
     public void SetLevelToNext()
     {
-        // // Temp method.
-        // if (mapIndex == 23)
-        // {
-        //     SceneManager.LoadScene("Credit");
-        // }
-
         if (mapIndex == mapAssetList.Count - 1)
         {
             SceneManager.LoadScene("Credit");

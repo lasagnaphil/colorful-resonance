@@ -26,7 +26,7 @@ public class DeathEffectPlayer : MonoBehaviour {
 			sr.sprite = sprites[0];
 			for (int i = 0; i < defaultFrame; i++)
 			{
-				sr.color -= new Color(0,0,0, 0.8f/(float)defaultFrame);
+				sr.color -= new Color(0,0,0, 1f/(float)defaultFrame);
 				yield return new WaitForSeconds(playTime/(float)defaultFrame);
 			}
 		}

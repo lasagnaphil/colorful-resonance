@@ -1,7 +1,7 @@
 {
   "name": "Stage 5 - 4",
   "width": 29,
-  "height": 27,
+  "height": 26,
   "tiles": [
             ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
             ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
@@ -22,133 +22,132 @@
             "b w b w w w w . . . . w w w w w w w . . . . w w w w w w w",
             "b b b w w w w . . . . w w w w w w w . . . . w w w w w w w",
             ". . . . . . . . . . . . . . B . . . . . . . Y w w w w w Y",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
             ". . . . . . . . . . . . . . R . . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . . Y . . . . . . . . . . . . . .",
             ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . . w . . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
+            ". . . . . . . . w w w . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . w w w w . . Y . . . . . . . . . . . . . .",
+            ". . . . . . . . w w w . . . . . . . . . . . . . . . . . .",
            ],
   "playerData": {
-    "position" : {"x": 14, "y": 12}
+    "position" : {"x": 14, "y": 11}
   },
   "monsters": [
     {
       "name" : "Rain",
-      "position" : {"x": 1, "y": 10}
+      "position" : {"x": 1, "y": 9}
     },
     {
       "name" : "WaterBalloon",
-      "position" : {"x": 1, "y": 14}
+      "position" : {"x": 1, "y": 13}
     },
     {
       "name" : "Mob",
-      "position" : {"x": 0, "y": 10}
+      "position" : {"x": 0, "y": 9}
     },
     {
       "name" : "CleanTile",
-      "position" : {"x": 0, "y": 14}
+      "position" : {"x": 0, "y": 13}
     },
     {
       "name" : "HomingMissile",
-      "position" : {"x": 14, "y": 21}
+      "position" : {"x": 14, "y": 20}
     },
     {
       "name" : "BoomBoom",
-      "position" : {"x": 12, "y": 22}
+      "position" : {"x": 12, "y": 21}
     },
     {
       "name" : "BoomBoom",
-      "position" : {"x": 16, "y": 22}
+      "position" : {"x": 16, "y": 21}
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 14, "y": 25}
+      "position" : {"x": 14, "y": 24}
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 12, "y": 25}
+      "position" : {"x": 12, "y": 24}
     },
     {
       "name" : "LandSlide",
-      "position" : {"x": 16, "y": 25}
+      "position" : {"x": 16, "y": 24}
     },
     {
       "name" : "Shield",
-      "position" : {"x": 24, "y": 10}
+      "position" : {"x": 24, "y": 9}
     },
     {
       "name" : "Blink",
-      "position" : {"x": 26, "y": 14}
+      "position" : {"x": 26, "y": 13}
     },
     {
       "name" : "PunchBox",
-      "position" : {"x": 27, "y": 10}
+      "position" : {"x": 27, "y": 9}
     },
     {
       "name" : "Invincible",
-      "position" : {"x": 27, "y": 14}
+      "position" : {"x": 27, "y": 13}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 14, "y": 1}
+      "position" : {"x": 9, "y": 1}
     }
   ],
   "orbs": [
     {
       "color" : "blue",
-      "position" : {"x": 7, "y": 12}
+      "position" : {"x": 7, "y": 11}
     },
     {
       "color" : "yellow",
-      "position" : {"x": 21, "y": 12}
+      "position" : {"x": 21, "y": 11}
     },
     {
       "color" : "red",
-      "position" : {"x": 14, "y": 19}
+      "position" : {"x": 14, "y": 18}
     },
     {
       "color" : "black",
-      "position" : {"x": 14, "y": 3}
+      "position" : {"x": 11, "y": 1}
     }
   ],
   "buttons": [
   {
     "name" : "WallToggleLever",
-    "position" : {"x": 0, "y": 12},
-    "togglePosition" : {"x": 14, "y": 8},
-    "isWallOnButtonOff" : true
-  },
-  {
-    "name" : "WallToggleLever",
-    "position" : {"x": 28, "y": 12},
-    "togglePosition" : {"x": 14, "y": 6},
-    "isWallOnButtonOff" : true
-  },
-  {
-    "name" : "WallToggleLever",
-    "position" : {"x": 14, "y": 24},
+    "position" : {"x": 0, "y": 11},
     "togglePosition" : {"x": 14, "y": 7},
     "isWallOnButtonOff" : true
   },
   {
     "name" : "WallToggleLever",
-    "position" : {"x": 11, "y": 12},
-    "togglePosition" : {"x": 10, "y": 12},
+    "position" : {"x": 28, "y": 11},
+    "togglePosition" : {"x": 14, "y": 1},
     "isWallOnButtonOff" : true
   },
   {
     "name" : "WallToggleLever",
-    "position" : {"x": 17, "y": 12},
-    "togglePosition" : {"x": 18, "y": 12},
+    "position" : {"x": 14, "y": 24},
+    "togglePosition" : {"x": 14, "y": 4},
     "isWallOnButtonOff" : true
   },
   {
     "name" : "WallToggleLever",
-    "position" : {"x": 14, "y": 15},
-    "togglePosition" : {"x": 14, "y": 16},
+    "position" : {"x": 11, "y": 11},
+    "togglePosition" : {"x": 10, "y": 11},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 17, "y": 11},
+    "togglePosition" : {"x": 18, "y": 11},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 14, "y": 14},
+    "togglePosition" : {"x": 14, "y": 15},
     "isWallOnButtonOff" : true
   }
   ]

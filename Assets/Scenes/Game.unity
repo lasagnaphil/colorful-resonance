@@ -151,7 +151,7 @@ Prefab:
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: mapAssetList.Array.data[22]
       value: 
-      objectReference: {fileID: 4900000, guid: 7fef91719dada0347a36c62feea887fd, type: 3}
+      objectReference: {fileID: 4900000, guid: 58501ebe352351147af126f4c549c10a, type: 3}
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: mapAssetList.Array.data[23]
       value: 

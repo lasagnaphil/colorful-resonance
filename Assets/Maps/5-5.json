@@ -1,15 +1,15 @@
 {
   "name": "Stage 5 - 5",
-  "width": 70,
+  "width": 75,
   "height": 7,
   "tiles": [
-            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w",
-            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w",
-            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w",
-            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-            "w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w",
-            "w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w"
+            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w w w w w w . . . w w w . . . w w w . . . w w w . . . w w w",
+            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w w w w w w . . . w w w . . . w w w . . . w w w . . . w w w",
+            ". w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w . . . w w w w w w w w . . . w w w . . . w w w . . . w w w . . . w w w",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            "w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w",
+            "w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w w"
            ],
   "playerData": {
     "position" : {"x": 0, "y": 0}
@@ -45,23 +45,23 @@
     },
     {
       "name" : "Rain",
-      "position" : {"x": 44, "y": 5}
+      "position" : {"x": 46, "y": 5}
     },
     {
       "name" : "Shield",
-      "position" : {"x": 50, "y": 5}
+      "position" : {"x": 55, "y": 5}
     },
     {
       "name" : "Blink",
-      "position" : {"x": 56, "y": 5}
+      "position" : {"x": 61, "y": 5}
     },
     {
       "name" : "PunchBox",
-      "position" : {"x": 62, "y": 5}
+      "position" : {"x": 67, "y": 5}
     },
     {
       "name" : "Invincible",
-      "position" : {"x": 68, "y": 5}
+      "position" : {"x": 73, "y": 5}
     },
   ],
   "orbs": [
@@ -75,7 +75,7 @@
     },
     {
       "color" : "yellow",
-      "position" : {"x": 49, "y": 1}
+      "position" : {"x": 54, "y": 1}
     }
   ]
 }

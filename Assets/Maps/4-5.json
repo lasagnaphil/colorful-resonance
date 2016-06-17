@@ -1,28 +1,69 @@
 {
   "name": "Stage 4 - 5",
-  "width": 4,
-  "height": 6,
+  "width": 10,
+  "height": 11,
   "tiles": [
-            ". w w w",
-            ". w w w",
-            "w w w w",
-            ". w . .",
-            ". w w w",
-            ". . . w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w",
+            "w w w R R w w w w w",
+            "w w Y Y Y Y Y Y w w",
+            "w w R R R R R R w w",
+            ". . R w w w w R . .",
+            "w w R R R R R R w w",
+            "w w Y Y Y Y Y Y w w",
+            "w w w R R w w w w w",
+            "w w w w w w w w w w",
+            "w w w w w w w w w w"
            ],
   "playerData": {
-    "position" : {"x": 3, "y": 0}
+    "position" : {"x": 1, "y": 0}
   },
   "monsters": [
     {
+      "name" : "PaintWall_ToBlue",
+      "position" : {"x": 5, "y": 1}
+    },
+    {
+      "name" : "PaintWall_ToBlue",
+      "position" : {"x": 5, "y": 9}
+    },
+    {
       "name" : "WaterBalloon",
-      "position" : {"x": 2, "y": 4}
+      "position" : {"x": 5, "y": 5}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 1, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 8, "y": 1}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 8, "y": 9}
+    },
+    {
+      "name" : "PunchBox",
+      "position" : {"x": 1, "y": 9}
     }
   ],
   "orbs": [
     {
+      "color" : "red",
+      "position" : {"x": 6, "y": 2}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 6, "y": 8}
+    },
+    {
       "color" : "blue",
-      "position" : {"x": 1, "y": 1}
-    }
+      "position" : {"x": 4, "y": 5}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 0, "y": 0}
+    },
   ]
 }

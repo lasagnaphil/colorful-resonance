@@ -1,49 +1,108 @@
 {
   "name": "Stage 5 - 4",
-  "width": 16,
-  "height": 7,
+  "width": 29,
+  "height": 27,
   "tiles": [
-            "w w w w w w . . . Y w w w w w w",
-            "w w w w w w . . . B w w w w w w",
-            "w w w w w w . . . R w w w N w w",
-            "w w w w w w R . . w w w w w w w",
-            "w w w w w w . . . R w P w w w w",
-            "w w w w w w . . . B w w w w w w",
-            "w w w w w w . . . Y w w w w w w"
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . w w w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . w . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . R . . . . . . . . . . . . . .",
+            "b b b w w w w . . . . w w w w w w w . . . . Y w w w w w w",
+            "b w b w w w w . . . . w w w w w w w . . . . B w w w w w w",
+            "b w w w w w w . . . . w w w w w w w . . . . R w w w w w w",
+            "b R w w w w w w . . B w w w w w w w Y . . w w w w w w w w",
+            "b w w w w w w . . . . w w w w w w w . . . . R w w w w w w",
+            "b w b w w w w . . . . w w w w w w w . . . . B w w w w w w",
+            "b b b w w w w . . . . w w w w w w w . . . . Y w w w w w w",
+            ". . . . . . . . . . . . . . B . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . R . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . Y . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . . w . . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
+            ". . . . . . . . . . . . . w w w . . . . . . . . . . . . .",
            ],
   "playerData": {
-    "position" : {"x": 5, "y": 3}
+    "position" : {"x": 14, "y": 12}
   },
   "monsters": [
     {
       "name" : "Rain",
-      "position" : {"x": 2, "y": 1}
+      "position" : {"x": 1, "y": 10}
     },
     {
-      "name" : "LandSlide",
-      "position" : {"x": 3, "y": 5}
+      "name" : "WaterBalloon",
+      "position" : {"x": 1, "y": 14}
     },
     {
-      "name" : "LandSlide",
-      "position" : {"x": 8, "y": 3}
+      "name" : "Mob",
+      "position" : {"x": 0, "y": 10}
     },
     {
-      "name" : "PaintWall",
-      "position" : {"x": 5, "y": 2}
+      "name" : "CleanTile",
+      "position" : {"x": 0, "y": 14}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 14, "y": 1}
     }
   ],
   "orbs": [
     {
       "color" : "blue",
-      "position" : {"x": 2, "y": 5}
+      "position" : {"x": 7, "y": 12}
     },
     {
-      "color" : "red",
-      "position" : {"x": 2, "y": 6}
-    },
-    {
-      "color" : "yellow",
-      "position" : {"x": 8, "y": 2}
+      "color" : "black",
+      "position" : {"x": 14, "y": 3}
     }
+  ],
+  "buttons": [
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 0, "y": 12},
+    "togglePosition" : {"x": 14, "y": 8},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 28, "y": 12},
+    "togglePosition" : {"x": 14, "y": 8},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 14, "y": 26},
+    "togglePosition" : {"x": 14, "y": 8},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 12, "y": 12},
+    "togglePosition" : {"x": 10, "y": 12},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 12, "y": 12},
+    "togglePosition" : {"x": 10, "y": 12},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleLever",
+    "position" : {"x": 12, "y": 12},
+    "togglePosition" : {"x": 10, "y": 12},
+    "isWallOnButtonOff" : true
+  }
   ]
+
 }

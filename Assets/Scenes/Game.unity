@@ -146,7 +146,7 @@ Prefab:
       objectReference: {fileID: 1205444965}
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: mapToLoad
-      value: 5-5
+      value: 5-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}

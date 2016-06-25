@@ -106,7 +106,6 @@ public class MapDataConverter : fsDirectConverter<MapData>
         else
         {
             mapData.background = "color";
-            Debug.Log(mapData.background);
         }
 
         // deserialization of buttons (optional field)

@@ -13,10 +13,8 @@ public class RainMonster : Monster
     int SpawnPointX;
     int SpawnPointY;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = base.OnTurn();
-        
         if(RainCoolTime < 3)
             RainCoolTime++;
         else if (RainCoolTime == 3)
@@ -27,11 +25,8 @@ public class RainMonster : Monster
             SpawnPointX = GameStateManager.Instance.player.GetComponent<Position>().X;
             SpawnPointY = GameStateManager.Instance.player.GetComponent<Position>().Y;
 
-            Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(RainProjectile, SpawnPointX, SpawnPointY, moveDir);
+            SpawnProjectile(RainProjectile, SpawnPointX, SpawnPointY, Direction.None);
             RainCoolTime = 0;
         }
-
-        return sequence;
     }
 }

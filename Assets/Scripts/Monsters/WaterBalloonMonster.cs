@@ -8,25 +8,17 @@ public class WaterBalloonMonster : Monster
     public Projectile WaterBalloonProjectile;
 
     int BalloonCoolTime;
-    int SpawnPointX;
-    int SpawnPointY;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequenec)
     {
-        Sequence sequence = base.OnTurn();
-        
         if(BalloonCoolTime < 3)
             BalloonCoolTime++;
         else if (BalloonCoolTime == 3)
         {
-            SpawnPointX = GameStateManager.Instance.player.GetComponent<Position>().X;
-            SpawnPointY = GameStateManager.Instance.player.GetComponent<Position>().Y;
+            Vector2i spawnPoint = PlayerPos();
 
-            Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(WaterBalloonProjectile, SpawnPointX, SpawnPointY, moveDir);
+            SpawnProjectile(WaterBalloonProjectile, spawnPoint.x, spawnPoint.y, Direction.None);
             BalloonCoolTime = 0;
         }
-
-        return sequence;
     }
 }

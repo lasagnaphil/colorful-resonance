@@ -13,24 +13,11 @@ namespace Monsters
         public GameObject shieldEffectObject;
         GameObject shieldEffect;
 
-        int deltaX;
-        int deltaY;
         int CoolTime;
 
-        protected override Sequence OnTurn()
+        protected override void OnTurn(Sequence sequence)
         {
-            Sequence sequence = base.OnTurn();
-            Player player = GameStateManager.Instance.player;
-            Position PlayerPos = player.GetComponent<Position>();
-
-            deltaX = PlayerPos.X - pos.X;
-            deltaY = PlayerPos.Y - pos.Y;
-
-            if (moveCancelled)
-            {
-                moveCancelled = false;
-                return sequence;
-            }
+            Vector2i delta = DiffFromPlayer();
 
             if (CoolTime < 6)
                 CoolTime++;
@@ -42,14 +29,14 @@ namespace Monsters
                 GetComponent<SpriteRenderer>().sprite = Angry;
                 ShieldActive();
 
-                if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+                if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
                 {
-                    if (deltaX > 0)
+                    if (delta.x > 0)
                     {
                         if (CheckPosition(pos.X + 1, pos.Y))
                             AnimatedMove(sequence, pos.X + 1, pos.Y);
                     }
-                    else if (deltaX < 0)
+                    else if (delta.x < 0)
                     {
                         if (CheckPosition(pos.X - 1, pos.Y))
                             AnimatedMove(sequence, pos.X - 1, pos.Y);
@@ -57,12 +44,12 @@ namespace Monsters
                 }
                 else
                 {
-                    if (deltaY > 0)
+                    if (delta.y > 0)
                     {
                         if (CheckPosition(pos.X, pos.Y + 1))
                             AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
-                    else if (deltaY < 0)
+                    else if (delta.y < 0)
                     {
                         if (CheckPosition(pos.X, pos.Y - 1))
                             AnimatedMove(sequence, pos.X, pos.Y - 1);
@@ -75,14 +62,14 @@ namespace Monsters
                 GetComponent<SpriteRenderer>().sprite = Normal;
                 ShieldInactive();
 
-                if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+                if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
                 {
-                    if (deltaX > 0)
+                    if (delta.x > 0)
                     {
                         if(CheckPosition(pos.X - 1, pos.Y))
                             AnimatedMove(sequence, pos.X - 1, pos.Y);
                     }
-                    else if (deltaX < 0)
+                    else if (delta.x < 0)
                     {
                         if (CheckPosition(pos.X + 1, pos.Y))
                             AnimatedMove(sequence, pos.X + 1, pos.Y);
@@ -90,20 +77,18 @@ namespace Monsters
                 }
                 else
                 {
-                    if (deltaY > 0)
+                    if (delta.y > 0)
                     {
                         if(CheckPosition(pos.X, pos.Y - 1))
                             AnimatedMove(sequence, pos.X, pos.Y - 1);
                     }
-                    else if (deltaY < 0)
+                    else if (delta.y < 0)
                     {
                         if (CheckPosition(pos.X, pos.Y + 1))
                             AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
                 }
             }
-
-            return sequence;
         }
 
         void ShieldActive()

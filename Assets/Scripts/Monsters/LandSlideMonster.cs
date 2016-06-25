@@ -7,39 +7,26 @@ public class LandSlideMonster : Monster
 {
     public Projectile LandSlideProjectile;
 
-    int deltaX;
-    int deltaY;
     int CoolTime;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = base.OnTurn();
-        Player player = GameStateManager.Instance.player;
-        Position PlayerPos = player.GetComponent<Position>();
-
-        deltaX = PlayerPos.X - pos.X;
-        deltaY = PlayerPos.Y - pos.Y;
-
-        if (moveCancelled)
-        {
-            moveCancelled = false;
-            return sequence;
-        }
+        Vector2i delta = DiffFromPlayer();
 
         if (CoolTime < 3)
             CoolTime++;
         else if(CoolTime == 3)
         {
-            if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+            if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
             {
-                if (deltaX > 0)
+                if (delta.x > 0)
                 {
                     if (CheckPosition(pos.X + 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
                     }
                 }
-                else if (deltaX < 0)
+                else if (delta.x < 0)
                 {
                     if (CheckPosition(pos.X - 1, pos.Y))
                     {
@@ -49,14 +36,14 @@ public class LandSlideMonster : Monster
             }
             else
             {
-                if (deltaY > 0)
+                if (delta.y > 0)
                 {
                     if (CheckPosition(pos.X, pos.Y + 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
                 }
-                else if (deltaY < 0)
+                else if (delta.y < 0)
                 {
                     if (CheckPosition(pos.X, pos.Y - 1))
                     {
@@ -66,18 +53,11 @@ public class LandSlideMonster : Monster
             }
             CoolTime = 0;
         }
-
-        return sequence;
     }
-    protected override void OnDestroy()
+    protected override void WhenDestroyed()
     {
-        base.OnDestroy();
-
-        if (CheckBeforeDestroy)
-        {
-            Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(LandSlideProjectile, pos.X, pos.Y, moveDir);
-        }
+        Direction moveDir = Direction.None;
+        GameStateManager.Instance.SpawnProjectile(LandSlideProjectile, pos.X, pos.Y, moveDir);
     }
 
     bool CheckPosition(int a, int b)

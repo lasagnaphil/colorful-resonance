@@ -1,6 +1,9 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using Utils;
 
 // Base monster class. Inherit from this when creating new monsters.
 
@@ -36,12 +39,12 @@ public class Monster : MonoBehaviour
     {
         Health = MaxHealth;
         GameStateManager.Instance.AddMonster(this);
-        GameStateManager.Instance.MonsterTurns += OnTurn;
+        GameStateManager.Instance.MonsterTurns += OnTurnInternal;
         GameStateManager.Instance.MonsterResets += OnReset;
     }
 
     // Override this!!!
-    protected virtual Sequence OnTurn()
+    protected virtual Sequence OnTurnInternal()
     {
         Sequence sequence = DOTween.Sequence();
 
@@ -53,8 +56,19 @@ public class Monster : MonoBehaviour
             CheckHealth();
         }
 
+        if (destroyed) return sequence;
+        if (moveCancelled)
+        {
+            moveCancelled = false;
+            return sequence;
+        }
+
+        OnTurn(sequence);
+
         return sequence;
     }
+
+    protected virtual void OnTurn(Sequence sequence) { }
 
     public void CheckHealth()
     {
@@ -78,10 +92,14 @@ public class Monster : MonoBehaviour
     {
         if (GameStateManager.Instance != null)
         {
-            GameStateManager.Instance.MonsterTurns -= OnTurn;
+            GameStateManager.Instance.MonsterTurns -= OnTurnInternal;
             GameStateManager.Instance.MonsterResets -= OnReset;
+            if (CheckBeforeDestroy)
+                WhenDestroyed();
         }
     }
+
+    protected virtual void WhenDestroyed() { }
 
     protected void OnApplicationQuit()
     {
@@ -122,5 +140,41 @@ public class Monster : MonoBehaviour
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             return true;
         }
+    }
+
+    public Vector2i PlayerPos()
+    {
+        return GameStateManager.Instance.player.pos.GetVector2i();
+    }
+
+    public Vector2i DiffFromPlayer()
+    {
+        Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
+        return playerPos - pos.GetVector2i();
+    }
+
+    public Direction DirectionFromPlayer()
+    {
+        return DirectionHelper.ToDirectionX(DiffFromPlayer());
+    }
+
+    public bool CheckTile(int x, int y, Predicate<TileData> predicate)
+    {
+        return predicate(TileManager.Instance.GetTileData(x, y));
+    }
+
+    public bool CheckTile(Vector2i pos, Predicate<TileData> predicate)
+    {
+        return predicate(TileManager.Instance.GetTileData(pos.x, pos.y));
+    }
+
+    public bool CheckTileIsNormal(int x, int y)
+    {
+        return CheckTile(x, y, tile => tile.type == TileType.Normal);
+    }
+
+    public void SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
+    {
+        GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
     }
 }

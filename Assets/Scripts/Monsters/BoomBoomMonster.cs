@@ -7,21 +7,8 @@ public class BoomBoomMonster : Monster
 {
     public Projectile BombProjectile;
 
-    protected override Sequence OnTurn()
+    protected override void WhenDestroyed()
     {
-        Sequence sequence = base.OnTurn();
-
-        return sequence;
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-
-        if (CheckBeforeDestroy)
-        {
-            Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(BombProjectile, pos.X, pos.Y, moveDir);
-        }
+        SpawnProjectile(BombProjectile, pos.X, pos.Y, Direction.None);
     }
 }

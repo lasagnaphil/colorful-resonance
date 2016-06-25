@@ -7,26 +7,11 @@ public class ShieldMonster : Monster
 {
     public Sprite ShieldOff;
 
-    int deltaX;
-    int deltaY;
     int CoolTime;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = base.OnTurn();
-        if (destroyed) return sequence;
-
-        Player player = GameStateManager.Instance.player;
-        Position PlayerPos = player.GetComponent<Position>();
-
-        deltaX = PlayerPos.X - pos.X;
-        deltaY = PlayerPos.Y - pos.Y;
-
-        if (moveCancelled)
-        {
-            moveCancelled = false;
-            return sequence;
-        }
+        Vector2i delta = DiffFromPlayer();
 
         if (Health == 1)
             GetComponent<SpriteRenderer>().sprite = ShieldOff;
@@ -35,18 +20,18 @@ public class ShieldMonster : Monster
             CoolTime++;
         else if(CoolTime == 2)
         {
-            if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+            if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
             {
-                if (deltaX > 0)
+                if (delta.x > 0)
                 {
-                    if (CheckPosition(pos.X + 1, pos.Y))
+                    if (CheckTileIsNormal(pos.X + 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
                     }
                 }
-                else if (deltaX < 0)
+                else if (delta.x < 0)
                 {
-                    if (CheckPosition(pos.X - 1, pos.Y))
+                    if (CheckTileIsNormal(pos.X - 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X - 1, pos.Y);
                     }
@@ -54,16 +39,16 @@ public class ShieldMonster : Monster
             }
             else
             {
-                if (deltaY > 0)
+                if (delta.y > 0)
                 {
-                    if (CheckPosition(pos.X, pos.Y + 1))
+                    if (CheckTileIsNormal(pos.X, pos.Y + 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
                 }
-                else if (deltaY < 0)
+                else if (delta.y < 0)
                 {
-                    if (CheckPosition(pos.X, pos.Y - 1))
+                    if (CheckTileIsNormal(pos.X, pos.Y - 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y - 1);
                     }
@@ -71,15 +56,6 @@ public class ShieldMonster : Monster
             }
             CoolTime = 0;
         }
-
-        return sequence;
-    }
-
-    bool CheckPosition(int a, int b)
-    {
-        if (TileManager.Instance.GetTileType(a, b) != TileType.Wall && TileManager.Instance.GetTileType(a, b) != TileType.None)
-            return true;
-        else return false;
     }
 }
 

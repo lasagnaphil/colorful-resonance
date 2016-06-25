@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEditor.Callbacks;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Utils
 {
@@ -40,6 +43,52 @@ namespace Utils
                 default:
                     return Quaternion.Euler(0, 0, 0);
             }
+        }
+
+        public static List<Direction> ToDirections(Vector2i vec)
+        {
+            var dirs = new List<Direction>();
+
+            if (vec.x > 0) dirs.Add(Direction.Right);
+            else if (vec.x < 0) dirs.Add(Direction.Left);
+            else if (vec.y > 0) dirs.Add(Direction.Up);
+            else if (vec.y < 0) dirs.Add(Direction.Down);
+            else dirs.Add(Direction.None);
+
+            return dirs;
+        }
+
+        public static List<Direction> ToDirections(int x, int y)
+        {
+            return ToDirections(new Vector2i(x, y));
+        }
+
+        public static Direction ToDirectionX(Vector2i vec)
+        {
+            if (vec.x > 0) return Direction.Right;
+            if (vec.x < 0) return Direction.Left;
+            if (vec.y > 0) return Direction.Up;
+            if (vec.y < 0) return Direction.Down;
+            return Direction.None;
+        }
+
+        public static Direction ToDirectionX(int x, int y)
+        {
+            return ToDirectionX(x, y);
+        }
+
+        public static Direction ToDirectionY(Vector2i vec)
+        {
+            if (vec.y > 0) return Direction.Up;
+            if (vec.y < 0) return Direction.Down;
+            if (vec.x > 0) return Direction.Right;
+            if (vec.x < 0) return Direction.Left;
+            return Direction.None;
+        }
+
+        public static Direction ToDirectionY(int x, int y)
+        {
+            return ToDirectionY(new Vector2i(x, y));
         }
     }
 }

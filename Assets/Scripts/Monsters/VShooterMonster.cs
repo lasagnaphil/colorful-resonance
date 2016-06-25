@@ -12,10 +12,8 @@ public class VShooterMonster : Monster
     private int shootTimer = 0;
     public int ShootInterval;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = base.OnTurn();
-
         shootTimer++;
 
         if (shootTimer == ShootInterval)
@@ -34,7 +32,5 @@ public class VShooterMonster : Monster
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
-        return sequence;
     }
 }

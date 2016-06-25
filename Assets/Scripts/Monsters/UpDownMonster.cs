@@ -8,16 +8,8 @@ namespace Monsters
         public int moveCooldown = 2;
         int moveCount = 1;
         
-        protected override Sequence OnTurn()
+        protected override void OnTurn(Sequence sequence)
         {
-            Sequence sequence = base.OnTurn();
-
-            if (moveCancelled)
-            {
-                moveCancelled = false;
-                return sequence;
-            }
-
             if (moveCount == moveCooldown)
             {
                 var newPos = isFacingUp ? new Vector2i(pos.X, pos.Y + 1) : new Vector2i(pos.X, pos.Y - 1);
@@ -34,8 +26,6 @@ namespace Monsters
                 }
             }
             moveCount++;
-
-            return sequence;
         }
     }
 }

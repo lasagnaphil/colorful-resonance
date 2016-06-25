@@ -10,10 +10,8 @@ public class CreateWallMonster : Monster
     int SpawnPointX;
     int SpawnPointY;
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = base.OnTurn();
-        
         if (destroyed)
         {
             SpawnPointX = GameStateManager.Instance.player.GetComponent<Position>().X;
@@ -22,18 +20,11 @@ public class CreateWallMonster : Monster
             Direction moveDir = Direction.None;
             GameStateManager.Instance.SpawnProjectile(MakeWallProjectile, SpawnPointX, SpawnPointY, moveDir);
         }
-
-        return sequence;
     }
 
-    protected override void OnDestroy()
+    protected override void WhenDestroyed()
     {
-        base.OnDestroy();
-
-        if (CheckBeforeDestroy)
-        {
-            TileManager.Instance.SetTileType(pos.X, pos.Y, TileType.Wall);
-            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
-        }
+        TileManager.Instance.SetTileType(pos.X, pos.Y, TileType.Wall);
+        TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
     }
 }

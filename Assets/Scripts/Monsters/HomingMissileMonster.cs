@@ -7,22 +7,9 @@ public class HomingMissileMonster : Monster
 {
     public Projectile HomingProjectile;
 
-    protected override Sequence OnTurn()
+    protected override void WhenDestroyed()
     {
-        Sequence sequence = base.OnTurn();
-
-        return sequence;
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-
-        if (CheckBeforeDestroy)
-        {
-            Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(HomingProjectile, pos.X, pos.Y, moveDir);
-        }
+        SpawnProjectile(HomingProjectile, pos.X, pos.Y, Direction.None);
     }
 }
 

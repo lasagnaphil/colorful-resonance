@@ -5,17 +5,10 @@ using DG.Tweening;
 
 public class MakeWallProjectile : Projectile
 {
-    int deltaX;
-    int deltaY;
-
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-        deltaX = player.pos.X - pos.X;
-        deltaY = player.pos.Y - pos.Y;
-
-        if (Mathf.Abs(deltaX) == 0 && Mathf.Abs(deltaY) == 0)
+        Vector2i delta = DiffFromPlayer();
+        if (Mathf.Abs(delta.x) == 0 && Mathf.Abs(delta.y) == 0)
         {
             player.Health = 0;
         }
@@ -24,6 +17,5 @@ public class MakeWallProjectile : Projectile
         TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
 
         Destroy(gameObject);
-        return CheckAndDestroy(sequence);
     }
 }

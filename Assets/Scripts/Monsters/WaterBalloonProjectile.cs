@@ -10,22 +10,14 @@ public class WaterBalloonProjectile : Projectile
 
     private int turn = 0;
 
-    int deltaX;
-    int deltaY;
-
     protected virtual void Start()
     {
         base.Start();
         updateDirection = false;
     }
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-        deltaX = player.pos.X - pos.X;
-        deltaY = player.pos.Y - pos.Y;
-
         if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
             TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
 
@@ -39,6 +31,5 @@ public class WaterBalloonProjectile : Projectile
         Destroy(effectParticle, 2);
 
         Destroy(gameObject);
-        return CheckAndDestroy(sequence);
     }
 }

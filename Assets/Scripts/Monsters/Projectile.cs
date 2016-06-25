@@ -27,10 +27,10 @@ public class Projectile : MonoBehaviour
         pos = GetComponent<Position>();
         player = GameStateManager.Instance.player;
         GameStateManager.Instance.AddProjectile(this);
-        GameStateManager.Instance.ProjectileTurns += OnTurn;
+        GameStateManager.Instance.ProjectileTurns += OnTurnInternal;
     }
 
-    protected virtual Sequence OnTurn()
+    private Sequence OnTurnInternal()
     {
         Sequence sequence = DOTween.Sequence();
 
@@ -45,8 +45,14 @@ public class Projectile : MonoBehaviour
         if (updateDirection)
             transform.rotation = DirectionHelper.ToQuaternion(MovingDirection);
 
-        return CheckAndDestroy(sequence);
+        OnTurn(sequence);
+
+        CheckAndDestroy(sequence);
+
+        return sequence;
     }
+
+    protected virtual void OnTurn(Sequence sequence) { }
 
     protected virtual void DestroyByCollision()
     {
@@ -56,7 +62,7 @@ public class Projectile : MonoBehaviour
         Destroy(effectParticle, 2);
     }
 
-    protected virtual Sequence CheckAndDestroy(Sequence sequence)
+    private void CheckAndDestroy(Sequence sequence)
     {
         // If the position of the projectile is in the player's location
         // then apply damage to player
@@ -69,7 +75,7 @@ public class Projectile : MonoBehaviour
             {
                 DestroyByCollision();
                 Destroy(this.gameObject);
-                return sequence;
+                return;
             }
         }
 
@@ -78,7 +84,7 @@ public class Projectile : MonoBehaviour
         {
             DestroyByCollision();
             Destroy(this.gameObject);
-            return sequence;
+            return;
         }
 
         // If the projectile is out of bounds, then destroy it
@@ -87,9 +93,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        return sequence;
-        
     }
 
     protected virtual void OnDestroy()
@@ -97,7 +100,14 @@ public class Projectile : MonoBehaviour
         if (GameStateManager.Instance != null)
         {
             GameStateManager.Instance.RemoveProjectile(this);
-            GameStateManager.Instance.ProjectileTurns -= OnTurn;
+            GameStateManager.Instance.ProjectileTurns -= OnTurnInternal;
         }
     }
+
+    public Vector2i DiffFromPlayer()
+    {
+        Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
+        return playerPos - pos.GetVector2i();
+    }
+
 }

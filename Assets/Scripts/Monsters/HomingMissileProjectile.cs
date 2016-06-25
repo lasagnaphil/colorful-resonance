@@ -5,9 +5,6 @@ using DG.Tweening;
 
 public class HomingMissileProjectile : Projectile
 {
-    int deltaX;
-    int deltaY;
-    
     // protected override void DestroyByCollision()
     // {
     //     GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject;
@@ -15,36 +12,30 @@ public class HomingMissileProjectile : Projectile
     //     Destroy(effectParticle, 2);
     // }
     
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-        deltaX = player.pos.X - pos.X;
-        deltaY = player.pos.Y - pos.Y;
-
-        if (Mathf.Abs(deltaX) >= Mathf.Abs(deltaY))
+        Vector2i delta = DiffFromPlayer();
+        if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
         {
-            if (deltaX > 0)
+            if (delta.x > 0)
             {
                 MovingDirection = Direction.Right;
             }
-            else if (deltaX < 0)
+            else if (delta.x < 0)
             {
                 MovingDirection = Direction.Left;
             }
         }
         else
         {
-            if (deltaY > 0)
+            if (delta.y > 0)
             {
                 MovingDirection = Direction.Up;
             }
-            else if (deltaY < 0)
+            else if (delta.y < 0)
             {
                 MovingDirection = Direction.Down;
             }
         }
-
-        return sequence;
     }
 }

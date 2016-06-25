@@ -10,22 +10,15 @@ public class BombProjectile : Projectile
 
     private int turn = 0;
 
-    int deltaX;
-    int deltaY;
-
     protected override void Start()
     {
         base.Start();
         updateDirection = false;
     }
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-        deltaX = player.pos.X - pos.X;
-        deltaY = player.pos.Y - pos.Y;
-
+        Vector2i delta = DiffFromPlayer();
         for (int k = 0; k < 3; k++)
         {
             for (int j = 0; j < 3; j++)
@@ -37,7 +30,7 @@ public class BombProjectile : Projectile
             }
         }
 
-        if (Mathf.Abs(deltaX) <= 1 && Mathf.Abs(deltaY) <= 1)
+        if (Mathf.Abs(delta.x) <= 1 && Mathf.Abs(delta.y) <= 1)
         {
             player.ApplyDamage(Damage);
         }
@@ -47,6 +40,5 @@ public class BombProjectile : Projectile
         Destroy(effectParticle, 2);
 
         Destroy(gameObject);
-        return CheckAndDestroy(sequence);
     }
 }

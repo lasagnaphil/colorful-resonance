@@ -10,16 +10,8 @@ public class RainProjectile : Projectile
 
     private int turn = 0;
 
-    int deltaX;
-    int deltaY;
-    
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-        deltaX = player.pos.X - pos.X;
-        deltaY = player.pos.Y - pos.Y;
-
         for (int k = 0; k < 3; k++)
         {
             for (int j = 0; j < 3; j++)
@@ -35,6 +27,5 @@ public class RainProjectile : Projectile
         }
 
         Destroy(gameObject);
-        return CheckAndDestroy(sequence);
     }
 }

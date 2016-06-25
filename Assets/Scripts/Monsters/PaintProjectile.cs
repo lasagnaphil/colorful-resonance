@@ -14,11 +14,8 @@ public class PaintProjectile : Projectile
         Destroy(effectParticle, 2);
     }
 
-    protected override Sequence OnTurn()
+    protected override void OnTurn(Sequence sequence)
     {
-        Sequence sequence = DOTween.Sequence();
-        base.OnTurn();
-
         if ((TileManager.Instance.GetTileType(pos.X, pos.Y) == TileType.Wall || TileManager.Instance.GetTileType(pos.X, pos.Y) == TileType.None) && Type != ProjectileType.GoThrough)
         {
             Destroy(gameObject);
@@ -34,7 +31,5 @@ public class PaintProjectile : Projectile
                 }
             }
         }
-
-        return CheckAndDestroy(sequence);
     }
 }

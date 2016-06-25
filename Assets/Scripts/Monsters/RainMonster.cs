@@ -22,10 +22,9 @@ public class RainMonster : Monster
             Width = TileManager.Instance.width;
             Height = TileManager.Instance.height;
 
-            SpawnPointX = GameStateManager.Instance.player.GetComponent<Position>().X;
-            SpawnPointY = GameStateManager.Instance.player.GetComponent<Position>().Y;
+            Vector2i spawnPoint = PlayerPos();
 
-            SpawnProjectile(RainProjectile, SpawnPointX, SpawnPointY, Direction.None);
+            SpawnProjectile(RainProjectile, spawnPoint.x, spawnPoint.y, Direction.None);
             RainCoolTime = 0;
         }
     }

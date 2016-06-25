@@ -33,12 +33,12 @@ namespace Monsters
                 {
                     if (delta.x > 0)
                     {
-                        if (CheckPosition(pos.X + 1, pos.Y))
+                        if (CheckTileIsNormal(pos.X + 1, pos.Y))
                             AnimatedMove(sequence, pos.X + 1, pos.Y);
                     }
                     else if (delta.x < 0)
                     {
-                        if (CheckPosition(pos.X - 1, pos.Y))
+                        if (CheckTileIsNormal(pos.X - 1, pos.Y))
                             AnimatedMove(sequence, pos.X - 1, pos.Y);
                     }
                 }
@@ -46,12 +46,12 @@ namespace Monsters
                 {
                     if (delta.y > 0)
                     {
-                        if (CheckPosition(pos.X, pos.Y + 1))
+                        if (CheckTileIsNormal(pos.X, pos.Y + 1))
                             AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
                     else if (delta.y < 0)
                     {
-                        if (CheckPosition(pos.X, pos.Y - 1))
+                        if (CheckTileIsNormal(pos.X, pos.Y - 1))
                             AnimatedMove(sequence, pos.X, pos.Y - 1);
                     }
                 }
@@ -66,12 +66,12 @@ namespace Monsters
                 {
                     if (delta.x > 0)
                     {
-                        if(CheckPosition(pos.X - 1, pos.Y))
+                        if(CheckTileIsNormal(pos.X - 1, pos.Y))
                             AnimatedMove(sequence, pos.X - 1, pos.Y);
                     }
                     else if (delta.x < 0)
                     {
-                        if (CheckPosition(pos.X + 1, pos.Y))
+                        if (CheckTileIsNormal(pos.X + 1, pos.Y))
                             AnimatedMove(sequence, pos.X + 1, pos.Y);
                     }
                 }
@@ -79,12 +79,12 @@ namespace Monsters
                 {
                     if (delta.y > 0)
                     {
-                        if(CheckPosition(pos.X, pos.Y - 1))
+                        if(CheckTileIsNormal(pos.X, pos.Y - 1))
                             AnimatedMove(sequence, pos.X, pos.Y - 1);
                     }
                     else if (delta.y < 0)
                     {
-                        if (CheckPosition(pos.X, pos.Y + 1))
+                        if (CheckTileIsNormal(pos.X, pos.Y + 1))
                             AnimatedMove(sequence, pos.X, pos.Y + 1);
                     }
                 }
@@ -104,13 +104,6 @@ namespace Monsters
         {
             if (shieldEffect != null)
                 Destroy(shieldEffect);
-        }
-
-        bool CheckPosition(int a, int b)
-        {
-            if (TileManager.Instance.GetTileType(a, b) != TileType.Wall && TileManager.Instance.GetTileType(a, b) != TileType.None)
-                return true;
-            else return false;
         }
     }
 }

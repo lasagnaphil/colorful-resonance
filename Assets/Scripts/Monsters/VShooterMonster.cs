@@ -19,7 +19,7 @@ public class VShooterMonster : Monster
         if (shootTimer == ShootInterval)
         {
             Direction moveDir = isFacingUp ? Direction.Up : Direction.Down;
-            GameStateManager.Instance.SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
+            SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
             isFacingUp = !isFacingUp;
             shootTimer = 0;
         }

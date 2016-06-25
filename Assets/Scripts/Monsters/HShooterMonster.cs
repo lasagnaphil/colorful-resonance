@@ -19,7 +19,7 @@ public class HShooterMonster: Monster
         if (shootTimer == ShootInterval)
         {
             Direction moveDir = isFacingRight ? Direction.Right : Direction.Left;
-            GameStateManager.Instance.SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
+            SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
             isFacingRight = !isFacingRight;
             shootTimer = 0;
         }

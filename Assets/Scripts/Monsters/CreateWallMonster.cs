@@ -18,7 +18,7 @@ public class CreateWallMonster : Monster
             SpawnPointY = GameStateManager.Instance.player.GetComponent<Position>().Y;
 
             Direction moveDir = Direction.None;
-            GameStateManager.Instance.SpawnProjectile(MakeWallProjectile, SpawnPointX, SpawnPointY, moveDir);
+            SpawnProjectile(MakeWallProjectile, SpawnPointX, SpawnPointY, moveDir);
         }
     }
 

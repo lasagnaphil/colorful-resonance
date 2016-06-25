@@ -13,16 +13,17 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         if (Instance == null)
         {
             T[] instances = FindObjectsOfType<T>() as T[];
-            if (instances.Length != 1)
-            {
-                Debug.LogError("Singleton count is wrong " + instances.Length);
-            }
-
-            Instance = FindObjectOfType<T>();
-
-            if (Instance == null)
+            if (instances.Length == 0)
             {
                 Debug.LogError("Cannot find singleton");
+            }
+            else if (instances.Length > 1)
+            {
+                Debug.LogError("Singleton count is wrong: " + instances.Length);
+            }
+            else
+            {
+                Instance = instances[0];
             }
         }
         else

@@ -1,38 +1,36 @@
 {
   "name": "Stage 1 - 1",
-  "width": 18,
-  "height": 7,
+  "width": 16,
+  "height": 5,
   "tiles": [
-        ". . . . . . . . . . . O O O O O O O",
-	    	". . . . . O O O O O . O w w w w w O",
-	    	"O O O O O O w w w O O O w w w w w O",
-	    	"O w w w w w w w w w w w w w w w w O",
-	   		"O O O O O O l w l O O O w w w w w O",
-	    	". . . . . O l l l O . O w w w w w O",
-        ". . . . . O O O O O . O O O O O O O"
+	    	". . . . . . . . . . . . w w w w",
+	    	". . . . . w w w . . . . w w w w",
+	    	"w w w w w w w w w w w w w w w w",
+	   		". . . . . l w l . . . . w w w w",
+	    	". . . . . l l l . . . . w w w w"
       ],
   "background": "gray",
   "playerData": {
-    "position" : {"x": 1, "y": 3}
+    "position" : {"x": 0, "y": 3}
   },
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 7, "y": 2}
+      "position" : {"x": 6, "y": 2}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 14, "y": 2}
+      "position" : {"x": 13, "y": 3}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 14, "y": 3}
+      "position" : {"x": 14, "y": 1}
     }
   ],
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 3, "y": 3}
+      "position" : {"x": 1, "y": 3}
     }
   ]
 }

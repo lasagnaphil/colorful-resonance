@@ -11,12 +11,12 @@
       ],
   "background": "gray",
   "playerData": {
-    "position" : {"x": 0, "y": 3}
+    "position" : {"x": 0, "y": 2}
   },
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 6, "y": 2}
+      "position" : {"x": 6, "y": 1}
     },
     {
       "name" : "Standing",
@@ -30,7 +30,7 @@
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 1, "y": 3}
+      "position" : {"x": 1, "y": 2}
     }
   ]
 }

@@ -16,8 +16,8 @@ public class BlinkMonster : Monster
     protected override void OnTurn(Sequence sequence)
     {
         // Question : Why is there -1 in this equation?
-        deltaX = DiffFromPlayer().x - pos.X - 1;
-        deltaY = DiffFromPlayer().y - pos.Y - 1;
+        deltaX = DiffFromPlayer().x - pos.X;
+        deltaY = DiffFromPlayer().y - pos.Y;
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         if (CoolTime == 0)

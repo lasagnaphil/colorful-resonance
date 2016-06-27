@@ -250,7 +250,6 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         if (Health > 0) Health -= damage;
-        animator.SetTrigger("Hit");
         soundManager.Play(SoundManager.Sounds.Hit);
     }
 

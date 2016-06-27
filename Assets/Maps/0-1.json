@@ -1,0 +1,33 @@
+{
+  "name": "Stage 0 - 1",
+  "comment": "오브, 기본적인 이동 학습",
+  "width": 12,
+  "height": 5,
+  "tiles": [
+	    	"w w w w . . . . . . . .",
+	    	". . . w . . w w w w w w",
+	    	". . . w w w w W W W W L",
+	   		". . . . . . L W w w W L",
+	    	". . . . . . L L L L L L"
+      ],
+  "background": "gray",
+  "playerData": {
+    "position" : {"x": 0, "y": 4}
+  },
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 8, "y": 1}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 9, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 3}
+    }
+  ]
+}

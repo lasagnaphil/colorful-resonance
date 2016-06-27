@@ -2,11 +2,11 @@
   "name": "Stage 1 - 2",
   "width": 8,
   "height": 5,
-  "tiles": ["O O O O O O O O",
-            "O l l l l l l O",
-            "O O O l l l l O",
-            "O O O l l l l O",
-            "O O O O O O O O"],
+  "tiles": [". . . . . . . .",
+            ". l l l l l l .",
+            ". . . l l l l .",
+            ". . . l l l l .",
+            ". . . . . . . ."],
   "playerData": {
     "position" : {"x": 1, "y": 3}
   },

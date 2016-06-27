@@ -1,0 +1,30 @@
+{
+  "name": "Stage 0 - 7",
+  "comment": "블링크. 기본 이동",
+  "width": 13,
+  "height": 8,
+  "tiles": [". . . . . . . . . . . . .",
+            ". . . . . . . . . . . . .",
+            ". . . . . . . . . . . . .",
+            ". . . . . . . . . . . . .",
+            ". . W W . . . . . L L L .",
+            ". w w w W W w w . w w L .",
+            ". w w . . . . . . L L L .",
+            ". . . . . . . . . . . . ."],
+  "playerData": {
+    "position" : {"x": 1, "y": 1}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 10, "y": 2}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 1, "y": 2}
+    }
+  ]
+}

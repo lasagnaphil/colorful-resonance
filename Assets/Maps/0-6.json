@@ -1,0 +1,38 @@
+{
+  "name": "Stage 0 - 6",
+  "comment": "두 종류의 오브를 이용",
+  "width": 13,
+  "height": 8,
+  "tiles": [". . . . . . . . . . . . .",
+            ". . . . w w w w w . . . .",
+            ". . . l l l w w w w . . .",
+            ". . . l l l l w w w . . .",
+            ". . . . l l l l w . . . .",
+            ". . . . . . w . . . . . .",
+            ". . . w w w w . . . . . .",
+            ". . . . . . . . . . . . ."],
+  "playerData": {
+    "position" : {"x": 3, "y": 1}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 6, "y": 5}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 6, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 4}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 9, "y": 5}
+    }
+  ]
+}

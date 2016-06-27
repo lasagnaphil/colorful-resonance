@@ -1,0 +1,37 @@
+{
+  "name": "Stage 0 - 9",
+  "comment": "구멍이 있을때의 규칙",
+  "width": 10,
+  "height": 7,
+  "tiles": [". . . . . . . . . .",
+            ". . w w w L L w . .",
+            ". w w w w w w w w .",
+            ". w w w w w w w w .",
+            ". w w w w w w w w .",
+            ". . w w w L L w . .",
+            ". . . . . . . . . ."],
+  "playerData": {
+    "position" : {"x": 1, "y": 3}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 6, "y": 2}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 6, "y": 3}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 6, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 3, "y": 3}
+    }
+  ]
+}

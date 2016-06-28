@@ -4,9 +4,9 @@
   "width": 9,
   "height": 3,
   "tiles": [
-            ". . . . . . 1 1 1",
-            "w w w L L L 1 1 1",
-            ". . . . . . 1 1 1"
+            ". . . . . . l l l",
+            "w w w L L L l l l",
+            ". . . . . . l l l"
             ],
   "playerData": {
     "position" : {"x": 0, "y": 1}

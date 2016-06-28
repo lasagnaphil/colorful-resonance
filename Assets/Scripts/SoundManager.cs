@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using DG.Tweening;
 
 [System.Serializable]
 public class SoundData
@@ -20,6 +19,14 @@ public class AudioSourceData
     {
         this.soundEnum = soundEnum;
         this.source = source;
+    }
+
+    public void Play(bool loop, AudioClip clip, float volume)
+    {
+        source.loop = loop;
+        source.clip = clip;
+        source.volume = volume;
+        source.Play();
     }
 }
 
@@ -68,7 +75,9 @@ public class SoundManager : Singleton<SoundManager>
     public List<SoundData> soundDataList;
 
     public bool isPlaying = false;
-    public HashSet<Sounds> soundsToPlay = new HashSet<Sounds>();
+    private HashSet<Sounds> soundsToPlay = new HashSet<Sounds>();
+
+    public bool noOverlappingAudioClip;
 
     public void Play(Sounds soundEnum)
     {
@@ -91,21 +100,24 @@ public class SoundManager : Singleton<SoundManager>
     private void PlayEffect(Sounds soundEnum, bool loop = false)
     {
         SoundData soundData = soundDataList.Find(x => x.soundEnum == soundEnum);
+        if (noOverlappingAudioClip)
+        {
+            var sourceWithSameClip = audioSources.Find(x => x.soundEnum == soundEnum);
+            if (sourceWithSameClip != null)
+            {
+                sourceWithSameClip.Play(loop, soundData.audioClip, soundData.volume);
+                return;
+            }
+        }
         var foundSource = audioSources.Find(x => !x.source.isPlaying);
         if (foundSource != null)
         {
-            foundSource.source.loop = loop;
-            foundSource.source.clip = soundData.audioClip;
-            foundSource.source.volume = soundData.volume;
-            foundSource.source.Play();
+            foundSource.Play(loop, soundData.audioClip, soundData.volume);
         }
         else
         {
             audioSources.Add(new AudioSourceData(soundEnum, AddAudioSource()));
-            audioSources[audioSources.Count - 1].source.loop = loop;
-            audioSources[audioSources.Count - 1].source.clip = soundData.audioClip;
-            audioSources[audioSources.Count - 1].source.volume = soundData.volume;
-            audioSources[audioSources.Count - 1].source.Play();
+            audioSources[audioSources.Count - 1].Play(loop, soundData.audioClip, soundData.volume);
         }
     }
 

@@ -124,10 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 343368824}
     - target: {fileID: 11479270, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: player
       value: 
@@ -145,29 +141,9 @@ Prefab:
       value: 
       objectReference: {fileID: 1205444965}
     - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapToLoad
-      value: 5-3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[22]
+      propertyPath: player
       value: 
-      objectReference: {fileID: 4900000, guid: 58501ebe352351147af126f4c549c10a, type: 3}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: mapAssetList.Array.data[23]
-      value: 
-      objectReference: {fileID: 4900000, guid: 7fef91719dada0347a36c62feea887fd, type: 3}
-    - target: {fileID: 11475048, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: noOverlappingAudioClip
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475048, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: easeType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11475048, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: easeDuration
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 343368824}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0

@@ -87,13 +87,6 @@ public class GameStateManager : Singleton<GameStateManager>
         }
 
         ChangeState<GameStateLoad>();
-
-        if (soundManager != null)
-        {
-            soundManager.Play(SoundManager.Sounds.Main, true);
-        }
-        else
-            Debug.Log("SoundManager is null.");
     }
 
     protected void Update()
@@ -303,14 +296,6 @@ public class GameStateManager : Singleton<GameStateManager>
 
         // load the map
         mapData = mapLoader.LoadMap();
-
-        if (soundManager != null)
-        {
-            soundManager.StopAll();
-            soundManager.Play(SoundManager.Sounds.Main);
-        }
-        else
-            Debug.Log("SoundManager is null.");
 
         resultUIManager.Initialize();
     }

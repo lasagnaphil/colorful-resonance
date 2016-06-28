@@ -36,7 +36,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (Instance == null)
         {
-            Debug.LogError("Sigleton is not instantiated");
+            Debug.LogError("Singleton is not instantiated");
         }
         else
         {

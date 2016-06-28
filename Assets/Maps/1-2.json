@@ -7,13 +7,6 @@
             ". . l l l l",
             ". . l l l l"
           ],
-  "width": 8,
-  "height": 5,
-  "tiles": [". . . . . . . .",
-            ". l l l l l l .",
-            ". . . l l l l .",
-            ". . . l l l l .",
-            ". . . . . . . ."],
   "playerData": {
     "position" : {"x": 0, "y": 2}
   },

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using DG.Tweening;
 
 [System.Serializable]
 public class SoundData
@@ -12,10 +13,10 @@ public class SoundData
 
 public class AudioSourceData
 {
-    public SoundManager.Sounds soundEnum;
+    public SoundManager.Sounds? soundEnum;
     public AudioSource source;
 
-    public AudioSourceData(SoundManager.Sounds soundEnum, AudioSource source)
+    public AudioSourceData(SoundManager.Sounds? soundEnum, AudioSource source)
     {
         this.soundEnum = soundEnum;
         this.source = source;
@@ -32,7 +33,7 @@ public class AudioSourceData
 
 public struct SoundTuple
 {
-    public SoundManager.Sounds soundEnum;
+    public SoundManager.Sounds? soundEnum;
     public bool loop;
 
     public SoundTuple(SoundManager.Sounds soundEnum, bool loop)
@@ -70,14 +71,18 @@ public class SoundManager : Singleton<SoundManager>
     */
     
     private List<AudioSourceData> audioSources = new List<AudioSourceData>();
-    private AudioSourceData bkgAudioSource;
+
+    private AudioSourceData[] bkgSources = new AudioSourceData[2];
+    private int currentBkgSource = 0;
 
     public List<SoundData> soundDataList;
 
-    public bool isPlaying = false;
+    private bool isPlaying = false;
     private HashSet<Sounds> soundsToPlay = new HashSet<Sounds>();
 
     public bool noOverlappingAudioClip;
+    public Ease easeType;
+    public float easeDuration;
 
     public void Play(Sounds soundEnum)
     {
@@ -88,13 +93,28 @@ public class SoundManager : Singleton<SoundManager>
     public void PlayBackground(Sounds soundEnum, bool loop = true)
     {
         SoundData soundData = soundDataList.Find(x => x.soundEnum == soundEnum);
-        if (bkgAudioSource == null)
-            bkgAudioSource = new AudioSourceData(soundEnum, AddAudioSource());
 
-        bkgAudioSource.source.loop = loop;
-        bkgAudioSource.source.clip = soundData.audioClip;
-        bkgAudioSource.source.volume = soundData.volume;
-        bkgAudioSource.source.Play();
+        var currentSource = bkgSources[currentBkgSource];
+        var nextSource = bkgSources[1 - currentBkgSource];
+        if (currentSource.source.isPlaying)
+        {
+            DOTween.To(
+                () => currentSource.source.volume,
+                volume => currentSource.source.volume = volume,
+                0f,
+                easeDuration)
+                .SetEase(easeType)
+                .OnComplete(() => currentSource.source.Stop());
+        }
+        nextSource.Play(loop, soundData.audioClip, 0f);
+        DOTween.To(
+            () => nextSource.source.volume,
+            volume => nextSource.source.volume = volume,
+            soundData.volume,
+            easeDuration)
+            .SetEase(easeType);
+
+        currentBkgSource = 1 - currentBkgSource;
     }
 
     private void PlayEffect(Sounds soundEnum, bool loop = false)
@@ -121,6 +141,14 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
+    void Awake()
+    {
+        bkgSources = new AudioSourceData[2]
+        {
+            new AudioSourceData(null, AddAudioSource()), 
+            new AudioSourceData(null, AddAudioSource())
+        };
+    }
     void Start()
     {
         /*
@@ -159,8 +187,8 @@ public class SoundManager : Singleton<SoundManager>
 
     public void StopBackground()
     {
-        if (bkgAudioSource != null)
-            bkgAudioSource.source.Stop();
+        bkgSources[0].source.Stop();
+        bkgSources[1].source.Stop();
     }
 
     public void StopAll()

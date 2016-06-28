@@ -1,0 +1,31 @@
+{
+  "name": "Stage 0 - 3",
+  "comment": "오브 2종. 흰색 몬스터 추가",
+  "width": 13,
+  "height": 5,
+  "tiles": [". . . . . . . . . . . . .",
+            ". . . . l l l l l l l l .",
+            ". . w w w . . . l l l l .",
+            "w w w . . . . . l l l l .",
+            ". . . . . . . . . . . . ."],
+  "playerData": {
+    "position" : {"x": 0, "y": 1}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "UpDown",
+      "position" : {"x": 9, "y": 2}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 2, "y": 1}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 4, "y": 2}
+    }
+  ]
+}

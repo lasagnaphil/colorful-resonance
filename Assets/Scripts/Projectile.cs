@@ -67,8 +67,7 @@ public class Projectile : MonoBehaviour
         // If the position of the projectile is in the player's location
         // then apply damage to player
         if ((player.pos.X == pos.X && player.pos.Y == pos.Y) ||
-            (player.pos.X == prevPos.x && player.pos.Y == prevPos.y &&
-             player.prevPos.x == pos.X && player.prevPos.y == pos.Y))
+            (player.pos.X == prevPos.x && player.pos.Y == prevPos.y))
         {
             player.ApplyDamage(Damage);
             if (Type != ProjectileType.GoThrough)

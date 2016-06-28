@@ -1,0 +1,40 @@
+{
+  "name": "Stage 1 - 6",
+  "comment": "빈 공간은 못 칠함!",
+  "width": 14,
+  "height": 5,
+  "tiles": [". . . . . . . . . w w w l w",
+            ". . . L L L L L L w . l l l",
+            "w w w w . w w l w w l w l w",
+            ". . . L L L L L L l l l . w",
+            ". . . . . . . . . w l w w w"
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 2}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 6, "y": 2}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 10, "y": 2}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 12, "y": 3}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 1, "y": 2}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 8, "y": 2}
+    }
+  ]
+}

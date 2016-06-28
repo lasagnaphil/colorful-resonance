@@ -1,0 +1,35 @@
+{
+  "name": "Stage 1 - 5",
+  "comment": "버튼 등장",
+  "width": 9,
+  "height": 3,
+  "tiles": [
+            ". . . . . . l l l",
+            "w w w L L L l l l",
+            ". . . . . . l l l"
+            ],
+  "playerData": {
+    "position" : {"x": 0, "y": 1}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "UpDown",
+      "position" : {"x": 7, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "white",
+      "position" : {"x": 1, "y": 1}
+    }
+  ],
+  "buttons": [
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 7, "y": 1},
+    "togglePosition" : {"x": 3, "y": 1},
+    "isWallOnButtonOff" : true
+  }
+  ]
+}

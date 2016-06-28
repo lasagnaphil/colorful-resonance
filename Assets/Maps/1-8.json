@@ -1,0 +1,62 @@
+{
+  "name": "Stage 1 - 8",
+  "comment": "버튼을 이용해 벽의 색을 바꿀 수 있어요!",
+  "width": 7,
+  "height": 6,
+  "tiles": [
+            "w w w w w w w",
+            "w w w w w w w",
+            "w L w w w w w",
+            "L L L w w w w",
+            "l L L L w w w",
+            "w l L w w w w"
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 5}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "UpDown",
+      "position" : {"x": 2, "y": 4}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 3, "y": 3}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 4, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 6, "y": 0}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 0, "y": 4}
+    }
+  ],
+  "buttons": [
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 2, "y": 4},
+    "togglePosition" : {"x": 2, "y": 2},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 3, "y": 3},
+    "togglePosition" : {"x": 1, "y": 3},
+    "isWallOnButtonOff" : true
+  },
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 4, "y": 1},
+    "togglePosition" : {"x": 4, "y": 1},
+    "isWallOnButtonOff" : true
+  }
+  ]
+}

@@ -1,36 +1,36 @@
 {
   "name": "Stage 1 - 4",
-  "width": 10,
-  "height": 7,
-  "tiles": [". O O O O O O O O .",
-            "O O w w w L L w O O",
-            "O w w w w w w w w O",
-            "O w w w w w w w w O",
-            "O w w w w w w w w O",
-            "O O w w w L L w O O",
-            ". O O O O O O O O ."],
+  "width": 8,
+  "height": 5,
+  "tiles": [
+            ". w w w L L w .",
+            "w w w w w w w w",
+            "w w w w w w w w",
+            "w w w w w w w w",
+            ". w w w L L w ."
+            ],
   "playerData": {
-    "position" : {"x": 1, "y": 3}
+    "position" : {"x": 0, "y": 2}
   },
   "background": "gray",
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 6, "y": 2}
+      "position" : {"x": 5, "y": 1}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 6, "y": 3}
+      "position" : {"x": 5, "y": 2}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 6, "y": 4}
+      "position" : {"x": 5, "y": 3}
     }
   ],
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 3, "y": 3}
+      "position" : {"x": 2, "y": 2}
     }
   ]
 }

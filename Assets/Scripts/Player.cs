@@ -219,17 +219,17 @@ public class Player : MonoBehaviour
                 if (foundOrb.Color == TileColor.Red)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Red, true);
+                    soundManager.PlayBackground(SoundManager.Sounds.Red);
                 }
                 else if (foundOrb.Color == TileColor.Blue)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Blue, true);
+                    soundManager.PlayBackground(SoundManager.Sounds.Blue);
                 }
                 else if (foundOrb.Color == TileColor.Yellow)
                 {
                     soundManager.StopAll();
-                    soundManager.Play(SoundManager.Sounds.Yellow, true);
+                    soundManager.PlayBackground(SoundManager.Sounds.Yellow);
                 }
             }
             playerTileColor = foundOrb.Color;

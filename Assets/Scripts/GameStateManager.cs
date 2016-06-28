@@ -90,7 +90,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         if (soundManager != null)
         {
-            soundManager.Play(SoundManager.Sounds.Main, true);
+            soundManager.PlayBackground(SoundManager.Sounds.Main);
         }
         else
             Debug.Log("SoundManager is null.");

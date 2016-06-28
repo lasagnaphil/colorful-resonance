@@ -42,8 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d9b16127065824dab70ba1db6a6e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onButton: {fileID: 21300000, guid: de4e12a1d76fb1842988d21e6219b572, type: 3}
-  offButton: {fileID: 21300000, guid: eac42c11fbbc63748a5eec6e0fcf5892, type: 3}
+  onButton: {fileID: 21300000, guid: 38f1bf2cab8385b4694faf0bed8392ca, type: 3}
+  offButton: {fileID: 21300000, guid: a75e298abc50b314ba3a04d85a1b68c1, type: 3}
   isActive: 0
   wasPushedBefore: 0
   wallTogglePos:

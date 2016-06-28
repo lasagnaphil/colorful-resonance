@@ -1,0 +1,46 @@
+{
+  "name": "Stage 0 - 5",
+  "comment": "벽을 이용해 몬스터 잡기",
+  "width": 13,
+  "height": 8,
+  "tiles": [". . . W L L L . . . . . .",
+            "w w w w w w l l l l . . .",
+            ". . . W L L L . . l . . .",
+            ". L L . . . . . l l W . .",
+            ". w w w w w w l l l W . .",
+            ". w w w w L . . W W W . .",
+            ". w w L w w . . . . . . .",
+            ". L L L w w . . . . . . ."],
+  "playerData": {
+    "position" : {"x": 0, "y": 6}
+  },
+  "background": "gray",
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 2, "y": 1}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 2, "y": 2}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 9, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 2, "y": 6}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 9, "y": 6}
+    },
+    {
+      "color" : "black",
+      "position" : {"x": 6, "y": 3}
+    }
+  ]
+}

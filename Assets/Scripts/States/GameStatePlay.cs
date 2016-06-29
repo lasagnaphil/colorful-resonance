@@ -10,6 +10,7 @@ namespace States
         {
             gsm.IsLoading = false;
             gsm.ResetTurn();
+            gsm.soundManager.StopAll();
             gsm.soundManager.PlayBackground(SoundManager.Sounds.Main);
             Debug.Log("Game Start");
         }

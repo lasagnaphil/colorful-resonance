@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     public TileColor playerTileColor;
     public int MaxHealth;
     public int Health;
+    public int Blinkable;
+    public int Difficulty;
     
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-        if (Input.GetKey(KeyCode.Space) || GetBlinkButtonState())
+        if ((Input.GetKey(KeyCode.Space) || GetBlinkButtonState()) && (Blinkable == 0))
         {   
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {                
@@ -95,6 +97,11 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x - 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
+                else
+                {
+                	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -104,6 +111,11 @@ public class Player : MonoBehaviour
                 tempPos.x = tempPos.x + 3;
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
+                else
+                {
+                	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -112,6 +124,11 @@ public class Player : MonoBehaviour
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
+                else
+                {
+                	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -120,6 +137,11 @@ public class Player : MonoBehaviour
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y + 3;
+                else
+                {
+                	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -128,36 +150,37 @@ public class Player : MonoBehaviour
         else
         {
             ArrowInactive();
-            
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || GetDirectionSetBySwipe() == "Left")
-            {
-                TurnLeft();
-                tempPos.x--;
-                if (!(PositionCheck())) tempPos.x++;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
-            {
-                TurnRight();
-                tempPos.x++;
-                if (!(PositionCheck())) tempPos.x--;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
-            {
-                tempPos.y++;
-                if (!(PositionCheck())) tempPos.y--;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
-            {
-                tempPos.y--;
-                if (!(PositionCheck())) tempPos.y++;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-            }
+            if (!Input.GetKey(KeyCode.Space)){
+	            if (Input.GetKeyDown(KeyCode.LeftArrow) || GetDirectionSetBySwipe() == "Left")
+	            {
+	                TurnLeft();
+	                tempPos.x--;
+	                if (!(PositionCheck())) tempPos.x++;
+	                else soundManager.Play(SoundManager.Sounds.Move1);
+	            }
+	            else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
+	            {
+	                TurnRight();
+	                tempPos.x++;
+	                if (!(PositionCheck())) tempPos.x--;
+	                else soundManager.Play(SoundManager.Sounds.Move1);
+	            }
+	            else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
+	            {
+	                tempPos.y++;
+	                if (!(PositionCheck())) tempPos.y--;
+	                else soundManager.Play(SoundManager.Sounds.Move1);
+	            }
+	            else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
+	            {
+	                tempPos.y--;
+	                if (!(PositionCheck())) tempPos.y++;
+	                else soundManager.Play(SoundManager.Sounds.Move1);
+	            }
+            }            
         }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && (Blinkable == 0))
         {
             ArrowActive();
         }
@@ -190,6 +213,7 @@ public class Player : MonoBehaviour
         if (tileManager.GetTileData(x, y).color == TileColor.None ||
             tileManager.GetTileData(x, y).type == TileType.Wall)
             return sequence;
+
 
         Monster foundMonster = GameStateManager.Instance.CheckMonsterPosition(x, y);
         if (foundMonster != null)
@@ -241,8 +265,10 @@ public class Player : MonoBehaviour
             tileManager.GetTile(x, y).PlaySubEffect();
         }
 
+        if (Blinkable != 0) Blinkable -= 1;
+
         return sequence;
-    }
+    } // end of OnTurn
 
     public void ApplyDamage(int damage)
     {

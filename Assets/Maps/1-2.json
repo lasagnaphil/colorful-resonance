@@ -16,20 +16,32 @@
            ],
   "background": "gray",
   "playerData": {
-    "position" : {"x": 0, "y": 12}
+    "position" : {"x": 0, "y": 3}
   },
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 15, "y": 1}
+      "position" : {"x": 5, "y": 1}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 16, "y": 1}
+      "position" : {"x": 6, "y": 1}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 10, "y": 4}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 11, "y": 4}
     },
     {
       "name" : "UpDown",
       "position" : {"x": 22, "y": 7}
+    },
+    {
+      "name" : "UpDown",
+      "position" : {"x": 23, "y": 8}
     }
   ],
   "orbs": [

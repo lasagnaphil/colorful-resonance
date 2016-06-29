@@ -98,7 +98,10 @@ public class Player : MonoBehaviour
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x + 3;
                 else
+                {
                 	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -109,7 +112,10 @@ public class Player : MonoBehaviour
                 if (!(PositionCheck()))
                     tempPos.x = tempPos.x - 3;
                 else
+                {
                 	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -119,7 +125,10 @@ public class Player : MonoBehaviour
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y - 3;
                 else
+                {
                 	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }
@@ -129,7 +138,10 @@ public class Player : MonoBehaviour
                 if (!(PositionCheck()))
                     tempPos.y = tempPos.y + 3;
                 else
+                {
                 	Blinkable = Difficulty;
+                	soundManager.Play(SoundManager.Sounds.Move1);
+                }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
             }

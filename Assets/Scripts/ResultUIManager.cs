@@ -13,6 +13,9 @@ public class ResultUIManager : MonoBehaviour {
 	public Image loseBg;
     public GameObject[] loseMarks;
 
+	public Sprite winMarkImage;
+	public Sprite loseMarkImage;
+
 	// Use this for initialization
 	void Start () {
 		Initialize();
@@ -22,11 +25,27 @@ public class ResultUIManager : MonoBehaviour {
 	{
 		StartCoroutine(PopupWinUICoroutine());
 	}
-	
+
+	void UpdateMark()
+	{
+		foreach (var winMark in winMarks)
+			winMark.GetComponent<Image>().sprite = winMarkImage;
+
+		// 체력 반영
+		int remainHealth = GameStateManager.Instance.player.Health;
+		
+		if (remainHealth < 3)
+			winMarks[2].GetComponent<Image>().sprite = loseMarkImage;
+		if (remainHealth < 2)
+			winMarks[1].GetComponent<Image>().sprite = loseMarkImage;	
+	}
+
 	IEnumerator PopupWinUICoroutine()
 	{
 		winUI.SetActive(true);
-		
+
+		UpdateMark();
+
 		foreach (var winMark in winMarks)
 			winMark.GetComponent<Image>().color = new Color(1,1,1,0);
 		

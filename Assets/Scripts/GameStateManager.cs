@@ -137,6 +137,8 @@ public class GameStateManager : Singleton<GameStateManager>
                     Debug.Log("SoundManager is null.");
                 resultUIManager.PopupLoseUI();
                 ChangeState<GameStateLose>();
+                isTurnExecuting = false;
+                return;
             }
             if (mapData.winCondition is EliminationWinCondition)
             {
@@ -153,6 +155,8 @@ public class GameStateManager : Singleton<GameStateManager>
                     }
                     resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
+                    isTurnExecuting = false;
+                    return;
                 }
             }
             else if (mapData.winCondition is SurvivalWinCondition)
@@ -170,6 +174,8 @@ public class GameStateManager : Singleton<GameStateManager>
                     }
                     resultUIManager.PopupWinUI();
                     ChangeState<GameStateWin>();
+                    isTurnExecuting = false;
+                    return;
                 }
             }
         isTurnExecuting = false;

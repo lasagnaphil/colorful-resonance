@@ -1,0 +1,41 @@
+{
+  "name": "Stage 1 - 1",
+  "comment": "오브, 기본적인 이동 학습",
+  "width": 19,
+  "height": 13,
+  "tiles": [
+            "w W W W W . . . . . . . . . . . . . .",
+            "l w w l W w w w L L L . . . . . . . .",
+            "w L L w W w L w w l w . . . . . . . .",
+            "w L w l W w w L w W l . . . . . . . .",
+            "w L L W W W w w L w l . . . . . . . .",
+	    	    "w w L w l W w L w l W . . . . . . . .",
+            "W w L w W W w L w W l . . . . . . . .",
+            "l l l l W w w L w l l . . . . . . . .",
+            "l W W W W w L L w W W . . . . . . . .",
+	    	    "l l l l l w L w l l l . . w w w w w w",
+	       	  ". . . . . . . . . . w w w w W W W W L",
+	   	     	". . . . . . . . . . . . . L W w w W L",
+	    	    ". . . . . . . . . . . . . L L L L L L"
+            ],
+  "background": "gray",
+  "playerData": {
+    "position" : {"x": 0, "y": 12}
+  },
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 15, "y": 1}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 16, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 12, "y": 2}
+    }
+  ]
+}

@@ -1,94 +1,45 @@
 {
   "name": "Stage 1 - 2",
-  "comment": "몬스터 잡는 방법 학습",
-  "width": 33,
-  "height": 34,
+  "comment": "오브, 기본적인 이동 학습",
+  "width": 25,
+  "height": 9,
   "tiles": [
-            "w . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .",
-            "w w . . . w w w w . . . L W w w w w w w w w w . . . . w w w w w .",
-            ". w w w w w . . . w . . L w w L W l . . . . w w w w . w . . . w .",
-            ". w . . . w . w w w w w w w w w W l . . l . . . . w . w . w w w .",
-            ". w w . . w . w . . . . W w w w W l l l l l l l . w . w . w . . .",
-            ". . w . w w . w w w . . W . w . W . . . l . . l . w w w . w w w .",
-            "w w w . w . . . . w . . w w . w W l l l l . . l l . l . . . . w .",
-            "w . w . w w w w . w w w w . w w W l . . . . . . l . l l l l . w w",
-            "w . w w . w . . . . . . w . w . W . w w l l l l . . . . . l l . w",
-            "w w . . w . w w w w w w w . w . W . w . . . . l . w w . . . . . w",
-            ". w w w w . w . . . w . . w w . W . w . . . . w w . w . w w w w w",
-            ". w . . w . w . w . w w . w . . W . w w w . w w . w w w w . . . .",
-            ". w . . w . w w w . . w . w w w W . . . w . w . w w . . l . . . .",
-            ". . w w w . . . w w w . . . . w W . w w w . l . w . . . l l . . .",
-            ". . w . . . w . w . . w w w w w W . l . . . l w . . . . . l . . .",
-            "w w w w w w w . w w w w . w . . W l l l . l l . l l l . . l . . .",
-            "w . . . w . . . . . . w . w . . W l l l . l . . l . l l l l . . .",
-            "w w w . w w w w w w w w . w w w W l l l . w w w w . . . . . . . .",
-            "L L L L L L L L L L L L L L L L . l L L L L L L L L L L L L L L L",
-            ". . . . . . . . . . . . . . . . W l . . . . . l l l w w . . . . .",
-            ". . . . . . . . . . . . . . . . W l . . . . . l . . . w . w w w w",
-            ". . . . . . . . . . . . . . . . W l . . . . . l . . . w . w . . w",
-            ". . . . . . . . . . . . . . . . W l . . . l l l . . . w w w . . w",
-            ". . . . . . . . . . . . . . . . W l . . . l . . . . . . . . . w w",
-            ". . . . . . . . . . . . . . . . W l l l . l l l l l . . . . . w .",
-            ". . . . . . . . . . . . . . . . W . . l . . . . . l . . . . . w .",
-            ". . . . . . . . . . . . . . . . W . l l . . l l l l . . . w w w .",
-            ". . . . . . . . . . . . . . . . W l l . . . l . . . . . . w . . .",
-            ". . . . . . . . . . . . . . . . W l . l l l l . . . . . . w w w w",
-            ". . . . . . . . . . . . . . . . W l l l . . . . . w w w . . . . w",
-            ". . . . . . . . . . . . . . . . W . . . . . . . . l . w . . . . w",
-            ". . . . . . . . . . . . . . . . W w w w w . . . . l . w . . . . w",
-            ". . . . . . . . . . . . . . . . W w w w w w l l . l . w w w w w w",
-            ". . . . . . . . . . . . . . . w w w w w w . . l l l . . . . . . ."
-            ],
+            ". . . . . . . . . . . . . . . . . l l l l l l l l",
+            ". . . . . . . . . . . . . . . w w w . . . l l l l",
+            ". . . . . . . . . . . . . w w w . . . . . l l l l",
+            ". . . . . . . . . w w w w w . . . . . . . . . . .",
+            ". . . . . . . . . w w w l . . . . . . . . . . . .",
+            "w w . . . . . . . w l l l . . . . . . . . . . . .",
+            ". w . . l l l l l w . . . . . . . . . . . . . . .",
+            ". w w w w w w l . . . . . . . . . . . . . . . . .",
+            ". . . . l l l l . . . . . . . . . . . . . . . . ."
+           ],
   "background": "gray",
   "playerData": {
-    "position" : {"x": 0, "y": 33}
+    "position" : {"x": 0, "y": 12}
   },
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 14, "y": 30}
+      "position" : {"x": 15, "y": 1}
+    },
+    {
+      "name" : "Standing",
+      "position" : {"x": 16, "y": 1}
     },
     {
       "name" : "UpDown",
-      "position" : {"x": 18, "y": 17}
-    },
-    {
-      "name" : "HShooter",
-      "position" : {"x": 18, "y": 1}
+      "position" : {"x": 22, "y": 7}
     }
   ],
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 3, "y": 25}
+      "position" : {"x": 1, "y": 2}
     },
     {
       "color" : "white",
-      "position" : {"x": 6, "y": 19}
-    },
-    {
-      "color" : "black",
-      "position" : {"x": 11, "y": 21}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 13, "y": 27}
-    },
-    {
-      "color" : "black",
-      "position" : {"x": 20, "y": 30}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 30, "y": 25}
-    },
-    {
-      "color" : "black",
-      "position" : {"x": 25, "y": 24}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 24, "y": 23}
+      "position" : {"x": 17, "y": 7}
     }
   ]
 }

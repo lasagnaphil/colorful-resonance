@@ -64,6 +64,9 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public bool isTurnExecuting;
 
+    public bool turnDelay;
+    public float turnDelayAmount;
+
     public override void Awake()
     {
         base.Awake();
@@ -109,7 +112,10 @@ public class GameStateManager : Singleton<GameStateManager>
         if (TileTurns != null) TileTurns();
         SequenceHelper.SimultaneousSequence(PlayerTurn).Play();
         isTurnExecuting = true;
-        Invoke("AfterPlayerTurn", 0.3f);
+        if (turnDelay)
+            Invoke("AfterPlayerTurn", turnDelayAmount);
+        else
+            AfterPlayerTurn();
     }
     public void AfterPlayerTurn()
     {

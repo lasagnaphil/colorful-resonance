@@ -1,0 +1,41 @@
+{
+  "name": "Stage 1 - 4",
+  "comment": "블링크",
+  "width": 20,
+  "height": 5,
+  "tiles": [
+            ". . . . . . . . . . . . . w w w L L w .",
+            ". W W . . . . . L L L . w l w w w w w w",
+            "w w w W W w w . w w l l l L w w w w w w",
+            "w w . . . . . . L L L . w l w w w w w w",
+            ". . . . . . . . . . . . . w w w L L w ."
+           ],
+  "background": "gray",
+  "playerData": {
+    "position" : {"x": 0, "y": 1}
+  },
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 9, "y": 2}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 1}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 2}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 3}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 1, "y": 2}
+    }
+  ]
+}

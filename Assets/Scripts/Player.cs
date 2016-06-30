@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
                 else
                 {
                 	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Move1);
+                	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
                 else
                 {
                 	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Move1);
+                	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
                 else
                 {
                 	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Move1);
+                	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
                 else
                 {
                 	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Move1);
+                	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);

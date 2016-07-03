@@ -43,7 +43,7 @@ public struct SoundTuple
     }
 }
 
-public class SoundManager : Singleton<SoundManager>
+public class SoundManager : MonoBehaviour
 {
     public enum Sounds
     {

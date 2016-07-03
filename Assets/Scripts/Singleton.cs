@@ -15,11 +15,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             T[] instances = FindObjectsOfType<T>() as T[];
             if (instances.Length == 0)
             {
-                Debug.LogError("Cannot find singleton");
+                Debug.LogError("Cannot find singleton; in type " + typeof(T));
             }
             else if (instances.Length > 1)
             {
-                Debug.LogError("Singleton count is wrong: " + instances.Length);
+                Debug.LogError("Singleton count is wrong: " + instances.Length + "; in type " + typeof(T));
             }
             else
             {
@@ -28,7 +28,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Singleton is duplicated");
+            Debug.LogError("Singleton is duplicated; in type " + typeof(T));
         }
     }
 
@@ -36,7 +36,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (Instance == null)
         {
-            Debug.LogError("Singleton is not instantiated");
+            Debug.LogError("Singleton is not instantiated; in type " + typeof(T));
         }
         else
         {

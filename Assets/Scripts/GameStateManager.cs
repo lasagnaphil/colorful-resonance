@@ -144,18 +144,7 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 if (monsters.Count == 0)
                 {
-                    if (soundManager != null)
-                    {
-                        soundManager.StopAll();
-                        soundManager.Play(SoundManager.Sounds.Clear);
-                    }
-                    else
-                    {
-                        Debug.Log("SoundManager is null.");
-                    }
-                    resultUIManager.PopupWinUI();
-                    ChangeState<GameStateWin>();
-                    isTurnExecuting = false;
+                    GameWin();
                     return;
                 }
             }
@@ -163,18 +152,15 @@ public class GameStateManager : Singleton<GameStateManager>
             {
                 if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
                 {
-                    if (soundManager != null)
-                    {
-                        soundManager.StopAll();
-                        soundManager.Play(SoundManager.Sounds.Clear);
-                    }
-                    else
-                    {
-                        Debug.Log("SoundManager is null.");
-                    }
-                    resultUIManager.PopupWinUI();
-                    ChangeState<GameStateWin>();
-                    isTurnExecuting = false;
+                    GameWin();
+                    return;
+                }
+            }
+            else if (mapData.winCondition is EscapeWinCondition)
+            {
+                if (player.pos.GetVector2i() == (mapData.winCondition as EscapeWinCondition).escapePosition)
+                {
+                    GameWin();
                     return;
                 }
             }
@@ -182,6 +168,22 @@ public class GameStateManager : Singleton<GameStateManager>
         //});
 
         //sequence.Play();
+    }
+
+    public void GameWin()
+    {
+        if (soundManager != null)
+        {
+            soundManager.StopAll();
+            soundManager.Play(SoundManager.Sounds.Clear);
+        }
+        else
+        {
+            Debug.Log("SoundManager is null.");
+        }
+        resultUIManager.PopupWinUI();
+        ChangeState<GameStateWin>();
+        isTurnExecuting = false;
     }
 
     public void ResetTurn()

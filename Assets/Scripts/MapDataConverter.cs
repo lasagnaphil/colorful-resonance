@@ -32,6 +32,12 @@ public class MapDataConverter : fsDirectConverter<MapData>
             SerializeMember(serialized, null, "numOfTurnsToWin",
                 (mapData.winCondition as SurvivalWinCondition).numOfTurns);
         }
+        else if (mapData.winCondition is EscapeWinCondition)
+        {
+            serialized["winCondition"] = new fsData("Escape");
+            SerializeMember(serialized, null, "escapePosition",
+                (mapData.winCondition as EscapeWinCondition).escapePosition);
+        }
 
         SerializeMember(serialized, null, "width", mapData.width);
         SerializeMember(serialized, null, "height", mapData.height);
@@ -78,6 +84,11 @@ public class MapDataConverter : fsDirectConverter<MapData>
                     fsData turnsData;
                     if ((result += CheckField(data, "numOfTurnsToWin", fsDataType.Int64, out turnsData)).Failed) return result;
                     mapData.winCondition = new SurvivalWinCondition((int) turnsData.AsInt64);
+                    break;
+                case "Escape":
+                    Vector2i escapePos;
+                    if ((result += DeserializeMember(data, null, "escapePosition", out escapePos)).Failed) return result;
+                    mapData.winCondition = new EscapeWinCondition(escapePos);
                     break;
             }
         }

@@ -21,4 +21,14 @@ public struct Vector2i
     {
         return v1.x*v2.x + v1.y*v2.y;
     }
+
+    public static bool operator ==(Vector2i v1, Vector2i v2)
+    {
+        return (v1.x == v2.x) && (v1.y == v2.y);
+    }
+
+    public static bool operator !=(Vector2i v1, Vector2i v2)
+    {
+        return !(v1 == v2);
+    }
 }

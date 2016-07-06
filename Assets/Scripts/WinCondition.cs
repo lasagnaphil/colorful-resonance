@@ -14,3 +14,13 @@ public class SurvivalWinCondition : WinCondition
     }
     public int numOfTurns;
 }
+
+public class EscapeWinCondition : WinCondition
+{
+    public Vector2i escapePosition;
+
+    public EscapeWinCondition(Vector2i escapePosition)
+    {
+        this.escapePosition = escapePosition;
+    }
+}

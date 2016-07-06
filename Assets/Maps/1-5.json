@@ -5,15 +5,15 @@
   "height": 10,
   "tiles": [
             "w w . . . . w . . . . . . . . . . . . . . . . . . . . . .",
-            "w w w w w w . . . . . . . . . . . . . . . . . . . . . . .",
-            ". w . w w w . . . . . . . . . . . . . . . . . . . . . . .",
-            ". w . l w w . . . . . . . . . . . . . . . . . . . . . . .",
-            ". w w w . w . . . . . . . . . . . . . . . . . . . . . . .",
-            ". w w w . w . . . . . . . . . . l l w l w . W W w w w w w",
-            ". w w w w w w . . . L L L L L L l . l l l . w W w w w w w",
+            "w l l w w w . . . . . . . . . . . . . . . . . . . . . . .",
+            ". l . w w w . . . . . . . . . . . . . . . . . . . . . . .",
+            ". l . l w w . . . . . . . . . . . . . . . . . . . . . . .",
+            ". w w w . l . . . . . . . . . . . . . . . . . . . . . . .",
+            ". w w w . l . . . . . . . . . . l l w l w . L W w w w w w",
+            ". w w w l l w . . . L L L L L L l . l l l . w W w w w w w",
             "w . . . . w w w w w w . w w l w w l w l w . w W W w w w w",
-            ". . . . . . . . . . L L L L L L l l l . l . w W W W w w w",
-            ". . . . . . . . . . . . . . . . w l w l l w w w w w w w w"
+            ". . . . . . . . . . L L L L L L l l l . . . . W W W w w w",
+            ". . . . . . . . . . . . . . . . w l w . l . . w w w w w w"
            ],
   "background": "gray",
   "playerData": {
@@ -60,7 +60,7 @@
     },
     {
       "color" : "black",
-      "position" : {"x": 21, "y": 0}
+      "position" : {"x": 20, "y": 0}
     },
     {
       "color" : "white",

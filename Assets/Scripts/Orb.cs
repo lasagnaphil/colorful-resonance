@@ -50,7 +50,15 @@ public class Orb : MonoBehaviour
     void SetEffect(TileColor color)
     {
         int colorIndex = (int)color;
-        GameObject effectObject = Instantiate(orbEffectObjects[colorIndex], transform.position, Quaternion.identity) as GameObject;
-        effectObject.transform.parent = gameObject.transform;
+        if (colorIndex < orbEffectObjects.Length)
+        {
+            GameObject effectObject =
+                Instantiate(orbEffectObjects[colorIndex], transform.position, Quaternion.identity) as GameObject;
+            effectObject.transform.parent = gameObject.transform;
+        }
+        else
+        {
+            Debug.LogError("Cannot find orb effect object : index " + colorIndex);
+        }
     }
 }

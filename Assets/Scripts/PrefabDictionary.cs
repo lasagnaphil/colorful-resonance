@@ -44,4 +44,5 @@ public class PrefabDictionary : Singleton<PrefabDictionary>
     public ButtonPrefabDictionary buttonPrefabDictionary;
     public Tile tilePrefab;
     public Orb orbPrefab;
+    public EscapeTeleporter escapeTeleporterPrefab;
 }

@@ -136,6 +136,13 @@ public class MapLoader : MonoBehaviour
         // Load player data
         player.pos.Set(mapDataToLoad.playerData.position);
 
+        if (mapDataToLoad.winCondition is EscapeWinCondition)
+        {
+            // create a teleporter object..
+            var escapePosition = (mapDataToLoad.winCondition as EscapeWinCondition).escapePosition;
+            var teleporter = Instantiate(PrefabDictionary.Instance.escapeTeleporterPrefab);
+            teleporter.pos.Set(escapePosition);
+        }
         // Load the monsters
         foreach (var monsterData in mapDataToLoad.monsters)
         {

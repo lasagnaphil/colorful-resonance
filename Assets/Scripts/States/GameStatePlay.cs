@@ -18,6 +18,7 @@ namespace States
         public void Update(GameStateManager gsm)
         {
             gsm.player.CameraUpdate();
+			gsm.player.MobileManagerUpdate();
             if (!gsm.isTurnExecuting)
                 gsm.player.GameUpdate();
 

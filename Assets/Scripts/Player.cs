@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
 
     private Animator animator;
     private MobileInputManager mobileInputManager;
+	private MobileController MC;
 
     public SoundManager soundManager;
+	public GameObject MobileManager;
 
     public new Camera camera;
 
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
-        mobileInputManager = FindObjectOfType<MobileInputManager>();
+		MC = FindObjectOfType<MobileController>();
         soundManager = FindObjectOfType<SoundManager>();
     }
 
@@ -86,6 +88,12 @@ public class Player : MonoBehaviour
         var camPos = camera.transform.position;
         camera.transform.position = new Vector3(transform.position.x, transform.position.y, camPos.z);
     }
+
+	public void MobileManagerUpdate()
+	{
+		MobileManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+	}
+
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
@@ -151,33 +159,37 @@ public class Player : MonoBehaviour
         {
             ArrowInactive();
             if (!Input.GetKey(KeyCode.Space)){
-	            if (Input.GetKeyDown(KeyCode.LeftArrow) || GetDirectionSetBySwipe() == "Left")
+				if (PlayerPrefs.GetString("MoveDirection") == "Left")
 	            {
 	                TurnLeft();
 	                tempPos.x--;
 	                if (!(PositionCheck())) tempPos.x++;
 	                else soundManager.Play(SoundManager.Sounds.Move1);
+					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-	            else if (Input.GetKeyDown(KeyCode.RightArrow) || GetDirectionSetBySwipe() == "Right")
+				else if (PlayerPrefs.GetString("MoveDirection") == "Right")
 	            {
 	                TurnRight();
 	                tempPos.x++;
 	                if (!(PositionCheck())) tempPos.x--;
 	                else soundManager.Play(SoundManager.Sounds.Move1);
+					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-	            else if (Input.GetKeyDown(KeyCode.UpArrow) || GetDirectionSetBySwipe() == "Up")
+				else if (PlayerPrefs.GetString("MoveDirection") == "Up")
 	            {
 	                tempPos.y++;
 	                if (!(PositionCheck())) tempPos.y--;
 	                else soundManager.Play(SoundManager.Sounds.Move1);
+					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-	            else if (Input.GetKeyDown(KeyCode.DownArrow) || GetDirectionSetBySwipe() == "Down")
+				else if (PlayerPrefs.GetString("MoveDirection") == "Down")
 	            {
 	                tempPos.y--;
 	                if (!(PositionCheck())) tempPos.y++;
 	                else soundManager.Play(SoundManager.Sounds.Move1);
+					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-            }            
+            }
         }
         
         if (Input.GetKeyDown(KeyCode.Space) && (Blinkable == 0))

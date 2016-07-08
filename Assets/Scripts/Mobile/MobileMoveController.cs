@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MobileController : MonoBehaviour
+public class MobileMoveController : MonoBehaviour
 {
 	public Direction direction;
 

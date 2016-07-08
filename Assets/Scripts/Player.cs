@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private Animator animator;
     private MobileInputManager mobileInputManager;
-	private MobileController MC;
+	private MobileMoveController MC;
 
     public SoundManager soundManager;
 	public GameObject MobileManager;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
-		MC = FindObjectOfType<MobileController>();
+		MC = FindObjectOfType<MobileMoveController>();
         soundManager = FindObjectOfType<SoundManager>();
     }
 
@@ -97,9 +97,10 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-        if ((Input.GetKey(KeyCode.Space) || GetBlinkButtonState()) && (Blinkable == 0))
-        {   
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+		if ((PlayerPrefs.GetString ("BlinkState") == "on" || GetBlinkButtonState()) && (Blinkable == 0))
+        {
+			ArrowActive();
+			if (PlayerPrefs.GetString("MoveDirection") == "Left")
             {                
                 TurnLeft();
                 tempPos.x = tempPos.x - 3;
@@ -112,8 +113,10 @@ public class Player : MonoBehaviour
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
+				PlayerPrefs.SetString ("MoveDirection", null);
+				PlayerPrefs.SetString ("BlinkState", "off");
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+			else if (PlayerPrefs.GetString("MoveDirection") == "Right")
             {
                 TurnRight();
                 tempPos.x = tempPos.x + 3;
@@ -126,8 +129,10 @@ public class Player : MonoBehaviour
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
+				PlayerPrefs.SetString ("MoveDirection", null);
+				PlayerPrefs.SetString ("BlinkState", "off");
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+			else if (PlayerPrefs.GetString("MoveDirection") == "Up")
             {
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
@@ -139,8 +144,10 @@ public class Player : MonoBehaviour
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
+				PlayerPrefs.SetString ("MoveDirection", null);
+				PlayerPrefs.SetString ("BlinkState", "off");
             }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+			else if (PlayerPrefs.GetString("MoveDirection") == "Down")
             {
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
@@ -152,13 +159,14 @@ public class Player : MonoBehaviour
                 }
                 //else
                 //    soundManager.Play(SoundManager.Sounds.Blink);
+				PlayerPrefs.SetString ("MoveDirection", null);
+				PlayerPrefs.SetString ("BlinkState", "off");
             }
-            
         }
         else
         {
             ArrowInactive();
-            if (!Input.GetKey(KeyCode.Space)){
+			if (PlayerPrefs.GetString ("BlinkState") != "on"){
 				if (PlayerPrefs.GetString("MoveDirection") == "Left")
 	            {
 	                TurnLeft();
@@ -192,16 +200,16 @@ public class Player : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) && (Blinkable == 0))
+		if (PlayerPrefs.GetString ("BlinkState") == "on" && (Blinkable == 0))
         {
             ArrowActive();
         }
         
-        if ((Input.GetKeyUp(KeyCode.Space)) ||
-            (Input.GetKeyDown(KeyCode.LeftArrow)) ||
-            (Input.GetKeyDown(KeyCode.RightArrow)) ||
-            (Input.GetKeyDown(KeyCode.UpArrow)) ||
-            (Input.GetKeyDown(KeyCode.DownArrow)))
+		if ((PlayerPrefs.GetString ("BlinkState") == "on") ||
+			(PlayerPrefs.GetString("MoveDirection") == "Left") ||
+			(PlayerPrefs.GetString("MoveDirection") == "Right") ||
+			(PlayerPrefs.GetString("MoveDirection") == "Up") ||
+			(PlayerPrefs.GetString("MoveDirection") == "Down"))
         {
             ArrowInactive();
         }

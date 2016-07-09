@@ -99,7 +99,6 @@ public class Player : MonoBehaviour
         tempPos.x = pos.X; tempPos.y = pos.Y;
 		if ((PlayerPrefs.GetString ("BlinkState") == "on" || GetBlinkButtonState()) && (Blinkable == 0))
         {
-			ArrowActive();
 			if (PlayerPrefs.GetString("MoveDirection") == "Left")
             {                
                 TurnLeft();
@@ -205,7 +204,7 @@ public class Player : MonoBehaviour
             ArrowActive();
         }
         
-		if ((PlayerPrefs.GetString ("BlinkState") == "on") ||
+		if ((PlayerPrefs.GetString ("BlinkState") == "off") ||
 			(PlayerPrefs.GetString("MoveDirection") == "Left") ||
 			(PlayerPrefs.GetString("MoveDirection") == "Right") ||
 			(PlayerPrefs.GetString("MoveDirection") == "Up") ||

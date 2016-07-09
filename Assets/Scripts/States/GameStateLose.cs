@@ -11,11 +11,12 @@ namespace States
 
         public void Update(GameStateManager gsm)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+			if (PlayerPrefs.GetString ("Restart") == "yes")
             {
                 gsm.player.GetComponent<Animator>().SetTrigger("Restart");
                 gsm.player.GetComponent<Animator>().SetBool("IsDead", false);
                 gsm.ChangeState<GameStateLoad>();
+				PlayerPrefs.SetString ("Restart", "no");
             }
         }
 

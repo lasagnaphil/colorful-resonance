@@ -11,14 +11,16 @@ namespace States
 
         public void Update(GameStateManager gsm)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+			if (PlayerPrefs.GetString("GoToNextStage") == "yes")
             {
                 gsm.mapLoader.SetLevelToNext();
                 gsm.ChangeState<GameStateLoad>();
+				PlayerPrefs.SetString ("GoToNextStage", "no");
             }
-            if (Input.GetKeyDown(KeyCode.R))
+			if (PlayerPrefs.GetString ("Restart") == "yes")
             {
                 gsm.ChangeState<GameStateLoad>();
+				PlayerPrefs.SetString ("Restart", "no");
             }
         }
 

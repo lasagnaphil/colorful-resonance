@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using DG.Tweening;
+using GameEditor;
 using JetBrains.Annotations;
 using SelectLevel;
 using States;
@@ -49,16 +50,14 @@ public class GameStateManager : Singleton<GameStateManager>
     // then we would have to add the object into every scene that we have made manually
     // public GameObject buttonHolderObject;
 
-    // Plays sound as game state changes
     public SoundManager soundManager;
-
     private TileManager tileManager;
     private ResultUIManager resultUIManager;
-    [NonSerialized] public EditorUIManager editorUIManager;
     public new Camera camera;
     public Text turnNumberText;
     public Image[] playerHealthImages;
     
+    // game object actions
     public event Action TileTurns;
     public event Func<Sequence> PlayerTurn;
     public event Func<Sequence> MonsterTurns;
@@ -66,10 +65,14 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
 
+    // information related to turns
     public bool isTurnExecuting;
 
     public bool turnDelay;
     public float turnDelayAmount;
+
+    // Editor related stuff
+    [NonSerialized] public EditorUIManager editorUIManager;
 
     public override void Awake()
     {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using GameEditor;
 using UnityEngine.Events;
 using Utils;
 using UButton = UnityEngine.UI.Button;
@@ -25,14 +26,26 @@ public class EditorUIManager : MonoBehaviour
     public GameObject scrollViewContent;
     public List<UButton> scrollViewButtons;
 
-    public Vector2i selectedTilePos;
-
+    public Vector2i cursorPos;
+    public HoverTileCursor hoverTileCursor;
+    public SelectedTileCursor selectedTileCursor;
 
     void Awake()
     {
+        hoverTileCursor.gameObject.SetActive(true);
+        selectedTileCursor.gameObject.SetActive(true);
+
         monsterButton.onClick.AddListener(() => UpdateScrollViewContent(EditorObjectType.Monster));
         orbButton.onClick.AddListener(() => UpdateScrollViewContent(EditorObjectType.Orb));
         switchButton.onClick.AddListener(() => UpdateScrollViewContent(EditorObjectType.Switch));
+    }
+
+    void OnDisable()
+    {
+        if (hoverTileCursor != null)
+            hoverTileCursor.gameObject.SetActive(false);
+        if (selectedTileCursor != null)
+            selectedTileCursor.gameObject.SetActive(false);
     }
 
     private void UpdateScrollViewContent(EditorObjectType objectType)
@@ -49,7 +62,7 @@ public class EditorUIManager : MonoBehaviour
             dict.ForEach((name, monster) =>
             {
                 UButton button = CreateContentViewButton(() =>
-                    GameStateManager.Instance.SpawnMonster(monster, selectedTilePos.x, selectedTilePos.y));
+                    GameStateManager.Instance.SpawnMonster(monster, cursorPos.x, cursorPos.y));
             });
         }
         else if (objectType == EditorObjectType.Orb)
@@ -60,7 +73,7 @@ public class EditorUIManager : MonoBehaviour
             foreach (var color in colors)
             {
                 UButton button = CreateContentViewButton(() =>
-                    GameStateManager.Instance.SpawnOrb(orbPrefab, color, selectedTilePos.x, selectedTilePos.y));
+                    GameStateManager.Instance.SpawnOrb(orbPrefab, color, cursorPos.x, cursorPos.y));
             }
         }
         else if (objectType == EditorObjectType.Switch)
@@ -70,7 +83,7 @@ public class EditorUIManager : MonoBehaviour
             {
                 UButton button =
                     CreateContentViewButton(
-                        () => GameStateManager.Instance.SpawnSwitch(switchPrefab, selectedTilePos.x, selectedTilePos.y));
+                        () => GameStateManager.Instance.SpawnSwitch(switchPrefab, cursorPos.x, cursorPos.y));
             });
         }
     }

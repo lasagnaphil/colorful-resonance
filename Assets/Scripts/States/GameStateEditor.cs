@@ -11,7 +11,7 @@ namespace States
         private float cameraMoveSpeed = 0.1f;
 
         public EditorUIManager editorUIManager;
-        private List<GameObject> gameObjectsToDisable = new List<GameObject>();
+        private List<GameObject> gmsToDisable = new List<GameObject>();
 
         public void Enter(GameStateManager gsm)
         {
@@ -21,9 +21,9 @@ namespace States
             editorUIManager = gsm.editorUIManager;
             editorUIManager.gameObject.SetActive(true);
 
-            gameObjectsToDisable.Add(GameObject.Find("TurnNumberBackground"));
-            gameObjectsToDisable.Add(GameObject.Find("PlayerHealthImages"));
-            foreach (var gm in gameObjectsToDisable)
+            gmsToDisable.Add(GameObject.Find("TurnNumberBackground"));
+            gmsToDisable.Add(GameObject.Find("PlayerHealthImages"));
+            foreach (var gm in gmsToDisable)
             {
                 gm.SetActive(false);
             }
@@ -81,7 +81,7 @@ namespace States
 
         public void Exit(GameStateManager gsm)
         {
-            foreach (var gm in gameObjectsToDisable)
+            foreach (var gm in gmsToDisable)
             {
                 gm.SetActive(true);
             }

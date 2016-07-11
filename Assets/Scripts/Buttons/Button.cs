@@ -3,68 +3,71 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(Position))]
-public class Button : MonoBehaviour {
-
-	public Sprite onButton;
-	public Sprite offButton;
-
-    [NonSerialized]
-    public Position pos;
-	protected SpriteRenderer renderer;
-
-    [SerializeField]
-    private bool isActive;
-    public bool IsActive
+namespace Buttons
+{
+    [RequireComponent(typeof (Position))]
+    public class Button : MonoBehaviour
     {
-        get { return isActive; }
-        set
+
+        public Sprite onButton;
+        public Sprite offButton;
+
+        [NonSerialized] public Position pos;
+        protected SpriteRenderer renderer;
+
+        [SerializeField] private bool isActive;
+
+        public bool IsActive
         {
-            isActive = value;
-            if (renderer != null)
-                renderer.sprite = isActive ? onButton : offButton;
-            if (isActive) Debug.Log("Button activated!");
+            get { return isActive; }
+            set
+            {
+                isActive = value;
+                if (renderer != null)
+                    renderer.sprite = isActive ? onButton : offButton;
+                if (isActive) Debug.Log("Button activated!");
+            }
         }
-    }
 
-    protected virtual void Awake()
-    {
-        pos = GetComponent<Position>();
-		renderer = GetComponent<SpriteRenderer>();
-    }
+        protected virtual void Awake()
+        {
+            pos = GetComponent<Position>();
+            renderer = GetComponent<SpriteRenderer>();
+        }
 
-	protected bool IsPushed()
-	{
-		bool isPushed = false;
-		
-		Player player = GameStateManager.Instance.player;
-		if ((player.pos.X == pos.X) && (player.pos.Y == pos.Y))
-		{
-			isPushed = true;
-		}
+        protected bool IsPushed()
+        {
+            bool isPushed = false;
 
-	    if (GameStateManager.Instance.CheckMonsterPosition(pos.X, pos.Y) != null) isPushed = true;
+            Player player = GameStateManager.Instance.player;
+            if ((player.pos.X == pos.X) && (player.pos.Y == pos.Y))
+            {
+                isPushed = true;
+            }
 
-		return isPushed;
-	}
+            if (GameStateManager.Instance.CheckMonsterPosition(pos.X, pos.Y) != null) isPushed = true;
 
-	// Use this for initialization
-	void Start ()
-	{
-	    IsActive = false;
-        GameStateManager.Instance.buttons.Add(this);
-	    GameStateManager.Instance.ButtonTurns += OnTurn;
-	}
-	
-	// Update is called once per frame
-	protected virtual void OnTurn ()
-	{
-	    IsActive = IsPushed();
-	}
+            return isPushed;
+        }
 
-    void OnDestroy()
-    {
-        if (GameStateManager.Instance != null)
-            GameStateManager.Instance.ButtonTurns -= OnTurn;
+        // Use this for initialization
+        void Start()
+        {
+            IsActive = false;
+            GameStateManager.Instance.buttons.Add(this);
+            GameStateManager.Instance.ButtonTurns += OnTurn;
+        }
+
+        // Update is called once per frame
+        protected virtual void OnTurn()
+        {
+            IsActive = IsPushed();
+        }
+
+        void OnDestroy()
+        {
+            if (GameStateManager.Instance != null)
+                GameStateManager.Instance.ButtonTurns -= OnTurn;
+        }
     }
 }

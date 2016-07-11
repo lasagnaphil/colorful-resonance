@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using DG.Tweening;
@@ -10,6 +11,7 @@ using SelectLevel;
 using States;
 using UnityEngine.UI;
 using Utils;
+using Debug = UnityEngine.Debug;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
@@ -23,7 +25,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public List<Monster> monsters = new List<Monster>();
     private List<Projectile> projectiles = new List<Projectile>();
     private List<Orb> orbs = new List<Orb>();
-    public List<Button> buttons = new List<Button>();
+    public List<Buttons.Button> buttons = new List<Buttons.Button>();
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
 
     // Reference to MapLoader (which loads the map)
@@ -211,6 +213,20 @@ public class GameStateManager : Singleton<GameStateManager>
         return CheckMonsterPosition(pos.x, pos.y); 
     }
 
+    public void SpawnMonster(Monster monsterPrefab, int x, int y)
+    {
+        if (monsterPrefab != null)
+        {
+            Monster monster = Instantiate(monsterPrefab);
+            monster.transform.parent = monsterHolderObject.transform;
+            monster.pos.Set(x, y);
+        }
+        else
+        {
+            Debug.Log("Null reference : Monster prefab not found.");
+        }
+    }
+
     public void SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
     {
         if (projectilePrefab != null)
@@ -218,13 +234,43 @@ public class GameStateManager : Singleton<GameStateManager>
             Projectile projectile = Instantiate(projectilePrefab);
             projectile.transform.parent = projectileHolderObject.transform;
             projectile.MovingDirection = direction;
-            projectile.GetComponent<Position>().Set(x, y);
+            projectile.pos.Set(x, y);
         }
         else
         {
             Debug.Log("Null reference : Projectile prefab not found.");
         }
     }
+
+    public void SpawnOrb(Orb orbPrefab, TileColor color, int x, int y)
+    {
+        if (orbPrefab != null)
+        {
+            Orb orb = Instantiate(orbPrefab);
+            orb.transform.parent = orbHolderObject.transform;
+            orb.pos.Set(x, y);
+            orb.Color = color;
+        }
+        else
+        {
+            Debug.Log("Null reference : Orb prefab not found.");
+        }
+    }
+
+    public void SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)
+    {
+        if (buttonPrefab != null)
+        {
+            Buttons.Button button = Instantiate(buttonPrefab);
+            button.transform.parent = buttonPrefab.transform;
+            button.pos.Set(x, y);
+        }
+        else
+        {
+            Debug.Log("Null refrence : Button prefab not found");
+        }
+    }
+
     public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
     public void RemoveProjectile(Projectile projectile) { projectiles.Remove(projectile); }
     public void ResetProjectile() { projectiles.Clear(); }

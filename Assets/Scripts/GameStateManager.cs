@@ -52,6 +52,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private TileManager tileManager;
     private ResultUIManager resultUIManager;
+    public new Camera camera;
     public Text turnNumberText;
     public Image[] playerHealthImages;
     
@@ -70,6 +71,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public override void Awake()
     {
         base.Awake();
+        camera = FindObjectOfType<Camera>();
         tileManager = GetComponent<TileManager>();
         resultUIManager = GetComponent<ResultUIManager>();
         mapLoader = GetComponent<MapLoader>();

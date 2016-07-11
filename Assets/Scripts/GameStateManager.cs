@@ -54,6 +54,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private TileManager tileManager;
     private ResultUIManager resultUIManager;
+    [NonSerialized] public EditorUIManager editorUIManager;
     public new Camera camera;
     public Text turnNumberText;
     public Image[] playerHealthImages;
@@ -76,8 +77,11 @@ public class GameStateManager : Singleton<GameStateManager>
         camera = FindObjectOfType<Camera>();
         tileManager = GetComponent<TileManager>();
         resultUIManager = GetComponent<ResultUIManager>();
+        editorUIManager = FindObjectOfType<EditorUIManager>();
         mapLoader = GetComponent<MapLoader>();
         soundManager = GetComponent<SoundManager>();
+
+        editorUIManager.gameObject.SetActive(false);
     }
 
     protected void Start()

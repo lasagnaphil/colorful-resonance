@@ -19,12 +19,14 @@ public class EditorUIManager : MonoBehaviour
     public UButton orbButton;
     public UButton switchButton;
 
-    public UButton createButtonPrefab;
+    public UButton objectSelectButtonPrefab;
+    public float selectButtonWidth;
 
     public GameObject scrollViewContent;
     public List<UButton> scrollViewButtons;
 
     public Vector2i selectedTilePos;
+
 
     void Awake()
     {
@@ -37,7 +39,7 @@ public class EditorUIManager : MonoBehaviour
     {
         foreach (var button in scrollViewButtons)
         {
-            Destroy(button);
+            Destroy(button.gameObject);
         }
         scrollViewButtons.Clear();
 
@@ -50,17 +52,18 @@ public class EditorUIManager : MonoBehaviour
                     GameStateManager.Instance.SpawnMonster(monster, selectedTilePos.x, selectedTilePos.y));
             });
         }
-        if (objectType == EditorObjectType.Orb)
+        else if (objectType == EditorObjectType.Orb)
         {
             Orb orbPrefab = PrefabDictionary.Instance.orbPrefab;
+            List<TileColor> colors = new List<TileColor>() {TileColor.Black, TileColor.White, TileColor.Red, TileColor.Blue, TileColor.Yellow};
 
-            foreach (TileColor color in EnumHelper.GetValues<TileColor>())
+            foreach (var color in colors)
             {
                 UButton button = CreateContentViewButton(() =>
                     GameStateManager.Instance.SpawnOrb(orbPrefab, color, selectedTilePos.x, selectedTilePos.y));
             }
         }
-        if (objectType == EditorObjectType.Switch)
+        else if (objectType == EditorObjectType.Switch)
         {
             var dict = PrefabDictionary.Instance.buttonPrefabDictionary.ToDictionary();
             dict.ForEach((name, switchPrefab) =>
@@ -74,9 +77,12 @@ public class EditorUIManager : MonoBehaviour
 
     private UButton CreateContentViewButton(UnityAction action)
     {
-        UButton button = Instantiate(createButtonPrefab);
+        int x = scrollViewButtons.Count % 3;
+        int y = scrollViewButtons.Count/3;
+        UButton button = Instantiate(objectSelectButtonPrefab);
         button.onClick.AddListener(action);
-        button.transform.parent = scrollViewContent.transform;
+        button.transform.SetParent(scrollViewContent.transform);
+        button.transform.localPosition = new Vector2(x + 0.6f, -y - 0.6f) * selectButtonWidth;
         scrollViewButtons.Add(button);
         return button;
     }

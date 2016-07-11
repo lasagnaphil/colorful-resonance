@@ -10,12 +10,17 @@ namespace States
         private float dragScale = 0.01f;
         private float cameraMoveSpeed = 0.1f;
 
+        public EditorUIManager editorUIManager;
         private List<GameObject> gameObjectsToDisable = new List<GameObject>();
 
         public void Enter(GameStateManager gsm)
         {
             Debug.Log("Entering Editor...");
             Debug.Log("Editor functionality not implemented yet!!!");
+
+            editorUIManager = gsm.editorUIManager;
+            editorUIManager.gameObject.SetActive(true);
+
             gameObjectsToDisable.Add(GameObject.Find("TurnNumberBackground"));
             gameObjectsToDisable.Add(GameObject.Find("PlayerHealthImages"));
             foreach (var gm in gameObjectsToDisable)
@@ -80,6 +85,7 @@ namespace States
             {
                 gm.SetActive(true);
             }
+            editorUIManager.gameObject.SetActive(false);
         }
     }
 }

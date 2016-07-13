@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 	private MobileMoveController MC;
 
     public SoundManager soundManager;
-	public GameObject MobileManager;
+	public GameObject MobileTouchManager;
 
     public new Camera camera;
 
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
 
 	public void MobileManagerUpdate()
 	{
-		MobileManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+		MobileTouchManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
 	}
 
     public void GameUpdate()

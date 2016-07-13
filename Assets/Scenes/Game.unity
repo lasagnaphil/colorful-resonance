@@ -95,7 +95,7 @@ GameObject:
   - 4: {fileID: 181651736}
   - 114: {fileID: 181651737}
   m_Layer: 0
-  m_Name: MobileManager
+  m_Name: MobileTouchManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

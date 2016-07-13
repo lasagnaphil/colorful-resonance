@@ -6,11 +6,14 @@ public class MobileInputManager : MonoBehaviour {
 	// public enum Direction 
 	// {None, Left, Right, Up, Down}
 	public bool isBlinkButtonClicked;
-	bool inputState;
-	Vector2 startTouchPosition;
-	Vector2 currentTouchPosition;
-	float thresold = 1.5f;
 	public string destDirection;
+
+	private bool inputState;
+	private Vector2 startTouchPosition;
+	private Vector2 currentTouchPosition;
+	private float thresold = 1.5f;
+	private float deltaTime;
+
 
 	public void ChangeBlinkButtonState(bool state)
     {
@@ -24,6 +27,7 @@ public class MobileInputManager : MonoBehaviour {
 		startTouchPosition = Vector2.zero;
 		currentTouchPosition = Vector2.zero;
 		destDirection = "";
+		deltaTime = 0;
 	}
 	
 	void DetectSwipe()
@@ -51,9 +55,16 @@ public class MobileInputManager : MonoBehaviour {
 				destDirection = "Down";
 				inputState = false;
 			}
-			
+
+			else if (Mathf.Abs(delta.x) < thresold && Mathf.Abs(delta.y) < thresold)
+			{
+				deltaTime = deltaTime + Time.deltaTime;
+			}
+
 			if (destDirection != "")
-				Debug.Log(destDirection);
+				PlayerPrefs.SetString ("MoveDirection", destDirection);
+			if (deltaTime > 1f)
+				PlayerPrefs.SetString ("BlinkState", "on");
 		}
 	}
 	
@@ -64,6 +75,7 @@ public class MobileInputManager : MonoBehaviour {
 		if (Input.GetMouseButtonUp(0))
 		{
 			inputState = false;
+			deltaTime = 0;
 		}
 
 		if (Input.GetMouseButtonDown(0))

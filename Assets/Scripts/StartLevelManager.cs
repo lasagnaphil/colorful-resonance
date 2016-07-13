@@ -19,5 +19,10 @@ namespace DefaultNamespace
         {
             SceneManager.LoadScene("Note");
         }
+
+		public void GoToSetUpLevel()
+		{
+			SceneManager.LoadScene ("SetUp");
+		}
     }
 }

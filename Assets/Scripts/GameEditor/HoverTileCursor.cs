@@ -13,11 +13,11 @@ namespace GameEditor
         }
         void Update()
         {
-            int mousePosX = (int) Mathf.Round(Input.mousePosition.x + camera.transform.position.x);
-            int mousePosY = (int) Mathf.Round(Input.mousePosition.y + camera.transform.position.y);
-            pos = new Vector2i(mousePosX, mousePosY);
-
-            transform.position = new Vector3(pos.x, pos.y, 1f);
+            Vector2 cursorPos = camera.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector3(
+                Mathf.Round(cursorPos.x), 
+                Mathf.Round(cursorPos.y),
+                1f);
         }
     }
 }

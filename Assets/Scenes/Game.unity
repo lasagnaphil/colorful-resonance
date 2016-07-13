@@ -94,13 +94,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 175740137}
   - 212: {fileID: 175740138}
+  - 114: {fileID: 175740139}
   m_Layer: 0
   m_Name: SelectedTileCursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &175740137
 Transform:
   m_ObjectHideFlags: 0
@@ -141,9 +142,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cfa377fa31d3742958a47cad626fa7f5, type: 3}
-  m_Color: {r: 0.83823526, g: 0.11710641, b: 0.11710641, a: 0.428}
+  m_Color: {r: 0.83823526, g: 0.11710641, b: 0.11710641, a: 0.528}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &175740139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 175740136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0521fedc26c79b946987e1a053fa8c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos:
+    x: 0
+    y: 0
+  camera: {fileID: 0}
 --- !u!1001 &197900791
 Prefab:
   m_ObjectHideFlags: 0
@@ -459,7 +475,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1907181865}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1819,8 +1835,8 @@ MonoBehaviour:
   cursorPos:
     x: 0
     y: 0
-  hoverTileCursor: {fileID: 0}
-  selectedTileCursor: {fileID: 0}
+  hoverTileCursor: {fileID: 2112331556}
+  selectedTileCursor: {fileID: 175740139}
 --- !u!1 &2112331553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,13 +1846,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 2112331554}
   - 212: {fileID: 2112331555}
+  - 114: {fileID: 2112331556}
   m_Layer: 0
   m_Name: HoverTileCursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2112331554
 Transform:
   m_ObjectHideFlags: 0
@@ -1880,3 +1897,18 @@ SpriteRenderer:
   m_Color: {r: 0.83823526, g: 0.11710641, b: 0.11710641, a: 0.147}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &2112331556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112331553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df36277f378eb5478938c07f3a311e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos:
+    x: 0
+    y: 0
+  camera: {fileID: 0}

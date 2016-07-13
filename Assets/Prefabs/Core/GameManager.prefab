@@ -1371,31 +1371,31 @@ MonoBehaviour:
     volume: 0.5
   - soundEnum: 4
     audioClip: {fileID: 8300000, guid: 15d4abe3a217ba142ae92da384f193b7, type: 3}
-    volume: 1
+    volume: 0.5
   - soundEnum: 5
     audioClip: {fileID: 8300000, guid: 903c7df89378cde40bbd38cbb4c6793f, type: 3}
     volume: 0.5
   - soundEnum: 6
     audioClip: {fileID: 8300000, guid: 868ab9c394984664eb402e86efa704f4, type: 3}
-    volume: 0.3
+    volume: 0.5
   - soundEnum: 7
     audioClip: {fileID: 8300000, guid: 01bf62bfa31922e4cb347dc9b6b90b4e, type: 3}
-    volume: 0.8
+    volume: 0.5
   - soundEnum: 8
     audioClip: {fileID: 8300000, guid: 8062fff4b93ce1a48a36ed1c4ebaecbf, type: 3}
-    volume: 0.8
+    volume: 0.5
   - soundEnum: 9
     audioClip: {fileID: 8300000, guid: 6409bf7a42fc4f540965950af099f7e8, type: 3}
-    volume: 0.8
+    volume: 0.5
   - soundEnum: 10
     audioClip: {fileID: 8300000, guid: ce5583e67c3409f45a013444cc041398, type: 3}
-    volume: 0.85
+    volume: 0.5
   - soundEnum: 11
     audioClip: {fileID: 8300000, guid: 727cfac77fd07c543899361cfc7d772b, type: 3}
     volume: 0.5
   - soundEnum: 12
     audioClip: {fileID: 8300000, guid: aad2073764d38f34da48e891a1b2532e, type: 3}
-    volume: 0.3
+    volume: 0.5
   - soundEnum: 13
     audioClip: {fileID: 8300000, guid: 54f2103a31598ce48b75f016e0b92ad5, type: 3}
     volume: 0.2

@@ -12,15 +12,13 @@ namespace GameEditor
         {
             camera = FindObjectOfType<Camera>();
         }
-        void Update()
+        public void EditorUpdate()
         {
             if (Input.GetMouseButtonDown(0))
             {
                 Vector2 cursorPos = camera.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = new Vector3(
-                    Mathf.Round(cursorPos.x), 
-                    Mathf.Round(cursorPos.y),
-                    1f);
+                pos = new Vector2i((int)Mathf.Round(cursorPos.x), (int)Mathf.Round(cursorPos.y));
+                transform.position = pos.ToVector3(1.0f);
             }
         }
     }

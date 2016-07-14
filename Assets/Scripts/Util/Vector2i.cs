@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using UnityEngine;
+
+[System.Serializable]
 public struct Vector2i
 {
     public int x, y;
@@ -30,5 +32,15 @@ public struct Vector2i
     public static bool operator !=(Vector2i v1, Vector2i v2)
     {
         return !(v1 == v2);
+    }
+
+    public Vector2 ToVector2()
+    {
+        return new Vector2((float)x, (float)y);
+    }
+
+    public Vector3 ToVector3(float z)
+    {
+        return new Vector3((float)x, (float)y, z);
     }
 }

@@ -33,8 +33,18 @@ public class CreateWallMonster : Monster
 
         foreach (var wallPos in wallCreatePositions)
         {
-            TileManager.Instance.SetTileType(wallPos.x, wallPos.y, TileType.Wall);
-            TileManager.Instance.SetTileColor(wallPos.x, wallPos.y, monstersColor);
+            if (TileManager.Instance.GetTileType(wallPos.x, wallPos.y) != TileType.None)
+            {
+                TileManager.Instance.SetTileType(wallPos.x, wallPos.y, TileType.Wall);
+                TileManager.Instance.SetTileColor(wallPos.x, wallPos.y, monstersColor);
+
+                Monster monsterOnWall = GameStateManager.Instance.CheckMonsterPosition(wallPos.x, wallPos.y);
+                if (monsterOnWall != null)
+                {
+                    monsterOnWall.Health -= 1;
+                    monsterOnWall.CheckHealth();
+                }
+            }
         }
     }
 

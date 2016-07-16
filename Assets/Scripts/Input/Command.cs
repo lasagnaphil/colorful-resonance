@@ -103,5 +103,6 @@ namespace InputManagement
                     }
                     break;
             }
+        }
     }
 }

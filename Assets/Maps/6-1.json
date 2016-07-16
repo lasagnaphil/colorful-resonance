@@ -1,0 +1,75 @@
+{
+  "name": "Stage 6 - 1",
+  "width": 9,
+  "height": 9,
+  "tiles": [
+  			". . . Y Y Y . . .",
+  			"w . . w w w . . w",
+  			". . . w w w . . .",
+  			"B w w w w w w w B",
+  			"B w w w w w w w B",
+  			"B w w w w w w w B",
+  			". . . w w w . . .",
+  			"w . . w w w . . w",
+  			". . . R R R . . ."
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 1}
+  },
+  "monsters": [
+   	{
+      "name" : "WaterBalloon",
+      "position" : {"x": 1, "y": 4}
+    },
+    {
+      "name" : "WaterBalloon",
+      "position" : {"x": 7, "y": 4}
+    },
+    {
+      "name" : "PaintWall_ToRed",
+      "position" : {"x": 4, "y": 1}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 4, "y": 7}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 3, "y": 4}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 5, "y": 4}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 4, "y": 3}
+    },
+    {
+      "name" : "Invincible",
+      "position" : {"x": 4, "y": 5}
+    },
+    {
+      "name" : "CreateWall",
+      "position" : {"x": 4, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "blue",
+      "position" : {"x": 2, "y": 4}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 6, "y": 4}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 4, "y": 2}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 4, "y": 6}
+    }
+  ]
+}

@@ -9,6 +9,8 @@ namespace InputManagement
 
         public Player player;
 
+        private InputHandler[] inputHandlers;
+
         public void Execute(Command command)
         {
             command.Execute(player);
@@ -17,6 +19,8 @@ namespace InputManagement
         void Awake()
         {
             Data = new InputData() { CanBlink = true, MoveDirection = Direction.None };
+
+            inputHandlers = GetComponents<InputHandler>();
         }
     }
 }

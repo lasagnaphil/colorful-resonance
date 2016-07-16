@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     private TileManager tileManager;
 
     private Animator animator;
-    private MobileInputManager mobileInputManager;
 	private MobileMoveController MC;
 
     public SoundManager soundManager;
@@ -206,22 +205,6 @@ public class Player : MonoBehaviour
         if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
             return false;
         else return true;
-    }
-
-    bool GetBlinkButtonState()
-    {
-        if (mobileInputManager == null)
-            return false;
-        
-        return mobileInputManager.isBlinkButtonClicked;
-    }
-
-    string GetDirectionSetBySwipe()
-    {
-        if (mobileInputManager == null)
-            return "";
-        
-        return mobileInputManager.destDirection;
     }
     
     public void UpdateAuraColor()

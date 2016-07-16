@@ -2,14 +2,8 @@
 
 namespace InputManagement
 {
-    public class DesktopInputManager : MonoBehaviour
+    public class DesktopInputHandler : InputHandler
     {
-        private InputManager inputManager;
-
-        void Awake()
-        {
-            inputManager = GetComponent<InputManager>();
-        }
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))

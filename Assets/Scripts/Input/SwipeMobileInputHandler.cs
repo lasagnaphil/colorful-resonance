@@ -4,10 +4,8 @@ using InputManagement;
 
 namespace InputManagement
 {
-    public class MobileInputManager : MonoBehaviour
+    public class SwipeMobileInputHandler : InputHandler
     {
-        private InputManager inputManager;
-
         private bool pressed = false;
         private Vector2 mousePos = Vector2.zero;
         private Vector2 touchDelta = Vector2.zero;
@@ -20,11 +18,6 @@ namespace InputManagement
         private float blinkTimeCounter = 0.0f;
 
         private bool canBlink = false;
-
-        void Awake()
-        {
-            inputManager = GetComponent<InputManager>();
-        }
 
         void Update()
         {

@@ -64,12 +64,16 @@
       "position" : {"x": 6, "y": 4}
     },
     {
-      "color" : "red",
+      "color" : "yellow",
       "position" : {"x": 4, "y": 2}
     },
     {
       "color" : "yellow",
       "position" : {"x": 4, "y": 6}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 8, "y": 7}
     }
   ]
 }

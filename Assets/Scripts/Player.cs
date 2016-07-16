@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         }
     }
     
-    void ArrowInactive()
+    public void ArrowInactive()
     {
         foreach (var arrowObject in arrowObjects)
         {
@@ -97,107 +97,7 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-		if ((PlayerPrefs.GetString ("BlinkState") == "on" || GetBlinkButtonState()) && (Blinkable == 0))
-        {
-			if (PlayerPrefs.GetString("MoveDirection") == "Left")
-            {                
-                TurnLeft();
-                tempPos.x = tempPos.x - 3;
-                if (!(PositionCheck()))
-                    tempPos.x = tempPos.x + 3;
-                else
-                {
-                	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Right")
-            {
-                TurnRight();
-                tempPos.x = tempPos.x + 3;
-                if (!(PositionCheck()))
-                    tempPos.x = tempPos.x - 3;
-                else
-                {
-                	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Up")
-            {
-                tempPos.y = tempPos.y + 3;
-                if (!(PositionCheck()))
-                    tempPos.y = tempPos.y - 3;
-                else
-                {
-                	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Down")
-            {
-                tempPos.y = tempPos.y - 3;
-                if (!(PositionCheck()))
-                    tempPos.y = tempPos.y + 3;
-                else
-                {
-                	Blinkable = Difficulty;
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-        }
-        else
-        {
-            ArrowInactive();
-			if (PlayerPrefs.GetString ("BlinkState") != "on"){
-				if (PlayerPrefs.GetString("MoveDirection") == "Left")
-	            {
-	                TurnLeft();
-	                tempPos.x--;
-	                if (!(PositionCheck())) tempPos.x++;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Right")
-	            {
-	                TurnRight();
-	                tempPos.x++;
-	                if (!(PositionCheck())) tempPos.x--;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Up")
-	            {
-	                tempPos.y++;
-	                if (!(PositionCheck())) tempPos.y--;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Down")
-	            {
-	                tempPos.y--;
-	                if (!(PositionCheck())) tempPos.y++;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-            }
-        }
+
         
 		if (PlayerPrefs.GetString ("BlinkState") == "on" && (Blinkable == 0))
         {
@@ -301,7 +201,7 @@ public class Player : MonoBehaviour
         pos.Y = prevPos.y;
     }
 
-    private bool PositionCheck()
+    public bool PositionCheck()
     {
         if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
             return false;
@@ -340,12 +240,12 @@ public class Player : MonoBehaviour
             auraParticle.startColor = new Color(253f/255f, 249f/255f, 87f/255f, 1);
     }
     
-    void TurnLeft()
+    public void TurnLeft()
     {
         transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
     }
     
-    void TurnRight()
+    public void TurnRight()
     {
         transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
     }

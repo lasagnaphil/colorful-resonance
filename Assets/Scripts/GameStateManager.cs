@@ -62,6 +62,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
 
+    public Action MonsterDied;
+
     public bool isTurnExecuting;
 
     public bool turnDelay;

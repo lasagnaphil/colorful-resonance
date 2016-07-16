@@ -35,7 +35,7 @@ public class Monster : MonoBehaviour
         pos = GetComponent<Position>();
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         Health = MaxHealth;
         GameStateManager.Instance.AddMonster(this);
@@ -95,7 +95,10 @@ public class Monster : MonoBehaviour
             GameStateManager.Instance.MonsterTurns -= OnTurnInternal;
             GameStateManager.Instance.MonsterResets -= OnReset;
             if (CheckBeforeDestroy)
+            {
                 WhenDestroyed();
+                GameStateManager.Instance.MonsterDied();
+            }
         }
     }
 

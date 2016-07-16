@@ -8,8 +8,6 @@ using Random = System.Random;
 
 public class CreateWallMonster : Monster
 {
-    public TileColor wallColor;
-
     private Random random = new Random();
 
     protected override void Start()
@@ -36,7 +34,7 @@ public class CreateWallMonster : Monster
         foreach (var wallPos in wallCreatePositions)
         {
             TileManager.Instance.SetTileType(wallPos.x, wallPos.y, TileType.Wall);
-            TileManager.Instance.SetTileColor(wallPos.x, wallPos.y, wallColor);
+            TileManager.Instance.SetTileColor(wallPos.x, wallPos.y, monstersColor);
         }
     }
 

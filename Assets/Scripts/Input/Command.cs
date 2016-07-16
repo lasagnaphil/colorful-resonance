@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace InputManagement
 {
@@ -19,31 +20,54 @@ namespace InputManagement
         public override void Execute(Player player)
         {
             player.ArrowInactive();
+
+            player.tempPos.x = player.pos.X; player.tempPos.y = player.pos.Y;
+
+            bool nextTurn = false;
+
             switch (dir)
             {
                 case Direction.Left:
 	                player.TurnLeft();
 	                player.tempPos.x--;
-	                if (!(player.PositionCheck())) player.tempPos.x++;
-	                else player.soundManager.Play(SoundManager.Sounds.Move1);
+                    if (!(player.PositionCheck())) player.tempPos.x++;
+                    else
+                    {
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        nextTurn = true;
+                    }
                     break;
                 case Direction.Right:
 	                player.TurnRight();
                     player.tempPos.x++;
                     if (!(player.PositionCheck())) player.tempPos.x--;
-	                else player.soundManager.Play(SoundManager.Sounds.Move1);
+                    else
+                    {
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        nextTurn = true;
+                    }
                     break;
                 case Direction.Up:
                     player.tempPos.y++;
-	                if (!(player.PositionCheck())) player.tempPos.y--;
-	                else player.soundManager.Play(SoundManager.Sounds.Move1);
+                    if (!(player.PositionCheck())) player.tempPos.y--;
+                    else
+                    {
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        nextTurn = true;
+                    }
                     break;
                 case Direction.Down:
 	                player.tempPos.y--;
-	                if (!(player.PositionCheck())) player.tempPos.y++;
-	                else player.soundManager.Play(SoundManager.Sounds.Move1);
+                    if (!(player.PositionCheck())) player.tempPos.y++;
+                    else
+                    {
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        nextTurn = true;
+                    }
                     break;
             }
+
+            if (nextTurn) GameStateManager.Instance.NextTurn();
         }
     }
 
@@ -58,6 +82,10 @@ namespace InputManagement
 
         public override void Execute(Player player)
         {
+            player.tempPos.x = player.pos.X; player.tempPos.y = player.pos.Y;
+
+            bool nextTurn = false;
+
             switch (dir)
             {
                 case Direction.Left:
@@ -69,6 +97,7 @@ namespace InputManagement
                     {
                         player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
+                        nextTurn = true;
                     }
                     break;
                 case Direction.Right:
@@ -80,6 +109,7 @@ namespace InputManagement
                     {
                         player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
+                        nextTurn = true;
                     }
                     break;
                 case Direction.Up:
@@ -90,6 +120,7 @@ namespace InputManagement
                     {
                         player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
+                        nextTurn = true;
                     }
                     break;
                 case Direction.Down:
@@ -100,9 +131,12 @@ namespace InputManagement
                     {
                         player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
+                        nextTurn = true;
                     }
                     break;
             }
+
+            if (nextTurn) GameStateManager.Instance.NextTurn();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace States
             gsm.ResetTurn();
             gsm.soundManager.StopAll();
             gsm.soundManager.PlayBackground(SoundManager.Sounds.Main);
+            gsm.inputManager.Enabled = true;
             Debug.Log("Game Start");
         }
 
@@ -73,7 +74,7 @@ namespace States
 
         public void Exit(GameStateManager gsm)
         {
-            
+            gsm.inputManager.Enabled = false;
         }
     }
 }

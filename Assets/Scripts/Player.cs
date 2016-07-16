@@ -95,9 +95,8 @@ public class Player : MonoBehaviour
 
     public void GameUpdate()
     {
-        tempPos.x = pos.X; tempPos.y = pos.Y;
 
-        
+        /*
 		if (PlayerPrefs.GetString ("BlinkState") == "on" && (Blinkable == 0))
         {
             ArrowActive();
@@ -117,8 +116,7 @@ public class Player : MonoBehaviour
             // if moved, next turn
             GameStateManager.Instance.NextTurn();
         }
-
-        
+        */
     }
 
     public Sequence OnTurn(int x, int y)

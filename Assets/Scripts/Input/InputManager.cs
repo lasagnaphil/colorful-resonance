@@ -1,4 +1,5 @@
 ﻿using System;
+using States;
 using UnityEngine;
 
 namespace InputManagement
@@ -8,6 +9,20 @@ namespace InputManagement
         public InputData Data { get; set; }
 
         public Player player;
+
+        private bool enabled;
+        public bool Enabled
+        {
+            get { return enabled; }
+            set
+            {
+                enabled = value;
+                foreach (var inputHandler in inputHandlers)
+                {
+                    inputHandler.gameObject.SetActive(enabled);
+                }
+            }
+        }
 
         private InputHandler[] inputHandlers;
 

@@ -23,8 +23,6 @@ public class Monster : MonoBehaviour
     protected bool applicationIsQuitting = false;
     public bool destroyed = false;
 
-    public GameObject deathEffectObject;
-
     protected bool CheckBeforeDestroy
     {
         get { return GameStateManager.Instance != null && !GameStateManager.Instance.IsLoading && !applicationIsQuitting; }
@@ -74,8 +72,6 @@ public class Monster : MonoBehaviour
     {
         if (Health <= 0)
         {
-            Instantiate(deathEffectObject, gameObject.transform.position + new Vector3(0,0,-0.5f), Quaternion.identity);
-
             Destroy(this.gameObject);
             if (CheckBeforeDestroy) GameStateManager.Instance.RemoveMonster(this);
             destroyed = true;

@@ -93,7 +93,8 @@ public class Monster : MonoBehaviour
             if (CheckBeforeDestroy)
             {
                 WhenDestroyed();
-                GameStateManager.Instance.MonsterDied();
+                if (GameStateManager.Instance.MonsterDied != null)
+                    GameStateManager.Instance.MonsterDied();
             }
         }
     }

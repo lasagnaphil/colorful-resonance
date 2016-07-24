@@ -22,9 +22,12 @@ public class Projectile : MonoBehaviour
 
     protected Player player;
 
+	void Awake()
+	{
+		pos = GetComponent<Position> ();
+	}
     protected virtual void Start()
     {
-        pos = GetComponent<Position>();
         player = GameStateManager.Instance.player;
         GameStateManager.Instance.AddProjectile(this);
         GameStateManager.Instance.ProjectileTurns += OnTurnInternal;

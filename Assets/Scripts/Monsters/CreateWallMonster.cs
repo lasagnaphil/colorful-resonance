@@ -29,7 +29,11 @@ public class CreateWallMonster : Monster
             new Vector2i(-1, 0),                     new Vector2i(1, 0),
             new Vector2i(-1, -1), new Vector2i(0, -1), new Vector2i(1, -1)
         };
-        wallCreatePositions = wallCreatePositions.OrderBy(x => random.Next()).Take(4).ToList();
+        wallCreatePositions = wallCreatePositions
+            .OrderBy(x => random.Next())
+            .Take(3)
+            .Select(v => playerPos + v)
+            .ToList();
 
         foreach (var wallPos in wallCreatePositions)
         {
@@ -50,5 +54,6 @@ public class CreateWallMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
     }
 }

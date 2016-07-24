@@ -211,6 +211,19 @@ public class GameStateManager : Singleton<GameStateManager>
         return CheckMonsterPosition(pos.x, pos.y); 
     }
 
+	public void SpawnMonster(Monster monsterPrefab, int x, int y)
+	{
+		if (monsterPrefab != null) {
+			Monster monster = Instantiate (monsterPrefab);
+			monster.transform.parent = monsterHolderObject.transform;
+			monster.pos.X = x;
+			monster.pos.Y = y;
+		} 
+		else 
+		{
+            Debug.Log("Null reference : Monster prefab not found.");
+		}
+	}
     public void SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
     {
         if (projectilePrefab != null)
@@ -218,7 +231,7 @@ public class GameStateManager : Singleton<GameStateManager>
             Projectile projectile = Instantiate(projectilePrefab);
             projectile.transform.parent = projectileHolderObject.transform;
             projectile.MovingDirection = direction;
-            projectile.GetComponent<Position>().Set(x, y);
+			projectile.GetComponent<Position> ().Set (x, y);
         }
         else
         {

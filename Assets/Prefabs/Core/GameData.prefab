@@ -178,6 +178,10 @@ MonoBehaviour:
       monsterPrefab: {fileID: 11463554, guid: ee8c1c30fd7dfb64b9d5e979f5098c77, type: 2}
     - name: PaintWall_ToYellow
       monsterPrefab: {fileID: 11463554, guid: 022f7af6a536ff442a0b95e2a4676fe0, type: 2}
+    - name: Zac
+      monsterPrefab: {fileID: 11458466, guid: 243b41a3553c6374b9cc4d4054cd759e, type: 2}
+    - name: ZacBaby
+      monsterPrefab: {fileID: 11457430, guid: 17cdffcaffe060547b5d34b1e759c371, type: 2}
   buttonPrefabDictionary:
     buttonPrefabTupleList:
     - name: WallToggleButton

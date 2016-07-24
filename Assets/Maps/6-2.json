@@ -1,0 +1,47 @@
+{
+  "name": "Stage 6 - 2",
+  "width": 9,
+  "height": 9,
+  "tiles": [
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w",
+  			"w w w w w w w w w"
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 0}
+  },
+  "monsters": [
+    {
+      "name" : "CreateWall",
+      "position" : {"x": 7, "y": 7}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 3, "y": 2}
+    },
+    {
+      "name" : "Zac",
+      "position" : {"x": 6, "y": 3}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "blue",
+      "position" : {"x": 1, "y": 0}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 0, "y": 1}
+    },
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 2}
+    }
+  ]
+}

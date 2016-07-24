@@ -177,4 +177,9 @@ public class Monster : MonoBehaviour
     {
         GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
     }
+
+	public void SpawnMonster(Monster monster, int x, int y)
+	{
+		GameStateManager.Instance.SpawnMonster (monster, x, y);
+	}
 }

@@ -97,9 +97,9 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-		if ((PlayerPrefs.GetString ("BlinkState") == "on" || GetBlinkButtonState()) && (Blinkable == 0))
+		if ((Input.GetKeyDown(KeyCode.Space) || GetBlinkButtonState()) && (Blinkable == 0))
         {
-			if (PlayerPrefs.GetString("MoveDirection") == "Left")
+			if (Input.GetKeyDown(KeyCode.LeftArrow))
             {                
                 TurnLeft();
                 tempPos.x = tempPos.x - 3;
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
 				PlayerPrefs.SetString ("MoveDirection", null);
 				PlayerPrefs.SetString ("BlinkState", "off");
             }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Right")
+			else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 TurnRight();
                 tempPos.x = tempPos.x + 3;
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
 				PlayerPrefs.SetString ("MoveDirection", null);
 				PlayerPrefs.SetString ("BlinkState", "off");
             }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Up")
+			else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 tempPos.y = tempPos.y + 3;
                 if (!(PositionCheck()))
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 				PlayerPrefs.SetString ("MoveDirection", null);
 				PlayerPrefs.SetString ("BlinkState", "off");
             }
-			else if (PlayerPrefs.GetString("MoveDirection") == "Down")
+			else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 tempPos.y = tempPos.y - 3;
                 if (!(PositionCheck()))
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
         {
             ArrowInactive();
 			if (PlayerPrefs.GetString ("BlinkState") != "on"){
-				if (PlayerPrefs.GetString("MoveDirection") == "Left")
+				if (Input.GetKeyDown(KeyCode.LeftArrow))
 	            {
 	                TurnLeft();
 	                tempPos.x--;
@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
 	                else soundManager.Play(SoundManager.Sounds.Move1);
 					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Right")
+				else if (Input.GetKeyDown(KeyCode.RightArrow))
 	            {
 	                TurnRight();
 	                tempPos.x++;
@@ -182,14 +182,14 @@ public class Player : MonoBehaviour
 	                else soundManager.Play(SoundManager.Sounds.Move1);
 					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Up")
+				else if (Input.GetKeyDown(KeyCode.UpArrow))
 	            {
 	                tempPos.y++;
 	                if (!(PositionCheck())) tempPos.y--;
 	                else soundManager.Play(SoundManager.Sounds.Move1);
 					PlayerPrefs.SetString ("MoveDirection", null);
 	            }
-				else if (PlayerPrefs.GetString("MoveDirection") == "Down")
+				else if (Input.GetKeyDown(KeyCode.DownArrow))
 	            {
 	                tempPos.y--;
 	                if (!(PositionCheck())) tempPos.y++;
@@ -199,7 +199,7 @@ public class Player : MonoBehaviour
             }
         }
         
-		if (PlayerPrefs.GetString ("BlinkState") == "on" && (Blinkable == 0))
+		if ((Input.GetKeyDown(KeyCode.Space)) && (Blinkable == 0))
         {
             ArrowActive();
         }

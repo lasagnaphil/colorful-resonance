@@ -25,13 +25,13 @@ public class CreateWallMonster : Monster
         Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
         List<Vector2i> wallCreatePositions = new List<Vector2i>()
         {
-            new Vector2i(-1, 1), new Vector2i(0, 1), new Vector2i(1, 1),
-            new Vector2i(-1, 0),                     new Vector2i(1, 0),
-            new Vector2i(-1, -1), new Vector2i(0, -1), new Vector2i(1, -1)
+                                  new Vector2i(0, 1),
+            new Vector2i(-1, 0),                       new Vector2i(1, 0),
+                                  new Vector2i(0, -1),
         };
         wallCreatePositions = wallCreatePositions
             .OrderBy(x => random.Next())
-            .Take(3)
+            .Take(4)
             .Select(v => playerPos + v)
             .ToList();
 

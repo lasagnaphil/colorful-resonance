@@ -23,8 +23,6 @@ public class Player : MonoBehaviour
     public TileColor playerTileColor;
     public int MaxHealth;
     public int Health;
-    public int Blinkable;
-    public int Difficulty;
     
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
@@ -97,7 +95,7 @@ public class Player : MonoBehaviour
     public void GameUpdate()
     {
         tempPos.x = pos.X; tempPos.y = pos.Y;
-		if ((Input.GetKeyDown(KeyCode.Space) || GetBlinkButtonState()) && (Blinkable == 0))
+		if ((Input.GetKey(KeyCode.Space) || GetBlinkButtonState()))
         {
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
             {                
@@ -107,7 +105,6 @@ public class Player : MonoBehaviour
                     tempPos.x = tempPos.x + 3;
                 else
                 {
-                	Blinkable = Difficulty;
                 	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
@@ -123,7 +120,6 @@ public class Player : MonoBehaviour
                     tempPos.x = tempPos.x - 3;
                 else
                 {
-                	Blinkable = Difficulty;
                 	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
@@ -138,7 +134,6 @@ public class Player : MonoBehaviour
                     tempPos.y = tempPos.y - 3;
                 else
                 {
-                	Blinkable = Difficulty;
                 	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
@@ -153,7 +148,6 @@ public class Player : MonoBehaviour
                     tempPos.y = tempPos.y + 3;
                 else
                 {
-                	Blinkable = Difficulty;
                 	soundManager.Play(SoundManager.Sounds.Blink);
                 }
                 //else
@@ -165,45 +159,38 @@ public class Player : MonoBehaviour
         else
         {
             ArrowInactive();
-			if (PlayerPrefs.GetString ("BlinkState") != "on"){
-				if (Input.GetKeyDown(KeyCode.LeftArrow))
-	            {
-	                TurnLeft();
-	                tempPos.x--;
-	                if (!(PositionCheck())) tempPos.x++;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (Input.GetKeyDown(KeyCode.RightArrow))
-	            {
-	                TurnRight();
-	                tempPos.x++;
-	                if (!(PositionCheck())) tempPos.x--;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (Input.GetKeyDown(KeyCode.UpArrow))
-	            {
-	                tempPos.y++;
-	                if (!(PositionCheck())) tempPos.y--;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
-				else if (Input.GetKeyDown(KeyCode.DownArrow))
-	            {
-	                tempPos.y--;
-	                if (!(PositionCheck())) tempPos.y++;
-	                else soundManager.Play(SoundManager.Sounds.Move1);
-					PlayerPrefs.SetString ("MoveDirection", null);
-	            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                TurnLeft();
+                tempPos.x--;
+                if (!(PositionCheck())) tempPos.x++;
+                else soundManager.Play(SoundManager.Sounds.Move1);
+                PlayerPrefs.SetString ("MoveDirection", null);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                TurnRight();
+                tempPos.x++;
+                if (!(PositionCheck())) tempPos.x--;
+                else soundManager.Play(SoundManager.Sounds.Move1);
+                PlayerPrefs.SetString ("MoveDirection", null);
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                tempPos.y++;
+                if (!(PositionCheck())) tempPos.y--;
+                else soundManager.Play(SoundManager.Sounds.Move1);
+                PlayerPrefs.SetString ("MoveDirection", null);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                tempPos.y--;
+                if (!(PositionCheck())) tempPos.y++;
+                else soundManager.Play(SoundManager.Sounds.Move1);
+                PlayerPrefs.SetString ("MoveDirection", null);
             }
         }
-        
-		if ((Input.GetKeyDown(KeyCode.Space)) && (Blinkable == 0))
-        {
-            ArrowActive();
-        }
-        
+/*            
 		if ((PlayerPrefs.GetString ("BlinkState") == "off") ||
 			(PlayerPrefs.GetString("MoveDirection") == "Left") ||
 			(PlayerPrefs.GetString("MoveDirection") == "Right") ||
@@ -212,7 +199,7 @@ public class Player : MonoBehaviour
         {
             ArrowInactive();
         }
-
+*/
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
         {
             // if moved, next turn
@@ -283,8 +270,6 @@ public class Player : MonoBehaviour
             
             tileManager.GetTile(x, y).PlaySubEffect();
         }
-
-        if (Blinkable != 0) Blinkable -= 1;
 
         return sequence;
     } // end of OnTurn

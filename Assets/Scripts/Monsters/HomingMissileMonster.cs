@@ -9,6 +9,7 @@ public class HomingMissileMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
         SpawnProjectile(HomingProjectile, pos.X, pos.Y, Direction.None);
     }
 }

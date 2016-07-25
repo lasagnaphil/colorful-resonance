@@ -55,6 +55,7 @@ public class ZacBabyMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
     }
 }
 

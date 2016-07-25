@@ -27,5 +27,10 @@ namespace Monsters
             }
             moveCount++;
         }
+
+        protected override void WhenDestroyed()
+        {
+            base.WhenDestroyed();
+        }
     }
 }

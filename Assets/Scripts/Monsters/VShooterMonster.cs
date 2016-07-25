@@ -33,4 +33,9 @@ public class VShooterMonster : Monster
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
+
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
+    }
 }

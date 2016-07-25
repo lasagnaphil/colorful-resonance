@@ -21,4 +21,9 @@ public class WaterBalloonMonster : Monster
             BalloonCoolTime = 0;
         }
     }
+
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
+    }
 }

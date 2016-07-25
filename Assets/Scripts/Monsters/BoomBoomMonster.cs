@@ -9,6 +9,7 @@ public class BoomBoomMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
         SpawnProjectile(BombProjectile, pos.X, pos.Y, Direction.None);
     }
 }

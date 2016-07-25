@@ -13,6 +13,7 @@ public class PaintWallMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
         SpawnProjectile(PaintBomb, pos.X, pos.Y, DirectionFromPlayer());
     }
 }

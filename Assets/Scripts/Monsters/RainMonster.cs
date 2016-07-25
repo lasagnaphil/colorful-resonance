@@ -28,4 +28,9 @@ public class RainMonster : Monster
             RainCoolTime = 0;
         }
     }
+
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
+    }
 }

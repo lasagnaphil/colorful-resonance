@@ -84,5 +84,10 @@ public class MobMonster : Monster
             Cleaning = 0;
         }
     }
+
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
+    }
 }
 

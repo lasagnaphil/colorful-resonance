@@ -105,5 +105,10 @@ namespace Monsters
             if (shieldEffect != null)
                 Destroy(shieldEffect);
         }
+
+        protected override void WhenDestroyed()
+        {
+            base.WhenDestroyed();
+        }
     }
 }

@@ -57,5 +57,10 @@ public class ShieldMonster : Monster
             CoolTime = 0;
         }
     }
+
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
+    }
 }
 

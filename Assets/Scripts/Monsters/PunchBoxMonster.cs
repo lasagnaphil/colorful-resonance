@@ -65,7 +65,11 @@ public class PunchBoxMonster : Monster
                 CoolTime = 0;
             }
         }
+    }
 
+    protected override void WhenDestroyed()
+    {
+        base.WhenDestroyed();
     }
 }
 

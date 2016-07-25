@@ -56,6 +56,7 @@ public class LandSlideMonster : Monster
     }
     protected override void WhenDestroyed()
     {
+        base.WhenDestroyed();
         Direction moveDir = Direction.None;
         SpawnProjectile(LandSlideProjectile, pos.X, pos.Y, moveDir);
     }

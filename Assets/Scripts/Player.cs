@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -8,11 +9,10 @@ public class Player : MonoBehaviour
     private TileManager tileManager;
 
     private Animator animator;
-    private MobileInputManager mobileInputManager;
 	private MobileMoveController MC;
 
     public SoundManager soundManager;
-	public GameObject MobileManager;
+	public GameObject MobileTouchManager;
 
     public new Camera camera;
 
@@ -23,18 +23,26 @@ public class Player : MonoBehaviour
     public TileColor playerTileColor;
     public int MaxHealth;
     public int Health;
-    
+
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
-    
+
     public GameObject[] arrowObjects;
-    
+    public Dictionary<Vector2i, GameObject> arrowObjectDict;
+
     protected void Awake()
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
 		MC = FindObjectOfType<MobileMoveController>();
         soundManager = FindObjectOfType<SoundManager>();
+        arrowObjectDict = new Dictionary<Vector2i, GameObject>()
+        {
+            {new Vector2i(-3, 0), arrowObjects[0]},
+            {new Vector2i(3, 0), arrowObjects[1]},
+            {new Vector2i(0, 3), arrowObjects[2]},
+            {new Vector2i(0, -3), arrowObjects[3]}
+        };
     }
 
     protected void Start()
@@ -45,38 +53,35 @@ public class Player : MonoBehaviour
         UpdateAuraColor();
         damagedParticle.gameObject.SetActive(false);
         GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
-        
+
         ArrowInactive();
     }
-    
+
     public void Restart()
     {
         Health = MaxHealth;
         animator.SetBool("IsDead", false);
         playerTileColor = TileColor.None;
-        UpdateAuraColor();    
+        UpdateAuraColor();
         damagedParticle.gameObject.SetActive(false);
-        
+
         ArrowInactive();
     }
 
-    void ArrowActive()
+    public void ArrowActive()
     {
-        foreach (var arrowObject in arrowObjects)
+        foreach (var entry in arrowObjectDict)
         {
-            int arrowPosX = (int)arrowObject.transform.position.x;
-            int arrowPosY = (int)arrowObject.transform.position.y;
-            
-            if (tileManager.GetTileType(arrowPosX, arrowPosY) == TileType.Normal)
-                arrowObject.SetActive(true);
+            if (tileManager.GetTileType(pos.X + entry.Key.x, pos.Y + entry.Key.y) == TileType.Normal)
+                entry.Value.SetActive(true);
         }
     }
-    
-    void ArrowInactive()
+
+    public void ArrowInactive()
     {
-        foreach (var arrowObject in arrowObjects)
+        foreach (var entry in arrowObjectDict)
         {
-            arrowObject.SetActive(false);
+            entry.Value.SetActive(false);
         }
     }
 
@@ -89,125 +94,16 @@ public class Player : MonoBehaviour
 
 	public void MobileManagerUpdate()
 	{
-		MobileManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+		MobileTouchManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
 	}
 
     public void GameUpdate()
     {
-        tempPos.x = pos.X; tempPos.y = pos.Y;
-		if ((Input.GetKey(KeyCode.Space) || GetBlinkButtonState()))
-        {
-            ArrowActive();
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {                
-                TurnLeft();
-                tempPos.x = tempPos.x - 3;
-                if (!(PositionCheck()))
-                    tempPos.x = tempPos.x + 3;
-                else
-                {
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                TurnRight();
-                tempPos.x = tempPos.x + 3;
-                if (!(PositionCheck()))
-                    tempPos.x = tempPos.x - 3;
-                else
-                {
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                tempPos.y = tempPos.y + 3;
-                if (!(PositionCheck()))
-                    tempPos.y = tempPos.y - 3;
-                else
-                {
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-			else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                tempPos.y = tempPos.y - 3;
-                if (!(PositionCheck()))
-                    tempPos.y = tempPos.y + 3;
-                else
-                {
-                	soundManager.Play(SoundManager.Sounds.Blink);
-                }
-                //else
-                //    soundManager.Play(SoundManager.Sounds.Blink);
-				PlayerPrefs.SetString ("MoveDirection", null);
-				PlayerPrefs.SetString ("BlinkState", "off");
-            }
-        }
-        else
-        {
-            ArrowInactive();
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                TurnLeft();
-                tempPos.x--;
-                if (!(PositionCheck())) tempPos.x++;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-                PlayerPrefs.SetString ("MoveDirection", null);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                TurnRight();
-                tempPos.x++;
-                if (!(PositionCheck())) tempPos.x--;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-                PlayerPrefs.SetString ("MoveDirection", null);
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                tempPos.y++;
-                if (!(PositionCheck())) tempPos.y--;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-                PlayerPrefs.SetString ("MoveDirection", null);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                tempPos.y--;
-                if (!(PositionCheck())) tempPos.y++;
-                else soundManager.Play(SoundManager.Sounds.Move1);
-                PlayerPrefs.SetString ("MoveDirection", null);
-            }
-        }
-/*            
-		if ((PlayerPrefs.GetString ("BlinkState") == "off") ||
-			(PlayerPrefs.GetString("MoveDirection") == "Left") ||
-			(PlayerPrefs.GetString("MoveDirection") == "Right") ||
-			(PlayerPrefs.GetString("MoveDirection") == "Up") ||
-			(PlayerPrefs.GetString("MoveDirection") == "Down"))
-        {
-            ArrowInactive();
-        }
-*/
         if (tempPos.x != pos.X || tempPos.y != pos.Y)
         {
             // if moved, next turn
             GameStateManager.Instance.NextTurn();
         }
-
-        
     }
 
     public Sequence OnTurn(int x, int y)
@@ -240,7 +136,7 @@ public class Player : MonoBehaviour
         {
             animator.SetTrigger("Move");
         }));
-                
+
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);
         if (foundOrb != null)
@@ -263,12 +159,12 @@ public class Player : MonoBehaviour
             playerTileColor = foundOrb.Color;
             UpdateAuraColor();
         }
-        
+
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
         {
             bool fillingExecuted = tileManager.SetTileColorAndFill(x, y, playerTileColor);
             if (fillingExecuted) soundManager.Play(SoundManager.Sounds.TileActivate);
-            
+
             tileManager.GetTile(x, y).PlaySubEffect();
         }
 
@@ -287,29 +183,13 @@ public class Player : MonoBehaviour
         pos.Y = prevPos.y;
     }
 
-    private bool PositionCheck()
+    public bool PositionCheck()
     {
         if (TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.Wall || TileManager.Instance.GetTileType(tempPos.x, tempPos.y) == TileType.None)
             return false;
         else return true;
     }
 
-    bool GetBlinkButtonState()
-    {
-        if (mobileInputManager == null)
-            return false;
-        
-        return mobileInputManager.isBlinkButtonClicked;
-    }
-
-    string GetDirectionSetBySwipe()
-    {
-        if (mobileInputManager == null)
-            return "";
-        
-        return mobileInputManager.destDirection;
-    }
-    
     public void UpdateAuraColor()
     {
         if (playerTileColor == TileColor.None || Health <= 0)
@@ -325,17 +205,17 @@ public class Player : MonoBehaviour
         else if (playerTileColor == TileColor.Yellow)
             auraParticle.startColor = new Color(253f/255f, 249f/255f, 87f/255f, 1);
     }
-    
-    void TurnLeft()
+
+    public void TurnLeft()
     {
         transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
     }
-    
-    void TurnRight()
+
+    public void TurnRight()
     {
         transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
     }
-    
+
     IEnumerator PlayDamageEffect()
     {
         damagedParticle.gameObject.SetActive(true);

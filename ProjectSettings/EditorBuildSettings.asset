@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Credit.unity
   - enabled: 1
     path: Assets/Scenes/Note.unity
+  - enabled: 1
+    path: Assets/Scenes/SetUp.unity

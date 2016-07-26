@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DG.Tweening;
+using InputManagement;
 using JetBrains.Annotations;
 using SelectLevel;
 using States;
 using UnityEngine.UI;
 using Utils;
+using Direction = Utils.Direction;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
@@ -17,6 +19,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     //private StateMachine<GameState> fsm;
     private IGameState state; 
+    public IGameState CurrentState { get { return state; } }
 
     public bool IsLoading = false;
 
@@ -49,6 +52,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     // Plays sound as game state changes
     public SoundManager soundManager;
+    public InputManager inputManager;
 
     private TileManager tileManager;
     private ResultUIManager resultUIManager;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine.UI;
 
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
     public ParticleSystem damagedParticle;
     
     public GameObject[] arrowObjects;
+    public Dictionary<Vector2i, GameObject> arrowObjectDict;
     
     protected void Awake()
     {
@@ -36,6 +38,13 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 		MC = FindObjectOfType<MobileMoveController>();
         soundManager = FindObjectOfType<SoundManager>();
+        arrowObjectDict = new Dictionary<Vector2i, GameObject>()
+        {
+            {new Vector2i(-3, 0), arrowObjects[0]},
+            {new Vector2i(3, 0), arrowObjects[1]},
+            {new Vector2i(0, 3), arrowObjects[2]},
+            {new Vector2i(0, -3), arrowObjects[3]}
+        };
     }
 
     protected void Start()
@@ -61,23 +70,20 @@ public class Player : MonoBehaviour
         ArrowInactive();
     }
 
-    void ArrowActive()
+    public void ArrowActive()
     {
-        foreach (var arrowObject in arrowObjects)
+        foreach (var entry in arrowObjectDict)
         {
-            int arrowPosX = (int)arrowObject.transform.position.x;
-            int arrowPosY = (int)arrowObject.transform.position.y;
-            
-            if (tileManager.GetTileType(arrowPosX, arrowPosY) == TileType.Normal)
-                arrowObject.SetActive(true);
+            if (tileManager.GetTileType(pos.X + entry.Key.x, pos.Y + entry.Key.y) == TileType.Normal)
+                entry.Value.SetActive(true);
         }
     }
     
     public void ArrowInactive()
     {
-        foreach (var arrowObject in arrowObjects)
+        foreach (var entry in arrowObjectDict)
         {
-            arrowObject.SetActive(false);
+            entry.Value.SetActive(false);
         }
     }
 

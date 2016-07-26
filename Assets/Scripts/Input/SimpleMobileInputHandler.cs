@@ -4,32 +4,37 @@ namespace InputManagement
 {
     public class SimpleMobileInputHandler : InputHandler
     {
-        [SerializeField]
-        private bool canBlink = false;
-        
         public void AtLeftButtonPressed()
         {
-            inputManager.Execute(new MoveCommand(Direction.Left));
+            if (inputManager.CanBlink)
+                inputManager.Execute(new BlinkCommand(Direction.Left));
+            else inputManager.Execute(new MoveCommand(Direction.Left));
         }
 
         public void AtRightButtonPressed()
         {
-            inputManager.Execute(new MoveCommand(Direction.Right));
+            if (inputManager.CanBlink)
+                inputManager.Execute(new BlinkCommand(Direction.Right));
+            else inputManager.Execute(new MoveCommand(Direction.Right));
         }
 
         public void AtUpButtonPressed()
         {
-            inputManager.Execute(new MoveCommand(Direction.Up));
+            if (inputManager.CanBlink)
+                inputManager.Execute(new BlinkCommand(Direction.Up));
+            else inputManager.Execute(new MoveCommand(Direction.Up));
         }
 
         public void AtDownButtonPressed()
         {
-            inputManager.Execute(new MoveCommand(Direction.Down));
+            if (inputManager.CanBlink)
+                inputManager.Execute(new BlinkCommand(Direction.Down));
+            else inputManager.Execute(new MoveCommand(Direction.Down));
         }
 
         public void AtBlinkButtonPressed()
         {
-            canBlink = true;
+            inputManager.CanBlink = !inputManager.CanBlink;
         }
     }
 }

@@ -6,6 +6,11 @@ namespace InputManagement
     {
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+                inputManager.CanBlink = true;
+            if (Input.GetKeyUp(KeyCode.Space))
+                inputManager.CanBlink = false;
+
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 if (Input.GetKey(KeyCode.Space))

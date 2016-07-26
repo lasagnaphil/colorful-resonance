@@ -1,20 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InputManagement;
 
 public class MobileMoveController : MonoBehaviour
 {
 	public Direction direction;
+    public SimpleMobileInputHandler inputHandler;
 
 	void OnMouseUp()
 	{
-		if (direction == Direction.Right)
-			PlayerPrefs.SetString ("MoveDirection", "Right");
-		if (direction == Direction.Left)
-			PlayerPrefs.SetString ("MoveDirection", "Left");
-		if (direction == Direction.Up)
-			PlayerPrefs.SetString ("MoveDirection", "Up");
-		if (direction == Direction.Down)
-			PlayerPrefs.SetString ("MoveDirection", "Down");
+	    switch (direction)
+	    {
+            case Direction.Right:
+                inputHandler.AtRightButtonPressed();
+	            break;
+            case Direction.Left:
+                inputHandler.AtLeftButtonPressed();
+	            break;
+            case Direction.Up:
+                inputHandler.AtUpButtonPressed();
+	            break;
+            case Direction.Down:
+	            inputHandler.AtDownButtonPressed();
+	            break;
+	    }
 	}
 
 	public enum Direction

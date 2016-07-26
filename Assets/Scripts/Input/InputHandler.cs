@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace InputManagement
 {
     public class InputHandler : MonoBehaviour
     {
-        protected InputManager inputManager;
+        [HideInInspector]
+        public InputManager inputManager;
 
-        void Awake()
+        protected void Awake()
         {
             inputManager = GetComponent<InputManager>();
         }

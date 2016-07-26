@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using Buttons;
 
 [System.Serializable]
 public class ButtonPrefabTuple
@@ -16,6 +18,11 @@ public class ButtonPrefabDictionary
     public Button GetButton(string name)
     {
         return buttonPrefabTupleList.Find(x => x.name == name).buttonPrefab;
+    }
+
+    public Dictionary<string, Buttons.Button> ToDictionary()
+    {
+        return buttonPrefabTupleList.ToDictionary(t => t.name, t => t.buttonPrefab);
     }
 }
 
@@ -35,6 +42,11 @@ public class MonsterPrefabDictionary
     public Monster GetMonster(string name)
     {
         return monsterPrefabTupleList.Find(x => x.name == name).monsterPrefab;
+    }
+
+    public Dictionary<string, Monster> ToDictionary()
+    {
+        return monsterPrefabTupleList.ToDictionary(t => t.name, t => t.monsterPrefab);
     }
 }
 

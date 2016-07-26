@@ -173,13 +173,16 @@ public class Monster : MonoBehaviour
         return CheckTile(x, y, tile => tile.type == TileType.Normal);
     }
 
+    public void SpawnMonster(Monster monster, int x, int y)
+    {
+        GameStateManager.Instance.SpawnMonster(monster, x, y);
+    }
     public void SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
     {
         GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
     }
-
-	public void SpawnMonster(Monster monster, int x, int y)
-	{
-		GameStateManager.Instance.SpawnMonster (monster, x, y);
-	}
+    public void SpawnOrb(Orb orb, TileColor color, int x, int y)
+    {
+        GameStateManager.Instance.SpawnOrb(orb, color, x, y);
+    }
 }

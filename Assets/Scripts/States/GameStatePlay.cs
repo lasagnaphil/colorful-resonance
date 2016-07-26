@@ -27,11 +27,11 @@ namespace States
             gsm.turnNumberText.text = gsm.TurnNumber.ToString();
             UpdatePlayerHealth(gsm);
             
-            if (Input.GetKeyDown(KeyCode.F5))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 gsm.ChangeState<GameStateEditor>();
             }
-            if (Input.GetKeyDown(KeyCode.F6))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 gsm.ChangeState<GameStateSave>();
             }

@@ -22,4 +22,15 @@ public static class DictionaryExtensions
             ? value
             : defaultValueProvider();
     }
+
+    public static void ForEach<TKey, TValue>
+        (this IDictionary<TKey, TValue> dictionary,
+            Action<TKey, TValue> func)
+    {
+        foreach (var entry in dictionary)
+        {
+            func(entry.Key, entry.Value);
+        }
+    }
+
 }

@@ -31,7 +31,7 @@ public class CreateWallMonster : Monster
         };
         wallCreatePositions = wallCreatePositions
             .OrderBy(x => random.Next())
-            .Take(4)
+            .Take(3)
             .Select(v => playerPos + v)
             .ToList();
 
@@ -54,6 +54,6 @@ public class CreateWallMonster : Monster
 
     protected override void WhenDestroyed()
     {
-        base.WhenDestroyed();
+        GameStateManager.Instance.MonsterDied -= OnMonsterDied;
     }
 }

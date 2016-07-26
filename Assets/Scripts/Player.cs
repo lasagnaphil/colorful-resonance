@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
         tempPos.x = pos.X; tempPos.y = pos.Y;
 		if ((Input.GetKey(KeyCode.Space) || GetBlinkButtonState()))
         {
+            ArrowActive();
 			if (Input.GetKeyDown(KeyCode.LeftArrow))
             {                
                 TurnLeft();

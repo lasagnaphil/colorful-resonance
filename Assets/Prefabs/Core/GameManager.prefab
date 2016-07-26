@@ -387,6 +387,7 @@ GameObject:
   - 114: {fileID: 11411732}
   - 114: {fileID: 11469482}
   - 114: {fileID: 11475048}
+  - 114: {fileID: 11453858}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1060,6 +1061,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11453858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173332}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77ef722f1016044fae97ca425a56d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MobileTouchManager: {fileID: 0}
+  MobileSwipeManager: {fileID: 0}
 --- !u!114 &11457974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1529,6 +1543,7 @@ MonoBehaviour:
   projectileHolderObject: {fileID: 0}
   orbHolderObject: {fileID: 0}
   soundManager: {fileID: 11475048}
+  inputManager: {fileID: 0}
   turnNumberText: {fileID: 11490376}
   playerHealthImages:
   - {fileID: 11495872}

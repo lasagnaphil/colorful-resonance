@@ -146,6 +146,11 @@ public class MapLoader : MonoBehaviour
         // Load the monsters
         foreach (var monsterData in mapDataToLoad.monsters)
         {
+            if (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name) == null)
+            {
+                Debug.Log("Cannot find monster!");
+                continue;
+            }
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
             monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);

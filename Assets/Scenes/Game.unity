@@ -169,6 +169,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 343368824}
+    - target: {fileID: 11477710, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181651737}
+    - target: {fileID: 11450554, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 181651737}
     - target: {fileID: 11479270, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: player
       value: 
@@ -185,18 +197,18 @@ Prefab:
       propertyPath: orbHolderObject
       value: 
       objectReference: {fileID: 1205444965}
-    - target: {fileID: 11450554, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 11479270, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: inputManager
       value: 
-      objectReference: {fileID: 181651737}
-    - target: {fileID: 11477710, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      objectReference: {fileID: 899592453}
+    - target: {fileID: 11453858, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: MobileTouchManager
       value: 
-      objectReference: {fileID: 181651737}
-    - target: {fileID: 11457974, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-      propertyPath: player
+      objectReference: {fileID: 181651735}
+    - target: {fileID: 11453858, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
+      propertyPath: MobileSwipeManager
       value: 
-      objectReference: {fileID: 343368824}
+      objectReference: {fileID: 610313327}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -294,23 +306,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 3
   inputHandler: {fileID: 899592456}
---- !u!1 &349458159 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 173332, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
-  m_PrefabInternal: {fileID: 197900791}
---- !u!114 &349458160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 349458159}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77ef722f1016044fae97ca425a56d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MobileTouchManager: {fileID: 181651735}
-  MobileSwipeManager: {fileID: 610313327}
 --- !u!1001 &372967637
 Prefab:
   m_ObjectHideFlags: 0
@@ -649,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  inputHandler: {fileID: 0}
 --- !u!1001 &859390975
 Prefab:
   m_ObjectHideFlags: 0
@@ -1052,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d781a6c9596e5d246a03e2b6ace08657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
 --- !u!1 &1946494923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,4 +1076,4 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5

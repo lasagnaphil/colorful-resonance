@@ -95,7 +95,7 @@ namespace InputManagement
                         player.tempPos.x = player.tempPos.x + 3;
                     else
                     {
-                        player.Blinkable = player.Difficulty;
+                        //player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
@@ -107,7 +107,7 @@ namespace InputManagement
                         player.tempPos.x = player.tempPos.x - 3;
                     else
                     {
-                        player.Blinkable = player.Difficulty;
+                        //player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
@@ -118,7 +118,7 @@ namespace InputManagement
                         player.tempPos.y = player.tempPos.y - 3;
                     else
                     {
-                        player.Blinkable = player.Difficulty;
+                        //player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
@@ -129,7 +129,7 @@ namespace InputManagement
                         player.tempPos.y = player.tempPos.y + 3;
                     else
                     {
-                        player.Blinkable = player.Difficulty;
+                        //player.Blinkable = player.Difficulty;
                         player.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }

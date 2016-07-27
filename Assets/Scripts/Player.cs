@@ -99,11 +99,6 @@ public class Player : MonoBehaviour
 
     public void GameUpdate()
     {
-        if (tempPos.x != pos.X || tempPos.y != pos.Y)
-        {
-            // if moved, next turn
-            GameStateManager.Instance.NextTurn();
-        }
     }
 
     public Sequence OnTurn(int x, int y)

@@ -74,10 +74,13 @@ namespace InputManagement
 
         public void Execute(Command command)
         {
-            command.Execute(player);
-            if (command is BlinkCommand)
+            if (GameStateManager.Instance.CurrentState is GameStatePlay)
             {
-                CanBlink = false;
+                command.Execute(player);
+                if (command is BlinkCommand)
+                {
+                    CanBlink = false;
+                }
             }
         }
 

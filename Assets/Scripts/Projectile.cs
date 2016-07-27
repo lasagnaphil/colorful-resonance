@@ -7,8 +7,7 @@ public enum ProjectileType
 {
     Normal, GoThrough
 }
-[RequireComponent(typeof(Position))]
-public class Projectile : MonoBehaviour
+public class Projectile : GameEntity
 {
     public int Duration; // if duration is -1 then never dies
     public int Damage;
@@ -16,16 +15,16 @@ public class Projectile : MonoBehaviour
     public ProjectileType Type;
     public GameObject destroyEffectObject;
 
-    public Position pos;
     protected Vector2i prevPos;
     public bool updateDirection = true;
 
     protected Player player;
 
-	void Awake()
-	{
-		pos = GetComponent<Position> ();
-	}
+    protected void Awake()
+    {
+        base.Awake();
+    }
+
     protected virtual void Start()
     {
         player = GameStateManager.Instance.player;
@@ -105,11 +104,4 @@ public class Projectile : MonoBehaviour
             GameStateManager.Instance.ProjectileTurns -= OnTurnInternal;
         }
     }
-
-    public Vector2i DiffFromPlayer()
-    {
-        Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
-        return playerPos - pos.GetVector2i();
-    }
-
 }

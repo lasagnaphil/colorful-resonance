@@ -22,7 +22,7 @@ public class CreateWallMonster : Monster
 
     private void OnMonsterDied()
     {
-        Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
+        Vector2i playerPos = Player.pos.GetVector2i();
         List<Vector2i> wallCreatePositions = new List<Vector2i>()
         {
                                   new Vector2i(0, 1),
@@ -37,12 +37,12 @@ public class CreateWallMonster : Monster
 
         foreach (var wallPos in wallCreatePositions)
         {
-            if (TileManager.Instance.GetTileType(wallPos.x, wallPos.y) != TileType.None)
+            if (GetTileType(wallPos.x, wallPos.y) != TileType.None)
             {
-                TileManager.Instance.SetTileType(wallPos.x, wallPos.y, TileType.Wall);
-                TileManager.Instance.SetTileColor(wallPos.x, wallPos.y, monstersColor);
+                SetTileType(wallPos.x, wallPos.y, TileType.Wall);
+                SetTileColor(wallPos.x, wallPos.y, monstersColor);
 
-                Monster monsterOnWall = GameStateManager.Instance.CheckMonsterPosition(wallPos.x, wallPos.y);
+                Monster monsterOnWall = CheckMonsterPosition(wallPos.x, wallPos.y);
                 if (monsterOnWall != null)
                 {
                     monsterOnWall.Health -= 1;

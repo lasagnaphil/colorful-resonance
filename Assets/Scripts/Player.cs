@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private TileManager tileManager;
 
     private Animator animator;
-	private MobileMoveController MC;
 
     public SoundManager soundManager;
 	public GameObject MobileTouchManager;
@@ -34,7 +33,6 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
-		MC = FindObjectOfType<MobileMoveController>();
         soundManager = FindObjectOfType<SoundManager>();
         arrowObjectDict = new Dictionary<Vector2i, GameObject>()
         {

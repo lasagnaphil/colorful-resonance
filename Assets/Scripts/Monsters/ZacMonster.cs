@@ -57,23 +57,23 @@ public class ZacMonster : Monster
         base.WhenDestroyed();
 		if (CheckTileIsNormal (pos.X + 2, pos.Y) && CheckTileIsNormal (pos.X - 2, pos.Y))
 		{
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X + 2, pos.Y);
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X - 2, pos.Y);
+			SpawnMonster ("ZacBaby", pos.X + 2, pos.Y);
+			SpawnMonster ("ZacBaby", pos.X - 2, pos.Y);
 		}
 		else if (CheckTileIsNormal (pos.X, pos.Y - 2) && CheckTileIsNormal (pos.X, pos.Y + 2))
 		{
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X, pos.Y - 2);
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X, pos.Y + 2);
+			SpawnMonster ("ZacBaby", pos.X, pos.Y - 2);
+			SpawnMonster ("ZacBaby", pos.X, pos.Y + 2);
 		}
 		else if (CheckTileIsNormal (pos.X + 2, pos.Y) && CheckTileIsNormal (pos.X, pos.Y + 2))
 		{
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X + 2, pos.Y);
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X, pos.Y + 2);
+			SpawnMonster ("ZacBaby", pos.X + 2, pos.Y);
+			SpawnMonster ("ZacBaby", pos.X, pos.Y + 2);
 		}
 		else if (CheckTileIsNormal (pos.X - 2, pos.Y) && CheckTileIsNormal (pos.X, pos.Y - 2))
 		{
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X - 2, pos.Y);
-			SpawnMonster (PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster ("ZacBaby"), pos.X, pos.Y - 2);
+			SpawnMonster ("ZacBaby", pos.X - 2, pos.Y);
+			SpawnMonster ("ZacBaby", pos.X, pos.Y - 2);
 		}
     }
 }

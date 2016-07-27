@@ -52,10 +52,5 @@ public class ZacBabyMonster : Monster
 			CoolTime = 0;
 		}
 	}
-
-    protected override void WhenDestroyed()
-    {
-        base.WhenDestroyed();
-    }
 }
 

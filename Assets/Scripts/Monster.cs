@@ -7,8 +7,7 @@ using Utils;
 
 // Base monster class. Inherit from this when creating new monsters.
 
-[RequireComponent(typeof(Position))]
-public class Monster : MonoBehaviour
+public class Monster : GameEntity
 {
     public int MaxHealth;
     public int DamageToPlayer;
@@ -16,8 +15,6 @@ public class Monster : MonoBehaviour
     public TileColor monstersColor;
 
     public int Health;
-
-    public Position pos;
 
     public bool moveCancelled = false;
     protected bool applicationIsQuitting = false;
@@ -30,7 +27,7 @@ public class Monster : MonoBehaviour
 
     protected void Awake()
     {
-        pos = GetComponent<Position>();
+        base.Awake();
     }
 
     protected virtual void Start()
@@ -140,49 +137,5 @@ public class Monster : MonoBehaviour
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             return true;
         }
-    }
-
-    public Vector2i PlayerPos()
-    {
-        return GameStateManager.Instance.player.pos.GetVector2i();
-    }
-
-    public Vector2i DiffFromPlayer()
-    {
-        Vector2i playerPos = GameStateManager.Instance.player.pos.GetVector2i();
-        return playerPos - pos.GetVector2i();
-    }
-
-    public Direction DirectionFromPlayer()
-    {
-        return DirectionHelper.ToDirectionX(DiffFromPlayer());
-    }
-
-    public bool CheckTile(int x, int y, Predicate<TileData> predicate)
-    {
-        return predicate(TileManager.Instance.GetTileData(x, y));
-    }
-
-    public bool CheckTile(Vector2i pos, Predicate<TileData> predicate)
-    {
-        return predicate(TileManager.Instance.GetTileData(pos.x, pos.y));
-    }
-
-    public bool CheckTileIsNormal(int x, int y)
-    {
-        return CheckTile(x, y, tile => tile.type == TileType.Normal);
-    }
-
-    public void SpawnMonster(Monster monster, int x, int y)
-    {
-        GameStateManager.Instance.SpawnMonster(monster, x, y);
-    }
-    public void SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
-    {
-        GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
-    }
-    public void SpawnOrb(Orb orb, TileColor color, int x, int y)
-    {
-        GameStateManager.Instance.SpawnOrb(orb, color, x, y);
     }
 }

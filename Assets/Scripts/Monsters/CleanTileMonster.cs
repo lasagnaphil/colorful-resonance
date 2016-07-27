@@ -22,8 +22,8 @@ public class CleanTileMonster : Monster
                     if (CheckTileIsNormal(pos.X + 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
-                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
-                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (CheckOrbPosition(pos.X, pos.Y) == null)
+                            SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
                 else if (delta.x < 0)
@@ -31,8 +31,8 @@ public class CleanTileMonster : Monster
                     if (CheckTileIsNormal(pos.X - 1, pos.Y))
                     {
                         AnimatedMove(sequence, pos.X - 1, pos.Y);
-                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
-                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (CheckOrbPosition(pos.X, pos.Y) == null)
+                            SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
             }
@@ -43,8 +43,8 @@ public class CleanTileMonster : Monster
                     if (CheckTileIsNormal(pos.X, pos.Y + 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
-                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
-                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (CheckOrbPosition(pos.X, pos.Y) == null)
+                            SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
                 else if (delta.y < 0)
@@ -52,8 +52,8 @@ public class CleanTileMonster : Monster
                     if (CheckTileIsNormal(pos.X, pos.Y - 1))
                     {
                         AnimatedMove(sequence, pos.X, pos.Y - 1);
-                        if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
-                            TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
+                        if (CheckOrbPosition(pos.X, pos.Y) == null)
+                            SetTileColor(pos.X, pos.Y, TileColor.White);
                     }
                 }
             }

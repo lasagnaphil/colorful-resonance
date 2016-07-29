@@ -1,9 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using GameEditor;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -71,20 +68,20 @@ public class EditorUIManager : MonoBehaviour
             Monster monster = GameStateManager.Instance.CheckMonsterPosition(selectedTileCursor.pos);
             if (monster != null)
             {
-                DestroyImmediate(monster);
                 GameStateManager.Instance.RemoveMonster(monster);
+                Destroy(monster.gameObject);
             }
             Orb orb = GameStateManager.Instance.CheckOrbPosition(selectedTileCursor.pos);
             if (orb != null)
             {
-                DestroyImmediate(orb);
                 GameStateManager.Instance.RemoveOrb(orb);
+                Destroy(orb.gameObject);
             }
             Buttons.Button button = GameStateManager.Instance.buttons.Find(b => b.pos.GetVector2i() == selectedTileCursor.pos);
             if (button != null)
             {
-                DestroyImmediate(button);
                 GameStateManager.Instance.buttons.Remove(button);
+                Destroy(button.gameObject);
             }
         }
     }

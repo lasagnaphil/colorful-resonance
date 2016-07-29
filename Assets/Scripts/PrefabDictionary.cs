@@ -8,6 +8,7 @@ public class ButtonPrefabTuple
 {
     public string name;
     public Button buttonPrefab;
+    public Sprite sprite;
 }
 
 [System.Serializable]
@@ -18,6 +19,11 @@ public class ButtonPrefabDictionary
     public Button GetButton(string name)
     {
         return buttonPrefabTupleList.Find(x => x.name == name).buttonPrefab;
+    }
+
+    public Sprite GetSprite(string name)
+    {
+        return buttonPrefabTupleList.Find(x => x.name == name).sprite;
     }
 
     public Dictionary<string, Buttons.Button> ToDictionary()
@@ -31,6 +37,7 @@ public class MonsterPrefabTuple
 {
     public string name;
     public Monster monsterPrefab;
+    public Sprite sprite;
 }
 
 [System.Serializable]
@@ -42,6 +49,11 @@ public class MonsterPrefabDictionary
     public Monster GetMonster(string name)
     {
         return monsterPrefabTupleList.Find(x => x.name == name).monsterPrefab;
+    }
+
+    public Sprite GetSprite(string name)
+    {
+        return monsterPrefabTupleList.Find(x => x.name == name).sprite;
     }
 
     public Dictionary<string, Monster> ToDictionary()

@@ -23,10 +23,13 @@ namespace States
 
             gmsToDisable.Add(GameObject.Find("TurnNumberBackground"));
             gmsToDisable.Add(GameObject.Find("PlayerHealthImages"));
+
             foreach (var gm in gmsToDisable)
             {
                 gm.SetActive(false);
             }
+
+            gsm.inputManager.Enabled = false;
         }
 
         public void Update(GameStateManager gsm)
@@ -86,6 +89,8 @@ namespace States
                 gm.SetActive(true);
             }
             editorUIManager.gameObject.SetActive(false);
+
+            gsm.inputManager.Enabled = true;
         }
     }
 }

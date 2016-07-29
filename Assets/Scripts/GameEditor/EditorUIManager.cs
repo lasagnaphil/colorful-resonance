@@ -7,8 +7,6 @@ using UnityEngine.UI;
 using Utils;
 using UButton = UnityEngine.UI.Button;
 
-
-
 public class EditorUIManager : MonoBehaviour
 {
     public enum Mode
@@ -40,6 +38,8 @@ public class EditorUIManager : MonoBehaviour
     public Mode editorMode = Mode.Add;
     public ObjectType currentObjectType = ObjectType.Monster;
 
+    private GameStateManager gsm;
+
     void Awake()
     {
         leftPanelRect = GameObject.Find("LeftPanel").GetComponent<RectTransform>();
@@ -51,6 +51,8 @@ public class EditorUIManager : MonoBehaviour
         switchButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Switch));
         addButton.onClick.AddListener(() => editorMode = Mode.Add);
         removeButton.onClick.AddListener(() => editorMode = Mode.Remove);
+
+        gsm = GameStateManager.Instance;
     }
 
     void OnDisable()
@@ -65,22 +67,22 @@ public class EditorUIManager : MonoBehaviour
     {
         if (editorMode == Mode.Remove)
         {
-            Monster monster = GameStateManager.Instance.CheckMonsterPosition(selectedTileCursor.pos);
+            Monster monster = gsm.CheckMonsterPosition(selectedTileCursor.pos);
             if (monster != null)
             {
-                GameStateManager.Instance.RemoveMonster(monster);
+                gsm.RemoveMonster(monster);
                 Destroy(monster.gameObject);
             }
-            Orb orb = GameStateManager.Instance.CheckOrbPosition(selectedTileCursor.pos);
+            Orb orb = gsm.CheckOrbPosition(selectedTileCursor.pos);
             if (orb != null)
             {
-                GameStateManager.Instance.RemoveOrb(orb);
+                gsm.RemoveOrb(orb);
                 Destroy(orb.gameObject);
             }
-            Buttons.Button button = GameStateManager.Instance.buttons.Find(b => b.pos.GetVector2i() == selectedTileCursor.pos);
+            Buttons.Button button = gsm.buttons.Find(b => b.pos.GetVector2i() == selectedTileCursor.pos);
             if (button != null)
             {
-                GameStateManager.Instance.buttons.Remove(button);
+                gsm.buttons.Remove(button);
                 Destroy(button.gameObject);
             }
         }
@@ -124,9 +126,17 @@ public class EditorUIManager : MonoBehaviour
                 UButton button = CreateContentViewButton(() =>
                 {
                     if (editorMode == Mode.Add)
-                        GameStateManager.Instance.SpawnMonster(monster,
+                    {
+                        Monster existingMonster = gsm.CheckMonsterPosition(selectedTileCursor.pos);
+                        if (existingMonster != null)
+                        {
+                            Destroy(existingMonster.gameObject);
+                            gsm.RemoveMonster(existingMonster);
+                        }
+                        gsm.SpawnMonster(monster,
                             selectedTileCursor.pos.x,
                             selectedTileCursor.pos.y);
+                    }
                 });
                 button.GetComponentInChildren<Image>().sprite =
                     PrefabDictionary.Instance.monsterPrefabDictionary.GetSprite(name);
@@ -139,12 +149,21 @@ public class EditorUIManager : MonoBehaviour
 
             foreach (var color in colors)
             {
+                TileColor currentColor = color;
                 UButton button = CreateContentViewButton(() =>
                 {
                     if (editorMode == Mode.Add)
-                        GameStateManager.Instance.SpawnOrb(orbPrefab, color,
+                    {
+                        Orb existingOrb = gsm.CheckOrbPosition(selectedTileCursor.pos);
+                        if (existingOrb != null)
+                        {
+                            Destroy(existingOrb.gameObject);
+                            gsm.RemoveOrb(existingOrb);
+                        }
+                        gsm.SpawnOrb(orbPrefab, currentColor,
                             selectedTileCursor.pos.x,
                             selectedTileCursor.pos.y);
+                    }
                 });
                 button.GetComponentInChildren<Image>().sprite =
                     SpriteDictionary.Instance.orbSpriteDictionary.GetSprite(color);
@@ -158,8 +177,14 @@ public class EditorUIManager : MonoBehaviour
                 UButton button =
                     CreateContentViewButton(() =>
                     {
+                        Buttons.Button existingSwitch = gsm.buttons.Find(b => b.pos.GetVector2i() == selectedTileCursor.pos);
+                        if (existingSwitch)
+                        {
+                            Destroy(existingSwitch.gameObject);
+                            gsm.buttons.Remove(existingSwitch);
+                        }
                         if (editorMode == Mode.Add)
-                            GameStateManager.Instance.SpawnSwitch(switchPrefab, selectedTileCursor.pos.x,
+                            gsm.SpawnSwitch(switchPrefab, selectedTileCursor.pos.x,
                                 selectedTileCursor.pos.y);
                     });
                 button.GetComponentInChildren<Image>().sprite =

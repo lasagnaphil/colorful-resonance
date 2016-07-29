@@ -9,6 +9,7 @@ namespace States
         private Vector2 prevMousePos;
         private float dragScale = 0.01f;
         private float cameraMoveSpeed = 0.1f;
+        private float originalCameraSize;
 
         public EditorUIManager editorUIManager;
         private List<GameObject> gmsToDisable = new List<GameObject>();
@@ -30,6 +31,8 @@ namespace States
             }
 
             gsm.inputManager.Enabled = false;
+
+            originalCameraSize = gsm.camera.orthographicSize;
         }
 
         public void Update(GameStateManager gsm)
@@ -91,6 +94,8 @@ namespace States
             editorUIManager.gameObject.SetActive(false);
 
             gsm.inputManager.Enabled = true;
+
+            gsm.camera.orthographicSize = originalCameraSize;
         }
     }
 }

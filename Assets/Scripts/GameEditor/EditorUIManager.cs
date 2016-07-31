@@ -15,7 +15,7 @@ public class EditorUIManager : MonoBehaviour
     }
     public enum ObjectType
     {
-        Monster, Orb, Switch
+        Monster, Orb, Switch, Tile
     }
 
     public RectTransform leftPanelRect;
@@ -23,6 +23,7 @@ public class EditorUIManager : MonoBehaviour
     public UButton monsterButton;
     public UButton orbButton;
     public UButton switchButton;
+    public UButton tileButton;
     public UButton addButton;
     public UButton removeButton;
 
@@ -49,6 +50,7 @@ public class EditorUIManager : MonoBehaviour
         monsterButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Monster));
         orbButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Orb));
         switchButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Switch));
+        tileButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Tile));
         addButton.onClick.AddListener(() => editorMode = Mode.Add);
         removeButton.onClick.AddListener(() => editorMode = Mode.Remove);
 
@@ -138,8 +140,7 @@ public class EditorUIManager : MonoBehaviour
                             selectedTileCursor.pos.y);
                     }
                 });
-                button.GetComponentInChildren<Image>().sprite =
-                    PrefabDictionary.Instance.monsterPrefabDictionary.GetSprite(name);
+                button.GetComponent<Image>().sprite = monster.GetComponent<SpriteRenderer>().sprite;
             });
         }
         else if (objectType == ObjectType.Orb)
@@ -165,7 +166,7 @@ public class EditorUIManager : MonoBehaviour
                             selectedTileCursor.pos.y);
                     }
                 });
-                button.GetComponentInChildren<Image>().sprite =
+                button.GetComponent<Image>().sprite =
                     SpriteDictionary.Instance.orbSpriteDictionary.GetSprite(color);
             }
         }
@@ -187,8 +188,21 @@ public class EditorUIManager : MonoBehaviour
                             gsm.SpawnSwitch(switchPrefab, selectedTileCursor.pos.x,
                                 selectedTileCursor.pos.y);
                     });
-                button.GetComponentInChildren<Image>().sprite =
-                    PrefabDictionary.Instance.buttonPrefabDictionary.GetSprite(name);
+                button.GetComponent<Image>().sprite = switchPrefab.GetComponent<SpriteRenderer>().sprite;
+            });
+        }
+        else if (objectType == ObjectType.Tile)
+        {
+            var dict = SpriteDictionary.Instance.tileSpriteDictionary.ToDictionary();
+            dict.ForEach((tileData, tileSprite) =>
+            {
+                UButton button = CreateContentViewButton(() =>
+                {
+                    if (editorMode == Mode.Add)
+                        TileManager.Instance.SetTileData(selectedTileCursor.pos.x, selectedTileCursor.pos.y,
+                            tileData);
+                });
+                button.GetComponent<Image>().sprite = tileSprite;
             });
         }
     }

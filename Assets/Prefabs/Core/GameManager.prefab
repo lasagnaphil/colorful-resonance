@@ -1470,9 +1470,10 @@ MonoBehaviour:
   monsterButton: {fileID: 11474610}
   orbButton: {fileID: 11472444}
   switchButton: {fileID: 11473494}
+  tileButton: {fileID: 11445196}
   addButton: {fileID: 11414560}
   removeButton: {fileID: 11435016}
-  objectSelectButtonPrefab: {fileID: 11499708, guid: 4695997f7dbc40840b1ca2ad80feb6b4,
+  objectSelectButtonPrefab: {fileID: 11424318, guid: 4695997f7dbc40840b1ca2ad80feb6b4,
     type: 2}
   selectButtonWidth: 80
   scrollViewContent: {fileID: 190912}
@@ -1844,7 +1845,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: T
+  m_Text: Tile
 --- !u!114 &11446052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3133,7 +3134,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 22492054}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.8460177
+  m_Size: 0.7238938
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4008,8 +4009,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7, y: -123}
-  m_SizeDelta: {x: 284, y: 495}
+  m_AnchoredPosition: {x: 0.7, y: -88}
+  m_SizeDelta: {x: 284, y: 426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22442272
 RectTransform:

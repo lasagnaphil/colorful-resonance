@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -18,6 +19,11 @@ public class TileSpriteDictionary
     public Sprite GetSprite(TileData tileData)
     {
         return tupleList.Find(x => x.tileData == tileData).sprite;
+    }
+
+    public Dictionary<TileData, Sprite> ToDictionary()
+    {
+        return tupleList.ToDictionary(t => t.tileData, t => t.sprite);
     }
 }
 

@@ -61,8 +61,8 @@ MonoBehaviour:
   soundDataList:
   - soundEnum: 16
     audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
-    volume: 0.5
-  noOverlappingAudioClip: 0
+    volume: 1
+  noOverlappingAudioClip: 1
   easeType: 0
   easeDuration: 0
 --- !u!114 &11464872

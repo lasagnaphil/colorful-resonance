@@ -60,9 +60,10 @@ public class SoundManager : MonoBehaviour
         MonsterDie,
         TileActivate,
         Move1,
-        Move2,
-        Move3,
-        Move4
+        Green,
+        MonsterEmerge,
+        Shoot,
+        Wipe
     }
 
     /*

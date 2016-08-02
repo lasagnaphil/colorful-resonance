@@ -21,11 +21,12 @@ public class RainProjectile : Projectile
                     GameStateManager.Instance.CheckOrbPosition(pos.X - 1 + k, pos.Y - 1 + j) == null)
                 {
                     TileManager.Instance.SetTileColor(pos.X - 1 + k, pos.Y - 1 + j, BombColor);
+                    
                     Destroy(Instantiate(effectObject, TileManager.Instance.GetTile(pos.X - 1 + k, pos.Y - 1 + j).transform.position + new Vector3(0,0,-1), Quaternion.identity) as GameObject, 2);
                 }
             }
         }
-
+        soundmanager.Play(SoundManager.Sounds.Wipe);
         Destroy(gameObject);
     }
 }

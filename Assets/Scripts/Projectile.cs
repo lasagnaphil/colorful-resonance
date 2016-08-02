@@ -17,7 +17,7 @@ public class Projectile : GameEntity
 
     protected Vector2i prevPos;
     public bool updateDirection = true;
-
+    public SoundManager soundmanager;
     protected Player player;
 
     protected void Awake()
@@ -30,6 +30,7 @@ public class Projectile : GameEntity
         player = GameStateManager.Instance.player;
         GameStateManager.Instance.AddProjectile(this);
         GameStateManager.Instance.ProjectileTurns += OnTurnInternal;
+        soundmanager = GetComponent<SoundManager>();
     }
 
     private Sequence OnTurnInternal()

@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21260666}
   - 114: {fileID: 11422456}
   - 114: {fileID: 11496034}
+  - 114: {fileID: 11423394}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -27,6 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -45,6 +47,24 @@ MonoBehaviour:
   y: 3
   spriteLayer: 3
   z: 0
+--- !u!114 &11423394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundDataList:
+  - soundEnum: 16
+    audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
+    volume: 0.5
+  noOverlappingAudioClip: 0
+  easeType: 0
+  easeDuration: 0
 --- !u!114 &11496034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,15 +76,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f32783263e735b479c8395486015dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 1
   monstersColor: 3
   Health: 0
-  pos: {fileID: 0}
+  soundmanager: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
-  deathEffectObject: {fileID: 129912, guid: cd7342d016423445ea7e3022bc12e465, type: 2}
   RainProjectile: {fileID: 11454384, guid: 6cc5b47c3df40d746b4ee94de5534631, type: 2}
 --- !u!212 &21260666
 SpriteRenderer:

@@ -33,7 +33,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.x++;
                     else
                     {
-                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        player.soundmanager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -43,7 +43,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.x--;
                     else
                     {
-                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        player.soundmanager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -52,7 +52,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.y--;
                     else
                     {
-                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        player.soundmanager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -61,7 +61,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.y++;
                     else
                     {
-                        player.soundManager.Play(SoundManager.Sounds.Move1);
+                        player.soundmanager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -96,7 +96,7 @@ namespace InputManagement
                     else
                     {
                         //player.Blinkable = player.Difficulty;
-                        player.soundManager.Play(SoundManager.Sounds.Blink);
+                        GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
                     break;
@@ -108,7 +108,7 @@ namespace InputManagement
                     else
                     {
                         //player.Blinkable = player.Difficulty;
-                        player.soundManager.Play(SoundManager.Sounds.Blink);
+                        GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
                     break;
@@ -119,7 +119,7 @@ namespace InputManagement
                     else
                     {
                         //player.Blinkable = player.Difficulty;
-                        player.soundManager.Play(SoundManager.Sounds.Blink);
+                        GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
                     break;
@@ -130,7 +130,7 @@ namespace InputManagement
                     else
                     {
                         //player.Blinkable = player.Difficulty;
-                        player.soundManager.Play(SoundManager.Sounds.Blink);
+                        GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.Blink);
                         nextTurn = true;
                     }
                     break;

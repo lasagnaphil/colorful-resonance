@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
-    public SoundManager soundManager;
+    public SoundManager soundmanager;
 	public GameObject MobileTouchManager;
 
     public new Camera camera;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
-        soundManager = FindObjectOfType<SoundManager>();
+        soundmanager = GameStateManager.Instance.soundManager;
         arrowObjectDict = new Dictionary<Vector2i, GameObject>()
         {
             {new Vector2i(-3, 0), arrowObjects[0]},
@@ -138,15 +138,15 @@ public class Player : MonoBehaviour
             {
                 if (foundOrb.Color == TileColor.Red)
                 {
-                    soundManager.PlayBackground(SoundManager.Sounds.Red);
+                    soundmanager.PlayBackground(SoundManager.Sounds.Red);
                 }
                 else if (foundOrb.Color == TileColor.Blue)
                 {
-                    soundManager.PlayBackground(SoundManager.Sounds.Blue);
+                    soundmanager.PlayBackground(SoundManager.Sounds.Blue);
                 }
                 else if (foundOrb.Color == TileColor.Yellow)
                 {
-                    soundManager.PlayBackground(SoundManager.Sounds.Yellow);
+                    soundmanager.PlayBackground(SoundManager.Sounds.Yellow);
                 }
             }
             playerTileColor = foundOrb.Color;
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
         {
             bool fillingExecuted = tileManager.SetTileColorAndFill(x, y, playerTileColor);
-            if (fillingExecuted) soundManager.Play(SoundManager.Sounds.TileActivate);
+            if (fillingExecuted) soundmanager.Play(SoundManager.Sounds.TileActivate);
 
             tileManager.GetTile(x, y).PlaySubEffect();
         }
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         if (Health > 0) Health -= damage;
-        soundManager.Play(SoundManager.Sounds.Hit);
+        soundmanager.Play(SoundManager.Sounds.Hit);
     }
 
     public void RevertTurn()

@@ -82,7 +82,7 @@ public class MobMonster : Monster
             if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
             {
                 if (GetTileColor(pos.X, pos.Y) != TileColor.White)
-                    soundManager.Play(SoundManager.Sounds.Wipe);
+                    soundmanager.Play(SoundManager.Sounds.Wipe);
                 TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.White);
             }
             Cleaning = 0;

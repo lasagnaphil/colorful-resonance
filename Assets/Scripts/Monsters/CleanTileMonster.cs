@@ -25,7 +25,7 @@ public class CleanTileMonster : Monster
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
                         {
                             if (GetTileColor(pos.X, pos.Y) != TileColor.White)
-                                soundManager.Play(SoundManager.Sounds.Wipe);
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
                             
                         }
@@ -40,7 +40,7 @@ public class CleanTileMonster : Monster
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
                         {
                             if (GetTileColor(pos.X, pos.Y) != TileColor.White)
-                                soundManager.Play(SoundManager.Sounds.Wipe);
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
                             
                         }
@@ -58,7 +58,7 @@ public class CleanTileMonster : Monster
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
                         {
                             if (GetTileColor(pos.X, pos.Y) != TileColor.White)
-                                soundManager.Play(SoundManager.Sounds.Wipe);
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
                             
                         }
@@ -72,7 +72,7 @@ public class CleanTileMonster : Monster
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
                         {
                             if (GetTileColor(pos.X, pos.Y) != TileColor.White)
-                                soundManager.Play(SoundManager.Sounds.Wipe);
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);                         
                         }
                     }

@@ -10,7 +10,7 @@ public class HomingMissileMonster : Monster
     protected override void WhenDestroyed()
     {
         base.WhenDestroyed();
-        soundManager.Play(SoundManager.Sounds.Shoot);
+        soundmanager.Play(SoundManager.Sounds.Shoot);
         SpawnProjectile(HomingProjectile, pos.X, pos.Y, Direction.None);
     }
 }

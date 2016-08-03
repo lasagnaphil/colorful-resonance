@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21260666}
   - 114: {fileID: 11422456}
   - 114: {fileID: 11469192}
-  - 114: {fileID: 11480886}
   m_Layer: 0
   m_Name: Mob
   m_TagString: Untagged
@@ -64,27 +63,9 @@ MonoBehaviour:
   DamageToSelf: 0
   monstersColor: 3
   Health: 0
-  soundmanager: {fileID: 0}
+  soundManager: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
---- !u!114 &11480886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundDataList:
-  - soundEnum: 16
-    audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
-    volume: 0.5
-  noOverlappingAudioClip: 1
-  easeType: 0
-  easeDuration: 0
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

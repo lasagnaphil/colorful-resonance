@@ -30,6 +30,7 @@ public class RainMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        
         base.WhenDestroyed();
     }
 }

@@ -10,6 +10,7 @@ public class PaintProjectile : Projectile
     protected override void DestroyByCollision()
     {
         GameObject effectParticle = Instantiate(destroyEffectObject, transform.position + new Vector3(0,0,-5), Quaternion.identity) as GameObject;
+        soundManager.Play(SoundManager.Sounds.Explosion);
         effectParticle.GetComponent<ParticleSystem>().startSize = 6;
         Destroy(effectParticle, 2);
     }

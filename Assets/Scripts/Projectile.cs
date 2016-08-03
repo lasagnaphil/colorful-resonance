@@ -30,7 +30,7 @@ public class Projectile : GameEntity
         player = GameStateManager.Instance.player;
         GameStateManager.Instance.AddProjectile(this);
         GameStateManager.Instance.ProjectileTurns += OnTurnInternal;
-        soundmanager = GetComponent<SoundManager>();
+        soundmanager = GameStateManager.Instance.soundManager;
     }
 
     private Sequence OnTurnInternal()

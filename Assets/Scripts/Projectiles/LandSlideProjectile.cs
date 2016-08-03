@@ -18,7 +18,7 @@ public class LandSlideProjectile : Projectile
         {
             player.Health = 0;
         }
-
+        GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.Explosion);
         TileManager.Instance.SetTileColor(pos.X, pos.Y, TileColor.None);
         TileManager.Instance.SetTileType(pos.X, pos.Y, TileType.None);
 

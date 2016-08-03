@@ -20,7 +20,7 @@ public class HShooterMonster: Monster
         {
             Direction moveDir = isFacingRight ? Direction.Right : Direction.Left;
             SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
-            soundmanager.Play(SoundManager.Sounds.Shoot);
+            soundManager.Play(SoundManager.Sounds.Shoot);
             isFacingRight = !isFacingRight;
             shootTimer = 0;
         }

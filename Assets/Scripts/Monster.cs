@@ -15,7 +15,7 @@ public class Monster : GameEntity
     public TileColor monstersColor;
 
     public int Health;
-    public SoundManager soundmanager;
+    public SoundManager soundManager;
 
     public bool moveCancelled = false;
     protected bool applicationIsQuitting = false;
@@ -37,7 +37,7 @@ public class Monster : GameEntity
         GameStateManager.Instance.AddMonster(this);
         GameStateManager.Instance.MonsterTurns += OnTurnInternal;
         GameStateManager.Instance.MonsterResets += OnReset;
-        soundmanager = GetComponent<SoundManager>();
+        soundManager = GameStateManager.Instance.soundManager;
     }
 
     // Override this!!!

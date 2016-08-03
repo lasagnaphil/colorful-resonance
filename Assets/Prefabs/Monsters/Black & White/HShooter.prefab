@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21208718}
   - 114: {fileID: 11410468}
   - 114: {fileID: 11406136}
-  - 114: {fileID: 11495676}
   m_Layer: 0
   m_Name: HShooter
   m_TagString: Untagged
@@ -49,7 +48,7 @@ MonoBehaviour:
   DamageToSelf: 0
   monstersColor: 0
   Health: 0
-  soundmanager: {fileID: 0}
+  soundManager: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
   isFacingRight: 0
@@ -70,78 +69,6 @@ MonoBehaviour:
   y: 5
   spriteLayer: 3
   z: 0
---- !u!114 &11495676
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundDataList:
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  - soundEnum: 15
-    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
-    volume: 0.5
-  noOverlappingAudioClip: 1
-  easeType: 0
-  easeDuration: 0
 --- !u!212 &21208718
 SpriteRenderer:
   m_ObjectHideFlags: 1

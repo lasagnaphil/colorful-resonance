@@ -40,6 +40,7 @@ public class EditorUIManager : MonoBehaviour
 
 #region UtilPanelFields
     public GameObject editInfoGm;
+    public GameObject levelSelectGm;
     public InputField editInfoNameField;
     public InputField editInfoDescriptionField;
 
@@ -62,6 +63,17 @@ public class EditorUIManager : MonoBehaviour
         }
     }
 
+    private bool isSelectingLevel;
+    public bool IsSelectingLevel
+    {
+        get { return isSelectingLevel; }
+        set
+        {
+            isSelectingLevel = value;
+            levelSelectGm.SetActive(isSelectingLevel);
+        }
+    }
+
     private GameStateManager gsm;
 
     void Awake()
@@ -78,7 +90,9 @@ public class EditorUIManager : MonoBehaviour
         removeButton.onClick.AddListener(() => editorMode = Mode.Remove);
 
         editInfoButton.onClick.AddListener(() => IsEditingInfo = !IsEditingInfo);
+        loadButton.onClick.AddListener(() => IsSelectingLevel = !IsSelectingLevel);
         IsEditingInfo = false;
+        IsSelectingLevel = false;
 
         gsm = GameStateManager.Instance;
     }

@@ -54,6 +54,8 @@ namespace States
             editorUIManager = gsm.editorUIManager;
             editorUIManager.gameObject.SetActive(true);
 
+            editorUIManager.saveButton.onClick.AddListener(() => Save(gsm));
+
             gmsToDisable.Add(GameObject.Find("TurnNumberBackground"));
             gmsToDisable.Add(GameObject.Find("PlayerHealthImages"));
 
@@ -121,6 +123,10 @@ namespace States
             {
                 Save(gsm);
             }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Load(gsm);
+            }
         }
 
         public void Save(GameStateManager gsm)
@@ -183,7 +189,6 @@ namespace States
 
             string jsonData = JsonHelper.Serialize<MapData>(mapData);
             System.IO.File.WriteAllText(Application.dataPath + "/Maps/" + mapData.name + ".json", jsonData);
-            Load(gsm);
         }
 
         public void Load(GameStateManager gsm)

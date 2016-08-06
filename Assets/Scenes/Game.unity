@@ -5319,6 +5319,8 @@ MonoBehaviour:
   hoverTileCursor: {fileID: 22977621}
   selectedTileCursor: {fileID: 22977620}
   editInfoGm: {fileID: 813633383}
+  editInfoNameField: {fileID: 1837034823}
+  editInfoDescriptionField: {fileID: 1291335959}
   editInfoButton: {fileID: 14553346}
   loadButton: {fileID: 1324188147}
   saveButton: {fileID: 1183607461}

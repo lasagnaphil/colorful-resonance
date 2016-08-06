@@ -40,6 +40,8 @@ public class EditorUIManager : MonoBehaviour
 
 #region UtilPanelFields
     public GameObject editInfoGm;
+    public InputField editInfoNameField;
+    public InputField editInfoDescriptionField;
 
     public UButton editInfoButton;
     public UButton loadButton;
@@ -79,6 +81,12 @@ public class EditorUIManager : MonoBehaviour
         IsEditingInfo = false;
 
         gsm = GameStateManager.Instance;
+    }
+
+    void Start()
+    {
+        editInfoNameField.text = gsm.mapLoader.mapToLoad;
+        editInfoDescriptionField.text = "(currently unimplemented)";
     }
 
     void OnDisable()

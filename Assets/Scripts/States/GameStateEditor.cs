@@ -132,7 +132,8 @@ namespace States
             
             MapData mapData = new MapData();
 
-            mapData.name = mapLoader.mapToLoad;
+            mapData.name = editorUIManager.editInfoNameField.text;
+            // mapData.comment = editorUIManager.editInfoDescriptionText.text;
             mapData.winCondition = gsm.mapData.winCondition;
             mapData.width = width;
             mapData.height = height;

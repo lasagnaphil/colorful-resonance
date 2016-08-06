@@ -9,6 +9,7 @@ namespace States
         private Vector2 prevMousePos;
         private float dragScale = 0.01f;
         private float cameraMoveSpeed = 0.1f;
+        private float originalCameraSize;
 
         public EditorUIManager editorUIManager;
         private List<GameObject> gmsToDisable = new List<GameObject>();
@@ -23,10 +24,15 @@ namespace States
 
             gmsToDisable.Add(GameObject.Find("TurnNumberBackground"));
             gmsToDisable.Add(GameObject.Find("PlayerHealthImages"));
+
             foreach (var gm in gmsToDisable)
             {
                 gm.SetActive(false);
             }
+
+            gsm.inputManager.Enabled = false;
+
+            originalCameraSize = gsm.camera.orthographicSize;
         }
 
         public void Update(GameStateManager gsm)
@@ -86,6 +92,10 @@ namespace States
                 gm.SetActive(true);
             }
             editorUIManager.gameObject.SetActive(false);
+
+            gsm.inputManager.Enabled = true;
+
+            gsm.camera.orthographicSize = originalCameraSize;
         }
     }
 }

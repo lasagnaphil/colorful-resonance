@@ -49,6 +49,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public GameObject monsterHolderObject;
     public GameObject projectileHolderObject;
     public GameObject orbHolderObject;
+    public GameObject buttonHolderObject;
+
     // We won't be using holder gameobjects for the buttons;
     // then we would have to add the object into every scene that we have made manually
     // public GameObject buttonHolderObject;
@@ -276,7 +278,7 @@ public class GameStateManager : Singleton<GameStateManager>
         if (buttonPrefab != null)
         {
             Buttons.Button button = Instantiate(buttonPrefab);
-            button.transform.parent = buttonPrefab.transform;
+            button.transform.parent = buttonHolderObject.transform;
             button.pos.Set(x, y);
         }
         else
@@ -293,17 +295,14 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         return projectiles.Find(projectile => projectile.pos.X == x && projectile.pos.Y == y);
     }
-
     public Projectile CheckProjectilePosition(Vector2i pos)
     {
         return CheckProjectilePosition(pos.x, pos.y);
     }
-
     public Orb CheckOrbPosition(int x, int y)
     {
         return orbs.Find(orb => orb.pos.X == x && orb.pos.Y == y);
     }
-
     public Orb CheckOrbPosition(Vector2i pos)
     {
         return CheckOrbPosition(pos.x, pos.y);

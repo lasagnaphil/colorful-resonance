@@ -105,6 +105,7 @@ MonoBehaviour:
     x: 0
     y: 0
   camera: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!114 &11416054
 MonoBehaviour:
   m_ObjectHideFlags: 1

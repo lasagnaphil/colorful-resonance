@@ -27,8 +27,8 @@ public class GameStateManager : Singleton<GameStateManager>
     public bool IsLoading = false;
 
     public List<Monster> monsters = new List<Monster>();
-    private List<Projectile> projectiles = new List<Projectile>();
-    private List<Orb> orbs = new List<Orb>();
+    public List<Projectile> projectiles = new List<Projectile>();
+    public List<Orb> orbs = new List<Orb>();
     public List<Buttons.Button> buttons = new List<Buttons.Button>();
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
 

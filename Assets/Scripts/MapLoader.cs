@@ -9,7 +9,17 @@ public class MapLoader : MonoBehaviour
 {
     public Player player;
 
-    public string mapToLoad;
+    [SerializeField] private string mapToLoad;
+    public string MapToLoad
+    {
+        get { return mapToLoad; }
+        set
+        {
+            mapToLoad = value;
+            mapIndex = FindLevelIndexByName(mapToLoad);
+        }
+    }
+
     public int mapIndex;
     public List<TextAsset> mapAssetList;
     private MapData mapDataToLoad;
@@ -52,7 +62,7 @@ public class MapLoader : MonoBehaviour
             {'G', new TileData(TileColor.Green, TileType.Wall)}
         };
 
-        mapIndex = FindLevelIndexByName(mapToLoad);
+        mapIndex = FindLevelIndexByName(MapToLoad);
         // mapDataToLoad = JsonHelper.Deserialize<MapData>(mapAssetList[mapIndex].text);
     }
 
@@ -61,7 +71,7 @@ public class MapLoader : MonoBehaviour
         int index;
         for (index = 0; index < mapAssetList.Count; index++)
         {
-            if (mapAssetList[index].name == mapToLoad) return index;
+            if (mapAssetList[index].name == MapToLoad) return index;
         }
         Debug.Log("Cannot find level with name \"" + mapName + "\"");
         return -1;
@@ -75,7 +85,7 @@ public class MapLoader : MonoBehaviour
             Debug.Log("This is the last level! Reloading the same level again.");
         }
         else mapIndex++;
-        mapToLoad = mapAssetList[mapIndex].name;
+        MapToLoad = mapAssetList[mapIndex].name;
     }
 
     public void SetLevelToPrevious()
@@ -85,7 +95,7 @@ public class MapLoader : MonoBehaviour
             Debug.Log("This is the first level! Reloading the same level again.");
         }
         else mapIndex--;
-        mapToLoad = mapAssetList[mapIndex].name;
+        MapToLoad = mapAssetList[mapIndex].name;
     }
 
     public void InitializeTileArray(ref Tile[,] tiles, int width, int height)

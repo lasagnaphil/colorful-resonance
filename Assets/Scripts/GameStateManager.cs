@@ -105,8 +105,8 @@ public class GameStateManager : Singleton<GameStateManager>
         // so load the current map name from it
         if (levelInfoSender != null)
         {
-            mapLoader.mapToLoad = levelInfoSender.levelName;
-            mapLoader.mapIndex = mapLoader.FindLevelIndexByName(mapLoader.mapToLoad);
+            mapLoader.MapToLoad = levelInfoSender.levelName;
+            mapLoader.mapIndex = mapLoader.FindLevelIndexByName(mapLoader.MapToLoad);
         }
 
         ChangeState<GameStateLoad>();

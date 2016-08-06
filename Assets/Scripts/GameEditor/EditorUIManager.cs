@@ -1,7 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using GameEditor;
+using States;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Utils;
@@ -41,8 +44,13 @@ public class EditorUIManager : MonoBehaviour
 #region UtilPanelFields
     public GameObject editInfoGm;
     public GameObject levelSelectGm;
+
     public InputField editInfoNameField;
     public InputField editInfoDescriptionField;
+
+    public GameObject levelSelectContentGm;
+    public GameObject levelSelectButtonPrefab;
+    private List<UButton> levelSelectButtons = new List<UButton>();
 
     public UButton editInfoButton;
     public UButton loadButton;
@@ -71,6 +79,12 @@ public class EditorUIManager : MonoBehaviour
         {
             isSelectingLevel = value;
             levelSelectGm.SetActive(isSelectingLevel);
+            if (isSelectingLevel) CreateLevelSelectButtons();
+            else
+            {
+                levelSelectButtons.ForEach(b => Destroy(b.gameObject));
+                levelSelectButtons.Clear();
+            }
         }
     }
 
@@ -99,7 +113,7 @@ public class EditorUIManager : MonoBehaviour
 
     void Start()
     {
-        editInfoNameField.text = gsm.mapLoader.mapToLoad;
+        editInfoNameField.text = gsm.mapLoader.MapToLoad;
         editInfoDescriptionField.text = "(currently unimplemented)";
     }
 
@@ -263,5 +277,24 @@ public class EditorUIManager : MonoBehaviour
         button.transform.localPosition = new Vector2(x + 0.6f, -y - 0.6f) * selectButtonWidth;
         scrollViewButtons.Add(button);
         return button;
+    }
+
+    private void CreateLevelSelectButtons()
+    {
+        string[] files = Directory.GetFiles(Application.dataPath + "/Maps", "*.json", SearchOption.TopDirectoryOnly)
+            .Select(str => Path.GetFileName(str)).ToArray();
+        levelSelectButtons = files.Select(filename =>
+        {
+            string levelName = filename.Replace(".json", "");
+            UButton button = Instantiate(levelSelectButtonPrefab).GetComponent<UButton>();
+            button.transform.parent = levelSelectContentGm.transform;
+            button.GetComponentInChildren<Text>().text = levelName;
+            button.onClick.AddListener(() =>
+            {
+                gsm.mapLoader.MapToLoad = levelName;
+                gsm.ChangeState<GameStateLoad>();
+            });
+            return button;
+        }).ToList();
     }
 }

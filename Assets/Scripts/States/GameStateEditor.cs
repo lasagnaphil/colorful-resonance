@@ -69,7 +69,8 @@ namespace States
 
         public void Update(GameStateManager gsm)
         {
-            InputUpdate(gsm);
+            if (!editorUIManager.IsEditingInfo)
+                InputUpdate(gsm);
         }
 
         public void InputUpdate(GameStateManager gsm)

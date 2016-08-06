@@ -20,6 +20,7 @@ public class EditorUIManager : MonoBehaviour
 
     public RectTransform leftPanelRect;
 
+#region LeftPanelFields
     public UButton monsterButton;
     public UButton orbButton;
     public UButton switchButton;
@@ -35,9 +36,29 @@ public class EditorUIManager : MonoBehaviour
 
     public HoverTileCursor hoverTileCursor;
     public SelectedTileCursor selectedTileCursor;
+#endregion
+
+#region UtilPanelFields
+    public GameObject editInfoGm;
+
+    public UButton editInfoButton;
+    public UButton loadButton;
+    public UButton saveButton;
+#endregion
 
     public Mode editorMode = Mode.Add;
     public ObjectType currentObjectType = ObjectType.Monster;
+
+    private bool isEditingInfo;
+    public bool IsEditingInfo
+    {
+        get { return isEditingInfo; }
+        set
+        {
+            isEditingInfo = value;
+            editInfoGm.SetActive(isEditingInfo);
+        }
+    }
 
     private GameStateManager gsm;
 
@@ -53,6 +74,9 @@ public class EditorUIManager : MonoBehaviour
         tileButton.onClick.AddListener(() => UpdateScrollViewContent(ObjectType.Tile));
         addButton.onClick.AddListener(() => editorMode = Mode.Add);
         removeButton.onClick.AddListener(() => editorMode = Mode.Remove);
+
+        editInfoButton.onClick.AddListener(() => IsEditingInfo = !IsEditingInfo);
+        IsEditingInfo = false;
 
         gsm = GameStateManager.Instance;
     }

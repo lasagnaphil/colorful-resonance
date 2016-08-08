@@ -23,7 +23,6 @@ public class RainMonster : Monster
             Height = TileManager.Instance.height;
 
             Vector2i spawnPoint = PlayerPos();
-
             SpawnProjectile(RainProjectile, spawnPoint.x, spawnPoint.y, Direction.None);
             RainCoolTime = 0;
         }
@@ -31,6 +30,7 @@ public class RainMonster : Monster
 
     protected override void WhenDestroyed()
     {
+        
         base.WhenDestroyed();
     }
 }

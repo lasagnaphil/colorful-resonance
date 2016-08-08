@@ -8,7 +8,7 @@ public class SoundData
     public SoundManager.Sounds soundEnum;
     public AudioClip audioClip;
     [Range(0.0f, 1.0f)]
-    public float volume = 1.0f;
+    public float volume = 0.5f;
 }
 
 public class AudioSourceData
@@ -60,9 +60,10 @@ public class SoundManager : MonoBehaviour
         MonsterDie,
         TileActivate,
         Move1,
-        Move2,
-        Move3,
-        Move4
+        Green,
+        MonsterEmerge,
+        Shoot,
+        Wipe
     }
 
     /*

@@ -5,6 +5,7 @@
 public class MapData
 {
     public string name;
+    public string comment;
     public WinCondition winCondition;
     public int width;
     public int height;

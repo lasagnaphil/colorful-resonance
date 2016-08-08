@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,15 +57,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569ca7aff58b9fc4b94ea54af6e5fa5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {fileID: 0}
   MaxHealth: 1
   DamageToPlayer: 1
   DamageToSelf: 0
   monstersColor: 3
   Health: 0
-  pos: {fileID: 0}
+  soundManager: {fileID: 0}
   moveCancelled: 0
   destroyed: 0
-  deathEffectObject: {fileID: 129912, guid: 1fcbc208a34874260abb0fd9286585d9, type: 2}
 --- !u!212 &21260666
 SpriteRenderer:
   m_ObjectHideFlags: 1

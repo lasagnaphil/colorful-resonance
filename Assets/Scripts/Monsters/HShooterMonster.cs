@@ -6,7 +6,7 @@ using Utils;
 public class HShooterMonster: Monster
 {
     public bool isFacingRight = false;
-
+    
     public Projectile projectilePrefab;
 
     private int shootTimer = 0;
@@ -20,6 +20,7 @@ public class HShooterMonster: Monster
         {
             Direction moveDir = isFacingRight ? Direction.Right : Direction.Left;
             SpawnProjectile(projectilePrefab, pos.X, pos.Y, moveDir);
+            soundmanager.Play(SoundManager.Sounds.Shoot);
             isFacingRight = !isFacingRight;
             shootTimer = 0;
         }

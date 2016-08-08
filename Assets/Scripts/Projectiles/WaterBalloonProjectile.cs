@@ -19,7 +19,11 @@ public class WaterBalloonProjectile : Projectile
     protected override void OnTurn(Sequence sequence)
     {
         if (GameStateManager.Instance.CheckOrbPosition(pos.X, pos.Y) == null)
+        {
             TileManager.Instance.SetTileColor(pos.X, pos.Y, BombColor);
+            soundmanager.Play(SoundManager.Sounds.Wipe);
+        }
+            
 
         // if (Mathf.Abs(deltaX) == 0 && Mathf.Abs(deltaY) == 0)
         // {

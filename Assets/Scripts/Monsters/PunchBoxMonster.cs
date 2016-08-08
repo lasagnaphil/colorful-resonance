@@ -20,6 +20,7 @@ public class PunchBoxMonster : Monster
             GetComponent<SpriteRenderer>().sprite = PunchBox;
             MaxHealth = 1;
             Health = 1;
+            GameStateManager.Instance.soundManager.Play(SoundManager.Sounds.MonsterEmerge);
         }
 
         if (state == 2)

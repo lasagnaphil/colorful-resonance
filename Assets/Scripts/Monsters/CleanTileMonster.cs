@@ -23,7 +23,13 @@ public class CleanTileMonster : Monster
                     {
                         AnimatedMove(sequence, pos.X + 1, pos.Y);
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
+                        {
+                            if (GetTileColor(pos.X, pos.Y) != TileColor.White)
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
+                            
+                        }
+                            
                     }
                 }
                 else if (delta.x < 0)
@@ -32,7 +38,13 @@ public class CleanTileMonster : Monster
                     {
                         AnimatedMove(sequence, pos.X - 1, pos.Y);
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
+                        {
+                            if (GetTileColor(pos.X, pos.Y) != TileColor.White)
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
+                            
+                        }
+                            
                     }
                 }
             }
@@ -44,7 +56,12 @@ public class CleanTileMonster : Monster
                     {
                         AnimatedMove(sequence, pos.X, pos.Y + 1);
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
+                        {
+                            if (GetTileColor(pos.X, pos.Y) != TileColor.White)
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
                             SetTileColor(pos.X, pos.Y, TileColor.White);
+                            
+                        }
                     }
                 }
                 else if (delta.y < 0)
@@ -53,7 +70,11 @@ public class CleanTileMonster : Monster
                     {
                         AnimatedMove(sequence, pos.X, pos.Y - 1);
                         if (CheckOrbPosition(pos.X, pos.Y) == null)
-                            SetTileColor(pos.X, pos.Y, TileColor.White);
+                        {
+                            if (GetTileColor(pos.X, pos.Y) != TileColor.White)
+                                soundmanager.Play(SoundManager.Sounds.Wipe);
+                            SetTileColor(pos.X, pos.Y, TileColor.White);                         
+                        }
                     }
                 }
             }

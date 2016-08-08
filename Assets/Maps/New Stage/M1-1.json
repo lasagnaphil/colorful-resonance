@@ -1,0 +1,29 @@
+{
+  "name": "Escape",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 10, "y": 0},
+  "comment": "Escape from Monster",
+
+  "width": 11,
+  "height": 10,
+  "tiles": [
+            "w L W L W L W L W L W",
+            "l w l w L w l w L W L",
+            "w L W l W l W l w l w",
+            "l W l w L w l w l W l",
+            "w L W L W L w l W l w",
+	    	    "l w L w l W l W l w L",
+            "W l W l W L w L w L w",
+            "l w l w L w l W l w l",
+            "w L W L W l w L w L W",
+	    	    "l w l w l w L w l w l"
+            ],
+  "background": "gray",
+  "playerData": {
+    "position" : {"x": 0, "y": 9}
+  },
+  "monsters": [
+  ],
+  "orbs": [
+  ]
+}

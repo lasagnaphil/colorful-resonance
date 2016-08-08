@@ -15,9 +15,8 @@ public class BlinkMonster : Monster
 
     protected override void OnTurn(Sequence sequence)
     {
-        // Question : Why is there -1 in this equation?
-        deltaX = DiffFromPlayer().x - pos.X;
-        deltaY = DiffFromPlayer().y - pos.Y;
+        deltaX = DiffFromPlayer().x;
+        deltaY = DiffFromPlayer().y;
 
         sr = gameObject.GetComponent<SpriteRenderer>();
         if (CoolTime == 0)
@@ -39,23 +38,6 @@ public class BlinkMonster : Monster
                 {
                     if (deltaX < 3)
                     {
-                        if (CheckTileIsNormal(pos.X + 1, pos.Y))
-                        {
-                            AnimatedMove(sequence, pos.X + 1, pos.Y);
-                        }
-                    }
-                    else
-                    {
-                        if (CheckTileIsNormal(pos.X + 3, pos.Y))
-                        {
-                            AnimatedMove(sequence, pos.X + 3, pos.Y);
-                        }
-                    }
-                }
-                else if (deltaX < 0)
-                {
-                    if (deltaX > -3)
-                    {
                         if (CheckTileIsNormal(pos.X - 1, pos.Y))
                         {
                             AnimatedMove(sequence, pos.X - 1, pos.Y);
@@ -69,29 +51,29 @@ public class BlinkMonster : Monster
                         }
                     }
                 }
+                else if (deltaX < 0)
+                {
+                    if (deltaX > -3)
+                    {
+                        if (CheckTileIsNormal(pos.X + 1, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X + 1, pos.Y);
+                        }
+                    }
+                    else
+                    {
+                        if (CheckTileIsNormal(pos.X + 3, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X + 3, pos.Y);
+                        }
+                    }
+                }
             }
             else
             {
                 if (deltaY > 0)
                 {
                     if (deltaY < 3)
-                    {
-                        if (CheckTileIsNormal(pos.X, pos.Y + 1))
-                        {
-                            AnimatedMove(sequence, pos.X, pos.Y + 1);
-                        }
-                    }
-                    else
-                    {
-                        if (CheckTileIsNormal(pos.X, pos.Y + 3))
-                        {
-                            AnimatedMove(sequence, pos.X, pos.Y + 3);
-                        }
-                    }
-                }
-                else if (deltaY < 0)
-                {
-                    if (deltaY > -3)
                     {
                         if (CheckTileIsNormal(pos.X, pos.Y - 1))
                         {
@@ -103,6 +85,23 @@ public class BlinkMonster : Monster
                         if (CheckTileIsNormal(pos.X, pos.Y - 3))
                         {
                             AnimatedMove(sequence, pos.X, pos.Y - 3);
+                        }
+                    }
+                }
+                else if (deltaY < 0)
+                {
+                    if (deltaY > -3)
+                    {
+                        if (CheckTileIsNormal(pos.X, pos.Y + 1))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y + 1);
+                        }
+                    }
+                    else
+                    {
+                        if (CheckTileIsNormal(pos.X, pos.Y + 3))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y + 3);
                         }
                     }
                 }

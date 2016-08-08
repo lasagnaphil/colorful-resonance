@@ -9,14 +9,14 @@
             "l L L l W w L w w l w . . . . . . . .",
             "l L l l W w w L w W l . . . . . . . .",
             "l L L L L L w w L w l . . . . . . . .",
-	    	"w w L l l W w L w l W . . . . . . . .",
+	    	    "w w L l l W w L w l W . . . . . . . .",
             "W w L l W W w L w W l . . . . . . . .",
             "l l l l W w l L w l l . . . . . . . .",
             "l W W W W w L L w W W . . . . . . . .",
-	    	"l l l l l w L w l l l . . w w w w w w",
-	       	". . . . . . . . . . w w w w W W W W L",
-	   	    ". . . . . . . . . . . . . L W w w W L",
-	    	". . . . . . . . . . . . . L L L L L L"
+	    	    "l l l l l w L w l l l . . w w w w w w",
+	       	  ". . . . . . . . . . w w w w W W W W L",
+	   	     	". . . . . . . . . . . . . L W w w W L",
+	    	    ". . . . . . . . . . . . . L L L L L L"
             ],
   "background": "gray",
   "playerData": {

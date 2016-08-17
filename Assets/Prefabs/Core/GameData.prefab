@@ -192,6 +192,11 @@ MonoBehaviour:
   orbPrefab: {fileID: 11483124, guid: 46c16c24e6e29ea448548dcd1ec29f84, type: 2}
   escapeTeleporterPrefab: {fileID: 11437468, guid: 18c943f7a23586e418f9f1e22ee892ce,
     type: 2}
+  bossPrefabDict:
+    bossPrefabTupleList:
+    - name: TestBoss
+      bossPrefab: {fileID: 114000010510623768, guid: 245872f517fca6a4998839e69051ee3c,
+        type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

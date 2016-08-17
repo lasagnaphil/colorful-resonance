@@ -5,13 +5,8 @@ using UnityEngine;
 
 public class BigMonster : Monster
 {
-    private List<Vector2i> collider = new List<Vector2i>();
+    protected List<Vector2i> collider = new List<Vector2i>();
     private List<Vector2i> currentArea = new List<Vector2i>();
-
-    public void SetCollider(List<Vector2i> collider)
-    {
-        this.collider = collider;
-    }
 
     public bool Contains(Vector2i position)
     {

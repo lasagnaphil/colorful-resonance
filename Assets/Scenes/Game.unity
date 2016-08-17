@@ -443,6 +443,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.size
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011402318526, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -595,6 +600,11 @@ Prefab:
       propertyPath: mapToLoad
       value: 1-05
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[10]
+      value: 
+      objectReference: {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0

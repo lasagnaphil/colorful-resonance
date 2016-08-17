@@ -50,6 +50,24 @@ public class MonsterPrefabDictionary
     }
 }
 
+[System.Serializable]
+public class BossPrefabTuple
+{
+    public string name;
+    public BigMonster bossPrefab;
+}
+
+[System.Serializable]
+public class BossPrefabDictionary
+{
+    [SerializeField] private List<BossPrefabTuple> bossPrefabTupleList;
+
+    public BigMonster GetBoss(string name)
+    {
+        return bossPrefabTupleList.Find(x => x.name == name).bossPrefab;
+    }
+}
+
 public class PrefabDictionary : Singleton<PrefabDictionary>
 {
     public MonsterPrefabDictionary monsterPrefabDictionary;
@@ -57,4 +75,6 @@ public class PrefabDictionary : Singleton<PrefabDictionary>
     public Tile tilePrefab;
     public Orb orbPrefab;
     public EscapeTeleporter escapeTeleporterPrefab;
+
+    public BossPrefabDictionary bossPrefabDict;
 }

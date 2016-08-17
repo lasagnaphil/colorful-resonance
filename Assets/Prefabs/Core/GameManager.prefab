@@ -76,6 +76,11 @@ MonoBehaviour:
     monsters: []
     orbs: []
     buttons: []
+    boss:
+      name: 
+      position:
+        x: 0
+        y: 0
   player: {fileID: 0}
   numOfTurnsToSurvive: 0
   monsterHolderObject: {fileID: 0}

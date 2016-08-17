@@ -13,13 +13,16 @@ public class ZacBabyMonster : Monster
 
     public override void Setup(object[] args)
     {
-        if (args.Length != 1)
+        if (args.Length > 1)
         {
             Debug.LogError("Parameter mismatch in ZacBabyMonster!");
             return;
         }
-        Direction? dir = args[0] as Direction?;
-        if (dir.HasValue) firstMoveDir = dir.Value;
+        if (args.Length == 1)
+        {
+            Direction? dir = args[0] as Direction?;
+            if (dir.HasValue) firstMoveDir = dir.Value;
+        }
     }
 	protected override void OnTurn(Sequence sequence)
 	{

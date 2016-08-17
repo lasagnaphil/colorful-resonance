@@ -63,14 +63,11 @@ public class GameEntity : MonoBehaviour
         return GameStateManager.Instance.SpawnMonster(monster, vec.x, vec.y);
     }
 
-    protected Monster SpawnMonster(string name, int x, int y)
+    protected Monster SpawnMonster(string name, Vector2i vec, params object[] args)
     {
-        return SpawnMonster(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(name), x, y);
-    }
-
-    protected Monster SpawnMonster(string name, Vector2i vec)
-    {
-        return SpawnMonster(name, vec.x, vec.y);
+        Monster monster = SpawnMonster(name, vec);
+        monster.Setup(args);
+        return monster;
     }
 
     protected Monster SpawnMonster(string name, int x, int y, params object[] args)
@@ -78,11 +75,6 @@ public class GameEntity : MonoBehaviour
         Monster monster = SpawnMonster(name, x, y);
         monster.Setup(args);
         return monster;
-    }
-
-    protected Projectile SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
-    {
-        return GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
     }
 
     protected Projectile SpawnProjectile(Projectile projectile, int x, int y, Direction dir, params object[] args)
@@ -147,5 +139,4 @@ public class GameEntity : MonoBehaviour
     {
         TileManager.Instance.SetTileData(x, y, data);
     }
-
 }

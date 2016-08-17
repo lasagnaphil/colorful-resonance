@@ -162,6 +162,7 @@ public class MapLoader : MonoBehaviour
                 continue;
             }
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
+            monster.Setup();
             monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);
         }
@@ -197,6 +198,14 @@ public class MapLoader : MonoBehaviour
                 wallToggleLever.wallTogglePos = new Vector2i(buttonData.togglePosition);
                 wallToggleLever.isWallOnButtonOff = buttonData.isWallOnButtonOff;
             }
+        }
+
+        // Load the boss monster (if there is one)
+        if (mapDataToLoad.boss != null)
+        {
+            var bossMonster = Instantiate(PrefabDictionary.Instance.bossPrefabDict.GetBoss("TestBoss"));
+            bossMonster.Setup();
+            bossMonster.pos.Set(mapDataToLoad.boss.position);
         }
     }
 }

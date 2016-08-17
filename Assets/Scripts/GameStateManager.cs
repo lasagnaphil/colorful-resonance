@@ -221,7 +221,13 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public Monster CheckMonsterPosition(int x, int y)
     {
-        return monsters.Find(monster => monster.pos.X == x && monster.pos.Y == y);
+        return monsters.Find(monster =>
+        {
+            if (monster is BigMonster)
+                return ((BigMonster) monster).Contains(new Vector2i(x, y));
+            else
+                return monster.pos.X == x && monster.pos.Y == y;
+        });
     }
 
     public Monster CheckMonsterPosition(Vector2i pos)

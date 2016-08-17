@@ -31,13 +31,19 @@ public class MapDataConverter : fsDirectConverter<MapData>
         {
             serialized["winCondition"] = new fsData("Survival");
             SerializeMember(serialized, null, "numOfTurnsToWin",
-                (mapData.winCondition as SurvivalWinCondition).numOfTurns);
+                ((SurvivalWinCondition) mapData.winCondition).numOfTurns);
         }
         else if (mapData.winCondition is EscapeWinCondition)
         {
             serialized["winCondition"] = new fsData("Escape");
             SerializeMember(serialized, null, "escapePosition",
-                (mapData.winCondition as EscapeWinCondition).escapePosition);
+                ((EscapeWinCondition) mapData.winCondition).escapePosition);
+        }
+        else if (mapData.winCondition is KeyUnlockWinCondition)
+        {
+            serialized["winCondition"] = new fsData("KeyUnlock");
+            SerializeMember(serialized, null, "keyUnlockPosition",
+                ((KeyUnlockWinCondition) mapData.winCondition).keyUnlockPosition);
         }
 
         SerializeMember(serialized, null, "width", mapData.width);
@@ -96,6 +102,11 @@ public class MapDataConverter : fsDirectConverter<MapData>
                     Vector2i escapePos;
                     if ((result += DeserializeMember(data, null, "escapePosition", out escapePos)).Failed) return result;
                     mapData.winCondition = new EscapeWinCondition(escapePos);
+                    break;
+                case "KeyUnlock":
+                    Vector2i keyUnlockPos;
+                    if ((result += DeserializeMember(data, null, "keyUnlockPosition", out keyUnlockPos)).Failed) return result;
+                    mapData.winCondition = new KeyUnlockWinCondition(keyUnlockPos);
                     break;
             }
         }

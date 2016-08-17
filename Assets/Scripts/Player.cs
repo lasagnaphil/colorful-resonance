@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public int MaxHealth;
     public int Health;
 
-    private List<GameItem> inventory = new List<GameItem>();
+    public List<GameItem> Inventory { get; set; }
 
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
             {new Vector2i(0, 3), arrowObjects[2]},
             {new Vector2i(0, -3), arrowObjects[3]}
         };
+        Inventory = new List<GameItem>();
     }
 
     protected void Start()
@@ -159,7 +160,7 @@ public class Player : MonoBehaviour
         GameItem foundItem = GameStateManager.Instance.CheckItemPosition(x, y);
         if (foundItem != null)
         {
-            inventory.Add(foundItem);
+            Inventory.Add(foundItem);
             GameStateManager.Instance.items.Remove(foundItem);
             Destroy(foundItem.gameObject);
         }

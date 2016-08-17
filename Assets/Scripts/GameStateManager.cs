@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using InputManagement;
 using Items;
@@ -168,7 +169,7 @@ public class GameStateManager : Singleton<GameStateManager>
             }
             else if (mapData.winCondition is SurvivalWinCondition)
             {
-                if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
+                if (TurnNumber >= ((SurvivalWinCondition) mapData.winCondition).numOfTurns)
                 {
                     GameWin();
                     return;
@@ -176,7 +177,16 @@ public class GameStateManager : Singleton<GameStateManager>
             }
             else if (mapData.winCondition is EscapeWinCondition)
             {
-                if (player.pos.GetVector2i() == (mapData.winCondition as EscapeWinCondition).escapePosition)
+                if (player.pos.GetVector2i() == ((EscapeWinCondition) mapData.winCondition).escapePosition)
+                {
+                    GameWin();
+                    return;
+                }
+            }
+            else if (mapData.winCondition is KeyUnlockWinCondition)
+            {
+                if (player.Inventory.Any(item => item is KeyItem) &&
+                    player.pos.GetVector2i() == ((KeyUnlockWinCondition) mapData.winCondition).keyUnlockPosition)
                 {
                     GameWin();
                     return;

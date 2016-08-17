@@ -31,6 +31,8 @@ public class Monster : GameEntity
         base.Awake();
     }
 
+    public virtual void Setup() { }
+
     protected virtual void Start()
     {
         Health = MaxHealth;
@@ -139,5 +141,17 @@ public class Monster : GameEntity
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             return true;
         }
+    }
+
+    public bool TryMove(Sequence sequence, int x, int y)
+    {
+        bool canMove = CheckTileIsNormal(x, y);
+        if (canMove) AnimatedMove(sequence, x, y);
+        return canMove;
+    }
+
+    public bool TryMove(Sequence sequence, Vector2i vec)
+    {
+        return TryMove(sequence, vec.x, vec.y);
     }
 }

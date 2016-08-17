@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Utils;
 
@@ -55,6 +57,18 @@ public class ZacMonster : Monster
     protected override void WhenDestroyed()
     {
         base.WhenDestroyed();
+        Direction firstDir = DirectionHelper.GetRandom();
+        List<Direction> dirs = new List<Direction>() {Direction.Down, Direction.Left, Direction.Right, Direction.Up}
+            .Where(dir => dir != firstDir)
+            .Where(dir => CheckTileIsNormal(pos.GetVector2i() + dir.ToVector2i())).ToList();
+        Direction secondDir = Direction.None;
+        if (dirs.Any())
+            secondDir = dirs.GetRandom();
+
+        SpawnMonster("ZacBaby", pos.X, pos.Y, firstDir);
+        SpawnMonster("ZacBaby", pos.X, pos.Y, secondDir);
+
+        /*
 		if (CheckTileIsNormal (pos.X + 2, pos.Y) && CheckTileIsNormal (pos.X - 2, pos.Y))
 		{
 			SpawnMonster ("ZacBaby", pos.X + 2, pos.Y);
@@ -75,6 +89,7 @@ public class ZacMonster : Monster
 			SpawnMonster ("ZacBaby", pos.X - 2, pos.Y);
 			SpawnMonster ("ZacBaby", pos.X, pos.Y - 2);
 		}
+        */
     }
 }
 

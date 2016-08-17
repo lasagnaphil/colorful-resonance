@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Utils;
+using Direction = Utils.Direction;
 
 [System.Serializable]
 public struct Vector2i
@@ -11,6 +13,10 @@ public struct Vector2i
     }
     public Vector2i(Vector2i vec) : this(vec.x, vec.y) { }
 
+    public Vector2i Neighbor(Direction dir)
+    {
+        return this + DirectionHelper.ToVector2i(dir);
+    }
     public static Vector2i operator +(Vector2i v1, Vector2i v2)
     {
         return new Vector2i(v1.x + v2.x, v1.y + v2.y);

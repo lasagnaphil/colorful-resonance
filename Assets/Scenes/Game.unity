@@ -590,6 +590,11 @@ Prefab:
       propertyPath: playerHealthImages.Array.data[2]
       value: 
       objectReference: {fileID: 563358627}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapToLoad
+      value: 6-2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -968,7 +973,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993325042}
   m_HandleRect: {fileID: 1993325041}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3881,7 +3886,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964245461}
   m_HandleRect: {fileID: 1964245460}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

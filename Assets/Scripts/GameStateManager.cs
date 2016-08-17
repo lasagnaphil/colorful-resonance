@@ -229,21 +229,20 @@ public class GameStateManager : Singleton<GameStateManager>
         return CheckMonsterPosition(pos.x, pos.y); 
     }
 
-    public void SpawnMonster(Monster monsterPrefab, int x, int y)
+    public Monster SpawnMonster(Monster monsterPrefab, int x, int y)
     {
         if (monsterPrefab != null)
         {
             Monster monster = Instantiate(monsterPrefab);
             monster.transform.parent = monsterHolderObject.transform;
             monster.pos.Set(x, y);
+            return monster;
         }
-        else
-        {
-            Debug.Log("Null reference : Monster prefab not found.");
-        }
+        Debug.Log("Null reference : Monster prefab not found.");
+        return null;
     }
 
-    public void SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
+    public Projectile SpawnProjectile(Projectile projectilePrefab, int x, int y, Direction direction)
     {
         if (projectilePrefab != null)
         {
@@ -251,14 +250,13 @@ public class GameStateManager : Singleton<GameStateManager>
             projectile.transform.parent = projectileHolderObject.transform;
             projectile.MovingDirection = direction;
             projectile.pos.Set(x, y);
+            return projectile;
         }
-        else
-        {
-            Debug.Log("Null reference : Projectile prefab not found.");
-        }
+        Debug.Log("Null reference : Projectile prefab not found.");
+        return null;
     }
 
-    public void SpawnOrb(Orb orbPrefab, TileColor color, int x, int y)
+    public Orb SpawnOrb(Orb orbPrefab, TileColor color, int x, int y)
     {
         if (orbPrefab != null)
         {
@@ -266,11 +264,10 @@ public class GameStateManager : Singleton<GameStateManager>
             orb.transform.parent = orbHolderObject.transform;
             orb.pos.Set(x, y);
             orb.Color = color;
+            return orb;
         }
-        else
-        {
-            Debug.Log("Null reference : Orb prefab not found.");
-        }
+        Debug.Log("Null reference : Orb prefab not found.");
+        return null;
     }
 
     public void SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)

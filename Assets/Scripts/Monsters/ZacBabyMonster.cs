@@ -1,14 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using Utils;
 
 public class ZacBabyMonster : Monster
 {
-	int CoolTime;
+    public Direction firstMoveDir = Direction.None;
+	private int CoolTime;
+    private bool firstTurn = true;
 
+    public override void Setup(object[] args)
+    {
+        if (args.Length != 1)
+        {
+            Debug.LogError("Parameter mismatch in ZacBabyMonster!");
+            return;
+        }
+        Direction? dir = args[0] as Direction?;
+        if (dir.HasValue) firstMoveDir = dir.Value;
+    }
 	protected override void OnTurn(Sequence sequence)
 	{
+	    if (firstTurn)
+	    {
+	        Vector2i movePos = pos.GetVector2i() + firstMoveDir.ToVector2i();
+	        TryMove(sequence, movePos.x, movePos.y);
+	        firstTurn = false;
+	    }
 		Vector2i delta = DiffFromPlayer();
 
 		if (CoolTime < 4)

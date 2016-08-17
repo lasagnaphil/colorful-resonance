@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using InputManagement;
+using Utils;
 
 public class MobileMoveController : MonoBehaviour
 {
@@ -24,13 +25,5 @@ public class MobileMoveController : MonoBehaviour
 	            inputHandler.AtDownButtonPressed();
 	            break;
 	    }
-	}
-
-	public enum Direction
-	{
-		Right,
-		Left,
-		Up,
-		Down
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 using Utils;
 
@@ -11,6 +12,9 @@ public class GameEntity : MonoBehaviour
     {
         pos = GetComponent<Position>();
     }
+
+    public virtual void Setup(object[] args) { }
+
     protected Player Player { get { return GameStateManager.Instance.player; } }
 
     protected Vector2i PlayerPos()
@@ -44,19 +48,48 @@ public class GameEntity : MonoBehaviour
         return CheckTile(x, y, tile => tile.type == TileType.Normal);
     }
 
-    protected void SpawnMonster(Monster monster, int x, int y)
+    protected bool CheckTileIsNormal(Vector2i vec)
     {
-        GameStateManager.Instance.SpawnMonster(monster, x, y);
+        return CheckTileIsNormal(vec.x, vec.y);
     }
 
-    protected void SpawnMonster(string name, int x, int y)
+    protected Monster SpawnMonster(Monster monster, int x, int y)
     {
-        SpawnMonster(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(name), x, y);
+        return GameStateManager.Instance.SpawnMonster(monster, x, y);
     }
 
-    protected void SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
+    protected Monster SpawnMonster(Monster monster, Vector2i vec)
     {
-        GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
+        return GameStateManager.Instance.SpawnMonster(monster, vec.x, vec.y);
+    }
+
+    protected Monster SpawnMonster(string name, int x, int y)
+    {
+        return SpawnMonster(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(name), x, y);
+    }
+
+    protected Monster SpawnMonster(string name, Vector2i vec)
+    {
+        return SpawnMonster(name, vec.x, vec.y);
+    }
+
+    protected Monster SpawnMonster(string name, int x, int y, params object[] args)
+    {
+        Monster monster = SpawnMonster(name, x, y);
+        monster.Setup(args);
+        return monster;
+    }
+
+    protected Projectile SpawnProjectile(Projectile projectile, int x, int y, Direction dir)
+    {
+        return GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
+    }
+
+    protected Projectile SpawnProjectile(Projectile projectile, int x, int y, Direction dir, params object[] args)
+    {
+        Projectile proj = SpawnProjectile(projectile, x, y, dir);
+        proj.Setup(args);
+        return proj;
     }
 
     // we don't have a projectile dictionary yet...
@@ -67,9 +100,9 @@ public class GameEntity : MonoBehaviour
     }
     */
 
-    protected void SpawnOrb(TileColor color, int x, int y)
+    protected Orb SpawnOrb(TileColor color, int x, int y)
     {
-        GameStateManager.Instance.SpawnOrb(PrefabDictionary.Instance.orbPrefab, color, x, y);
+        return GameStateManager.Instance.SpawnOrb(PrefabDictionary.Instance.orbPrefab, color, x, y);
     }
 
     protected Monster CheckMonsterPosition(int x, int y)

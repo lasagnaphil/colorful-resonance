@@ -14,7 +14,13 @@ namespace Utils
 
     public static class DirectionHelper
     {
-        public static Vector2i ToVector2i(Direction direction)
+        public static System.Random random = new System.Random();
+
+        public static Direction GetRandom()
+        {
+            return (Direction) random.Next(1, 4);
+        }
+        public static Vector2i ToVector2i(this Direction direction)
         {
             switch (direction)
             {
@@ -26,7 +32,7 @@ namespace Utils
             }
         }
 
-        public static Quaternion ToQuaternion(Direction direction)
+        public static Quaternion ToQuaternion(this Direction direction)
         {
             switch (direction)
             {

@@ -6,8 +6,6 @@ namespace InputManagement
 {
     public class InputManager : MonoBehaviour
     {
-        public InputData Data { get; set; }
-
         public Player player;
 
         private bool enabled;
@@ -86,7 +84,6 @@ namespace InputManagement
 
         void Awake()
         {
-            Data = new InputData() { CanBlink = true, MoveDirection = Direction.None };
             desktopInput = GetComponent<DesktopInputHandler>();
             simpleMobileInput = GetComponent<SimpleMobileInputHandler>();
             swipeMobileInput = GetComponent<SwipeMobileInputHandler>();

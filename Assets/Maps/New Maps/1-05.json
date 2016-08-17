@@ -1,0 +1,40 @@
+{
+  "name": "1-05",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 12, "y": 1},
+
+  "width": 13,
+  "height": 3,
+  "tiles": [
+            "l l l l . . l . . W w w .",
+            "l l l l l l l . . W w w w",
+            "l l l l . . . . . W w w ."
+           ],
+  "playerData": {
+    "position" : {"x": 0, "y": 1}
+  },
+  "monsters": [
+    {
+      "name" : "Standing",
+      "position" : {"x": 2, "y": 1}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "black",
+      "position" : {"x": 0, "y": 2}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 0, "y": 0}
+    }
+  ],
+  "buttons": [
+    {
+    "name" : "WallToggleLever",
+    "position" : {"x": 6, "y": 2},
+    "togglePosition" : {"x": 9, "y": 1},
+    "isWallOnButtonOff" : true
+  }
+  ]
+}

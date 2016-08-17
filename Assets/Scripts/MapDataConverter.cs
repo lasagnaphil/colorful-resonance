@@ -23,6 +23,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
     protected override fsResult DoSerialize(MapData mapData, Dictionary<string, fsData> serialized)
     {
         SerializeMember(serialized, null, "name", mapData.name);
+        SerializeMember(serialized, null, "comment", mapData.comment);
 
         if (mapData.winCondition is EliminationWinCondition)
             serialized["winCondition"] = new fsData("Elimination");
@@ -62,6 +63,11 @@ public class MapDataConverter : fsDirectConverter<MapData>
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
         SerializeMember(serialized, null, "buttons", mapData.buttons);
+
+        if (mapData.boss != null)
+        {
+            SerializeMember(serialized, null, "boss", mapData.boss);
+        }
 
         return fsResult.Success;
     }
@@ -148,6 +154,13 @@ public class MapDataConverter : fsDirectConverter<MapData>
             Debug.LogError("Error parsing tile string: the number of tiles does not match");
         }
         mapData.tiles = tileChars;
+
+        // deeserialization of boss monster (optional)
+        fsData bossData;
+        if (CheckKey(data, "boss", out bossData).Succeeded)
+        {
+            if ((result += DeserializeMember(data, null, "boss", out mapData.boss)).Failed) return result;
+        }
 
         return result;
     }

@@ -198,5 +198,12 @@ public class MapLoader : MonoBehaviour
                 wallToggleLever.isWallOnButtonOff = buttonData.isWallOnButtonOff;
             }
         }
+
+        // Load the boss monster (if there is one)
+        if (mapDataToLoad.boss != null)
+        {
+            var bossMonster = Instantiate(PrefabDictionary.Instance.bossPrefabDict.GetBoss("TestBoss"));
+            bossMonster.pos.Set(mapDataToLoad.boss.position);
+        }
     }
 }

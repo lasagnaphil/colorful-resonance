@@ -15,6 +15,7 @@ public class MapData
     public MonsterData[] monsters;
     public OrbData[] orbs;
     public ButtonData[] buttons;
+    public BossData boss;
 }
 
 [System.Serializable]
@@ -44,4 +45,11 @@ public class ButtonData
     public Vector2i position;
     public Vector2i togglePosition;
     public bool isWallOnButtonOff;
+}
+
+[System.Serializable]
+public class BossData
+{
+    public string name;
+    public Vector2i position;
 }

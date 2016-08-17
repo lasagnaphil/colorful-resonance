@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Note.unity
   - enabled: 1
     path: Assets/Scenes/SetUp.unity
+  - enabled: 1
+    path: Assets/Scenes/Select_New.unity

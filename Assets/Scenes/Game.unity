@@ -443,6 +443,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.size
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011402318526, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -595,6 +600,31 @@ Prefab:
       propertyPath: mapToLoad
       value: 1-05
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[10]
+      value: 
+      objectReference: {fileID: 4900000, guid: 30c5b7c6e64c27f49873780d1d97a67c, type: 3}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[11]
+      value: 
+      objectReference: {fileID: 4900000, guid: ea8893f43e124404d8b3dafcf7a67d43, type: 3}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[12]
+      value: 
+      objectReference: {fileID: 4900000, guid: ad037238f90449e4fa38da3deea9eec2, type: 3}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[13]
+      value: 
+      objectReference: {fileID: 4900000, guid: c7a81b4d6e6629f4b9e17ab560885bda, type: 3}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapAssetList.Array.data[14]
+      value: 
+      objectReference: {fileID: 4900000, guid: d287b339c8ec1a74fb95d13f27f22b56, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -973,7 +1003,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993325042}
   m_HandleRect: {fileID: 1993325041}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3886,7 +3916,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964245461}
   m_HandleRect: {fileID: 1964245460}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

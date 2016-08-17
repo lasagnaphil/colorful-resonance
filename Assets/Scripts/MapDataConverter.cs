@@ -63,6 +63,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
         SerializeMember(serialized, null, "buttons", mapData.buttons);
+        SerializeMember(serialized, null, "items", mapData.items)
 
         if (mapData.boss != null)
         {
@@ -135,6 +136,17 @@ public class MapDataConverter : fsDirectConverter<MapData>
         {
             // if there is no buttons field then just make the buttons list empty
             mapData.buttons = new ButtonData[0];
+        }
+
+        // deserialization of items (optional field)
+        fsData itemsData;
+        if (CheckKey(data, "items", out itemsData).Succeeded)
+        {
+            if ((result += DeserializeMember(data, null, "items", out mapData.items)).Failed) return result;
+        }
+        else
+        {
+            mapData.items = new ItemData[0];
         }
             
          // deserialization of tiles : convert a list of string into a list of chars

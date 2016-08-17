@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Buttons;
+using Items;
 
 [System.Serializable]
 public class ButtonPrefabTuple
@@ -68,10 +69,29 @@ public class BossPrefabDictionary
     }
 }
 
+[System.Serializable]
+public class ItemPrefabTuple
+{
+    public string name;
+    public GameItem gameItemPrefab;
+}
+
+[System.Serializable]
+public class ItemPrefabDictionary
+{
+    [SerializeField] private List<ItemPrefabTuple> gameItemTuples;
+
+    public GameItem GetItem(string name)
+    {
+        return gameItemTuples.Find(x => x.name == name).gameItemPrefab;
+    }
+}
+
 public class PrefabDictionary : Singleton<PrefabDictionary>
 {
     public MonsterPrefabDictionary monsterPrefabDictionary;
     public ButtonPrefabDictionary buttonPrefabDictionary;
+    public ItemPrefabDictionary itemPrefabDict;
     public Tile tilePrefab;
     public Orb orbPrefab;
     public EscapeTeleporter escapeTeleporterPrefab;

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using DG.Tweening;
-using GameEditor;
 using InputManagement;
-using JetBrains.Annotations;
+using Items;
 using SelectLevel;
 using States;
 using UnityEngine.UI;
@@ -31,6 +26,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public List<Orb> orbs = new List<Orb>();
     public List<Buttons.Button> buttons = new List<Buttons.Button>();
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
+    public List<GameItem> items = new List<GameItem>();
 
     // Reference to MapLoader (which loads the map)
     [NonSerialized]
@@ -50,6 +46,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public GameObject projectileHolderObject;
     public GameObject orbHolderObject;
     public GameObject buttonHolderObject;
+    public GameObject itemHolderObject;
 
     // We won't be using holder gameobjects for the buttons;
     // then we would have to add the object into every scene that we have made manually
@@ -71,6 +68,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Action MonsterResets;
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
+    public event Action ItemTurns;
 
     public Action MonsterDied;
 
@@ -276,18 +274,30 @@ public class GameStateManager : Singleton<GameStateManager>
         return null;
     }
 
-    public void SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)
+    public Buttons.Button SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)
     {
         if (buttonPrefab != null)
         {
             Buttons.Button button = Instantiate(buttonPrefab);
             button.transform.parent = buttonHolderObject.transform;
             button.pos.Set(x, y);
+            return button;
         }
-        else
+        Debug.Log("Null reference : Button prefab not found");
+        return null;
+    }
+
+    public GameItem SpawnGameItem(GameItem itemPrefab, int x, int y)
+    {
+        if (itemPrefab != null)
         {
-            Debug.Log("Null refrence : Button prefab not found");
+            GameItem item = Instantiate(itemPrefab);
+            item.transform.parent = itemHolderObject.transform;
+            item.pos.Set(x, y);
+            return item;
         }
+        Debug.Log("Null reference : GameItem prefab not found");
+        return null;
     }
 
     public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
@@ -356,6 +366,10 @@ public class GameStateManager : Singleton<GameStateManager>
         for (int i = buttons.Count - 1; i >= 0; i--)
         {
             DestroyImmediate(buttons[i].gameObject);
+        }
+        for (int i = items.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(items[i].gameObject);
         }
         for (int i = bkgTiles.Count - 1; i >= 0; i--)
         {

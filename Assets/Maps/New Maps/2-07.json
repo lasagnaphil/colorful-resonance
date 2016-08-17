@@ -1,0 +1,64 @@
+{
+  "name": "2-07",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 11, "y": 7},
+
+  "width": 13,
+  "height": 15,
+  "tiles": [
+            ". . . . . . B . . . . . .",
+            ". . . . . R w Y . . . . .",
+            ". . . . R w w w Y . . . .",
+            ". R R R w w w w w Y Y Y .",
+            "B w w w w w w w w w w w R",
+            ". Y w w w w w w w w w B .",
+            ". . Y w w w w w w w B . .",
+            ". w . Y w w w w w B . w .",
+            ". . Y w w w w w w w B . .",
+            ". Y w w w w w w w w w B .",
+            "R w w w w w w w w w w w Y",
+            ". B B B w w w w w R R R .",
+            ". . . . B w w w R . . . .",
+            ". . . . . B w R . . . . .",
+            ". . . . . . Y . . . . . ."
+           ],
+  "playerData": {
+    "position" : {"x": 1, "y": 7}
+  },
+  "monsters": [
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 6, "y": 3}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 3, "y": 10}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 8, "y": 9}
+    },
+    {
+      "name" : "Mob",
+      "position" : {"x": 6, "y": 12}
+    },
+    {
+      "name" : "Shield",
+      "position" : {"x": 10, "y": 4}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 1, "y": 10}
+    },
+    {
+      "color" : "blue",
+      "position" : {"x": 11, "y": 4}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 6, "y": 13}
+    }
+  ]
+}

@@ -18,9 +18,9 @@ public class MobMonster : Monster
         {
             Cleaning = 0;
 
-            if (CoolTime < 2)
+            if (CoolTime < 3)
                 CoolTime++;
-            else if (CoolTime == 2)
+            else if (CoolTime == 3)
             {
                 if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
                 {

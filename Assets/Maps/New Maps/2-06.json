@@ -1,5 +1,8 @@
 {
-  "name": "Stage 2 - 4",
+  "name": "2-06",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 10, "y": 0},
+
   "width": 20,
   "height": 6,
   "tiles": [
@@ -8,7 +11,7 @@
             "w w b b b w r w w w w w w y w y b y w y ",
             "y b w y w b w b w w w b w r b r y w r w ",
             "r y r w r Y y w . . . . . y R y w w w y ",
-            "y w y R w r w r . . . . . r w r y r y w ",
+            "y w y R w r w r . . w . . r w r y r y w ",
            ],
   "playerData": {
     "position" : {"x": 0, "y": 0}

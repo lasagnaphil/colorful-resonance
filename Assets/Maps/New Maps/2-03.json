@@ -1,14 +1,17 @@
 {
-  "name": "Stage 2 - 2",
+  "name": "2-03",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 11, "y": 3},
+
   "width": 12,
   "height": 7,
   "tiles": [
           ". . . . . O O O O O O O",
-	    	  ". . . . . O w y y y w O",
-	    	  "O O O O O R r r b b b O",
-	    	  "O w w b b w w r b b w O",
-	   		  "O O O O O R r r b b b O",
-	    	  ". . . . . O w y y y w O",
+          ". . . . . O w y y y w O",
+          "O O O O O R r r b b b O",
+          "O w w b b w w r b b w w",
+          "O O O O O R r r b b b O",
+          ". . . . . O w y y y w O",
           ". . . . . O O O O O O O"
         ],
   "playerData": {
@@ -30,7 +33,7 @@
       "position" : {"x": 2, "y": 3}
     },
     {
-    	"color" : "blue",
+      "color" : "blue",
       "position" : {"x": 10, "y": 3}
     }
   ]

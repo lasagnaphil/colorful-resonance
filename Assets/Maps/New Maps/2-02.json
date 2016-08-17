@@ -2,15 +2,14 @@
   "name": "2-02",
   "winCondition": "Escape",
   "escapePosition" : {"x": 6, "y": 1},
-  "background": "gray",
 
   "width": 7,
   "height": 4,
   "tiles": [
-          ". B b b B . .",
-          "b b b b b . .",
-          ". b b b b . b",
-          ". B b b b . ."
+          "R B b b B Y .",
+          "b b b b b R .",
+          "Y b b b b R b",
+          "R B b b b Y ."
         ],
   "playerData": {
     "position" : {"x": 0, "y": 2}

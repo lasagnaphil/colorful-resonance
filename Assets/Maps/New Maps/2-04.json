@@ -1,0 +1,49 @@
+{
+  "name": "2-04",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 8, "y": 1},
+
+  "width": 9,
+  "height": 8,
+  "tiles": [
+          ". . . w y w . . .",
+          ". . . r y b . . .",
+          ". . . R Y B . . .",
+          ". . . . . . . . .",
+          ". . w w w w w . .",
+          "w w w w w w w w .",
+          ". w w w w w w w w",
+          ". . w w w w w . ."
+        ],
+  "playerData": {
+    "position" : {"x": 0, "y": 2}
+  },
+  "monsters": [
+    {
+      "name" : "Shield",
+      "position" : {"x": 4, "y": 1}
+    }
+],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 3, "y": 7}
+    },
+    {
+    	"color" : "blue",
+      "position" : {"x": 5, "y": 7}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 1, "y": 1}
+    }
+  ],
+  "buttons": [
+  {
+    "name" : "WallToggleButton",
+    "position" : {"x": 4, "y": 2},
+    "togglePosition" : {"x": 4, "y": 5},
+    "isWallOnButtonOff" : true
+  }
+  ]
+}

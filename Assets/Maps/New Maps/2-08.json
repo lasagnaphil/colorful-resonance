@@ -1,15 +1,18 @@
 {
-  "name": "Stage 2 - 3",
+  "name": "2-08",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 5, "y": 2},
+
   "width": 11,
-  "height": 7,
-  "tiles": [
-        ". w r r w w w y y w .",
-        "w b b b b w b b b b w",
-        "B w . w w b w y y w B",
-        "R y r w b w b y r w Y",
-        "B r r w w b w w . w B",
-        "w b b b b w b b b b w",
-        ". w y y w w w r r w ."
+  "height": 6,
+  "tiles":
+        [
+          "r b y r b Y r b y r b",
+          "b y r b Y r B y r b y",
+          "y r b Y r b y R b y r",
+          "r b y R b y r B y r b",
+          "b y r b Y r B y r b y",
+          "y r b y r B y r b y r"
         ],
   "playerData": {
     "position" : {"x": 5, "y": 3}
@@ -34,7 +37,7 @@
       "position" : {"x": 2, "y": 2}
     },
     {
-    	"color" : "yellow",
+      "color" : "yellow",
       "position" : {"x": 7, "y": 4}
     }
   ]

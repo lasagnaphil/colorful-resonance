@@ -94,7 +94,8 @@ public class PrefabDictionary : Singleton<PrefabDictionary>
     public ItemPrefabDictionary itemPrefabDict;
     public Tile tilePrefab;
     public Orb orbPrefab;
-    public EscapeTeleporter escapeTeleporterPrefab;
+    public GameObject escapeTeleporterPrefab;
+    public GameObject keyUnlockerPrefab;
 
     public BossPrefabDictionary bossPrefabDict;
 }

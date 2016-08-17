@@ -22,12 +22,16 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public bool IsLoading = false;
 
+    // Various game objects
     public List<Monster> monsters = new List<Monster>();
     public List<Projectile> projectiles = new List<Projectile>();
     public List<Orb> orbs = new List<Orb>();
     public List<Buttons.Button> buttons = new List<Buttons.Button>();
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
     public List<GameItem> items = new List<GameItem>();
+
+    // Extra game objects (acting as static objects, not doing anything fancy)
+    public List<GameObject> extraObjects = new List<GameObject>();
 
     // Reference to MapLoader (which loads the map)
     [NonSerialized]

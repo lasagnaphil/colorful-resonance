@@ -63,7 +63,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
         SerializeMember(serialized, null, "buttons", mapData.buttons);
-        SerializeMember(serialized, null, "items", mapData.items)
+        SerializeMember(serialized, null, "items", mapData.items);
 
         if (mapData.boss != null)
         {

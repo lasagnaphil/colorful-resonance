@@ -320,6 +320,14 @@ public class GameStateManager : Singleton<GameStateManager>
     {
         return CheckOrbPosition(pos.x, pos.y);
     }
+    public GameItem CheckItemPosition(int x, int y)
+    {
+        return items.Find(item => item.pos.X == x && item.pos.Y == y);
+    }
+    public GameItem CheckItemPosition(Vector2i pos)
+    {
+        return CheckItemPosition(pos.x, pos.y);
+    }
 
     public void AddOrb(Orb orb) { orbs.Add(orb);}
     public void RemoveOrb(Orb orb) { orbs.Remove(orb);}
@@ -381,6 +389,7 @@ public class GameStateManager : Singleton<GameStateManager>
         orbs.Clear();
         buttons.Clear();
         bkgTiles.Clear();
+        items.Clear();
 
         // reset player and turn number
         player.Restart();

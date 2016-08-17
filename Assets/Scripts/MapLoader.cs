@@ -207,5 +207,12 @@ public class MapLoader : MonoBehaviour
             bossMonster.Setup();
             bossMonster.pos.Set(mapDataToLoad.boss.position);
         }
+
+        foreach (var itemData in mapDataToLoad.items)
+        {
+            var item = Instantiate(PrefabDictionary.Instance.itemPrefabDict.GetItem(itemData.name));
+            item.transform.parent = GameStateManager.Instance.itemHolderObject.transform;
+            item.pos.Set(itemData.position);
+        }
     }
 }

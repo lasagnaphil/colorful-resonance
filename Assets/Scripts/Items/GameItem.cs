@@ -6,8 +6,6 @@ namespace Items
     [RequireComponent(typeof(Position))]
     public class GameItem : GameEntity
     {
-        public Sprite sprite;
-
         [NonSerialized] public Position pos;
         protected SpriteRenderer renderer;
 
@@ -15,7 +13,6 @@ namespace Items
         {
             pos = GetComponent<Position>();
             renderer = GetComponent<SpriteRenderer>();
-            renderer.sprite = sprite;
         }
 
         protected void Start()

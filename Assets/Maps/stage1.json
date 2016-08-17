@@ -26,5 +26,11 @@
     "boss": {
         "name": "TestBoss",
         "position": {"x": 5, "y": 5}
-    }
+    },
+    "items": [
+        {
+            "name": "Key",
+            "position": {"x": 5, "y": 2}
+        }
+    ]
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Items;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -22,6 +23,8 @@ public class Player : MonoBehaviour
     public TileColor playerTileColor;
     public int MaxHealth;
     public int Health;
+
+    private List<GameItem> inventory = new List<GameItem>();
 
     public ParticleSystem auraParticle;
     public ParticleSystem damagedParticle;
@@ -151,6 +154,14 @@ public class Player : MonoBehaviour
             }
             playerTileColor = foundOrb.Color;
             UpdateAuraColor();
+        }
+
+        GameItem foundItem = GameStateManager.Instance.CheckItemPosition(x, y);
+        if (foundItem != null)
+        {
+            inventory.Add(foundItem);
+            GameStateManager.Instance.items.Remove(foundItem);
+            Destroy(foundItem.gameObject);
         }
 
         if ((playerTileColor != TileColor.None) && (foundOrb == null))

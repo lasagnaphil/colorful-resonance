@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: 1-09
+  mapToLoad: 1-05
   mapIndex: 0
   mapAssetList:
   - {fileID: 4900000, guid: fe5826ce04c8bfd42aced2ebf44b2270, type: 3}
@@ -243,4 +243,4 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 32be134b95f71ca43a96383dac95b286, type: 3}
   - {fileID: 4900000, guid: f88485b0a806884479c33e03ffef6807, type: 3}
   - {fileID: 4900000, guid: 844387dc02ca9734fae0e04e62e73ee2, type: 3}
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}

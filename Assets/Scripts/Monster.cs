@@ -108,7 +108,7 @@ public class Monster : GameEntity
     }
 
     // This function does not check player position anymore...
-    public void Move(int x, int y)
+    public virtual void Move(int x, int y)
     {
         pos.X = x;
         pos.Y = y;
@@ -116,7 +116,7 @@ public class Monster : GameEntity
 
     // This function returns false if the move has succeeded, and
     // returns true if the move has failed (because of player)
-    public bool AnimatedMove(Sequence sequence, int x, int y)
+    public virtual bool AnimatedMove(Sequence sequence, int x, int y)
     {
         // Check if another monster is in the position we want to move
         Monster monster = GameStateManager.Instance.CheckMonsterPosition(x, y);
@@ -143,14 +143,14 @@ public class Monster : GameEntity
         }
     }
 
-    public bool TryMove(Sequence sequence, int x, int y)
+    public virtual bool TryMove(Sequence sequence, int x, int y)
     {
         bool canMove = CheckTileIsNormal(x, y);
         if (canMove) AnimatedMove(sequence, x, y);
         return canMove;
     }
 
-    public bool TryMove(Sequence sequence, Vector2i vec)
+    public virtual bool TryMove(Sequence sequence, Vector2i vec)
     {
         return TryMove(sequence, vec.x, vec.y);
     }

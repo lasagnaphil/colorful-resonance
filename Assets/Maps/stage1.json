@@ -1,11 +1,10 @@
 {
-  "name": "Tutorial",
-  "winCondition": "Escape",
-  "escapePosition" : {"x": 8, "y": 8},
-
-  "width": 10,
-  "height": 10,
-  "tiles": ["L L L L L L L L L L",
+    "name": "Tutorial",
+    "winCondition": "Escape",
+    "escapePosition" : {"x": 8, "y": 8},
+    "width": 10,
+    "height": 10,
+    "tiles": ["L L L L L L L L L L",
             "L w w w w w w w w L",
             "L w o o w w w o w L",
             "L w o w w w w w w L",
@@ -15,38 +14,17 @@
             "L w w w w w w w w L",
             "L w w w w w w w w L",
             "L L L L L L L L L L"],
-  "playerData":
-  {
+    "playerData": {
     "position": {"x": 2, "y": 1}
-  },
-  "monsters": [
-    {
-      "name" : "CreateWall",
-      "position" : {"x": 3, "y": 3}
     },
-    {
-      "name" : "Standing",
-      "position" : {"x": 4, "y": 6}
+    "monsters": [
+    ],
+    "orbs": [
+    ],
+    "buttons": [
+    ],
+    "boss": {
+        "name": "TestBoss",
+        "position": {"x": 5, "y": 5}
     }
-  ],
-  "orbs": [
-    {
-      "color" : "green",
-      "position" : {"x": 6, "y": 7}
-    }
-  ],
-  "buttons": [
-	{
-	  "name" : "WallToggleButton",
-	  "position" : {"x": 3, "y": 2},
-	  "togglePosition" : {"x": 1, "y": 0},
-	  "isWallOnButtonOff" : true
-	},
-	{
-	  "name" : "WallToggleLever",
-	  "position" : {"x": 5, "y": 3},
-	  "togglePosition" : {"x": 2, "y": 0},
-	  "isWallOnButtonOff" : true
-	}
-  ]
 }

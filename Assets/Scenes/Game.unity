@@ -600,6 +600,11 @@ Prefab:
       propertyPath: mapAssetList.Array.data[17]
       value: 
       objectReference: {fileID: 4900000, guid: e910cf8e756f70e478f5eac319caa1c5, type: 3}
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: mapToLoad
+      value: 2-07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -978,8 +983,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993325042}
   m_HandleRect: {fileID: 1993325041}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2089,7 +2094,7 @@ RectTransform:
   m_GameObject: {fileID: 499405133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2134074886}
@@ -3892,7 +3897,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1964245460}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5850,7 +5855,7 @@ RectTransform:
   m_GameObject: {fileID: 1477348802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1713211441}

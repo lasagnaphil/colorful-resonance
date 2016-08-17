@@ -2,6 +2,7 @@
   "name": "1-01",
   "winCondition": "Escape",
   "escapePosition" : {"x": 9, "y": 9},
+  "background": "gray",
 
   "width": 10,
   "height": 10,

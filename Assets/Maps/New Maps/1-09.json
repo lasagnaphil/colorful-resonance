@@ -1,14 +1,17 @@
 {
-  "name": "1-04",
+  "name": "1-09",
   "winCondition": "Escape",
-  "escapePosition" : {"x": 15, "y": 1},
+  "escapePosition" : {"x": 20, "y": 2},
+  "background": "gray",
 
-  "width": 16,
-  "height": 3,
+  "width": 21,
+  "height": 5,
   "tiles": [
-            ". . w w w . . . w w w w w . . .",
-            "w w w w w w l w w w w w L L w w",
-            ". . w w w . . . w w w w w . . ."
+            ". . . . . . . . . . . . . w w w L L w . .",
+            ". W W . . . . . L L L . w l w w w w w w .",
+            "w w w W W w w . w w l l l L w w w w w w w",
+            "w w . . . . . . L L L . w l w w w w w w .",
+            ". . . . . . . . . . . . . w w w L L w . ."
            ],
   "playerData": {
     "position" : {"x": 0, "y": 1}
@@ -16,17 +19,25 @@
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 3, "y": 1}
+      "position" : {"x": 9, "y": 2}
     },
     {
-      "name" : "Standing",
-      "position" : {"x": 11, "y": 1}
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 1}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 2}
+    },
+    {
+      "name" : "HShooter",
+      "position" : {"x": 17, "y": 3}
     }
   ],
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 1, "y": 1}
+      "position" : {"x": 1, "y": 2}
     }
   ]
 }

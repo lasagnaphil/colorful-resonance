@@ -1,32 +1,38 @@
 {
-  "name": "1-04",
+  "name": "1-08",
   "winCondition": "Escape",
-  "escapePosition" : {"x": 15, "y": 1},
+  "escapePosition" : {"x": 9, "y": 1},
+  "background": "gray",
 
-  "width": 16,
-  "height": 3,
+  "width": 10,
+  "height": 4,
   "tiles": [
-            ". . w w w . . . w w w w w . . .",
-            "w w w w w w l w w w w w L L w w",
-            ". . w w w . . . w w w w w . . ."
+            ". . . . w w w . . .",
+            "l l l l w w w . . .",
+            ". . . l l l w w w w",
+            ". . . l l l . . . ."
            ],
   "playerData": {
-    "position" : {"x": 0, "y": 1}
+    "position" : {"x": 0, "y": 2}
   },
   "monsters": [
     {
-      "name" : "Standing",
-      "position" : {"x": 3, "y": 1}
+      "name" : "HShooter",
+      "position" : {"x": 3, "y": 0}
     },
     {
-      "name" : "Standing",
-      "position" : {"x": 11, "y": 1}
+      "name" : "VShooter",
+      "position" : {"x": 6, "y": 3}
     }
   ],
   "orbs": [
     {
       "color" : "black",
-      "position" : {"x": 1, "y": 1}
+      "position" : {"x": 3, "y": 2}
+    },
+    {
+      "color" : "white",
+      "position" : {"x": 6, "y": 1}
     }
   ]
 }

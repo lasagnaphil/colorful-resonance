@@ -58,10 +58,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsLoading: 0
   monsters: []
+  projectiles: []
+  orbs: []
   buttons: []
   bkgTiles: []
   mapData:
     name: 
+    comment: 
     width: 0
     height: 0
     tiles: 
@@ -222,33 +225,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: 1-1
+  mapToLoad: 1-01
   mapIndex: 0
   mapAssetList:
-  - {fileID: 4900000, guid: 30c5b7c6e64c27f49873780d1d97a67c, type: 3}
-  - {fileID: 4900000, guid: ea8893f43e124404d8b3dafcf7a67d43, type: 3}
-  - {fileID: 4900000, guid: ad037238f90449e4fa38da3deea9eec2, type: 3}
-  - {fileID: 4900000, guid: c7a81b4d6e6629f4b9e17ab560885bda, type: 3}
-  - {fileID: 4900000, guid: d287b339c8ec1a74fb95d13f27f22b56, type: 3}
-  - {fileID: 4900000, guid: 059e66e0445bf6749ba03c5fb41a5e5b, type: 3}
-  - {fileID: 4900000, guid: c79c2f19dc839c14ea9275e02407b7c6, type: 3}
-  - {fileID: 4900000, guid: bbc5291c2127ce24181780463019d835, type: 3}
-  - {fileID: 4900000, guid: 79e105e0f85cd4b49ae694315e80c2cc, type: 3}
-  - {fileID: 4900000, guid: 8f6a121e1eb4e194da2731f49a7f1a1a, type: 3}
-  - {fileID: 4900000, guid: 4e03450dded1c8d4691dcaf593112ce6, type: 3}
-  - {fileID: 4900000, guid: 1ddd8273dc252a546b81ee1081db6488, type: 3}
-  - {fileID: 4900000, guid: f1bbb0e9343515543862e214813beda2, type: 3}
-  - {fileID: 4900000, guid: 44d6962786ca45d4e8beb878e8587305, type: 3}
-  - {fileID: 4900000, guid: 41a9461f94d063f499151ffb05377832, type: 3}
-  - {fileID: 4900000, guid: 2a40f355d58aa97419125e81e399c342, type: 3}
-  - {fileID: 4900000, guid: 1587a4e818d62bb4292c4af2d5c4a98e, type: 3}
-  - {fileID: 4900000, guid: 9bbdcb3e206eacc468103317bc095081, type: 3}
-  - {fileID: 4900000, guid: 47730bf9d95db774bb8b95bc84e9ecca, type: 3}
-  - {fileID: 4900000, guid: ba8324f3989e3d54bb08369f780daec5, type: 3}
-  - {fileID: 4900000, guid: 6daa5aa70ee974c44bc90f93a5dd1739, type: 3}
-  - {fileID: 4900000, guid: b5bddc60f34c2ff42bce5f6ddb6f2122, type: 3}
-  - {fileID: 4900000, guid: f6d01f429807d614a93bf0641bde7ea2, type: 3}
-  - {fileID: 4900000, guid: 58501ebe352351147af126f4c549c10a, type: 3}
-  - {fileID: 4900000, guid: 7fef91719dada0347a36c62feea887fd, type: 3}
-  - {fileID: 4900000, guid: cf4d4d41ab1aebb41bfb40d37edac4d2, type: 3}
-  - {fileID: 4900000, guid: a21fab1b56851354b9c3e58e7e701560, type: 3}
+  - {fileID: 4900000, guid: fe5826ce04c8bfd42aced2ebf44b2270, type: 3}
+  - {fileID: 4900000, guid: 44ab5ee4cedf9a141b8974ff8dbc7f4a, type: 3}
+  - {fileID: 4900000, guid: db8a57b244609714c8c1f96956652ffe, type: 3}
+  - {fileID: 4900000, guid: 964bb9c1cfd20344198633f84413a1c9, type: 3}
+  - {fileID: 4900000, guid: 49a1f76f4b0939c46be32d6bc7df68e2, type: 3}
+  - {fileID: 4900000, guid: 5e7fd423d6adcca4eb936a915bc5a5c4, type: 3}
+  - {fileID: 4900000, guid: baf5573e0405ec147938ef3e91d61c8d, type: 3}
+  - {fileID: 4900000, guid: 32be134b95f71ca43a96383dac95b286, type: 3}
+  - {fileID: 4900000, guid: f88485b0a806884479c33e03ffef6807, type: 3}
+  - {fileID: 4900000, guid: 844387dc02ca9734fae0e04e62e73ee2, type: 3}

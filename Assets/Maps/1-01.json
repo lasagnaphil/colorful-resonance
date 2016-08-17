@@ -1,0 +1,55 @@
+{
+    "name": "1-01",
+    "winCondition": "Escape",
+    "escapePosition": {
+        "x": 9,
+        "y": 9
+    },
+    "width": 10,
+    "height": 10,
+    "background": "color",
+    "tiles": [
+        "w l w l w l w l w l",
+        "l w l w l w l w l w",
+        "w l . . . . . . w l",
+        ". w l . . w . . l w",
+        ". . w l . . l . w l",
+        ". . . w l . . . l w",
+        ". . . . w l . . w l",
+        ". . . . . w l . l w",
+        ". . . . . . w l w l",
+        ". . . . . . . w l w"
+    ],
+    "playerData": {
+        "position": {
+            "x": 0,
+            "y": 8
+        }
+    },
+    "monsters": [
+        {
+            "name": "BoomBoom",
+            "position": {
+                "x": 5,
+                "y": 8
+            }
+        }
+    ],
+    "orbs": [
+        {
+            "color": "black",
+            "position": {
+                "x": 6,
+                "y": 5
+            }
+        },
+        {
+            "color": "white",
+            "position": {
+                "x": 5,
+                "y": 6
+            }
+        }
+    ],
+    "buttons": []
+}

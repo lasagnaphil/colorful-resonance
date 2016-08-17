@@ -18,6 +18,11 @@ public class BigMonster : Monster
         return positions.All(Contains);
     }
 
+    protected override void OnTurn(Sequence sequence)
+    {
+        currentArea = collider.Select(vec => vec + pos.GetVector2i()).ToList();
+    }
+
     public override void Move(int x, int y)
     {
         pos.X = x;
@@ -34,14 +39,14 @@ public class BigMonster : Monster
 
         if (foundMonsters.Count > 0) return false;
 
-        if (Contains(Player.pos.GetVector2i()))
+        var futureArea = currentArea.Select(vec => vec + new Vector2i(x, y)).ToList();
+        if (futureArea.Contains(Player.pos.GetVector2i()))
         {
             var prevPos = pos.GetVector2i();
             Player.ApplyDamage(DamageToPlayer);
             sequence.AppendCallback(() => Player.GetComponent<Animator>().SetTrigger("Hit"));
             sequence.Append(pos.AnimatedMove(x, y, 0.2f));
             sequence.Append(pos.AnimatedMove(prevPos.x, prevPos.y, 0.2f));
-            Move(x, y);
             return false;
         }
         else

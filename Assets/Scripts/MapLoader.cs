@@ -162,6 +162,7 @@ public class MapLoader : MonoBehaviour
                 continue;
             }
             var monster = Instantiate(PrefabDictionary.Instance.monsterPrefabDictionary.GetMonster(monsterData.name));
+            monster.Setup();
             monster.transform.parent = GameStateManager.Instance.monsterHolderObject.transform;
             monster.pos.Set(monsterData.position);
         }
@@ -203,6 +204,7 @@ public class MapLoader : MonoBehaviour
         if (mapDataToLoad.boss != null)
         {
             var bossMonster = Instantiate(PrefabDictionary.Instance.bossPrefabDict.GetBoss("TestBoss"));
+            bossMonster.Setup();
             bossMonster.pos.Set(mapDataToLoad.boss.position);
         }
     }

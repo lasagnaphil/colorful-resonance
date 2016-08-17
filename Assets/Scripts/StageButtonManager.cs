@@ -43,7 +43,6 @@ public class StageButtonManager : MonoBehaviour {
                 g.transform.position += new Vector3(Screen.width, 0, 0);
             }
         }
-        Debug.Log(levelindex.ToString());
     }
 
     public void MoveRight()
@@ -68,7 +67,6 @@ public class StageButtonManager : MonoBehaviour {
                 g.transform.position -= new Vector3(Screen.width, 0, 0);
             }
         }
-        Debug.Log(levelindex.ToString());
     }
 
     public void ResetMove()

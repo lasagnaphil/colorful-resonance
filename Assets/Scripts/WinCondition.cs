@@ -24,3 +24,13 @@ public class EscapeWinCondition : WinCondition
         this.escapePosition = escapePosition;
     }
 }
+
+public class KeyUnlockWinCondition : WinCondition
+{
+    public Vector2i keyUnlockPosition;
+
+    public KeyUnlockWinCondition(Vector2i keyUnlockPosition)
+    {
+        this.keyUnlockPosition = keyUnlockPosition;
+    }
+}

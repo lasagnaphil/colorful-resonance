@@ -1,7 +1,7 @@
 {
     "name": "Tutorial",
-    "winCondition": "Escape",
-    "escapePosition" : {"x": 8, "y": 8},
+    "winCondition": "KeyUnlock",
+    "keyUnlockPosition": {"x": 8, "y": 8},
     "width": 10,
     "height": 10,
     "tiles": ["L L L L L L L L L L",
@@ -26,5 +26,11 @@
     "boss": {
         "name": "TestBoss",
         "position": {"x": 5, "y": 5}
-    }
+    },
+    "items": [
+        {
+            "name": "Key",
+            "position": {"x": 5, "y": 2}
+        }
+    ]
 }

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using DG.Tweening;
-using GameEditor;
 using InputManagement;
-using JetBrains.Annotations;
+using Items;
 using SelectLevel;
 using States;
 using UnityEngine.UI;
@@ -26,11 +22,16 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public bool IsLoading = false;
 
+    // Various game objects
     public List<Monster> monsters = new List<Monster>();
     public List<Projectile> projectiles = new List<Projectile>();
     public List<Orb> orbs = new List<Orb>();
     public List<Buttons.Button> buttons = new List<Buttons.Button>();
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
+    public List<GameItem> items = new List<GameItem>();
+
+    // Extra game objects (acting as static objects, not doing anything fancy)
+    public List<GameObject> extraObjects = new List<GameObject>();
 
     // Reference to MapLoader (which loads the map)
     [NonSerialized]
@@ -50,6 +51,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public GameObject projectileHolderObject;
     public GameObject orbHolderObject;
     public GameObject buttonHolderObject;
+    public GameObject itemHolderObject;
 
     // We won't be using holder gameobjects for the buttons;
     // then we would have to add the object into every scene that we have made manually
@@ -71,6 +73,7 @@ public class GameStateManager : Singleton<GameStateManager>
     public event Action MonsterResets;
     public event Func<Sequence> ProjectileTurns;
     public event Action ButtonTurns;
+    public event Action ItemTurns;
 
     public Action MonsterDied;
 
@@ -170,7 +173,7 @@ public class GameStateManager : Singleton<GameStateManager>
             }
             else if (mapData.winCondition is SurvivalWinCondition)
             {
-                if (TurnNumber >= (mapData.winCondition as SurvivalWinCondition).numOfTurns)
+                if (TurnNumber >= ((SurvivalWinCondition) mapData.winCondition).numOfTurns)
                 {
                     GameWin();
                     return;
@@ -178,7 +181,16 @@ public class GameStateManager : Singleton<GameStateManager>
             }
             else if (mapData.winCondition is EscapeWinCondition)
             {
-                if (player.pos.GetVector2i() == (mapData.winCondition as EscapeWinCondition).escapePosition)
+                if (player.pos.GetVector2i() == ((EscapeWinCondition) mapData.winCondition).escapePosition)
+                {
+                    GameWin();
+                    return;
+                }
+            }
+            else if (mapData.winCondition is KeyUnlockWinCondition)
+            {
+                if (player.Inventory.Any(item => item is KeyItem) &&
+                    player.pos.GetVector2i() == ((KeyUnlockWinCondition) mapData.winCondition).keyUnlockPosition)
                 {
                     GameWin();
                     return;
@@ -276,18 +288,30 @@ public class GameStateManager : Singleton<GameStateManager>
         return null;
     }
 
-    public void SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)
+    public Buttons.Button SpawnSwitch(Buttons.Button buttonPrefab, int x, int y)
     {
         if (buttonPrefab != null)
         {
             Buttons.Button button = Instantiate(buttonPrefab);
             button.transform.parent = buttonHolderObject.transform;
             button.pos.Set(x, y);
+            return button;
         }
-        else
+        Debug.Log("Null reference : Button prefab not found");
+        return null;
+    }
+
+    public GameItem SpawnGameItem(GameItem itemPrefab, int x, int y)
+    {
+        if (itemPrefab != null)
         {
-            Debug.Log("Null refrence : Button prefab not found");
+            GameItem item = Instantiate(itemPrefab);
+            item.transform.parent = itemHolderObject.transform;
+            item.pos.Set(x, y);
+            return item;
         }
+        Debug.Log("Null reference : GameItem prefab not found");
+        return null;
     }
 
     public void AddProjectile(Projectile projectile) { projectiles.Add(projectile); }
@@ -309,6 +333,14 @@ public class GameStateManager : Singleton<GameStateManager>
     public Orb CheckOrbPosition(Vector2i pos)
     {
         return CheckOrbPosition(pos.x, pos.y);
+    }
+    public GameItem CheckItemPosition(int x, int y)
+    {
+        return items.Find(item => item.pos.X == x && item.pos.Y == y);
+    }
+    public GameItem CheckItemPosition(Vector2i pos)
+    {
+        return CheckItemPosition(pos.x, pos.y);
     }
 
     public void AddOrb(Orb orb) { orbs.Add(orb);}
@@ -357,6 +389,10 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             DestroyImmediate(buttons[i].gameObject);
         }
+        for (int i = items.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(items[i].gameObject);
+        }
         for (int i = bkgTiles.Count - 1; i >= 0; i--)
         {
             DestroyImmediate(bkgTiles[i].gameObject);
@@ -367,6 +403,7 @@ public class GameStateManager : Singleton<GameStateManager>
         orbs.Clear();
         buttons.Clear();
         bkgTiles.Clear();
+        items.Clear();
 
         // reset player and turn number
         player.Restart();

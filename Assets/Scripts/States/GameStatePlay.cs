@@ -53,7 +53,7 @@ namespace States
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                SceneManager.LoadScene("Select");
+                SceneManager.LoadScene("Select_New");
             }
         }
 

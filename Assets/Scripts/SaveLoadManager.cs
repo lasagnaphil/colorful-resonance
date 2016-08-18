@@ -34,6 +34,13 @@ public class SaveLoadManager : MonoBehaviour {
             streamReader = new StreamReader(stream_read);
             json = streamReader.ReadToEnd();
             dat = JsonHelper.Deserialize<SaveData>(json);
+            streamReader.Close();
+            stream_read.Close();
+        }
+        else
+        {
+            stream_read = File.Create(filePath);
+            stream_read.Close();
         }
     }
 

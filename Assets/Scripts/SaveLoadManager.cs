@@ -5,31 +5,37 @@ using Utils;
 
 public class SaveData
 {
-    public string Level { get; set; }
+    public int Chapter { get; set; }
+    public int Level { get; set; }
+
+    public SaveData(int chapter, int level)
+    {
+        Chapter = chapter;
+        Level = level;
+    }
 }
 
 public class SaveLoadManager : MonoBehaviour {
 
-    StreamWriter w;
-    StreamReader r;
+    Stream stream_read, stream_write;
+    StreamWriter streamWriter;
+    StreamReader streamReader;
 
-    public int chapter { get; private set; }
-    public int level { get; private set; }
-
-    string filePath = "/savedata/save.dat";
+    string filePath = "/savedata/save.json";
     string json;
+    SaveData dat;
 
 	// Use this for initialization
 	void Start () {
-        var saveData = new SaveData() { };
-        json = JsonHelper.Serialize<SaveData>(saveData);
-        var loadedSaveData = JsonHelper.Deserialize<SaveData>(json);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
+        // File Load
+        if (File.Exists(filePath))
+        {
+            stream_read = File.Open(filePath, FileMode.Open);
+            streamReader = new StreamReader(stream_read);
+            json = streamReader.ReadToEnd();
+            dat = JsonHelper.Deserialize<SaveData>(json);
+        }
+    }
 
     int LevelCompare(string a, string b)
     {
@@ -49,14 +55,24 @@ public class SaveLoadManager : MonoBehaviour {
 
     void SaveData(string currentLevel)
     {
-        Stream s = File.Open("/savedata/save.dat", FileMode.Create);
-        w = new StreamWriter(s);
-        w.Write(json);
-        w.Close();
+        stream_write = File.Open(filePath, FileMode.Create);
+        streamWriter = new StreamWriter(stream_write);
+
+        char[] delim = { '-' };
+        string[] levelInfo = currentLevel.Split(delim);
+
+        dat.Chapter = System.Int32.Parse(levelInfo[0]);
+        dat.Level = System.Int32.Parse(levelInfo[1]);
+
+        json = JsonHelper.Serialize<SaveData>(dat);
+
+        streamWriter.Write(json);
+        streamWriter.Close();
+        stream_write.Close();
     }
 
-    string LoadData()
+    void LoadData()
     {
-        return "";
+        
     }
 }

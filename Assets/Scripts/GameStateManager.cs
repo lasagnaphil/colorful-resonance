@@ -422,6 +422,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         //set currentStage of saveLoadManager into current level
         var levelInfoSender = FindObjectOfType<LevelInfoSender>();
-        saveLoadManager.SetCurrentLevel(levelInfoSender.levelName);
+        if (levelInfoSender != null)
+            saveLoadManager.SetCurrentLevel(levelInfoSender.levelName);
     }
 }

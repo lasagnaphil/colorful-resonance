@@ -31,13 +31,19 @@ public class MapDataConverter : fsDirectConverter<MapData>
         {
             serialized["winCondition"] = new fsData("Survival");
             SerializeMember(serialized, null, "numOfTurnsToWin",
-                (mapData.winCondition as SurvivalWinCondition).numOfTurns);
+                ((SurvivalWinCondition) mapData.winCondition).numOfTurns);
         }
         else if (mapData.winCondition is EscapeWinCondition)
         {
             serialized["winCondition"] = new fsData("Escape");
             SerializeMember(serialized, null, "escapePosition",
-                (mapData.winCondition as EscapeWinCondition).escapePosition);
+                ((EscapeWinCondition) mapData.winCondition).escapePosition);
+        }
+        else if (mapData.winCondition is KeyUnlockWinCondition)
+        {
+            serialized["winCondition"] = new fsData("KeyUnlock");
+            SerializeMember(serialized, null, "keyUnlockPosition",
+                ((KeyUnlockWinCondition) mapData.winCondition).keyUnlockPosition);
         }
 
         SerializeMember(serialized, null, "width", mapData.width);
@@ -63,6 +69,7 @@ public class MapDataConverter : fsDirectConverter<MapData>
         SerializeMember(serialized, null, "monsters", mapData.monsters);
         SerializeMember(serialized, null, "orbs", mapData.orbs);
         SerializeMember(serialized, null, "buttons", mapData.buttons);
+        SerializeMember(serialized, null, "items", mapData.items);
 
         if (mapData.boss != null)
         {
@@ -95,6 +102,11 @@ public class MapDataConverter : fsDirectConverter<MapData>
                     Vector2i escapePos;
                     if ((result += DeserializeMember(data, null, "escapePosition", out escapePos)).Failed) return result;
                     mapData.winCondition = new EscapeWinCondition(escapePos);
+                    break;
+                case "KeyUnlock":
+                    Vector2i keyUnlockPos;
+                    if ((result += DeserializeMember(data, null, "keyUnlockPosition", out keyUnlockPos)).Failed) return result;
+                    mapData.winCondition = new KeyUnlockWinCondition(keyUnlockPos);
                     break;
             }
         }
@@ -135,6 +147,17 @@ public class MapDataConverter : fsDirectConverter<MapData>
         {
             // if there is no buttons field then just make the buttons list empty
             mapData.buttons = new ButtonData[0];
+        }
+
+        // deserialization of items (optional field)
+        fsData itemsData;
+        if (CheckKey(data, "items", out itemsData).Succeeded)
+        {
+            if ((result += DeserializeMember(data, null, "items", out mapData.items)).Failed) return result;
+        }
+        else
+        {
+            mapData.items = new ItemData[0];
         }
             
          // deserialization of tiles : convert a list of string into a list of chars

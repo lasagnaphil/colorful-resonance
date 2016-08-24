@@ -1,0 +1,48 @@
+{
+  "name": "3-01",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 5, "y": 2},
+
+  "width": 15,
+  "height": 7,
+  "tiles": [
+            ". . . O O O O O . B Y B Y B Y",
+            ". . . O R R R O . Y y w r y B",
+            "O O O O R w R O O B w w b w Y",
+            "O w w w w w r b b b b b b b B",
+            "O O O O R w R O O B w w b w Y",
+            ". . . O R R R O . Y y w r y B",
+            ". . . O O O O O . B Y B Y B Y"
+           ],
+  "playerData": {
+    "position" : {"x": 1, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 2}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 5, "y": 4}
+    },
+    {
+      "name" : "BoomBoom",
+      "position" : {"x": 12, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 11, "y": 2}
+    }
+  ],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 3, "y": 3}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 11, "y": 4}
+    }
+  ]
+}

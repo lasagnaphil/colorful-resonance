@@ -149,9 +149,18 @@ public class MapLoader : MonoBehaviour
         if (mapDataToLoad.winCondition is EscapeWinCondition)
         {
             // create a teleporter object..
-            var escapePosition = (mapDataToLoad.winCondition as EscapeWinCondition).escapePosition;
+            var escapePosition = ((EscapeWinCondition)mapDataToLoad.winCondition).escapePosition;
             var teleporter = Instantiate(PrefabDictionary.Instance.escapeTeleporterPrefab);
-            teleporter.pos.Set(escapePosition);
+            teleporter.GetComponent<Position>().Set(escapePosition);
+            GameStateManager.Instance.extraObjects.Add(teleporter.gameObject);
+        }
+        if (mapDataToLoad.winCondition is KeyUnlockWinCondition)
+        {
+            // create a key unlock object...
+            var keyUnlockPos = ((KeyUnlockWinCondition) mapDataToLoad.winCondition).keyUnlockPosition;
+            var unlocker = Instantiate(PrefabDictionary.Instance.keyUnlockerPrefab);
+            unlocker.GetComponent<Position>().Set(keyUnlockPos);
+            GameStateManager.Instance.extraObjects.Add(unlocker.gameObject);
         }
         // Load the monsters
         foreach (var monsterData in mapDataToLoad.monsters)
@@ -206,6 +215,13 @@ public class MapLoader : MonoBehaviour
             var bossMonster = Instantiate(PrefabDictionary.Instance.bossPrefabDict.GetBoss("TestBoss"));
             bossMonster.Setup();
             bossMonster.pos.Set(mapDataToLoad.boss.position);
+        }
+
+        foreach (var itemData in mapDataToLoad.items)
+        {
+            var item = Instantiate(PrefabDictionary.Instance.itemPrefabDict.GetItem(itemData.name));
+            item.transform.parent = GameStateManager.Instance.itemHolderObject.transform;
+            item.pos.Set(itemData.position);
         }
     }
 }

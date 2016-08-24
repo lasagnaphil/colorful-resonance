@@ -1,4 +1,5 @@
 ﻿using System;
+using Items;
 using UnityEditor;
 using UnityEngine;
 using Utils;
@@ -95,6 +96,19 @@ public class GameEntity : MonoBehaviour
     protected Orb SpawnOrb(TileColor color, int x, int y)
     {
         return GameStateManager.Instance.SpawnOrb(PrefabDictionary.Instance.orbPrefab, color, x, y);
+    }
+
+    protected GameItem SpawnGameItem(GameItem gameItem, int x, int y, params object[] args)
+    {
+        GameItem item = GameStateManager.Instance.SpawnGameItem(gameItem, x, y);
+        item.Setup(args);
+        return item;
+    }
+    protected GameItem SpawnGameItem(string name, int x, int y, params object[] args)
+    {
+        GameItem item = GameStateManager.Instance.SpawnGameItem(PrefabDictionary.Instance.itemPrefabDict.GetItem(name), x, y);
+        item.Setup(args);
+        return item;
     }
 
     protected Monster CheckMonsterPosition(int x, int y)

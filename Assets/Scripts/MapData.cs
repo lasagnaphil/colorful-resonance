@@ -1,5 +1,4 @@
 ﻿using FullSerializer;
-// using UnityEditor;
 
 [System.Serializable, fsObject(Converter = typeof(MapDataConverter))]
 public class MapData
@@ -15,6 +14,7 @@ public class MapData
     public MonsterData[] monsters;
     public OrbData[] orbs;
     public ButtonData[] buttons;
+    public ItemData[] items;
     public BossData boss;
 }
 
@@ -49,6 +49,13 @@ public class ButtonData
 
 [System.Serializable]
 public class BossData
+{
+    public string name;
+    public Vector2i position;
+}
+
+[System.Serializable]
+public class ItemData
 {
     public string name;
     public Vector2i position;

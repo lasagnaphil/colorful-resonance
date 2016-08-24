@@ -1,0 +1,44 @@
+{
+  "name": "3-05",
+  "winCondition": "Escape",
+  "escapePosition" : {"x": 5, "y": 2},
+
+  "width": 11,
+  "height": 6,
+  "tiles":
+        [
+          "r b y r b Y r b y r b",
+          "b y r b Y r B y r b y",
+          "y r b Y r b y R b y r",
+          "r b y R b y r B y r b",
+          "b y r b Y r B y r b y",
+          "y r b y r B y r b y r"
+        ],
+  "playerData": {
+    "position" : {"x": 5, "y": 3}
+  },
+  "monsters": [
+    {
+      "name" : "Shield",
+      "position" : {"x": 3, "y": 2}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 8, "y": 4}
+    },
+    {
+      "name" : "HomingMissile",
+      "position" : {"x": 4, "y": 4}
+    }
+],
+  "orbs": [
+    {
+      "color" : "red",
+      "position" : {"x": 2, "y": 2}
+    },
+    {
+      "color" : "yellow",
+      "position" : {"x": 7, "y": 4}
+    }
+  ]
+}

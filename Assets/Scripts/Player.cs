@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     private Animator animator;
 
-    public SoundManager soundmanager;
+    public SoundManager soundManager;
 	public GameObject MobileTouchManager;
 
     public new Camera camera;
@@ -36,14 +36,21 @@ public class Player : MonoBehaviour
     {
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
-        soundmanager = GameStateManager.Instance.soundManager;
-        arrowObjectDict = new Dictionary<Vector2i, GameObject>()
+        soundManager = FindObjectOfType<SoundManager>();
+        arrowObjectDict = new Dictionary<Vector2i, GameObject>();
+        arrowObjectDict.Add(new Vector2i(-3, 0), arrowObjects[0]);
+        arrowObjectDict.Add(new Vector2i(3, 0), arrowObjects[1]);
+        arrowObjectDict.Add(new Vector2i(0, 3), arrowObjects[2]);
+        arrowObjectDict.Add(new Vector2i(0, -3), arrowObjects[0]);
+        /*
+        arrowObjectDict = new Dictionary<Vector2i, GameObject>();
         {
             {new Vector2i(-3, 0), arrowObjects[0]},
             {new Vector2i(3, 0), arrowObjects[1]},
             {new Vector2i(0, 3), arrowObjects[2]},
             {new Vector2i(0, -3), arrowObjects[3]}
         };
+        */
         Inventory = new List<GameItem>();
     }
 
@@ -142,15 +149,15 @@ public class Player : MonoBehaviour
             {
                 if (foundOrb.Color == TileColor.Red)
                 {
-                    soundmanager.PlayBackground(SoundManager.Sounds.Red);
+                    soundManager.PlayBackground(SoundManager.Sounds.Red);
                 }
                 else if (foundOrb.Color == TileColor.Blue)
                 {
-                    soundmanager.PlayBackground(SoundManager.Sounds.Blue);
+                    soundManager.PlayBackground(SoundManager.Sounds.Blue);
                 }
                 else if (foundOrb.Color == TileColor.Yellow)
                 {
-                    soundmanager.PlayBackground(SoundManager.Sounds.Yellow);
+                    soundManager.PlayBackground(SoundManager.Sounds.Yellow);
                 }
             }
             playerTileColor = foundOrb.Color;
@@ -168,7 +175,7 @@ public class Player : MonoBehaviour
         if ((playerTileColor != TileColor.None) && (foundOrb == null))
         {
             bool fillingExecuted = tileManager.SetTileColorAndFill(x, y, playerTileColor);
-            if (fillingExecuted) soundmanager.Play(SoundManager.Sounds.TileActivate);
+            if (fillingExecuted) soundManager.Play(SoundManager.Sounds.TileActivate);
 
             tileManager.GetTile(x, y).PlaySubEffect();
         }
@@ -179,7 +186,7 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         if (Health > 0) Health -= damage;
-        soundmanager.Play(SoundManager.Sounds.Hit);
+        soundManager.Play(SoundManager.Sounds.Hit);
     }
 
     public void RevertTurn()

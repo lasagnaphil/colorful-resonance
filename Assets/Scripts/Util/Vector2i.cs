@@ -49,4 +49,21 @@ public struct Vector2i
     {
         return new Vector3((float)x, (float)y, z);
     }
+
+    public override int GetHashCode()
+    {
+        int hash = 23;
+        hash = (hash*17) + x;
+        hash = (hash*17) + y;
+        return hash;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        Vector2i vec = (Vector2i) obj;
+        return this == vec;
+    }
 }

@@ -34,7 +34,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.x++;
                     else
                     {
-                        player.soundmanager.Play(SoundManager.Sounds.Move1);
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -44,7 +44,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.x--;
                     else
                     {
-                        player.soundmanager.Play(SoundManager.Sounds.Move1);
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -53,7 +53,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.y--;
                     else
                     {
-                        player.soundmanager.Play(SoundManager.Sounds.Move1);
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;
@@ -62,7 +62,7 @@ namespace InputManagement
                     if (!(player.PositionCheck())) player.tempPos.y++;
                     else
                     {
-                        player.soundmanager.Play(SoundManager.Sounds.Move1);
+                        player.soundManager.Play(SoundManager.Sounds.Move1);
                         nextTurn = true;
                     }
                     break;

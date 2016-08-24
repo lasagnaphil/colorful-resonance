@@ -21,6 +21,5 @@ namespace SelectLevel
                 SceneManager.LoadScene("Game");
             });
         }
-
     }
 }

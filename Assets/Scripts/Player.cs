@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         arrowObjectDict.Add(new Vector2i(-3, 0), arrowObjects[0]);
         arrowObjectDict.Add(new Vector2i(3, 0), arrowObjects[1]);
         arrowObjectDict.Add(new Vector2i(0, 3), arrowObjects[2]);
-        arrowObjectDict.Add(new Vector2i(0, -3), arrowObjects[0]);
+        arrowObjectDict.Add(new Vector2i(0, -3), arrowObjects[3]);
         /*
         arrowObjectDict = new Dictionary<Vector2i, GameObject>();
         {

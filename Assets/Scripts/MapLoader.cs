@@ -77,6 +77,14 @@ public class MapLoader : MonoBehaviour
         return -1;
     }
 
+    public string PeekNextLevelName()
+    {
+        if (mapIndex == mapAssetList.Count - 1)
+            return mapAssetList[mapIndex].name;
+        else
+            return mapAssetList[mapIndex + 1].name;
+    }
+
     public void SetLevelToNext()
     {
         if (mapIndex == mapAssetList.Count - 1)

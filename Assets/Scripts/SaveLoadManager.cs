@@ -8,6 +8,15 @@ public class SaveData
     public int Chapter { get; set; }
     public int Level { get; set; }
 
+    public SaveData(string levelName)
+    {
+        char[] delim = { '-' };
+        string[] levelInfo = levelName.Split(delim);
+        
+
+        Chapter = System.Int32.Parse(levelInfo[0]);
+        Level = System.Int32.Parse(levelInfo[1]);
+    }
     public SaveData(int chapter, int level)
     {
         Chapter = chapter;
@@ -30,12 +39,8 @@ public class SaveLoadManager : MonoBehaviour {
     {
         loadedStage = new global::SaveData();
         currentStage = new global::SaveData();
-    }
 
-	// Use this for initialization
-	void Start () {
-        // File Load
-
+        //File load
         if (File.Exists(filePath))
         {
             stream_read = File.Open(filePath, FileMode.Open);
@@ -57,21 +62,30 @@ public class SaveLoadManager : MonoBehaviour {
         }
     }
 
+	// Use this for initialization
+	void Start () {
+
+        
+    }
+
 
     public void SetCurrentLevel(string currentlevel)
     {
         char[] delim = { '-' };
         string[] levelInfo = currentlevel.Split(delim);
-
-        Debug.Log(levelInfo[0].ToString());
-        Debug.Log(levelInfo[1].ToString());
+        
 
         currentStage.Chapter = System.Int32.Parse(levelInfo[0]);
         currentStage.Level = System.Int32.Parse(levelInfo[1]);
     }
 
-    bool LevelCompare()
+    public bool LevelCompare(SaveData currentStage)
     {
+        if (loadedStage == null)
+        {
+            Debug.Log("loadedstage is null");
+            return true;
+        }
 
         if (currentStage.Chapter > loadedStage.Chapter) return true;
         else if (currentStage.Chapter < loadedStage.Chapter) return false;
@@ -88,11 +102,9 @@ public class SaveLoadManager : MonoBehaviour {
         stream_write = File.Open(filePath, FileMode.Create);
         streamWriter = new StreamWriter(stream_write);
 
-        char[] delim = { '-' };
-        string[] levelInfo = currentLevel.Split(delim);
-
-       
-        if (LevelCompare())
+        SetCurrentLevel(currentLevel);
+ 
+        if (LevelCompare(currentStage))
         {
             json = JsonHelper.Serialize<SaveData>(currentStage);
         }         

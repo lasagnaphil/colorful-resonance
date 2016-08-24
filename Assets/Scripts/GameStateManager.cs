@@ -109,7 +109,6 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             mapLoader.MapToLoad = levelInfoSender.levelName;
             mapLoader.mapIndex = mapLoader.FindLevelIndexByName(mapLoader.MapToLoad);
-            saveLoadManager.SetCurrentLevel(levelInfoSender.levelName);
         }
 
         ChangeState<GameStateLoad>();
@@ -207,7 +206,7 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             Debug.Log("SoundManager is null.");
         }
-        if (levelInfoSender != null) saveLoadManager.SaveData(levelInfoSender.levelName);
+        saveLoadManager.SaveData(mapLoader.PeekNextLevelName());
         resultUIManager.PopupWinUI();
         ChangeState<GameStateWin>();
         isTurnExecuting = false;
@@ -377,5 +376,9 @@ public class GameStateManager : Singleton<GameStateManager>
         mapData = mapLoader.LoadMap();
 
         resultUIManager.Initialize();
+
+        //set currentStage of saveLoadManager into current level
+        var levelInfoSender = FindObjectOfType<LevelInfoSender>();
+        saveLoadManager.SetCurrentLevel(levelInfoSender.levelName);
     }
 }

@@ -15,13 +15,18 @@ namespace SelectLevel
         {
             levelInfoSender = FindObjectOfType<LevelInfoSender>();
             buttonUI = GetComponent<UnityEngine.UI.Button>();
-            saveLoadManager = GetComponent<SaveLoadManager>();
+            saveLoadManager = FindObjectOfType<SaveLoadManager>();
+
+            //if (saveLoadManager != null) buttonUI.interactable = !saveLoadManager.LevelCompare(new SaveData(levelName));
 
             buttonUI.onClick.AddListener(() =>
             {
-                levelInfoSender.levelName = levelName;
-                DontDestroyOnLoad(levelInfoSender);
-                SceneManager.LoadScene("Game");
+                if (!saveLoadManager.LevelCompare(new SaveData(levelName)))
+                {
+                    levelInfoSender.levelName = levelName;
+                    DontDestroyOnLoad(levelInfoSender);
+                    SceneManager.LoadScene("Game");
+                }            
             });
         }
 

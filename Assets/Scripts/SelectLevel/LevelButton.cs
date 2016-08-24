@@ -9,10 +9,13 @@ namespace SelectLevel
         private LevelInfoSender levelInfoSender;
         public string levelName;
 
+        public SaveLoadManager saveLoadManager;
+
         public void Awake()
         {
             levelInfoSender = FindObjectOfType<LevelInfoSender>();
             buttonUI = GetComponent<UnityEngine.UI.Button>();
+            saveLoadManager = GetComponent<SaveLoadManager>();
 
             buttonUI.onClick.AddListener(() =>
             {

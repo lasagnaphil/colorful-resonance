@@ -62,6 +62,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
     private TileManager tileManager;
     private ResultUIManager resultUIManager;
+    public SaveLoadManager saveLoadManager;
     public new Camera camera;
     public Text turnNumberText;
     public Image[] playerHealthImages;
@@ -95,6 +96,7 @@ public class GameStateManager : Singleton<GameStateManager>
         editorUIManager = FindObjectOfType<EditorUIManager>();
         mapLoader = GetComponent<MapLoader>();
         soundManager = GetComponent<SoundManager>();
+        saveLoadManager = FindObjectOfType<SaveLoadManager>();
 
         editorUIManager.gameObject.SetActive(false);
     }
@@ -204,6 +206,9 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public void GameWin()
     {
+
+        var levelInfoSender = FindObjectOfType<LevelInfoSender>();
+
         if (soundManager != null)
         {
             soundManager.StopAll();
@@ -213,6 +218,7 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             Debug.Log("SoundManager is null.");
         }
+        saveLoadManager.SaveData(mapLoader.PeekNextLevelName());
         resultUIManager.PopupWinUI();
         ChangeState<GameStateWin>();
         isTurnExecuting = false;
@@ -413,5 +419,9 @@ public class GameStateManager : Singleton<GameStateManager>
         mapData = mapLoader.LoadMap();
 
         resultUIManager.Initialize();
+
+        //set currentStage of saveLoadManager into current level
+        var levelInfoSender = FindObjectOfType<LevelInfoSender>();
+        saveLoadManager.SetCurrentLevel(levelInfoSender.levelName);
     }
 }

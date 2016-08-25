@@ -11,7 +11,18 @@ public class Projectile : GameEntity
 {
     public int Duration; // if duration is -1 then never dies
     public int Damage;
-    public Direction MovingDirection;
+    private Direction movingDirection;
+
+    public Direction MovingDirection
+    {
+        get { return movingDirection; }
+        set
+        {
+            movingDirection = value;
+            if (updateDirection)
+                transform.rotation = MovingDirection.ToQuaternion();
+        }
+    }
     public ProjectileType Type;
     public GameObject destroyEffectObject;
 
@@ -43,10 +54,6 @@ public class Projectile : GameEntity
         // Move the projectile based on the position
         var moveDir = DirectionHelper.ToVector2i(MovingDirection);
         sequence.Append(pos.AnimatedMove(pos.X + moveDir.x, pos.Y + moveDir.y, 0.2f));
-
-        // Update the projectile rotation
-        if (updateDirection)
-            transform.rotation = DirectionHelper.ToQuaternion(MovingDirection);
 
         OnTurn(sequence);
 

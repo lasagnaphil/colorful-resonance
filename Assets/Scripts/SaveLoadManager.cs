@@ -31,19 +31,19 @@ public class SaveLoadManager : MonoBehaviour {
     StreamWriter streamWriter;
     StreamReader streamReader;
 
-    string filePath = "savedata/save.json";
+    string filePath = "/save.json";
     string json;
     SaveData loadedStage, currentStage;
 
     void Awake()
     {
-        loadedStage = new global::SaveData();
-        currentStage = new global::SaveData();
+        loadedStage = new SaveData();
+        currentStage = new SaveData();
 
         //File load
         if (File.Exists(filePath))
         {
-            stream_read = File.Open(filePath, FileMode.Open);
+            stream_read = File.Open(Application.persistentDataPath + filePath, FileMode.Open);
             streamReader = new StreamReader(stream_read);
             json = streamReader.ReadToEnd();
             loadedStage = JsonHelper.Deserialize<SaveData>(json);
@@ -52,7 +52,7 @@ public class SaveLoadManager : MonoBehaviour {
         }
         else
         {
-            stream_write = File.Create(filePath);
+            stream_write = File.Create(Application.persistentDataPath + filePath);
             streamWriter = new StreamWriter(stream_write);
             loadedStage = new SaveData(1, 1);
             json = JsonHelper.Serialize<SaveData>(loadedStage);
@@ -99,7 +99,7 @@ public class SaveLoadManager : MonoBehaviour {
 
     public void SaveData(string currentLevel)
     {
-        stream_write = File.Open(filePath, FileMode.Create);
+        stream_write = File.Open(Application.persistentDataPath + filePath, FileMode.Create);
         streamWriter = new StreamWriter(stream_write);
 
         SetCurrentLevel(currentLevel);

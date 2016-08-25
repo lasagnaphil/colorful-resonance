@@ -7,7 +7,7 @@ namespace DefaultNamespace
     {
         public void GoToSelectLevel()
         {
-            SceneManager.LoadScene("Select");
+            SceneManager.LoadScene("Select_New");
         }
 
         public void GoToCreditLevel()

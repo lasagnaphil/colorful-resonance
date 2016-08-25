@@ -41,7 +41,7 @@ public class SaveLoadManager : MonoBehaviour {
         currentStage = new SaveData();
 
         //File load
-        if (File.Exists(filePath))
+        if (File.Exists(Application.persistentDataPath + filePath))
         {
             stream_read = File.Open(Application.persistentDataPath + filePath, FileMode.Open);
             streamReader = new StreamReader(stream_read);
@@ -61,13 +61,6 @@ public class SaveLoadManager : MonoBehaviour {
             stream_write.Close();
         }
     }
-
-	// Use this for initialization
-	void Start () {
-
-        
-    }
-
 
     public void SetCurrentLevel(string currentlevel)
     {

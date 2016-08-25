@@ -110,6 +110,4 @@ public class SaveLoadManager : MonoBehaviour {
         streamWriter.Close();
         stream_write.Close();
     }
-
-    
 }

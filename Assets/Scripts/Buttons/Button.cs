@@ -56,6 +56,7 @@ namespace Buttons
             IsActive = false;
             GameStateManager.Instance.buttons.Add(this);
             GameStateManager.Instance.ButtonTurns += OnTurn;
+            OnTurn();
         }
 
         // Update is called once per frame

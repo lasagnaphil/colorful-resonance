@@ -483,11 +483,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: mapAssetList.Array.size
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 4000011402318526, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -520,11 +515,61 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 343368824}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: monsterHolderObject
+      value: 
+      objectReference: {fileID: 1946494923}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: projectileHolderObject
+      value: 
+      objectReference: {fileID: 1411227205}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: orbHolderObject
+      value: 
+      objectReference: {fileID: 1205444965}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: buttonHolderObject
+      value: 
+      objectReference: {fileID: 188616224}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: itemHolderObject
+      value: 
+      objectReference: {fileID: 219373847}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 899592453}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: turnNumberText
+      value: 
+      objectReference: {fileID: 2057391183}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: playerHealthImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1227325487}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: playerHealthImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 443359184}
+    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+        type: 2}
+      propertyPath: playerHealthImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 563358627}
     - target: {fileID: 114000013555268700, guid: 1500979a1a0021843b433fb3ab71031a,
         type: 2}
       propertyPath: winUI
@@ -585,71 +630,11 @@ Prefab:
       propertyPath: loseMarks.Array.data[2]
       value: 
       objectReference: {fileID: 529345326}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 343368824}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: monsterHolderObject
-      value: 
-      objectReference: {fileID: 1946494923}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: projectileHolderObject
-      value: 
-      objectReference: {fileID: 1411227205}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: orbHolderObject
-      value: 
-      objectReference: {fileID: 1205444965}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: buttonHolderObject
-      value: 
-      objectReference: {fileID: 188616224}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: inputManager
-      value: 
-      objectReference: {fileID: 899592453}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: turnNumberText
-      value: 
-      objectReference: {fileID: 2057391183}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: playerHealthImages.Array.data[0]
-      value: 
-      objectReference: {fileID: 1227325487}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: playerHealthImages.Array.data[1]
-      value: 
-      objectReference: {fileID: 443359184}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: playerHealthImages.Array.data[2]
-      value: 
-      objectReference: {fileID: 563358627}
-    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: mapAssetList.Array.data[17]
-      value: 
-      objectReference: {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
-    - target: {fileID: 114000014203920754, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: mapToLoad
-      value: stage1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
-        type: 2}
-      propertyPath: itemHolderObject
-      value: 
-      objectReference: {fileID: 219373847}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1500979a1a0021843b433fb3ab71031a, type: 2}
   m_IsPrefabParent: 0
@@ -836,7 +821,7 @@ Transform:
   - {fileID: 346130802}
   - {fileID: 1853468729}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &181651737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3186,7 +3171,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0.003112793}
   m_SizeDelta: {x: 0, y: 565}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &796929059
@@ -4390,8 +4375,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684325985}
   m_HandleRect: {fileID: 684325984}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.7238939
+  m_Value: 0.99998003
+  m_Size: 0.7238938
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8072,7 +8057,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 155823424}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

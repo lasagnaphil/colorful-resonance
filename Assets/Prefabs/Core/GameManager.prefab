@@ -62,6 +62,8 @@ MonoBehaviour:
   orbs: []
   buttons: []
   bkgTiles: []
+  items: []
+  extraObjects: []
   mapData:
     name: 
     comment: 
@@ -76,6 +78,7 @@ MonoBehaviour:
     monsters: []
     orbs: []
     buttons: []
+    items: []
     boss:
       name: 
       position:
@@ -87,8 +90,10 @@ MonoBehaviour:
   projectileHolderObject: {fileID: 0}
   orbHolderObject: {fileID: 0}
   buttonHolderObject: {fileID: 0}
+  itemHolderObject: {fileID: 0}
   soundManager: {fileID: 114000013039395740}
   inputManager: {fileID: 0}
+  saveLoadManager: {fileID: 0}
   camera: {fileID: 0}
   turnNumberText: {fileID: 0}
   playerHealthImages:
@@ -230,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: 2-08
+  mapToLoad: stage1
   mapIndex: 0
   mapAssetList:
   - {fileID: 4900000, guid: fe5826ce04c8bfd42aced2ebf44b2270, type: 3}
@@ -250,5 +255,10 @@ MonoBehaviour:
   - {fileID: 4900000, guid: a4d104f6738b5ba4590361f927750380, type: 3}
   - {fileID: 4900000, guid: 0ff185ce048655b4b9950de32308671f, type: 3}
   - {fileID: 4900000, guid: ad5a8b0a379c553429cefaafed09bdcb, type: 3}
-  - {fileID: 4900000, guid: e910cf8e756f70e478f5eac319caa1c5, type: 3}
+  - {fileID: 4900000, guid: 1dd85b2356d818b4aa16f205d40b11a6, type: 3}
+  - {fileID: 4900000, guid: c5c1c1ab55eac4243911acb127eeadd4, type: 3}
+  - {fileID: 4900000, guid: 77f177b901cb5934d96ee24da6113f4e, type: 3}
+  - {fileID: 4900000, guid: cf26c1518edbc56479b36e59fd4b0cdb, type: 3}
+  - {fileID: 4900000, guid: 48e55617fa83e7645b6fb5413bc128f8, type: 3}
+  - {fileID: 4900000, guid: d20d6f4474310e7489d12e0243cc2552, type: 3}
   - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}

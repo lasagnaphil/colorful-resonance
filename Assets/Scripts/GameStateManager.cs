@@ -403,6 +403,10 @@ public class GameStateManager : Singleton<GameStateManager>
         {
             DestroyImmediate(bkgTiles[i].gameObject);
         }
+        for (int i = extraObjects.Count - 1; i >= 0; i--)
+        {
+            DestroyImmediate(extraObjects[i]);
+        }
 
         monsters.Clear();
         projectiles.Clear();
@@ -410,6 +414,7 @@ public class GameStateManager : Singleton<GameStateManager>
         buttons.Clear();
         bkgTiles.Clear();
         items.Clear();
+        extraObjects.Clear();
 
         // reset player and turn number
         player.Restart();

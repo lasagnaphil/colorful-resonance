@@ -16,14 +16,12 @@ namespace Buttons
                 TileManager.Instance.SetTileType(
                     wallTogglePos.x, wallTogglePos.y,
                     isWallOnButtonOff ? TileType.Normal : TileType.Wall);
-                Debug.Log("isActive true");
             }
             else
             {
                 TileManager.Instance.SetTileType(
                     wallTogglePos.x, wallTogglePos.y,
                     isWallOnButtonOff ? TileType.Wall : TileType.Normal);
-                Debug.Log("isActive false");
             }
             if (TileManager.Instance.GetTileType(wallTogglePos.x, wallTogglePos.y) == TileType.Wall)
             {

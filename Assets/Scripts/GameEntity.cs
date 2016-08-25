@@ -79,7 +79,7 @@ public class GameEntity : MonoBehaviour
 
     protected Projectile SpawnProjectile(Projectile projectile, int x, int y, Direction dir, params object[] args)
     {
-        Projectile proj = SpawnProjectile(projectile, x, y, dir);
+        Projectile proj = GameStateManager.Instance.SpawnProjectile(projectile, x, y, dir);
         proj.Setup(args);
         return proj;
     }

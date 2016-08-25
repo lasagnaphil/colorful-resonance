@@ -84,6 +84,7 @@ MonoBehaviour:
   buttonHolderObject: {fileID: 0}
   soundManager: {fileID: 114000013039395740}
   inputManager: {fileID: 0}
+  saveLoadManager: {fileID: 0}
   camera: {fileID: 0}
   turnNumberText: {fileID: 0}
   playerHealthImages:
@@ -238,4 +239,8 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 32be134b95f71ca43a96383dac95b286, type: 3}
   - {fileID: 4900000, guid: f88485b0a806884479c33e03ffef6807, type: 3}
   - {fileID: 4900000, guid: 844387dc02ca9734fae0e04e62e73ee2, type: 3}
-  - {fileID: 0}
+  - {fileID: 4900000, guid: 059e66e0445bf6749ba03c5fb41a5e5b, type: 3}
+  - {fileID: 4900000, guid: c79c2f19dc839c14ea9275e02407b7c6, type: 3}
+  - {fileID: 4900000, guid: bbc5291c2127ce24181780463019d835, type: 3}
+  - {fileID: 4900000, guid: 79e105e0f85cd4b49ae694315e80c2cc, type: 3}
+  - {fileID: 4900000, guid: 8f6a121e1eb4e194da2731f49a7f1a1a, type: 3}

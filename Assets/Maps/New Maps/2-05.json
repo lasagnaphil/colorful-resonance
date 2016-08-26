@@ -1,6 +1,5 @@
 {
   "name": "2-05",
-  "winCondition": "Escape",
   "escapePosition" : {"x": 12, "y": 3},
 
   "width": 13,

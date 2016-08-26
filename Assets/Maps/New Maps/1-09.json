@@ -1,7 +1,7 @@
 {
   "name": "1-09",
-  "winCondition": "Escape",
-  "escapePosition" : {"x": 20, "y": 2},
+  "winCondition": "KeyUnlock",
+  "keyUnlockPosition" : {"x": 20, "y": 2},
   "background": "gray",
 
   "width": 21,
@@ -39,5 +39,11 @@
       "color" : "black",
       "position" : {"x": 1, "y": 2}
     }
-  ]
+  ],
+  "items": [
+        {
+            "name": "Key",
+            "position": {"x": 17, "y": 2}
+        }
+    ]
 }

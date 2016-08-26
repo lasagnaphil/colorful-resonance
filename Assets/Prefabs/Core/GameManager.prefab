@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  mapToLoad: stage1
+  mapToLoad: 1-01
   mapIndex: 0
   mapAssetList:
   - {fileID: 4900000, guid: fe5826ce04c8bfd42aced2ebf44b2270, type: 3}
@@ -255,10 +255,18 @@ MonoBehaviour:
   - {fileID: 4900000, guid: a4d104f6738b5ba4590361f927750380, type: 3}
   - {fileID: 4900000, guid: 0ff185ce048655b4b9950de32308671f, type: 3}
   - {fileID: 4900000, guid: ad5a8b0a379c553429cefaafed09bdcb, type: 3}
-  - {fileID: 4900000, guid: 1dd85b2356d818b4aa16f205d40b11a6, type: 3}
-  - {fileID: 4900000, guid: c5c1c1ab55eac4243911acb127eeadd4, type: 3}
-  - {fileID: 4900000, guid: 77f177b901cb5934d96ee24da6113f4e, type: 3}
-  - {fileID: 4900000, guid: cf26c1518edbc56479b36e59fd4b0cdb, type: 3}
-  - {fileID: 4900000, guid: 48e55617fa83e7645b6fb5413bc128f8, type: 3}
-  - {fileID: 4900000, guid: d20d6f4474310e7489d12e0243cc2552, type: 3}
-  - {fileID: 4900000, guid: 0e4331b09d4edff4487d7641b7038ca3, type: 3}
+  - {fileID: 4900000, guid: 4e03450dded1c8d4691dcaf593112ce6, type: 3}
+  - {fileID: 4900000, guid: 1ddd8273dc252a546b81ee1081db6488, type: 3}
+  - {fileID: 4900000, guid: f1bbb0e9343515543862e214813beda2, type: 3}
+  - {fileID: 4900000, guid: 44d6962786ca45d4e8beb878e8587305, type: 3}
+  - {fileID: 4900000, guid: 41a9461f94d063f499151ffb05377832, type: 3}
+  - {fileID: 4900000, guid: 2a40f355d58aa97419125e81e399c342, type: 3}
+  - {fileID: 4900000, guid: 1587a4e818d62bb4292c4af2d5c4a98e, type: 3}
+  - {fileID: 4900000, guid: 9bbdcb3e206eacc468103317bc095081, type: 3}
+  - {fileID: 4900000, guid: 47730bf9d95db774bb8b95bc84e9ecca, type: 3}
+  - {fileID: 4900000, guid: ba8324f3989e3d54bb08369f780daec5, type: 3}
+  - {fileID: 4900000, guid: 6daa5aa70ee974c44bc90f93a5dd1739, type: 3}
+  - {fileID: 4900000, guid: b5bddc60f34c2ff42bce5f6ddb6f2122, type: 3}
+  - {fileID: 4900000, guid: f6d01f429807d614a93bf0641bde7ea2, type: 3}
+  - {fileID: 4900000, guid: 58501ebe352351147af126f4c549c10a, type: 3}
+  - {fileID: 4900000, guid: 7fef91719dada0347a36c62feea887fd, type: 3}

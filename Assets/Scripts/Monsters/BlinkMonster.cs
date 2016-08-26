@@ -38,23 +38,6 @@ public class BlinkMonster : Monster
                 {
                     if (deltaX < 3)
                     {
-                        if (CheckTileIsNormal(pos.X - 1, pos.Y))
-                        {
-                            AnimatedMove(sequence, pos.X - 1, pos.Y);
-                        }
-                    }
-                    else
-                    {
-                        if (CheckTileIsNormal(pos.X - 3, pos.Y))
-                        {
-                            AnimatedMove(sequence, pos.X - 3, pos.Y);
-                        }
-                    }
-                }
-                else if (deltaX < 0)
-                {
-                    if (deltaX > -3)
-                    {
                         if (CheckTileIsNormal(pos.X + 1, pos.Y))
                         {
                             AnimatedMove(sequence, pos.X + 1, pos.Y);
@@ -68,29 +51,29 @@ public class BlinkMonster : Monster
                         }
                     }
                 }
+                else if (deltaX < 0)
+                {
+                    if (deltaX > -3)
+                    {
+                        if (CheckTileIsNormal(pos.X - 1, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X - 1, pos.Y);
+                        }
+                    }
+                    else
+                    {
+                        if (CheckTileIsNormal(pos.X - 3, pos.Y))
+                        {
+                            AnimatedMove(sequence, pos.X - 3, pos.Y);
+                        }
+                    }
+                }
             }
             else
             {
                 if (deltaY > 0)
                 {
                     if (deltaY < 3)
-                    {
-                        if (CheckTileIsNormal(pos.X, pos.Y - 1))
-                        {
-                            AnimatedMove(sequence, pos.X, pos.Y - 1);
-                        }
-                    }
-                    else
-                    {
-                        if (CheckTileIsNormal(pos.X, pos.Y - 3))
-                        {
-                            AnimatedMove(sequence, pos.X, pos.Y - 3);
-                        }
-                    }
-                }
-                else if (deltaY < 0)
-                {
-                    if (deltaY > -3)
                     {
                         if (CheckTileIsNormal(pos.X, pos.Y + 1))
                         {
@@ -102,6 +85,23 @@ public class BlinkMonster : Monster
                         if (CheckTileIsNormal(pos.X, pos.Y + 3))
                         {
                             AnimatedMove(sequence, pos.X, pos.Y + 3);
+                        }
+                    }
+                }
+                else if (deltaY < 0)
+                {
+                    if (deltaY > -3)
+                    {
+                        if (CheckTileIsNormal(pos.X, pos.Y - 1))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y - 1);
+                        }
+                    }
+                    else
+                    {
+                        if (CheckTileIsNormal(pos.X, pos.Y - 3))
+                        {
+                            AnimatedMove(sequence, pos.X, pos.Y - 3);
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 {
   "name": "1-05",
-  "winCondition": "Escape",
-  "escapePosition" : {"x": 12, "y": 1},
+  "winCondition": "KeyUnlock",
+  "keyUnlockPosition" : {"x": 12, "y": 1},
   "background": "gray",
 
   "width": 13,
@@ -37,5 +37,11 @@
     "togglePosition" : {"x": 9, "y": 1},
     "isWallOnButtonOff" : true
   }
-  ]
+  ],
+  "items": [
+        {
+            "name": "Key",
+            "position": {"x": 2, "y": 1}
+        }
+    ]
 }

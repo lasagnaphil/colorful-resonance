@@ -21,12 +21,12 @@ namespace SelectLevel
 
             buttonUI.onClick.AddListener(() =>
             {
-                if (!saveLoadManager.LevelCompare(new SaveData(levelName)))
-                {
+                //if (!saveLoadManager.LevelCompare(new SaveData(levelName)))
+                //{
                     levelInfoSender.levelName = levelName;
                     DontDestroyOnLoad(levelInfoSender);
                     SceneManager.LoadScene("Game");
-                }            
+                //}            
             });
         }
     }

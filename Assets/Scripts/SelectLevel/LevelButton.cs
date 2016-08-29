@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 namespace SelectLevel
@@ -7,9 +8,10 @@ namespace SelectLevel
     {
         private UnityEngine.UI.Button buttonUI;
         private LevelInfoSender levelInfoSender;
-        public string levelName;
+		private bool isCoroutinePlaying;
 
-        public SaveLoadManager saveLoadManager;
+        public string levelName;
+		public SaveLoadManager saveLoadManager;
 
         public void Awake()
         {
@@ -25,9 +27,18 @@ namespace SelectLevel
                 //{
                     levelInfoSender.levelName = levelName;
                     DontDestroyOnLoad(levelInfoSender);
-                    SceneManager.LoadScene("Game");
+					StartCoroutine(GoToGame());
                 //}            
             });
         }
+
+		IEnumerator GoToGame()
+		{
+			isCoroutinePlaying = true;
+			FindObjectOfType<FadeEffectCanvas>().FadeOut();
+			yield return new WaitForSeconds (0.5f);
+			isCoroutinePlaying = false;
+			SceneManager.LoadScene("Game");
+		}
     }
 }

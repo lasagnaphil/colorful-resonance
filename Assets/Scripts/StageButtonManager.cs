@@ -8,6 +8,7 @@ public class StageButtonManager : MonoBehaviour {
     public List<GameObject> stage2Buttons;
     public List<GameObject> stage3Buttons;
     public List<GameObject> stage4Buttons;
+	public List<GameObject> stage5Buttons;
 
     int levelindex;
 
@@ -42,6 +43,10 @@ public class StageButtonManager : MonoBehaviour {
             {
                 g.transform.position += new Vector3(Screen.width, 0, 0);
             }
+			foreach (GameObject g in stage5Buttons)
+			{
+				g.transform.position += new Vector3(Screen.width, 0, 0);
+			}
         }
     }
 
@@ -66,6 +71,10 @@ public class StageButtonManager : MonoBehaviour {
             {
                 g.transform.position -= new Vector3(Screen.width, 0, 0);
             }
+			foreach (GameObject g in stage5Buttons)
+			{
+				g.transform.position -= new Vector3(Screen.width, 0, 0);
+			}
         }
     }
 

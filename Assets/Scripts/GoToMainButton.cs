@@ -11,6 +11,7 @@ public class GoToMainButton : MonoBehaviour {
 
 	public void GoToMain()
 	{
+		FindObjectOfType<FadeEffectCanvas>().FadeOut();
 		SceneManager.LoadScene("Main");
 	}
 }

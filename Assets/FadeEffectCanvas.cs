@@ -94,10 +94,14 @@ public class FadeEffectCanvas : MonoBehaviour {
 
 		tiles = ShuffleTileList(tiles);
 
-		// foreach (var tile in tiles)
-			// tile.GetComponent<Image>().enabled = false;
-
-		FadeIn();
+		if (!GameStartChecker.isStart)
+		{
+			foreach (var tile in tiles)
+				tile.GetComponent<Image>().enabled = false;
+			GameStartChecker.isStart = true;
+		}
+		else
+			FadeIn();
 	}
 	
 	// Update is called once per frame

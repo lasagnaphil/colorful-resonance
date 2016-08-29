@@ -1,32 +1,40 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace DefaultNamespace
 {
     public class StartLevelManager : MonoBehaviour
     {
+		bool isCoroutinePlaying = false;
+
         public void GoToSelectLevel()
         {
-            FindObjectOfType<FadeEffectCanvas>().FadeOut();
-            SceneManager.LoadScene("Select_New");
+			StartCoroutine(GoToScene ("Select_New"));
         }
 
         public void GoToCreditLevel()
         {
-            FindObjectOfType<FadeEffectCanvas>().FadeOut();
-            SceneManager.LoadScene("Credit");
+			StartCoroutine(GoToScene ("Credit"));
         }
 
         public void GoToNoteLevel()
         {
-            FindObjectOfType<FadeEffectCanvas>().FadeOut();
-            SceneManager.LoadScene("Note");
+			StartCoroutine(GoToScene ("Note"));;
         }
 
 		public void GoToSetUpLevel()
 		{
-            FindObjectOfType<FadeEffectCanvas>().FadeOut();
-			SceneManager.LoadScene ("SetUp");
+			StartCoroutine(GoToScene ("SetUp"));
+		}
+
+		IEnumerator GoToScene(string sceneName)
+		{
+			isCoroutinePlaying = true;
+			FindObjectOfType<FadeEffectCanvas>().FadeOut();
+			yield return new WaitForSeconds (0.5f);
+			isCoroutinePlaying = false;
+			SceneManager.LoadScene(sceneName);
 		}
     }
 }

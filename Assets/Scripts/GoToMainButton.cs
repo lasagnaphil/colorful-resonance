@@ -1,17 +1,28 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GoToMainButton : MonoBehaviour {
 
-	void Update()
+	bool isCoroutinePlaying;
+
+	void Start()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
-			GoToMain();
+		isCoroutinePlaying = false;
 	}
 
-	public void GoToMain()
+	void Update()
 	{
+		if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)) && (!isCoroutinePlaying))
+			StartCoroutine(GoToMain());
+	}
+
+	IEnumerator GoToMain()
+	{
+		isCoroutinePlaying = true;
 		FindObjectOfType<FadeEffectCanvas>().FadeOut();
+		yield return new WaitForSeconds (0.5f);
+		isCoroutinePlaying = false;
 		SceneManager.LoadScene("Main");
 	}
 }

@@ -1,15 +1,14 @@
 {
   "name": "1-04",
-  "winCondition": "KeyUnlock",
-  "keyUnlockPosition" : {"x": 15, "y": 1},
+  "winCondition": "Elimination",
   "background": "gray",
 
   "width": 16,
   "height": 3,
   "tiles": [
-            ". . w w w . . . w w w w w . . .",
-            "w w w w w w l w w w w w L L w w",
-            ". . w w w . . . w w w w w . . ."
+            ". . . w w w w w . . . . . w w w",
+            "w l w w w w w L L w w w w w w w",
+            ". . . w w w w w . . . . . w w w"
            ],
   "playerData": {
     "position" : {"x": 0, "y": 1}
@@ -17,11 +16,11 @@
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 3, "y": 1}
+      "position" : {"x": 6, "y": 1}
     },
     {
       "name" : "Standing",
-      "position" : {"x": 11, "y": 1}
+      "position" : {"x": 14, "y": 1}
     }
   ],
   "orbs": [
@@ -29,11 +28,5 @@
       "color" : "black",
       "position" : {"x": 1, "y": 1}
     }
-  ],
-  "items": [
-        {
-            "name": "Key",
-            "position": {"x": 3, "y": 1}
-        }
-    ]
+  ]
 }

@@ -1,7 +1,6 @@
 {
   "name": "1-07",
-  "winCondition": "KeyUnlock",
-  "keyUnlockPosition" : {"x": 10, "y": 2},
+  "winCondition": "Elimination",
   "background": "gray",
 
   "width": 11,
@@ -81,11 +80,5 @@
     "togglePosition" : {"x": 6, "y": 3},
     "isWallOnButtonOff" : true
     },
-  ],
-  "items": [
-        {
-            "name": "Key",
-            "position": {"x": 5, "y": 2}
-        }
-    ]
+  ]
 }

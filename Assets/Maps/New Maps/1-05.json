@@ -1,15 +1,14 @@
 {
   "name": "1-05",
-  "winCondition": "KeyUnlock",
-  "keyUnlockPosition" : {"x": 12, "y": 1},
+  "winCondition": "Elimination",
   "background": "gray",
 
   "width": 13,
   "height": 3,
   "tiles": [
-            "l l l l . . l . . W w w .",
-            "l l l l l l l . . W w w w",
-            "l l l l . . . . . W w w ."
+            "l w . . . . . W l l l l .",
+            "w w w w w . . W l l l l w",
+            "w w . . . . . W l l l l ."
            ],
   "playerData": {
     "position" : {"x": 0, "y": 1}
@@ -17,7 +16,7 @@
   "monsters": [
     {
       "name" : "Standing",
-      "position" : {"x": 2, "y": 1}
+      "position" : {"x": 9, "y": 1}
     }
   ],
   "orbs": [
@@ -33,15 +32,9 @@
   "buttons": [
     {
     "name" : "WallToggleLever",
-    "position" : {"x": 6, "y": 2},
-    "togglePosition" : {"x": 9, "y": 1},
+    "position" : {"x": 4, "y": 1},
+    "togglePosition" : {"x": 7, "y": 1},
     "isWallOnButtonOff" : true
   }
-  ],
-  "items": [
-        {
-            "name": "Key",
-            "position": {"x": 2, "y": 1}
-        }
-    ]
+  ]
 }

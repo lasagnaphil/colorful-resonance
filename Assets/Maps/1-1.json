@@ -7,11 +7,11 @@
     "tiles": [
         "w W W W L . . . . . . . . . . . . . .",
         "l w w l W w w w L L L . . . . . . . .",
-        "l L L l W w L w w l w . . . . . . . .",
-        "l L w l W w w L w W l . . . . . . . .",
-        "l L L L L L w l L w l . . . . . . . .",
-        "w w L l w W w L w l W . . . . . . . .",
-        "W w L l W W w L w W l . . . . . . . .",
+        "l L L L W w L w w l w . . . . . . . .",
+        "l L w L W w w W W W l . . . . . . . .",
+        "l L L L L L w W l W l . . . . . . . .",
+        "w w l L w L w W W W l . . . . . . . .",
+        "W W l L L L w L w L l . . . . . . . .",
         "l l l l W w l L w l l . . . . . . . .",
         "l W W W W w L L w W W . . . . . . . .",
         "l l l l l w L w l l l . . w w w w w w",
@@ -66,7 +66,7 @@
         {
             "color": "black",
             "position": {
-                "x": 7,
+                "x": 8,
                 "y": 8
             }
         }

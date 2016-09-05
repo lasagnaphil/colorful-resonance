@@ -30,6 +30,9 @@ public class GameStateManager : Singleton<GameStateManager>
     public List<BackgroundTile> bkgTiles = new List<BackgroundTile>();
     public List<GameItem> items = new List<GameItem>();
 
+    // Initial num of monsters
+    public int initialMonsterCount = 0;
+
     // Extra game objects (acting as static objects, not doing anything fancy)
     public List<GameObject> extraObjects = new List<GameObject>();
 
@@ -422,6 +425,7 @@ public class GameStateManager : Singleton<GameStateManager>
 
         // load the map
         mapData = mapLoader.LoadMap();
+        initialMonsterCount = mapData.monsters.Length;
 
         resultUIManager.Initialize();
 

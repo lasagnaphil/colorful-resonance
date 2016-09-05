@@ -15,15 +15,15 @@ public class FadeEffectCanvas : MonoBehaviour {
 
 	public void FadeOut()
 	{
-		StartCoroutine(FadeOutEffect());
+		StartCoroutine(PlayFadeOutEffect());
 	}
 
 	public void FadeIn()
 	{
-		StartCoroutine(FadeInEffect());
+		StartCoroutine(PlayFadeInEffect());
 	}
 
-	IEnumerator FadeOutEffect()
+	public IEnumerator PlayFadeOutEffect()
 	{
 		int i = 0;
 		foreach (var tile in tiles)
@@ -38,7 +38,7 @@ public class FadeEffectCanvas : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FadeInEffect()
+	IEnumerator PlayFadeInEffect()
 	{
 		int i = 0;
 		foreach (var tile in tiles)

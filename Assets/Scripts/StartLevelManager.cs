@@ -31,8 +31,9 @@ namespace DefaultNamespace
 		IEnumerator GoToScene(string sceneName)
 		{
 			isCoroutinePlaying = true;
-			FindObjectOfType<FadeEffectCanvas>().FadeOut();
-			yield return new WaitForSeconds (0.5f);
+			FadeEffectCanvas fadeEffectCanvas = FindObjectOfType<FadeEffectCanvas>();
+			IEnumerator coroutine = fadeEffectCanvas.PlayFadeOutEffect();
+			yield return StartCoroutine(coroutine);
 			isCoroutinePlaying = false;
 			SceneManager.LoadScene(sceneName);
 		}

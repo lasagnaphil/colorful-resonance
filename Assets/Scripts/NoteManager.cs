@@ -44,6 +44,12 @@ public class NoteManager : MonoBehaviour {
 			alreadyPopup = true;
 	}
 
+	public void ClosePopupUI()
+	{
+		popupUI.SetActive(false);
+		alreadyPopup = false;
+	}
+
 	public void GoToMain()
 	{
 		SceneManager.LoadScene("Main");

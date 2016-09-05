@@ -14,10 +14,16 @@ public class GoToMainButton : MonoBehaviour {
 	void Update()
 	{
 		if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return)) && (!isCoroutinePlaying))
-			StartCoroutine(GoToMain());
+			StartCoroutine(GoToMainCoroutine());
 	}
 
-	IEnumerator GoToMain()
+	public void GoToMain()
+	{
+		if (isCoroutinePlaying) return;
+		StartCoroutine(GoToMainCoroutine());
+	}
+
+	IEnumerator GoToMainCoroutine()
 	{
 		isCoroutinePlaying = true;
 		FadeEffectCanvas fadeEffectCanvas = FindObjectOfType<FadeEffectCanvas>();

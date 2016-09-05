@@ -9,12 +9,14 @@ public class NoteManager : MonoBehaviour {
 	MonsterDictionary monsterDictionary;
 	GameObject lastSelectedObject;
 	bool alreadyPopup;
+	bool isCoroutinePlaying;
 
 	// Use this for initialization
 	void Start () {
 		monsterDictionary = popupUI.GetComponent<MonsterDictionary>();
 		popupUI.SetActive(false);
 		alreadyPopup = false;
+		isCoroutinePlaying = false;
 	}
 	
 	public void PopupDataUI(int index)
@@ -30,7 +32,7 @@ public class NoteManager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
 		{
 			if (popupUI.activeInHierarchy == false)
-				GoToMain();
+				StartCoroutine(GoToMain());
 
 			if ((popupUI.activeInHierarchy == true) && (alreadyPopup == true))
 			{
@@ -50,8 +52,13 @@ public class NoteManager : MonoBehaviour {
 		alreadyPopup = false;
 	}
 
-	public void GoToMain()
+	IEnumerator GoToMain()
 	{
+		isCoroutinePlaying = true;
+		FadeEffectCanvas fadeEffectCanvas = FindObjectOfType<FadeEffectCanvas>();
+		IEnumerator coroutine = fadeEffectCanvas.PlayFadeOutEffect();
+		yield return StartCoroutine(coroutine);
+		isCoroutinePlaying = false;
 		SceneManager.LoadScene("Main");
 	}
 }

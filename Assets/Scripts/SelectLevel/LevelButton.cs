@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace SelectLevel
 {
@@ -18,6 +19,8 @@ namespace SelectLevel
             levelInfoSender = FindObjectOfType<LevelInfoSender>();
             buttonUI = GetComponent<UnityEngine.UI.Button>();
             saveLoadManager = FindObjectOfType<SaveLoadManager>();
+
+            levelName = gameObject.transform.Find("Text").GetComponent<Text>().text;
 
             //if (saveLoadManager != null) buttonUI.interactable = !saveLoadManager.LevelCompare(new SaveData(levelName));
 

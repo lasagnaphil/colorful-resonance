@@ -13,6 +13,8 @@ public class StageSelectManager : MonoBehaviour {
 
 	public GameObject[] chapterButtons;
 	public GameObject stageButtonGroups;
+	public GameObject leftArrowButton;
+	public GameObject rightArrowButton;
 	public GameObject dummyButton; // 스크롤 도중 버튼 누르는 것을 막기 위한 더미 버튼
 
 	// Use this for initialization
@@ -29,6 +31,7 @@ public class StageSelectManager : MonoBehaviour {
 
 		chapterButtons[0].GetComponent<StageButton>().Active();
 
+		leftArrowButton.SetActive(false);
 		dummyButton.SetActive(false);
 
 		// Invoke("ScrollToRight", 2);
@@ -49,9 +52,16 @@ public class StageSelectManager : MonoBehaviour {
 		if ((currentChapter == 1) || (isCoroutinePlayed)) return;
 		StartCoroutine(ScrollLeftCoroutine());
 
+
+		if (currentChapter == maxChapter)
+			rightArrowButton.SetActive(true);
+
 		chapterButtons[currentChapter-1].GetComponent<StageButton>().Deactive();
 		currentChapter -= 1;
 		chapterButtons[currentChapter-1].GetComponent<StageButton>().Active();
+
+		if (currentChapter == 1)
+			leftArrowButton.SetActive(false);
 	}
 
 	// ch1 -> ch2
@@ -60,9 +70,15 @@ public class StageSelectManager : MonoBehaviour {
 		if ((currentChapter == maxChapter) || (isCoroutinePlayed)) return;
 		StartCoroutine(ScrollRightCoroutine());
 
+		if (currentChapter == 1)
+			leftArrowButton.SetActive(true);
+
 		chapterButtons[currentChapter-1].GetComponent<StageButton>().Deactive();
 		currentChapter += 1;
 		chapterButtons[currentChapter-1].GetComponent<StageButton>().Active();
+
+		if (currentChapter == maxChapter)
+			rightArrowButton.SetActive(false);
 	}
 
 	IEnumerator ScrollLeftCoroutine()

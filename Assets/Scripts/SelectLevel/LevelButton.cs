@@ -20,7 +20,8 @@ namespace SelectLevel
             buttonUI = GetComponent<UnityEngine.UI.Button>();
             saveLoadManager = FindObjectOfType<SaveLoadManager>();
 
-            levelName = gameObject.transform.Find("Text").GetComponent<Text>().text;
+            if (levelName == "")
+                levelName = gameObject.transform.Find("Text").GetComponent<Text>().text;
 
             //if (saveLoadManager != null) buttonUI.interactable = !saveLoadManager.LevelCompare(new SaveData(levelName));
 

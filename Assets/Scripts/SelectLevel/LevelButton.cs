@@ -11,7 +11,7 @@ namespace SelectLevel
 		private bool isCoroutinePlaying;
 
         public string levelName;
-		public SaveLoadManager saveLoadManager;
+		private SaveLoadManager saveLoadManager;
 
         public void Awake()
         {

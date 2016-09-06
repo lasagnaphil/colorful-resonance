@@ -20,7 +20,7 @@ public class StageSelectManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		currentChapter = 1;
-		maxChapter = 3;
+		maxChapter = 5;
 
 		isCoroutinePlayed = false;
 

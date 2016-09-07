@@ -358,7 +358,6 @@ public class GameStateManager : Singleton<GameStateManager>
 
     public void LoadGame()
     {
-        Debug.Log("Loading Game");
         IsLoading = true;
 
         // if there are gameobjects left from previous play

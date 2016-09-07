@@ -24,6 +24,7 @@ public class PausePopUpUI : MonoBehaviour
 		IEnumerator coroutine = fadeEffectCanvas.PlayFadeOutEffect();
 		yield return StartCoroutine(coroutine);
 		isCoroutinePlaying = false;
+        Destroy(GameStateManager.Instance.gameObject);
 		SceneManager.LoadScene(sceneName);
 	}
 }

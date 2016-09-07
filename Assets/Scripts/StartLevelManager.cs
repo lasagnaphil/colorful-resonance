@@ -13,11 +13,6 @@ namespace DefaultNamespace
 			StartCoroutine(GoToScene ("Select_Final"));
         }
 
-        public void GoToCreditLevel()
-        {
-			StartCoroutine(GoToScene ("Credit"));
-        }
-
         public void GoToNoteLevel()
         {
 			StartCoroutine(GoToScene ("Note"));;

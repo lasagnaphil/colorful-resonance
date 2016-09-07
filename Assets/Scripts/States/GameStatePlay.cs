@@ -53,6 +53,7 @@ namespace States
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                Object.Destroy(gsm.gameObject);
                 SceneManager.LoadScene("Select_Final");
             }
         }

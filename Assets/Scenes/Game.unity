@@ -861,6 +861,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000012255870812, guid: 1500979a1a0021843b433fb3ab71031a,
     type: 2}
   m_PrefabInternal: {fileID: 120232009}
+--- !u!114 &168272248 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010540724460, guid: 1500979a1a0021843b433fb3ab71031a,
+    type: 2}
+  m_PrefabInternal: {fileID: 120232009}
+  m_Script: {fileID: 11500000, guid: 258712c7b4e5e864fb304b1060bea918, type: 3}
 --- !u!1 &181651735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1092,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993325042}
   m_HandleRect: {fileID: 1993325041}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4692,8 +4698,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964245461}
   m_HandleRect: {fileID: 1964245460}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12426,10 +12432,10 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1632273621}
         m_MethodName: Restart
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 168272248}
+          m_ObjectArgumentAssemblyTypeName: GameStateManager, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -12926,7 +12932,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 155823424}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

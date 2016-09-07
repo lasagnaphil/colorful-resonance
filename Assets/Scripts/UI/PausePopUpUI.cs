@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using Utils;
+using States;
 
 public class PausePopUpUI : MonoBehaviour
 {
@@ -12,9 +12,9 @@ public class PausePopUpUI : MonoBehaviour
 		StartCoroutine(GoToScene ("Main"));
 	}
 
-	public void Restart()
+	public void Restart(GameStateManager gsm)
 	{
-		// 재시작 코드
+		gsm.ChangeState<GameStateLoad> ();
 	}
 
 	IEnumerator GoToScene(string sceneName)

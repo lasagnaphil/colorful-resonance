@@ -9,6 +9,6 @@ public class MonsterLeftPanel : MonoBehaviour
     void Update()
     {
         GameStateManager gsm = GameStateManager.Instance;
-        text.text = string.Format("Monsters Left:\n{0} / {1}", gsm.monsters.Count, gsm.initialMonsterCount);
+        text.text = string.Format("Monsters Left\n{0} / {1}", gsm.monsters.Count, gsm.initialMonsterCount);
     }
 }

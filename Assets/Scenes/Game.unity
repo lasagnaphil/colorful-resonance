@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993325042}
   m_HandleRect: {fileID: 1993325041}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2674,10 +2674,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1734294163}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000030994415, y: 0.0000051259995}
-  m_SizeDelta: {x: 198, y: 61}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000015497208, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546728645
 MonoBehaviour:
@@ -2691,7 +2691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2700,7 +2700,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4c50e528ecc884569bedcd437f2af53f, type: 3}
-    m_FontSize: 20
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2710,8 +2710,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Left Monsters:
+    m_LineSpacing: 1.3
+  m_Text: 'Left Monsters
 
     1/10'
 --- !u!222 &546728646
@@ -4366,8 +4366,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1964245461}
   m_HandleRect: {fileID: 1964245460}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10505,10 +10505,10 @@ RectTransform:
   - {fileID: 546728644}
   m_Father: {fileID: 1875004810}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 259.8, y: -124.5}
-  m_SizeDelta: {x: 198, y: 61}
+  m_AnchorMin: {x: 0.125875, y: 0.7697783}
+  m_AnchorMax: {x: 0.3122188, y: 0.869}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734294164
 MonoBehaviour:
@@ -10522,7 +10522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11985,7 +11985,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 155823424}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

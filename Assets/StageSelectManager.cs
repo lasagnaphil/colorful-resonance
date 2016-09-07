@@ -32,7 +32,6 @@ public class StageSelectManager : MonoBehaviour {
 		chapterButtons[0].GetComponent<StageButton>().Active();
 
 		leftArrowButton.SetActive(false);
-		dummyButton.SetActive(false);
 
 		// Invoke("ScrollToRight", 2);
 	}
@@ -84,13 +83,13 @@ public class StageSelectManager : MonoBehaviour {
 	IEnumerator ScrollLeftCoroutine()
 	{
 		isCoroutinePlayed = true;
-		dummyButton.SetActive(true);
+//		dummyButton.SetActive(true);
 		for (int i = 0; i < 40; i++)
 		{
 			stageButtonGroups.GetComponent<RectTransform>().anchoredPosition += new Vector2(1280f/40f, 0);
 			yield return new WaitForSeconds(scrollDelay);
 		}
-		dummyButton.SetActive(false);
+//		dummyButton.SetActive(false);
 		isCoroutinePlayed = false;
 		yield return null;
 	}
@@ -98,13 +97,13 @@ public class StageSelectManager : MonoBehaviour {
 	IEnumerator ScrollRightCoroutine()
 	{
 		isCoroutinePlayed = true;
-		dummyButton.SetActive(true);
+//		dummyButton.SetActive(true);
 		for (int i = 0; i < 40; i++)
 		{
 			stageButtonGroups.GetComponent<RectTransform>().anchoredPosition -= new Vector2(1280f/40f, 0);
 			yield return new WaitForSeconds(scrollDelay);
 		}
-		dummyButton.SetActive(false);
+		//dummyButton.SetActive(false);
 		isCoroutinePlayed = false;
 		yield return null;
 	}

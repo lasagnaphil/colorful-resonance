@@ -15,7 +15,7 @@ namespace DefaultNamespace
 
         public void GoToNoteLevel()
         {
-			StartCoroutine(GoToScene ("Note"));;
+			StartCoroutine(GoToScene ("Note"));
         }
 
 		public void GoToSetUpLevel()

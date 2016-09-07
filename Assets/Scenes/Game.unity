@@ -3622,7 +3622,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MENU
+  m_Text: HOME
 --- !u!222 &713747663
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6495,7 +6495,7 @@ GameObject:
   - 114: {fileID: 1343266476}
   - 114: {fileID: 1343266475}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: HomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

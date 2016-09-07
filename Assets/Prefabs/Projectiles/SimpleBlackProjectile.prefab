@@ -1,80 +1,75 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &189096
+--- !u!1 &170632
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 401892}
-  - 212: {fileID: 21208718}
-  - 114: {fileID: 11410468}
-  - 114: {fileID: 11412510}
+  - 4: {fileID: 496142}
+  - 212: {fileID: 21207512}
+  - 114: {fileID: 11400748}
+  - 114: {fileID: 11403520}
   m_Layer: 0
-  m_Name: VShooter
+  m_Name: SimpleBlackProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &401892
+--- !u!4 &496142
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189096}
+  m_GameObject: {fileID: 170632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11410468
+--- !u!114 &11400748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189096}
+  m_GameObject: {fileID: 170632}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdcfec087d0401847bee884f9b424430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 5
-  y: 5
-  spriteLayer: 3
+  x: 0
+  y: 0
+  spriteLayer: 5
   z: 0
---- !u!114 &11412510
+--- !u!114 &11403520
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189096}
+  m_GameObject: {fileID: 170632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1ed722dcf28914d8c0a0e7ee71f0d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 80880e25597b5774b825903801857bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {fileID: 0}
-  MaxHealth: 1
-  DamageToPlayer: 1
-  DamageToSelf: 0
-  monstersColor: 1
-  Health: 0
+  Duration: -1
+  Damage: 1
+  Type: 0
+  destroyEffectObject: {fileID: 125412, guid: 75aa59a99cea94c11affeaa699f868a9, type: 2}
+  updateDirection: 1
   soundmanager: {fileID: 0}
-  moveCancelled: 0
-  destroyed: 0
-  isFacingUp: 0
-  projectilePrefab: {fileID: 11403520, guid: 4b275b2ee74ab0d45a563eb00bf057a1, type: 2}
-  ShootInterval: 3
---- !u!212 &21208718
+--- !u!212 &21207512
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189096}
+  m_GameObject: {fileID: 170632}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -98,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1d1ab7374589624aa2997ba46061f76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30bbe479a037d4d46a87da768e038e7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,14 +105,27 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
-      propertyPath: immuneColor
-      value: 0
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 30bbe479a037d4d46a87da768e038e7f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: deathEffectObject
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destroyEffectObject
       value: 
-      objectReference: {fileID: 129912, guid: 3c99711d5df154e4c8e65c00071b7040, type: 2}
+      objectReference: {fileID: 125412, guid: 75aa59a99cea94c11affeaa699f868a9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 189096}
+  m_RootGameObject: {fileID: 170632}
   m_IsPrefabParent: 1

@@ -10,7 +10,7 @@ namespace DefaultNamespace
 
         public void GoToSelectLevel()
         {
-			StartCoroutine(GoToScene ("Select_New"));
+			StartCoroutine(GoToScene ("Select_Final"));
         }
 
         public void GoToCreditLevel()

@@ -26,7 +26,7 @@ public class RainProjectile : Projectile
                 }
             }
         }
-        soundmanager.Play(SoundManager.Sounds.Wipe);
+        SoundManager.Instance.Play(SoundManager.Sounds.Wipe);
         Destroy(gameObject);
     }
 }

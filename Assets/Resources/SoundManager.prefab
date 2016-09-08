@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000011199709044}
+  m_IsPrefabParent: 1
+--- !u!1 &1000011199709044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010448543938}
+  - 114: {fileID: 114000013624469108}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010448543938
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011199709044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 494, y: 278, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000013624469108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011199709044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundDataList:
+  - soundEnum: 0
+    audioClip: {fileID: 8300000, guid: 105cfa1cb2ef03d458e973a8488360c6, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 1
+    audioClip: {fileID: 8300000, guid: 2377965d48814544f884c576f4899ee3, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 2
+    audioClip: {fileID: 8300000, guid: 423b83fa35a74004a910d03c57ee0863, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 3
+    audioClip: {fileID: 8300000, guid: 49c6e8a8424a0684cb7c0d965c61341d, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 4
+    audioClip: {fileID: 8300000, guid: 15d4abe3a217ba142ae92da384f193b7, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 5
+    audioClip: {fileID: 8300000, guid: 903c7df89378cde40bbd38cbb4c6793f, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 6
+    audioClip: {fileID: 8300000, guid: 868ab9c394984664eb402e86efa704f4, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 7
+    audioClip: {fileID: 8300000, guid: 01bf62bfa31922e4cb347dc9b6b90b4e, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 8
+    audioClip: {fileID: 8300000, guid: 8062fff4b93ce1a48a36ed1c4ebaecbf, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 9
+    audioClip: {fileID: 8300000, guid: 6409bf7a42fc4f540965950af099f7e8, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 10
+    audioClip: {fileID: 8300000, guid: ce5583e67c3409f45a013444cc041398, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 11
+    audioClip: {fileID: 8300000, guid: 727cfac77fd07c543899361cfc7d772b, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 12
+    audioClip: {fileID: 8300000, guid: aad2073764d38f34da48e891a1b2532e, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 13
+    audioClip: {fileID: 8300000, guid: dd9df9e6db8a4c145896f8b1f0f935eb, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 14
+    audioClip: {fileID: 8300000, guid: 4238154c868a7624686f298a098a287a, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 15
+    audioClip: {fileID: 8300000, guid: b16f64d0d32cda84d8b33bf259b4b78c, type: 3}
+    Musicvolume: 0.5
+  - soundEnum: 16
+    audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
+    Musicvolume: 0.5
+  IsMainBgmPlaying: 0
+  noOverlappingAudioClip: 1
+  easeType: 1
+  easeDuration: 1

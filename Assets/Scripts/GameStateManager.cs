@@ -98,7 +98,7 @@ public class GameStateManager : Singleton<GameStateManager>
         resultUIManager = GetComponent<ResultUIManager>();
         editorUIManager = FindObjectOfType<EditorUIManager>();
         mapLoader = GetComponent<MapLoader>();
-        soundManager = GetComponent<SoundManager>();
+        soundManager = FindObjectOfType<SoundManager>();
         saveLoadManager = FindObjectOfType<SaveLoadManager>();
 
         editorUIManager.gameObject.SetActive(false);

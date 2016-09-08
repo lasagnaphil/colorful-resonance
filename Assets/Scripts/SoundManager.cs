@@ -70,7 +70,8 @@ public class SoundManager : MonoBehaviour
         Green,
         MonsterEmerge,
         Shoot,
-        Wipe
+        Wipe,
+        Opening
     }
 
     /*

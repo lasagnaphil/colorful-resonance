@@ -34,6 +34,9 @@ public class StageSelectManager : MonoBehaviour {
 		leftArrowButton.SetActive(false);
 
 		// Invoke("ScrollToRight", 2);
+
+        SoundManager.Instance.StopAll();
+        SoundManager.Instance.PlayBackground(SoundManager.Sounds.Opening);
 	}
 	
 	// Update is called once per frame

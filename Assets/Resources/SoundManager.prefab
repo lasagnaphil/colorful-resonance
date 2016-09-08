@@ -104,7 +104,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
     Musicvolume: 0.5
   - soundEnum: 17
-    audioClip: {fileID: 8300000, guid: ce63aea9e6ba26343a3b69840f90e7cc, type: 3}
+    audioClip: {fileID: 8300000, guid: f052b03ba8d0f3a45800973a2c6937d7, type: 3}
     Musicvolume: 0.5
   IsMainBgmPlaying: 0
   noOverlappingAudioClip: 1

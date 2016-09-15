@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21225104}
   - 114: {fileID: 11494404}
   - 114: {fileID: 11495398}
-  - 114: {fileID: 11471338}
   m_Layer: 0
   m_Name: CleanTile
   m_TagString: Untagged
@@ -32,24 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11471338
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 129888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9b6b09bbca9c7f4f9d593fd58120a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundDataList:
-  - soundEnum: 16
-    audioClip: {fileID: 8300000, guid: 875b7b3c35559c347a65829229623912, type: 3}
-    volume: 0.5
-  noOverlappingAudioClip: 0
-  easeType: 0
-  easeDuration: 0
 --- !u!114 &11494404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,17 +75,20 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

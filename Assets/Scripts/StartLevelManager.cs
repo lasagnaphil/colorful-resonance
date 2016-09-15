@@ -8,6 +8,12 @@ namespace DefaultNamespace
     {
 		bool isCoroutinePlaying = false;
 
+        void Awake()
+        {
+            SoundManager.Instance.StopAll();
+            SoundManager.Instance.PlayBackground(SoundManager.Sounds.Opening);
+        }
+
         public void GoToSelectLevel()
         {
 			StartCoroutine(GoToScene ("Select_Final"));

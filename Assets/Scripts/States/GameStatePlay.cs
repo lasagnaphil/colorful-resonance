@@ -14,7 +14,6 @@ namespace States
             gsm.soundManager.PlayBackground(SoundManager.Sounds.Main);
             gsm.inputManager.Enabled = true;
             gsm.inputManager.SwipeMobileInputEnabled = false;
-            Debug.Log("Game Start");
         }
 
         public void Update(GameStateManager gsm)

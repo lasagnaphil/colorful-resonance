@@ -220,12 +220,16 @@ public class Player : MonoBehaviour
 
     public void TurnLeft()
     {
-        transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        // Do not change the transform scale; use flip functionality of SpriteRenderer
+        //transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+        GetComponent<SpriteRenderer>().flipX = false;
     }
 
     public void TurnRight()
     {
-        transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        // Do not change the transform scale; use flip functionality of SpriteRenderer
+        // transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        GetComponent<SpriteRenderer>().flipX = true;
     }
 
     IEnumerator PlayDamageEffect()

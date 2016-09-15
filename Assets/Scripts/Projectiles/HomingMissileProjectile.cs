@@ -38,4 +38,9 @@ public class HomingMissileProjectile : Projectile
             }
         }
     }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
 }

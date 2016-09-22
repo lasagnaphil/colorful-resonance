@@ -101,7 +101,7 @@ public class GameStateManager : Singleton<GameStateManager>
         soundManager = FindObjectOfType<SoundManager>();
         saveLoadManager = FindObjectOfType<SaveLoadManager>();
 
-        editorUIManager.gameObject.SetActive(false);
+//        editorUIManager.gameObject.SetActive(false);
     }
 
     protected void Start()

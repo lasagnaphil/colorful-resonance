@@ -7,9 +7,9 @@ public class PausePopUpUI : MonoBehaviour
 {
 	bool isCoroutinePlaying = false;
 
-	public void GoToMain()
+	public void GoToStage()
 	{
-		StartCoroutine(GoToScene ("Main"));
+		StartCoroutine(GoToScene ("Select_Final"));
 	}
 
 	public void Restart(GameStateManager gsm)

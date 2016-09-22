@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11495920}
   - 114: {fileID: 11440830}
   - 114: {fileID: 11486858}
+  - 114: {fileID: 114000013642305960}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -93,3 +94,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 115924}
   m_IsPrefabParent: 1
+--- !u!114 &114000013642305960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614e3117009b8a84891ae2bbc688bf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     public SoundManager soundManager;
-	public GameObject MobileTouchManager;
+	public GameObject SimpleTouchMobileManager;
+	public GameObject TouchPadMobileManager;
 
     public new Camera camera;
 
@@ -42,6 +43,27 @@ public class Player : MonoBehaviour
         arrowObjectDict.Add(new Vector2i(3, 0), arrowObjects[1]);
         arrowObjectDict.Add(new Vector2i(0, 3), arrowObjects[2]);
         arrowObjectDict.Add(new Vector2i(0, -3), arrowObjects[3]);
+
+		if (PlayerPrefs.HasKey ("Control"))
+		{
+			if (PlayerPrefs.GetString ("Control") == "Simple")
+			{
+				SimpleTouchMobileManager.SetActive (true);
+				TouchPadMobileManager.SetActive (false);
+			}
+			else if(PlayerPrefs.GetString ("Control") == "Swipe")
+			{
+				SimpleTouchMobileManager.SetActive (false);
+				TouchPadMobileManager.SetActive (false);
+			}
+			else if(PlayerPrefs.GetString ("Control") == "TouchPad")
+			{
+				SimpleTouchMobileManager.SetActive (false);
+				TouchPadMobileManager.SetActive (true);
+			}
+		}
+
+
         /*
         arrowObjectDict = new Dictionary<Vector2i, GameObject>();
         {
@@ -103,7 +125,8 @@ public class Player : MonoBehaviour
 
 	public void MobileManagerUpdate()
 	{
-		MobileTouchManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+		SimpleTouchMobileManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
+		TouchPadMobileManager.transform.position = new Vector3 (transform.position.x, transform.position.y, -1);
 	}
 
     public void GameUpdate()

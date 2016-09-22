@@ -878,7 +878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &321830929
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - 222: {fileID: 472579296}
   - 114: {fileID: 472579295}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Artist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1056,8 +1056,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 170, y: -120}
-  m_SizeDelta: {x: -560, y: -440}
+  m_AnchoredPosition: {x: 170, y: -110}
+  m_SizeDelta: {x: -560, y: -420}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &472579295
 MonoBehaviour:
@@ -1109,7 +1109,7 @@ GameObject:
   - 222: {fileID: 652455532}
   - 114: {fileID: 652455531}
   m_Layer: 5
-  m_Name: Text (4)
+  m_Name: Composer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1410,7 +1410,7 @@ GameObject:
   - 222: {fileID: 732955255}
   - 114: {fileID: 732955254}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Programmer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5877,7 +5877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1423785205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6072,7 +6072,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.3
-  m_Text: "\uC774\uADDC\uC6D0\n\uCD5C\uD604\uC11D\n\uAE40\uBBFC\uC815"
+  m_Text: "\uAE40\uBBFC\uC815\n\uC774\uADDC\uC6D0\n\uCD5C\uD604\uC11D"
 --- !u!222 &1553782132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6337,7 +6337,7 @@ GameObject:
   - 222: {fileID: 1729422904}
   - 114: {fileID: 1729422903}
   m_Layer: 5
-  m_Name: Text (5)
+  m_Name: Comment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6790,7 +6790,7 @@ GameObject:
   - 222: {fileID: 1997856567}
   - 114: {fileID: 1997856566}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Designer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

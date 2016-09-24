@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     protected void Awake()
     {
+		Debug.Log (PlayerPrefs.GetString("Control"));
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
         soundManager = FindObjectOfType<SoundManager>();
@@ -50,16 +51,19 @@ public class Player : MonoBehaviour
 			{
 				SimpleTouchMobileManager.SetActive (true);
 				TouchPadMobileManager.SetActive (false);
+				Debug.Log ("Simple Apply");
 			}
 			else if(PlayerPrefs.GetString ("Control") == "Swipe")
 			{
 				SimpleTouchMobileManager.SetActive (false);
 				TouchPadMobileManager.SetActive (false);
+				Debug.Log ("Swipe Apply");
 			}
 			else if(PlayerPrefs.GetString ("Control") == "TouchPad")
 			{
 				SimpleTouchMobileManager.SetActive (false);
 				TouchPadMobileManager.SetActive (true);
+				Debug.Log ("Touch Pad Apply");
 			}
 		}
 

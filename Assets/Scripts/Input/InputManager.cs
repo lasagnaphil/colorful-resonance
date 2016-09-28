@@ -18,6 +18,7 @@ namespace InputManagement
                 desktopInputEnabled = value;
                 simpleMobileInputEnabled = value;
                 swipeMobileInputEnabled = value;
+				TouchPadMobileInputEnabled = value;
             }
         }
 
@@ -36,6 +37,7 @@ namespace InputManagement
         private DesktopInputHandler desktopInput;
         private SimpleMobileInputHandler simpleMobileInput;
         private SwipeMobileInputHandler swipeMobileInput;
+		private TouchPadMobileInputHandler touchPadMobileInput;
 
         private bool desktopInputEnabled;
         public bool DesktopInputEnabled
@@ -70,6 +72,17 @@ namespace InputManagement
             }
         }
 
+		private bool touchPadMobileInputEnabled;
+		public bool TouchPadMobileInputEnabled
+		{
+			get { return swipeMobileInputEnabled; }
+			set
+			{
+				touchPadMobileInputEnabled = value;
+				touchPadMobileInput.enabled = value;
+			}
+		}
+
         public void Execute(Command command)
         {
             if (GameStateManager.Instance.CurrentState is GameStatePlay)
@@ -87,6 +100,7 @@ namespace InputManagement
             desktopInput = GetComponent<DesktopInputHandler>();
             simpleMobileInput = GetComponent<SimpleMobileInputHandler>();
             swipeMobileInput = GetComponent<SwipeMobileInputHandler>();
+			touchPadMobileInput = GetComponent<TouchPadMobileInputHandler>();
         }
 
     }

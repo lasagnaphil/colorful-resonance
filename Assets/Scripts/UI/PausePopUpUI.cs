@@ -12,6 +12,11 @@ public class PausePopUpUI : MonoBehaviour
 		StartCoroutine(GoToScene ("Select_Final"));
 	}
 
+	public void GoToHome()
+	{
+		StartCoroutine(GoToScene ("Main"));
+	}
+
 	public void Restart(GameStateManager gsm)
 	{
 		gsm.ChangeState<GameStateLoad> ();

@@ -13,7 +13,8 @@ namespace States
             gsm.soundManager.StopAll();
             gsm.soundManager.PlayBackground(SoundManager.Sounds.Main);
             gsm.inputManager.Enabled = true;
-            gsm.inputManager.SwipeMobileInputEnabled = false;
+			if(PlayerPrefs.GetString("Control") == "Simple" || PlayerPrefs.GetString("Control") == "TouchPad")
+				gsm.inputManager.SwipeMobileInputEnabled = false;
         }
 
         public void Update(GameStateManager gsm)

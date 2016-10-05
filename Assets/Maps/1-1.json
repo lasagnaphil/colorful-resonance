@@ -1,42 +1,33 @@
 {
     "name": "1-1",
     "winCondition": "Elimination",
-    "width": 19,
-    "height": 13,
+    "width": 9,
+    "height": 4,
     "background": "gray",
     "tiles": [
-        "w W W W L . . . . . . . . . . . . . .",
-        "l w w l W w w w L L L . . . . . . . .",
-        "l L L L W w L w w l w . . . . . . . .",
-        "l L w L W w w W W W l . . . . . . . .",
-        "l L L L L L w W l W l . . . . . . . .",
-        "w w l L w L w W W W l . . . . . . . .",
-        "W W l L L L w L w L l . . . . . . . .",
-        "l l l l W w l L w l l . . . . . . . .",
-        "l W W W W w L L w W W . . . . . . . .",
-        "l l l l l w L w l l l . . w w w w w w",
-        ". . . . . . . . . . w w l w W W W W L",
-        ". . . . . . . . . . . . . L W w w W L",
-        ". . . . . . . . . . . . . L L L L L L"
+        ". . . w w w w w w",
+        "w w l w W W W W L",
+        ". . . L W w w W L",
+        ". . . L L L L L L"
     ],
     "playerData": {
         "position": {
             "x": 0,
-            "y": 12
+            "y": 2
         }
     },
     "monsters": [
         {
             "name": "Standing",
             "position": {
-                "x": 15,
+                "x": 6,
                 "y": 1
             }
         },
         {
             "name": "Standing",
             "position": {
-                "x": 16,
+                "x": 5,
                 "y": 1
             }
         }
@@ -45,29 +36,8 @@
         {
             "color": "black",
             "position": {
-                "x": 12,
-                "y": 2
-            }
-        },
-        {
-            "color": "white",
-            "position": {
                 "x": 2,
-                "y": 9
-            }
-        },
-        {
-            "color": "white",
-            "position": {
-                "x": 4,
-                "y": 7
-            }
-        },
-        {
-            "color": "black",
-            "position": {
-                "x": 8,
-                "y": 8
+                "y": 2
             }
         }
     ],

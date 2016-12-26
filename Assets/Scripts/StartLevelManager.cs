@@ -6,6 +6,8 @@ namespace DefaultNamespace
 {
     public class StartLevelManager : MonoBehaviour
     {
+        public GameObject NoControlSettingPanel;
+
 		bool isCoroutinePlaying = false;
 
         void Awake()
@@ -14,9 +16,19 @@ namespace DefaultNamespace
             SoundManager.Instance.PlayBackground(SoundManager.Sounds.Opening);
         }
 
+        void Start()
+        {
+            NoControlSettingPanel.SetActive(false);
+        }
+
         public void GoToSelectLevel()
         {
-			StartCoroutine(GoToScene ("Select_Final"));
+            if (PlayerPrefs.HasKey ("Control"))
+                StartCoroutine (GoToScene ("Select_Final"));
+            else
+            {
+                NoControlSettingPanel.SetActive(true);
+            }
         }
 
         public void GoToNoteLevel()
@@ -28,6 +40,11 @@ namespace DefaultNamespace
 		{
 			StartCoroutine(GoToScene ("SetUp"));
 		}
+
+        public void PerfectResetButton()
+        {
+            PlayerPrefs.DeleteAll();
+        }
 
 		IEnumerator GoToScene(string sceneName)
 		{

@@ -1,76 +1,35 @@
 {
   "name": "Stage 1 - 3",
   "comment": "벽의 특징 - 색 안바뀜, 지나갈수 없음",
-  "width": 27,
-  "height": 8,
+  "width": 6,
+  "height": 3,
   "tiles": [
-            ". . . . . . . . . . l l l l l . . . . . . w w w w w .",
-            ". . . . . . . . w w w L l L l l l l . . l l l w w w w",
-            ". l l l l . . . w . w w w w w . W w . . l l l l w w w",
-            "w l l l l l l l w . . . . . . . w w . . . l l l l w .",
-            "w l l l l w w w l . . . . . . . l L . . . . . w . . .",
-            ". . . . . . . . l . l l l l l . l L . . . . . w . . .",
-            ". . . . . . . . l l l W w W w w w w w w w w w w . . .",
-            ". . . . . . . . . . w w w w w . . . . . . . . . . . ."
+            ". l l l l .",
+            "w l l l l l",
+            "w l l l l w"  
            ],
   "background": "gray",
   "playerData": {
-    "position" : {"x": 0, "y": 4}
+    "position" : {"x": 0, "y": 0}
   },
   "monsters": [
     {
       "name" : "UpDown",
-      "position" : {"x": 2, "y": 4}
+      "position" : {"x": 2, "y": 1}
     },
     {
       "name" : "UpDown",
-      "position" : {"x": 3, "y": 5}
-    },
-    {
-      "name" : "Standing",
-      "position" : {"x": 12, "y": 1}
-    },
-    {
-      "name" : "UpDown",
-      "position" : {"x": 12, "y": 7}
-    },
-    {
-      "name" : "Standing",
-      "position" : {"x": 23, "y": 6}
-    },
-    {
-      "name" : "UpDown",
-      "position" : {"x": 23, "y": 5}
+      "position" : {"x": 3, "y": 2}
     }
   ],
   "orbs": [
     {
       "color" : "white",
-      "position" : {"x": 1, "y": 4}
+      "position" : {"x": 0, "y": 1}
     },
     {
       "color" : "black",
-      "position" : {"x": 10, "y": 1}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 10, "y": 6}
-    },
-    {
-      "color" : "black",
-      "position" : {"x": 16, "y": 1}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 16, "y": 6}
-    },
-    {
-      "color" : "black",
-      "position" : {"x": 20, "y": 5}
-    },
-    {
-      "color" : "white",
-      "position" : {"x": 26, "y": 6}
+      "position" : {"x": 5, "y": 1}
     }
   ]
 }

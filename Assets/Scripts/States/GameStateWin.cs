@@ -4,9 +4,11 @@ namespace States
 {
     public class GameStateWin : IGameState
     {
+        private GameObject GameManager;
+
         public void Enter(GameStateManager gsm)
         {
-            Debug.Log("Player Win : Press Enter to go to next level, Press R to restart");
+            Debug.Log(GameObject.Find("GameManager").GetComponent<MapLoader>().MapToLoad);
         }
 
         public void Update(GameStateManager gsm)

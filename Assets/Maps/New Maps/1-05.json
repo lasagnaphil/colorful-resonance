@@ -6,9 +6,9 @@
   "width": 13,
   "height": 3,
   "tiles": [
-            "l w . . . . . W l l l l .",
-            "w w w w w . . W l l l l w",
-            "w w . . . . . W l l l l ."
+            "l w . . . . . W w w w w .",
+            "w w w w w . . W w w w w w",
+            "w w . . . . . W w w w w ."
            ],
   "playerData": {
     "position" : {"x": 0, "y": 1}

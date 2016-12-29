@@ -27,9 +27,9 @@ public class TipManager : MonoBehaviour
 		else if (MapToLoad == "1-04")
 			textComp.text = "루시를 꾹 누르면 3칸을 이동 할 수 있어요. 사용 제한은 없어요.";
 		else if (MapToLoad == "1-05")
-			textComp.text = "레버를 당기면 벽이 생기거나 사라져요. 몬스터가 위치한 타일이 '다른 색에서 몬스터의 색과 동일하게 변할 때' 몬스터를 잡을 수 있어요.";
+			textComp.text = "레버를 당기면 벽이 생기거나 사라져요.";
 		else if (MapToLoad == "1-06")
-			textComp.text = "몬스터가 쏘는 탄환에 주의하세요. 위로 한번, 아래로 한번 쏴요.";
+			textComp.text = "몬스터가 위치한 타일이 '다른 색에서 몬스터의 색과 동일하게 변할 때' 몬스터를 잡을 수 있어요.";
 		else if (MapToLoad == "1-07")
 			textComp.text = "몬스터를 뛰어넘어 레버를 당겨봐요. 벽을 없앨 수 있어요.";
 		else if (MapToLoad == "1-08")

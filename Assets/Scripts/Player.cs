@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
 
     protected void Awake()
     {
-		Debug.Log (PlayerPrefs.GetString("Control"));
         pos = GetComponent<Position>();
         animator = GetComponent<Animator>();
         soundManager = FindObjectOfType<SoundManager>();

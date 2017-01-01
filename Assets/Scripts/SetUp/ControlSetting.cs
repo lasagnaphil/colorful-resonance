@@ -30,6 +30,18 @@ public class ControlSetting : MonoBehaviour
 			SimpleTouchControlButton.SetActive (false);
 			SwipeControlButton.SetActive (false);
 			TouchPadControlButton.SetActive (true);
+            if (PlayerPrefs.GetString("Hander") == "Right")
+            {
+                RightHanderPadText1.color = new Color(0.2f, 0.2f, 0.2f);
+                RightHanderPadText2.color = new Color(0.2f, 0.2f, 0.2f);
+                LeftHanderPadText.color = new Color(1f, 1f, 1f);
+            }
+            else if (PlayerPrefs.GetString("Hander") == "Left")
+            {
+                RightHanderPadText1.color = new Color(1f, 1f, 1f);
+                RightHanderPadText2.color = new Color(1f, 1f, 1f);
+                LeftHanderPadText.color = new Color(0.2f, 0.2f, 0.2f);
+            }
 		}
 	}
 

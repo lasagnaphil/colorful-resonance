@@ -5,6 +5,7 @@ using System.Collections;
 public class DeleteTip : MonoBehaviour
 {
 	public GameObject GameManager;
+    public GameObject TipTrickeryPanel;
 
 	private string MapToLoad;
 
@@ -17,6 +18,7 @@ public class DeleteTip : MonoBehaviour
 		   && MapToLoad != "1-09" && MapToLoad != "1-10")
 		{
 			Destroy (gameObject);
+            Destroy (TipTrickeryPanel);
 		}
 	}
 }

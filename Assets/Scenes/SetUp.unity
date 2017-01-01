@@ -928,7 +928,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1599826657}
-        m_MethodName: SEOn
+        m_MethodName: MakeSEOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2291,7 +2291,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1599826657}
-        m_MethodName: SEOff
+        m_MethodName: MakeSEOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3394,7 +3394,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1599826657}
-        m_MethodName: BGMOn
+        m_MethodName: MakeBGMOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7472,6 +7472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eca60efcaff3b49b7c8baf067c82e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGMOn: {fileID: 1168701114}
+  BGMOff: {fileID: 2147435792}
+  SEOn: {fileID: 320302397}
+  SEOff: {fileID: 870328269}
 --- !u!4 &1599826658
 Transform:
   m_ObjectHideFlags: 0
@@ -9520,7 +9524,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1599826657}
-        m_MethodName: BGMOff
+        m_MethodName: MakeBGMOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

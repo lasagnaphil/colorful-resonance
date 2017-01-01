@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ControlSetting : MonoBehaviour
@@ -6,8 +7,11 @@ public class ControlSetting : MonoBehaviour
 	public GameObject SimpleTouchControlButton;
 	public GameObject SwipeControlButton;
 	public GameObject TouchPadControlButton;
+    public Text LeftHanderPadText;
+    public Text RightHanderPadText1;
+    public Text RightHanderPadText2;
 
-	void Start()
+    void Start()
 	{
 		if (PlayerPrefs.GetString ("Control") == "Simple")
 		{
@@ -44,6 +48,42 @@ public class ControlSetting : MonoBehaviour
 	public void TouchPadControl()
 	{
 		PlayerPrefs.SetString ("Control", "TouchPad");
-		Debug.Log ("Touch Pad Apply");
+        PlayerPrefs.SetString("Hander", "Right");
+        RightHanderPadText1.color = new Color(0.2f, 0.2f, 0.2f);
+        RightHanderPadText2.color = new Color(0.2f, 0.2f, 0.2f);
+        LeftHanderPadText.color = new Color(1f, 1f, 1f);
+        Debug.Log ("Touch Pad Apply");
 	}
+
+    public void RightHanderTouchContorl()
+    {
+        if (PlayerPrefs.GetString("Control") == "TouchPad")
+        {
+            PlayerPrefs.SetString("Hander", "Right");
+            RightHanderPadText1.color = new Color(0.2f, 0.2f, 0.2f);
+            RightHanderPadText2.color = new Color(0.2f, 0.2f, 0.2f);
+            LeftHanderPadText.color = new Color(1f, 1f, 1f);
+            Debug.Log("Right Hander Touch Apply");
+        }
+        else
+        {
+            Debug.Log("터치 패드가 아닌데 어떻게 이 버튼이 뜨는거야?");
+        }
+    }
+
+    public void LeftHanderTouchControl()
+    {
+        if (PlayerPrefs.GetString("Control") == "TouchPad")
+        {
+            PlayerPrefs.SetString("Hander", "Left");
+            RightHanderPadText1.color = new Color(1f, 1f, 1f);
+            RightHanderPadText2.color = new Color(1f, 1f, 1f);
+            LeftHanderPadText.color = new Color(0.2f, 0.2f, 0.2f);
+            Debug.Log("Left Hander Touch Apply");
+        }
+        else
+        {
+            Debug.Log("터치 패드가 아닌데 어떻게 이 버튼이 뜨는거야?");
+        }
+    }
 }

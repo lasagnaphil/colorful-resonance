@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             tileManager.SetTileColor(pos.X, pos.Y, playerTileColor);
         UpdateAuraColor();
         damagedParticle.gameObject.SetActive(false);
-        GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y);
+        GameStateManager.Instance.PlayerTurn += () => OnTurn(tempPos.x, tempPos.y, GameStateManager.Instance.inputManager.CanBlink);
 
         ArrowInactive();
     }
@@ -134,9 +134,11 @@ public class Player : MonoBehaviour
 
     public void GameUpdate()
     {
+        bool isBlinkReadied = GameStateManager.Instance.inputManager.CanBlink;
+        animator.SetBool("IsBlinkReadied", isBlinkReadied);
     }
 
-    public Sequence OnTurn(int x, int y)
+    public Sequence OnTurn(int x, int y, bool blink = false)
     {
         Sequence sequence = DOTween.Sequence();
 
@@ -162,10 +164,21 @@ public class Player : MonoBehaviour
             return sequence;
         }
 
-        sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
+        if (blink)
         {
-            animator.SetTrigger("Move");
-        }));
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
+            {
+                // Debug.Log("Set blink trigger");
+                animator.SetTrigger("Blink");
+            }));
+        }
+        else
+        {
+            sequence.Append(pos.AnimatedMove(x, y, 0.2f).OnPlay(() =>
+            {
+                animator.SetTrigger("Move");
+            }));
+        }
 
         // Consume the orb after the player paints the current color
         Orb foundOrb = GameStateManager.Instance.CheckOrbPosition(x, y);

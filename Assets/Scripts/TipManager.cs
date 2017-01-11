@@ -19,7 +19,7 @@ public class TipManager : MonoBehaviour
 		MapToLoad = GameManager.GetComponent<MapLoader> ().MapToLoad;
 
         if (MapToLoad == "1-1")
-            textComp.text = "화면을 조작해 루시를 움직여 보세요. 조작방식은 설정에서 바꿀 수 있습니다.";
+            textComp.text = "오른쪽 위의 팁을 읽어보세요!";
         else if (MapToLoad == "1-2")
             textComp.text = "오브를 먹으면 타일을 칠할 수 있어요. 몬스터와 동일한 색으로 주위 타일을 둘러싸 보세요";
         else if (MapToLoad == "1-3")

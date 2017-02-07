@@ -53,8 +53,22 @@ namespace States
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Object.Destroy(gsm.gameObject);
-                SceneManager.LoadScene("Select_Final");
+                if (GameObject.Find("TipPanel") != null)
+                    GameObject.Find("TipPanel").SetActive(false);
+                else
+                {
+                    Object.Destroy(gsm.gameObject);
+                    SceneManager.LoadScene("Select_Final");
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetKeyDown(KeyCode.UpArrow) ||
+                Input.GetKeyDown(KeyCode.DownArrow) ||
+                Input.GetKeyDown(KeyCode.LeftArrow) ||
+                Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (GameObject.Find("TipPanel") != null)
+                    GameObject.Find("TipPanel").SetActive(false);
             }
         }
 

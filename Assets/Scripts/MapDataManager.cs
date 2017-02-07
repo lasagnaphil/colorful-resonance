@@ -10,6 +10,8 @@ public class MapDataManager : MonoBehaviour
 
     void Start()
     {
+        SetAllCleared();
+
         if (PlayerPrefs.GetString("1-1 Clear") == "Yes")
         {
             Stage[1].GetComponent<Image>().sprite = UnlockTile;
@@ -160,5 +162,41 @@ public class MapDataManager : MonoBehaviour
             Stage[30].GetComponent<Image>().sprite = UnlockTile;
             Stage[30].GetComponent<Button>().enabled = true;
         }
+    }
+
+    void SetAllCleared()
+    {
+        PlayerPrefs.SetString("1-1 Clear", "Yes");
+        PlayerPrefs.SetString("1-2 Clear", "Yes");
+        PlayerPrefs.SetString("1-3 Clear", "Yes");
+        PlayerPrefs.SetString("1-4 Clear", "Yes");
+        PlayerPrefs.SetString("1-5 Clear", "Yes");
+        PlayerPrefs.SetString("1-6 Clear", "Yes");
+        PlayerPrefs.SetString("1-7 Clear", "Yes");
+        PlayerPrefs.SetString("1-8 Clear", "Yes");
+        PlayerPrefs.SetString("1-9 Clear", "Yes");
+        PlayerPrefs.SetString("1-10 Clear", "Yes");
+        PlayerPrefs.SetString("2-1 Clear", "Yes");
+        PlayerPrefs.SetString("2-2 Clear", "Yes");
+        PlayerPrefs.SetString("2-3 Clear", "Yes");
+        PlayerPrefs.SetString("2-4 Clear", "Yes");
+        PlayerPrefs.SetString("2-5 Clear", "Yes");
+        PlayerPrefs.SetString("2-6 Clear", "Yes");
+        PlayerPrefs.SetString("2-7 Clear", "Yes");
+        PlayerPrefs.SetString("3-1 Clear", "Yes");
+        PlayerPrefs.SetString("3-2 Clear", "Yes");
+        PlayerPrefs.SetString("3-3 Clear", "Yes");
+        PlayerPrefs.SetString("3-4 Clear", "Yes");
+        PlayerPrefs.SetString("3-5 Clear", "Yes");
+        PlayerPrefs.SetString("4-1 Clear", "Yes");
+        PlayerPrefs.SetString("4-2 Clear", "Yes");
+        PlayerPrefs.SetString("4-3 Clear", "Yes");
+        PlayerPrefs.SetString("4-4 Clear", "Yes");
+        PlayerPrefs.SetString("4-5 Clear", "Yes");
+        PlayerPrefs.SetString("5-1 Clear", "Yes");
+        PlayerPrefs.SetString("5-2 Clear", "Yes");
+        PlayerPrefs.SetString("5-3 Clear", "Yes");
+        PlayerPrefs.SetString("5-4 Clear", "Yes");
+        PlayerPrefs.SetString("5-5 Clear", "Yes");
     }
 }

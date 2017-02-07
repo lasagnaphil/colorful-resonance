@@ -12,4 +12,18 @@ public class MobileKeyManager : MonoBehaviour
 	{
 		PlayerPrefs.SetString ("Restart", "yes");
 	}
+
+	void Update()
+	{
+		if (GameObject.Find("WinUI") != null)
+		{
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+				NextStage();
+		}
+		if (GameObject.Find("LoseUI") != null)
+		{
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+				Restart();
+		}
+	}
 }

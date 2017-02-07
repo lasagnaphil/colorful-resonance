@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class StageSelectManager : MonoBehaviour {
 
@@ -42,10 +43,26 @@ public class StageSelectManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			var currentSelectedButtonIndex = EventSystem.current.currentSelectedGameObject.GetComponent<SelectLevel.LevelButton>().levelName;
+			// Debug.Log("Left, "+currentSelectedButtonIndex);
+			if (currentSelectedButtonIndex == "1-10" ||
+				currentSelectedButtonIndex == "2-06" ||
+				currentSelectedButtonIndex == "3-5" ||
+				currentSelectedButtonIndex == "4-5")
 			ScrollToLeft();
+		}
 
 		if (Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			var currentSelectedButtonIndex = EventSystem.current.currentSelectedGameObject.GetComponent<SelectLevel.LevelButton>().levelName;
+			// Debug.Log("Right, "+currentSelectedButtonIndex);
+			if (currentSelectedButtonIndex == "2-01" ||
+				currentSelectedButtonIndex == "3-1" ||
+				currentSelectedButtonIndex == "4-1" ||
+				currentSelectedButtonIndex == "5-1")
 			ScrollToRight();
+		}
 	}
 
 	// ch2 -> ch1

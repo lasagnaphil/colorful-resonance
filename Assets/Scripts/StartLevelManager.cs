@@ -23,6 +23,9 @@ namespace DefaultNamespace
 
         public void GoToSelectLevel()
         {
+            PlayerPrefs.SetString ("Control", "Simple");
+    		Debug.Log ("Simple Apply");
+
             if (PlayerPrefs.HasKey ("Control"))
                 StartCoroutine (GoToScene ("Select_Final"));
             else

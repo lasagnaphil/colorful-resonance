@@ -19,13 +19,13 @@ public class TipManager : MonoBehaviour
 		MapToLoad = GameManager.GetComponent<MapLoader> ().MapToLoad;
 
         if (MapToLoad == "1-1")
-            textComp.text = "오른쪽 위의 팁을 읽어보세요!";
+            textComp.text = "방향키를 누르면 루시가 움직여요. 오른쪽 위의 팁을 읽어보세요!";
         else if (MapToLoad == "1-2")
             textComp.text = "오브를 먹으면 타일을 칠할 수 있어요. 몬스터와 동일한 색으로 주위 타일을 둘러싸 보세요";
         else if (MapToLoad == "1-3")
             textComp.text = "내가 움직이고, 몬스터가 움직이고... 조급해하지 마세요. 흰둥이는 위로 한칸갔다가 쉬고 아래로 한칸 갔다가 쉬는 것을 반복한답니다.";
         else if (MapToLoad == "1-04")
-            textComp.text = "루시를 3칸을 이동하는 블링크 스킬을 사용할 수 있어요. 사용 제한은 없어요.";
+            textComp.text = "스페이스 키를 누르고 이동하면 3칸을 이동하는 블링크 스킬을 사용할 수 있어요. 사용 제한은 없어요.";
         else if (MapToLoad == "1-05")
             textComp.text = "레버를 당기면 벽이 생기거나 사라져요.";
         else if (MapToLoad == "1-06")

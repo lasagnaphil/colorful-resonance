@@ -11,6 +11,14 @@ public class GotoMainFromSetting : MonoBehaviour
 		StartCoroutine(GoToScene ("Main"));
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape) && !isCoroutinePlaying)
+		{
+			StartCoroutine(GoToScene("Main"));
+		}
+	}
+
 	IEnumerator GoToScene(string sceneName)
 	{
 		isCoroutinePlaying = true;

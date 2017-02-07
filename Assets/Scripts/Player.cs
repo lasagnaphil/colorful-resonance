@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Items;
 using UnityEngine.UI;
+using InputManagement;
 
 public class Player : MonoBehaviour
 {
@@ -170,6 +171,7 @@ public class Player : MonoBehaviour
             {
                 // Debug.Log("Set blink trigger");
                 animator.SetTrigger("Blink");
+                FindObjectOfType<InputHandler>().inputManager.CanBlink = false;
             }));
         }
         else

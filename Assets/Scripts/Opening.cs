@@ -41,8 +41,17 @@ public class Opening : MonoBehaviour
     {
         OpeningTime = OpeningTime + Time.deltaTime;
 
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+            SkipLogo();
+            OpeningTime = 4.5f;
+        }
+
         if (OpeningTime >= 6f)
+        {
             OpeningOnGoing = false;
+            StartCoroutine(GoToScene("Main"));
+        }
 
         if (OpeningOnGoing == true)
         {

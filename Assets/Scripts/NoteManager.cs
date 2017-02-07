@@ -29,7 +29,7 @@ public class NoteManager : MonoBehaviour {
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
 		{
 			if (popupUI.activeInHierarchy == false)
 				StartCoroutine(GoToMain());
